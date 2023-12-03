@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var presentOnboarding = false
+    
     var body: some View {
-        Text("Hello")
+        NavigationView {
+            Text("Hello")
+                .onAppear {
+                    presentOnboarding.toggle()
+                }
+                .sheet(isPresented: $presentOnboarding, content: {
+                    OnboardingScreen()
+                })
+        }
     }
 }
 

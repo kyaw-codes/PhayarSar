@@ -14,6 +14,14 @@
 		C82039BF2B1CABE6000EEF61 /* PhayarSarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039BE2B1CABE6000EEF61 /* PhayarSarTests.swift */; };
 		C82039C92B1CABE6000EEF61 /* PhayarSarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039C82B1CABE6000EEF61 /* PhayarSarUITests.swift */; };
 		C82039CB2B1CABE6000EEF61 /* PhayarSarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039CA2B1CABE6000EEF61 /* PhayarSarUITestsLaunchTests.swift */; };
+		C82039DA2B1CC30A000EEF61 /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039D92B1CC30A000EEF61 /* OnboardingScreen.swift */; };
+		C82039E02B1CC4B7000EEF61 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C82039DD2B1CC4B7000EEF61 /* Quicksand-Regular.ttf */; };
+		C82039E12B1CC4B7000EEF61 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C82039DE2B1CC4B7000EEF61 /* Quicksand-SemiBold.ttf */; };
+		C82039E22B1CC4B7000EEF61 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C82039DF2B1CC4B7000EEF61 /* Quicksand-Bold.ttf */; };
+		C82039E42B1CC4D6000EEF61 /* DMSerifDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C82039E32B1CC4D6000EEF61 /* DMSerifDisplay-Regular.ttf */; };
+		C82039E92B1CC653000EEF61 /* Font+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039E82B1CC653000EEF61 /* Font+CustomFonts.swift */; };
+		C82039EB2B1CCB6D000EEF61 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039EA2B1CCB6D000EEF61 /* Color+CustomColors.swift */; };
+		C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,15 @@
 		C82039C42B1CABE6000EEF61 /* PhayarSarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhayarSarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82039C82B1CABE6000EEF61 /* PhayarSarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarUITests.swift; sourceTree = "<group>"; };
 		C82039CA2B1CABE6000EEF61 /* PhayarSarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C82039D92B1CC30A000EEF61 /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		C82039DD2B1CC4B7000EEF61 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		C82039DE2B1CC4B7000EEF61 /* Quicksand-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-SemiBold.ttf"; sourceTree = "<group>"; };
+		C82039DF2B1CC4B7000EEF61 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		C82039E32B1CC4D6000EEF61 /* DMSerifDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSerifDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		C82039E52B1CC508000EEF61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C82039E82B1CC653000EEF61 /* Font+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+CustomFonts.swift"; sourceTree = "<group>"; };
+		C82039EA2B1CCB6D000EEF61 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
+		C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBtnFilled.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +113,11 @@
 			children = (
 				C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */,
 				C82039AF2B1CABE4000EEF61 /* ContentView.swift */,
-				C82039B12B1CABE6000EEF61 /* Assets.xcassets */,
+				C82039ED2B1CCCA1000EEF61 /* Components */,
+				C82039E62B1CC63D000EEF61 /* Utils */,
+				C82039D72B1CC2E9000EEF61 /* Features */,
+				C82039DB2B1CC48C000EEF61 /* Resources */,
+				C82039E52B1CC508000EEF61 /* Info.plist */,
 				C82039B32B1CABE6000EEF61 /* Preview Content */,
 			);
 			path = PhayarSar;
@@ -125,6 +146,67 @@
 				C82039CA2B1CABE6000EEF61 /* PhayarSarUITestsLaunchTests.swift */,
 			);
 			path = PhayarSarUITests;
+			sourceTree = "<group>";
+		};
+		C82039D72B1CC2E9000EEF61 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				C82039D82B1CC2F3000EEF61 /* Onboarding */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		C82039D82B1CC2F3000EEF61 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C82039D92B1CC30A000EEF61 /* OnboardingScreen.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C82039DB2B1CC48C000EEF61 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C82039DC2B1CC499000EEF61 /* Fonts */,
+				C82039B12B1CABE6000EEF61 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C82039DC2B1CC499000EEF61 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C82039E32B1CC4D6000EEF61 /* DMSerifDisplay-Regular.ttf */,
+				C82039DF2B1CC4B7000EEF61 /* Quicksand-Bold.ttf */,
+				C82039DD2B1CC4B7000EEF61 /* Quicksand-Regular.ttf */,
+				C82039DE2B1CC4B7000EEF61 /* Quicksand-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C82039E62B1CC63D000EEF61 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C82039E72B1CC64A000EEF61 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C82039E72B1CC64A000EEF61 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C82039E82B1CC653000EEF61 /* Font+CustomFonts.swift */,
+				C82039EA2B1CCB6D000EEF61 /* Color+CustomColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C82039ED2B1CCCA1000EEF61 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +314,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C82039B52B1CABE6000EEF61 /* Preview Assets.xcassets in Resources */,
+				C82039E12B1CC4B7000EEF61 /* Quicksand-SemiBold.ttf in Resources */,
+				C82039E02B1CC4B7000EEF61 /* Quicksand-Regular.ttf in Resources */,
 				C82039B22B1CABE6000EEF61 /* Assets.xcassets in Resources */,
+				C82039E22B1CC4B7000EEF61 /* Quicksand-Bold.ttf in Resources */,
+				C82039E42B1CC4D6000EEF61 /* DMSerifDisplay-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +343,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C82039E92B1CC653000EEF61 /* Font+CustomFonts.swift in Sources */,
 				C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */,
 				C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */,
+				C82039EB2B1CCB6D000EEF61 /* Color+CustomColors.swift in Sources */,
+				C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */,
+				C82039DA2B1CC30A000EEF61 /* OnboardingScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +515,7 @@
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_FILE = PhayarSar/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -456,7 +546,7 @@
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_FILE = PhayarSar/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
