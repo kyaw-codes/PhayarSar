@@ -1,0 +1,597 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */; };
+		C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AF2B1CABE4000EEF61 /* ContentView.swift */; };
+		C82039B22B1CABE6000EEF61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C82039B12B1CABE6000EEF61 /* Assets.xcassets */; };
+		C82039B52B1CABE6000EEF61 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C82039B42B1CABE6000EEF61 /* Preview Assets.xcassets */; };
+		C82039BF2B1CABE6000EEF61 /* PhayarSarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039BE2B1CABE6000EEF61 /* PhayarSarTests.swift */; };
+		C82039C92B1CABE6000EEF61 /* PhayarSarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039C82B1CABE6000EEF61 /* PhayarSarUITests.swift */; };
+		C82039CB2B1CABE6000EEF61 /* PhayarSarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039CA2B1CABE6000EEF61 /* PhayarSarUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C82039BB2B1CABE6000EEF61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C82039A22B1CABE4000EEF61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C82039A92B1CABE4000EEF61;
+			remoteInfo = PhayarSar;
+		};
+		C82039C52B1CABE6000EEF61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C82039A22B1CABE4000EEF61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C82039A92B1CABE4000EEF61;
+			remoteInfo = PhayarSar;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C82039AA2B1CABE4000EEF61 /* PhayarSar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhayarSar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarApp.swift; sourceTree = "<group>"; };
+		C82039AF2B1CABE4000EEF61 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C82039B12B1CABE6000EEF61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C82039B42B1CABE6000EEF61 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C82039BA2B1CABE6000EEF61 /* PhayarSarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhayarSarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C82039BE2B1CABE6000EEF61 /* PhayarSarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarTests.swift; sourceTree = "<group>"; };
+		C82039C42B1CABE6000EEF61 /* PhayarSarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhayarSarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C82039C82B1CABE6000EEF61 /* PhayarSarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarUITests.swift; sourceTree = "<group>"; };
+		C82039CA2B1CABE6000EEF61 /* PhayarSarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C82039A72B1CABE4000EEF61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C82039B72B1CABE6000EEF61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C82039C12B1CABE6000EEF61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C82039A12B1CABE4000EEF61 = {
+			isa = PBXGroup;
+			children = (
+				C82039AC2B1CABE4000EEF61 /* PhayarSar */,
+				C82039BD2B1CABE6000EEF61 /* PhayarSarTests */,
+				C82039C72B1CABE6000EEF61 /* PhayarSarUITests */,
+				C82039AB2B1CABE4000EEF61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C82039AB2B1CABE4000EEF61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C82039AA2B1CABE4000EEF61 /* PhayarSar.app */,
+				C82039BA2B1CABE6000EEF61 /* PhayarSarTests.xctest */,
+				C82039C42B1CABE6000EEF61 /* PhayarSarUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C82039AC2B1CABE4000EEF61 /* PhayarSar */ = {
+			isa = PBXGroup;
+			children = (
+				C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */,
+				C82039AF2B1CABE4000EEF61 /* ContentView.swift */,
+				C82039B12B1CABE6000EEF61 /* Assets.xcassets */,
+				C82039B32B1CABE6000EEF61 /* Preview Content */,
+			);
+			path = PhayarSar;
+			sourceTree = "<group>";
+		};
+		C82039B32B1CABE6000EEF61 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C82039B42B1CABE6000EEF61 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C82039BD2B1CABE6000EEF61 /* PhayarSarTests */ = {
+			isa = PBXGroup;
+			children = (
+				C82039BE2B1CABE6000EEF61 /* PhayarSarTests.swift */,
+			);
+			path = PhayarSarTests;
+			sourceTree = "<group>";
+		};
+		C82039C72B1CABE6000EEF61 /* PhayarSarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C82039C82B1CABE6000EEF61 /* PhayarSarUITests.swift */,
+				C82039CA2B1CABE6000EEF61 /* PhayarSarUITestsLaunchTests.swift */,
+			);
+			path = PhayarSarUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C82039A92B1CABE4000EEF61 /* PhayarSar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C82039CE2B1CABE6000EEF61 /* Build configuration list for PBXNativeTarget "PhayarSar" */;
+			buildPhases = (
+				C82039A62B1CABE4000EEF61 /* Sources */,
+				C82039A72B1CABE4000EEF61 /* Frameworks */,
+				C82039A82B1CABE4000EEF61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhayarSar;
+			productName = PhayarSar;
+			productReference = C82039AA2B1CABE4000EEF61 /* PhayarSar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C82039B92B1CABE6000EEF61 /* PhayarSarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C82039D12B1CABE6000EEF61 /* Build configuration list for PBXNativeTarget "PhayarSarTests" */;
+			buildPhases = (
+				C82039B62B1CABE6000EEF61 /* Sources */,
+				C82039B72B1CABE6000EEF61 /* Frameworks */,
+				C82039B82B1CABE6000EEF61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C82039BC2B1CABE6000EEF61 /* PBXTargetDependency */,
+			);
+			name = PhayarSarTests;
+			productName = PhayarSarTests;
+			productReference = C82039BA2B1CABE6000EEF61 /* PhayarSarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C82039C32B1CABE6000EEF61 /* PhayarSarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C82039D42B1CABE6000EEF61 /* Build configuration list for PBXNativeTarget "PhayarSarUITests" */;
+			buildPhases = (
+				C82039C02B1CABE6000EEF61 /* Sources */,
+				C82039C12B1CABE6000EEF61 /* Frameworks */,
+				C82039C22B1CABE6000EEF61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C82039C62B1CABE6000EEF61 /* PBXTargetDependency */,
+			);
+			name = PhayarSarUITests;
+			productName = PhayarSarUITests;
+			productReference = C82039C42B1CABE6000EEF61 /* PhayarSarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C82039A22B1CABE4000EEF61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					C82039A92B1CABE4000EEF61 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					C82039B92B1CABE6000EEF61 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = C82039A92B1CABE4000EEF61;
+					};
+					C82039C32B1CABE6000EEF61 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = C82039A92B1CABE4000EEF61;
+					};
+				};
+			};
+			buildConfigurationList = C82039A52B1CABE4000EEF61 /* Build configuration list for PBXProject "PhayarSar" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C82039A12B1CABE4000EEF61;
+			productRefGroup = C82039AB2B1CABE4000EEF61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C82039A92B1CABE4000EEF61 /* PhayarSar */,
+				C82039B92B1CABE6000EEF61 /* PhayarSarTests */,
+				C82039C32B1CABE6000EEF61 /* PhayarSarUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C82039A82B1CABE4000EEF61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C82039B52B1CABE6000EEF61 /* Preview Assets.xcassets in Resources */,
+				C82039B22B1CABE6000EEF61 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C82039B82B1CABE6000EEF61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C82039C22B1CABE6000EEF61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C82039A62B1CABE4000EEF61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */,
+				C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C82039B62B1CABE6000EEF61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C82039BF2B1CABE6000EEF61 /* PhayarSarTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C82039C02B1CABE6000EEF61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C82039CB2B1CABE6000EEF61 /* PhayarSarUITestsLaunchTests.swift in Sources */,
+				C82039C92B1CABE6000EEF61 /* PhayarSarUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C82039BC2B1CABE6000EEF61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C82039A92B1CABE4000EEF61 /* PhayarSar */;
+			targetProxy = C82039BB2B1CABE6000EEF61 /* PBXContainerItemProxy */;
+		};
+		C82039C62B1CABE6000EEF61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C82039A92B1CABE4000EEF61 /* PhayarSar */;
+			targetProxy = C82039C52B1CABE6000EEF61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C82039CC2B1CABE6000EEF61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C82039CD2B1CABE6000EEF61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C82039CF2B1CABE6000EEF61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C82039D02B1CABE6000EEF61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C82039D22B1CABE6000EEF61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhayarSar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PhayarSar";
+			};
+			name = Debug;
+		};
+		C82039D32B1CABE6000EEF61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhayarSar.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PhayarSar";
+			};
+			name = Release;
+		};
+		C82039D52B1CABE6000EEF61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PhayarSar;
+			};
+			name = Debug;
+		};
+		C82039D62B1CABE6000EEF61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PhayarSar;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C82039A52B1CABE4000EEF61 /* Build configuration list for PBXProject "PhayarSar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C82039CC2B1CABE6000EEF61 /* Debug */,
+				C82039CD2B1CABE6000EEF61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C82039CE2B1CABE6000EEF61 /* Build configuration list for PBXNativeTarget "PhayarSar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C82039CF2B1CABE6000EEF61 /* Debug */,
+				C82039D02B1CABE6000EEF61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C82039D12B1CABE6000EEF61 /* Build configuration list for PBXNativeTarget "PhayarSarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C82039D22B1CABE6000EEF61 /* Debug */,
+				C82039D32B1CABE6000EEF61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C82039D42B1CABE6000EEF61 /* Build configuration list for PBXNativeTarget "PhayarSarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C82039D52B1CABE6000EEF61 /* Debug */,
+				C82039D62B1CABE6000EEF61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C82039A22B1CABE4000EEF61 /* Project object */;
+}
