@@ -11,15 +11,7 @@ struct ContentView: View {
     @State private var presentOnboarding = false
     
     var body: some View {
-        NavigationView {
-            Text("Hello")
-                .onAppear {
-                    presentOnboarding.toggle()
-                }
-                .sheet(isPresented: $presentOnboarding, content: {
-                    OnboardingScreen()
-                })
-        }
+        Text("Hello")
     }
 }
 

@@ -22,6 +22,8 @@
 		C82039E92B1CC653000EEF61 /* Font+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039E82B1CC653000EEF61 /* Font+CustomFonts.swift */; };
 		C82039EB2B1CCB6D000EEF61 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039EA2B1CCB6D000EEF61 /* Color+CustomColors.swift */; };
 		C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */; };
+		C82039F22B1CCF13000EEF61 /* SwiftUIBackports in Frameworks */ = {isa = PBXBuildFile; productRef = C82039F12B1CCF13000EEF61 /* SwiftUIBackports */; };
+		C82039F52B1CD2C0000EEF61 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039F42B1CD2C0000EEF61 /* Defaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,7 @@
 		C82039E82B1CC653000EEF61 /* Font+CustomFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+CustomFonts.swift"; sourceTree = "<group>"; };
 		C82039EA2B1CCB6D000EEF61 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBtnFilled.swift; sourceTree = "<group>"; };
+		C82039F42B1CD2C0000EEF61 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C82039F22B1CCF13000EEF61 /* SwiftUIBackports in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +191,7 @@
 		C82039E62B1CC63D000EEF61 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C82039F32B1CD2B7000EEF61 /* Persistence */,
 				C82039E72B1CC64A000EEF61 /* Extensions */,
 			);
 			path = Utils;
@@ -209,6 +214,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		C82039F32B1CD2B7000EEF61 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				C82039F42B1CD2C0000EEF61 /* Defaults.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -225,6 +238,9 @@
 			dependencies = (
 			);
 			name = PhayarSar;
+			packageProductDependencies = (
+				C82039F12B1CCF13000EEF61 /* SwiftUIBackports */,
+			);
 			productName = PhayarSar;
 			productReference = C82039AA2B1CABE4000EEF61 /* PhayarSar.app */;
 			productType = "com.apple.product-type.application";
@@ -297,6 +313,9 @@
 				Base,
 			);
 			mainGroup = C82039A12B1CABE4000EEF61;
+			packageReferences = (
+				C82039F02B1CCF13000EEF61 /* XCRemoteSwiftPackageReference "SwiftUIBackports" */,
+			);
 			productRefGroup = C82039AB2B1CABE4000EEF61 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C82039E92B1CC653000EEF61 /* Font+CustomFonts.swift in Sources */,
+				C82039F52B1CD2C0000EEF61 /* Defaults.swift in Sources */,
 				C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */,
 				C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */,
 				C82039EB2B1CCB6D000EEF61 /* Color+CustomColors.swift in Sources */,
@@ -682,6 +702,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C82039F02B1CCF13000EEF61 /* XCRemoteSwiftPackageReference "SwiftUIBackports" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shaps80/SwiftUIBackports.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C82039F12B1CCF13000EEF61 /* SwiftUIBackports */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C82039F02B1CCF13000EEF61 /* XCRemoteSwiftPackageReference "SwiftUIBackports" */;
+			productName = SwiftUIBackports;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C82039A22B1CABE4000EEF61 /* Project object */;
 }
