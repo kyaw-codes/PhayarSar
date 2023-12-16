@@ -20,7 +20,7 @@ extension PhayarSarApp {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if preferences.isFirstLaunch == nil {
+                if preferences.hasAppLangChosen == nil {
                     ChooseLanguageScreen()
                 } else {
                     HomeScreen()

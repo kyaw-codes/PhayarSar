@@ -10,11 +10,26 @@ import SwiftUI
 struct HomeScreen: View {
     @EnvironmentObject private var preferences: UserPreferences
     @State private var showOnboarding = false
+    @State private var offset: CGPoint = .zero
     
     var body: some View {
-        ScrollView {
+        OffsetObservingScrollView(offset: $offset) {
             navView
         }
+        .overlay(alignment: .top, content: {
+            Rectangle()
+                .fill(.thinMaterial)
+                .ignoresSafeArea(edges: .top)
+                .frame(height: 50)
+                .overlay {
+                    Text("PhayarSar")
+                        .font(.dmSerif(20))
+                }
+                .overlay(alignment: .bottom, content: {
+                    Divider()
+                })
+                .opacity(min(1, offset.y / CGFloat(44)))
+        })
         .onAppear {
             showOnboarding = preferences.isFirstLaunch == nil
         }
@@ -40,9 +55,9 @@ struct HomeScreen: View {
                 }
                 Spacer()
                 
-                btnAdd
+                btnPray
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 20)
             
             Divider()
                 .frame(height: 0.5)
@@ -92,6 +107,8 @@ struct HomeScreen: View {
 }
 
 #Preview {
-    HomeScreen()
-        .environmentObject(UserPreferences())
+    NavigationView{
+        HomeScreen()
+    }
+    .environmentObject(UserPreferences())
 }

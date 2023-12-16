@@ -39,6 +39,7 @@
 		C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */; };
 		C8AAE01C2B2D7D4B00BE54CA /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE01B2B2D7D4B00BE54CA /* UserDefaults.swift */; };
 		C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE01D2B2DB84200BE54CA /* Optional.swift */; };
+		C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		C8AAE01B2B2D7D4B00BE54CA /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		C8AAE01D2B2DB84200BE54CA /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionObservingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +249,7 @@
 			children = (
 				C83E27EE2B2DDAA60038EDF1 /* Localization */,
 				C82039E72B1CC64A000EEF61 /* Extensions */,
+				C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */,
 				C84626B52B222B6B000931AE /* HomeScreen.swift in Sources */,
 				C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */,
+				C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */,
 				C82039FA2B1CE1C7000EEF61 /* NatPintVO.swift in Sources */,
 				C84240C02B2DD34900A2B234 /* LocalizedKey.swift in Sources */,
 				C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */,

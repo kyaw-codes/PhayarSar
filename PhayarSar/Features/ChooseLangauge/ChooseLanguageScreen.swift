@@ -18,7 +18,7 @@ struct ChooseLanguageScreen: View {
         .navigationTitle(.choose_a_language)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            LocalizedButton(.next, action:  { preferences.isFirstLaunch = false })
+            LocalizedButton(.next, action:  { preferences.hasAppLangChosen = true })
         }
     }
     

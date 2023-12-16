@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OnboardingScreen: View {
+    @EnvironmentObject private var preferences: UserPreferences
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -26,6 +27,9 @@ struct OnboardingScreen: View {
         }
         .padding()
         .padding(.horizontal)
+        .onDisappear(perform: {
+            preferences.isFirstLaunch = false
+        })
     }
 }
 
@@ -51,7 +55,9 @@ extension OnboardingScreen {
     }
     
     var getStartedButton: some View {
-        AppBtnFilled(action: { dismiss() }, title: .btn_get_started)
+        AppBtnFilled(action: {
+            dismiss()
+        }, title: .btn_get_started)
     }
 }
 
