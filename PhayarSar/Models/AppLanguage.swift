@@ -29,7 +29,7 @@ enum AppLanguage: String, Equatable, CaseIterable, Decodable, Identifiable {
         case .Eng:
             return "(English)"
         case .Mm:
-            return "(Burmese)"
+            return "(မြန်မာ)"
         }
     }
     

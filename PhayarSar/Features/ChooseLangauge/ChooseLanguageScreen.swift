@@ -11,6 +11,8 @@ struct ChooseLanguageScreen: View {
     @State private var showOnboarding = false
     @EnvironmentObject private var preferences: UserPreferences
     
+    var isStandalone: Bool = false
+    
     var body: some View {
         List {
             ForEach(AppLanguage.allCases, content: LangOptionView(lang:))
@@ -18,7 +20,10 @@ struct ChooseLanguageScreen: View {
         .navigationTitle(.choose_a_language)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            LocalizedButton(.next, action:  { preferences.hasAppLangChosen = true })
+            if !isStandalone {
+                LocalizedButton(.next, action:  { preferences.hasAppLangChosen = true })
+                    .tint(.appGreen)
+            }
         }
     }
     
@@ -32,7 +37,7 @@ struct ChooseLanguageScreen: View {
                     .clipShape(Circle())
                 
                 VStack(alignment: .leading, spacing: 4) {
-                    Text(lang.title).font(.dmSerif(15))
+                    Text(lang.title).font(.qsB(15))
                     Text(lang.desc).font(.qsB(12)).foregroundColor(.secondary)
                 }
                 .padding(.vertical, 12)

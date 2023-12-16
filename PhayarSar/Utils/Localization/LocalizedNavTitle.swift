@@ -21,6 +21,7 @@ private struct LocalizedNavTitleModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .navigationTitle(key.localize(preferences.appLang).ifNilOrEmpty(defaultValue))
+            .font(.dmSerif(14))
     }
 }
 

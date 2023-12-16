@@ -58,7 +58,7 @@ struct TabScreen: View {
             }
             
             NavigationView {
-                Text("Settings")
+                SettingsScreen()
             }
             .tag(TabItem.settings)
             .tabItem {
@@ -69,6 +69,7 @@ struct TabScreen: View {
                 }
             }
         }
+        .tint(.appGreen)
         .environmentObject(preferences)
     }
 }

@@ -14,9 +14,24 @@ struct PhayarSarApp: App {
     @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
     
     @StateObject private var preferences = UserPreferences()
+    
+    init() {
+        let appear = UINavigationBarAppearance()
+        
+        let atters: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "DMSerifDisplay-Regular", size: 18)!
+        ]
+        
+        appear.largeTitleTextAttributes = atters
+        appear.titleTextAttributes = atters
+        UINavigationBar.appearance().standardAppearance = appear
+        UINavigationBar.appearance().compactAppearance = appear
+        UINavigationBar.appearance().scrollEdgeAppearance = appear
+    }
 }
 
 extension PhayarSarApp {
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {

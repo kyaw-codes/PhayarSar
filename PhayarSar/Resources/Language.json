@@ -45,6 +45,14 @@
     },
     "settings": {
         "En": "Settings",
-        "Mm": "စက်တင်"
+        "Mm": "ပြင်ဆင်ချက်"
+    },
+    "app_language": {
+        "En": "App language",
+        "Mm": "ဘာသာစကား"
+    },
+    "app_accent_color": {
+        "En": "App accent color",
+        "Mm": "အဓိက အရောင်"
     }
 }
