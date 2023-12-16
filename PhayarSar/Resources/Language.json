@@ -1,0 +1,42 @@
+{
+    "welcome_to_phayarsar": {
+        "En": "Welcome to \nPhayarSar",
+        "Mm": "ဘုရားစာ App ကနေ\nကြိုဆိုပါတယ်"
+    },
+    "onboarding_desc": {
+        "En": "Religion and Generation Z can seamlessly coexist. With the PhayarSar app, you can ergonomically religious.",
+        "Mm": "ဘာသာတရားနဲ့လူငယ် အတူယှဥ်တွဲနေထိုင်လို့ရပါတယ်။ ဘုရားစာ app ကိုသုံးပြီးတော့ ဘာသာတရားကိုင်းရှိုင်းလိုက်ပါ။"
+    },
+    "btn_get_started": {
+        "En": "Get started",
+        "Mm": "စသုံးမယ်"
+    },
+    "choose_a_language": {
+        "En": "Select a Language",
+        "Mm": "ဘာသာစကား ရွေးချယ်ပါ"
+    },
+    "next": {
+        "En": "Next",
+        "Mm": "ဆက်သွားပါ"
+    },
+    "today_pray_time_x": {
+        "En": "Today's Pray Time  {$} min(s)",
+        "Mm": "ဒီနေ့ဘုရားရှိခိုးချိန်  {$} မိနစ်"
+    },
+    "today_pray_time": {
+        "En": "Today's Pray Time  ",
+        "Mm": "ဒီနေ့ဘုရားရှိခိုးချိန်  "
+    },
+    "x_min": {
+        "En": "{$} min(s)",
+        "Mm": "{$} မိနစ်"
+    },
+    "btn_add": {
+        "En": "Add",
+        "Mm": "ထည့်မယ်"
+    },
+    "btn_pray": {
+        "En": "Pray",
+        "Mm": "ရှိခိုးမယ်"
+    }
+}

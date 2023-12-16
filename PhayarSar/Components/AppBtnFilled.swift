@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppBtnFilled: View {
     var action: () -> Void
-    var title: String
+    var title: LocalizedKey
     
     var body: some View {
         Button(action: action) {
@@ -18,7 +18,7 @@ struct AppBtnFilled: View {
                     .fill(Color.appGreen)
                     .frame(height: 60)
                 
-                Text(title)
+                LocalizedText(title)
                     .foregroundColor(.white)
                     .font(.qsB(18))
             }

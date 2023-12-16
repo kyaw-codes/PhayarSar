@@ -7,25 +7,35 @@
 
 import SwiftUI
 
+var langDict: [String: [String: String]] = [:]
+
 @main
 struct PhayarSarApp: App {
-    @AppStorage(Defaults.isFirstLaunch.rawValue) var isFirstLaunch = false
-    @State private var showingOnboard = false
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    
+    @StateObject private var preferences = UserPreferences()
 }
 
 extension PhayarSarApp {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .onAppear {
-                    defer { isFirstLaunch = true }
-                    if !isFirstLaunch {
-                        showingOnboard = true
-                    }
+            NavigationView {
+                if preferences.isFirstLaunch == nil {
+                    ChooseLanguageScreen()
+                } else {
+                    HomeScreen()
                 }
-                .sheet(isPresented: $showingOnboard, content: {
-                    OnboardingScreen()
-                })
+            }
+            .environmentObject(preferences)
         }
+    }
+}
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        langDict = Bundle.main.decode([String: [String: String]].self, from: "Language.json")
+        
+        return true
     }
 }

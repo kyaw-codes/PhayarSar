@@ -9,4 +9,6 @@ import Foundation
 
 enum Defaults: String {
     case isFirstLaunch
+    case hasAppLangChosen
+    case appLang
 }

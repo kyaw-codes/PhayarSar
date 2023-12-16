@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnboardingScreen: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         VStack(spacing: 0) {
             logoImage
@@ -37,22 +39,23 @@ extension OnboardingScreen {
     }
     
     var titleText: some View {
-        Text("Welcome to \nPhayarSar")
+        LocalizedText(.welcome_to_phayarsar)
             .multilineTextAlignment(.center)
             .font(.dmSerif(32))
     }
     
     var subtitleText: some View {
-        Text("Religion and Generation Z can seamlessly coexist. With the PhayarSar app, you can ergonomically religious.")
+        LocalizedText(.onboarding_desc)
             .multilineTextAlignment(.center)
             .font(.qsSb(16))
     }
     
     var getStartedButton: some View {
-        AppBtnFilled(action: {}, title: "Get started")
+        AppBtnFilled(action: { dismiss() }, title: .btn_get_started)
     }
 }
 
 #Preview {
     OnboardingScreen()
+        .environmentObject(UserPreferences())
 }
