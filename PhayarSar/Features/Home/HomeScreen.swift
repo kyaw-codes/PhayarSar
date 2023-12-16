@@ -15,27 +15,27 @@ struct HomeScreen: View {
     var body: some View {
         OffsetObservingScrollView(offset: $offset) {
             navView
-        }
-        .overlay(alignment: .top, content: {
-            Rectangle()
-                .fill(.thinMaterial)
-                .ignoresSafeArea(edges: .top)
-                .frame(height: 50)
-                .overlay {
-                    Text("PhayarSar")
-                        .font(.dmSerif(20))
+            
+            LazyVStack(spacing: 12) {
+                ForEach(1...10, id: \.self) { count in
+                    NavigationLink {
+                        Text("Hello")
+                    } label: {
+                        HomeListItemView(title: "နတ်ပင့်")
+                    }
                 }
-                .overlay(alignment: .bottom, content: {
-                    Divider()
-                })
-                .opacity(min(1, offset.y / CGFloat(44)))
-        })
+            }
+            .padding([.horizontal, .top])
+        }
+        .overlay(alignment: .top) {
+            inlineNavView
+        }
         .onAppear {
             showOnboarding = preferences.isFirstLaunch == nil
         }
-        .sheet(isPresented: $showOnboarding, content: {
+        .sheet(isPresented: $showOnboarding) {
             OnboardingScreen()
-        })
+        }
         
     }
     
@@ -65,6 +65,21 @@ struct HomeScreen: View {
                 .padding(.horizontal)
                 .padding(.top, 8)
         }
+    }
+    
+    var inlineNavView: some View {
+        Rectangle()
+            .fill(.thinMaterial)
+            .ignoresSafeArea(edges: .top)
+            .frame(height: 50)
+            .overlay {
+                Text("PhayarSar")
+                    .font(.dmSerif(20))
+            }
+            .overlay(alignment: .bottom, content: {
+                Divider()
+            })
+            .opacity(min(1, offset.y / CGFloat(44)))
     }
     
     var btnPray: some View {

@@ -38,5 +38,13 @@
     "btn_pray": {
         "En": "Pray",
         "Mm": "ရှိခိုးမယ်"
+    },
+    "home": {
+        "En": "Home",
+        "Mm": "ပင်မစာမျက်နှာ"
+    },
+    "settings": {
+        "En": "Settings",
+        "Mm": "စက်တင်"
     }
 }

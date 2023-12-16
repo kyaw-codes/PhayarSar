@@ -23,7 +23,7 @@ extension PhayarSarApp {
                 if preferences.hasAppLangChosen == nil {
                     ChooseLanguageScreen()
                 } else {
-                    HomeScreen()
+                    TabScreen()
                 }
             }
             .environmentObject(preferences)
