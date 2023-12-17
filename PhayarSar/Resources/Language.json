@@ -54,5 +54,9 @@
     "app_accent_color": {
         "En": "App accent color",
         "Mm": "အဓိက အရောင်"
+    },
+    "choose_accent_color": {
+        "En": "Choose accent color",
+        "Mm": "အဓိကအရောင် ရွေးပါ"
     }
 }

@@ -69,7 +69,7 @@ struct TabScreen: View {
                 }
             }
         }
-        .tint(.appGreen)
+        .tint(preferences.accentColor.color)
         .environmentObject(preferences)
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsScreen: View {
     @EnvironmentObject private var preferences: UserPreferences
-
+    
     var body: some View {
         List {
             Section {
@@ -26,7 +26,7 @@ struct SettingsScreen: View {
                         
                         Text("V1.0.0")
                             .font(.qsB(14))
-                            .foregroundColor(.appGreen)
+                            .foregroundColor(preferences.accentColor.color)
                     }
                 }
             }
@@ -51,7 +51,7 @@ struct SettingsScreen: View {
                 Spacer()
                 Text(preferences.appLang.title)
                     .font(.qsB(16))
-                    .foregroundColor(.appGreen)
+                    .foregroundColor(preferences.accentColor.color)
                 
             }
         }
@@ -59,19 +59,23 @@ struct SettingsScreen: View {
     
     @ViewBuilder
     private func AppAccentColor() -> some View {
-        HStack {
-            LocalizedText(.app_accent_color)
-                .font(.qsSb(16))
-            Spacer()
-            Circle()
-                .fill(Color.appGreen)
-                .frame(width: 28)
-                .overlay {
-                    Circle()
-                        .stroke(Color.white, lineWidth: 3)
-                        .frame(width: 20)
-                }
-            
+        NavigationLink {
+            ChooseColorScreen()
+        } label: {
+            HStack {
+                LocalizedText(.app_accent_color)
+                    .font(.qsSb(16))
+                Spacer()
+                Circle()
+                    .fill(preferences.accentColor.color)
+                    .frame(width: 28)
+                    .overlay {
+                        Circle()
+                            .stroke(Color.white, lineWidth: 3)
+                            .frame(width: 20)
+                    }
+                
+            }
         }
     }
 }

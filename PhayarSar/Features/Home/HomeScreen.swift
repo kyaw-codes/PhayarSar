@@ -48,7 +48,7 @@ struct HomeScreen: View {
                     
                     HStack(spacing: 0) {
                         LocalizedText(.today_pray_time)
-                            .foregroundColor(.appGreen)
+                            .foregroundColor(preferences.accentColor.color)
                         LocalizedText(.x_min, args: [preferences.appLang == .Eng ? convertNumberMmToEng("5") : convertNumberEngToMm("5")])
                     }
                     .font(.qsSb(14))
@@ -98,7 +98,7 @@ struct HomeScreen: View {
             .font(.dmSerif(16))
             .padding(.horizontal)
             .padding(.vertical, 8)
-            .background(Capsule().fill(Color.appGreen))
+            .background(Capsule().fill(preferences.accentColor.color))
         }
     }
     
@@ -116,7 +116,7 @@ struct HomeScreen: View {
             .font(.dmSerif(16))
             .padding(.horizontal)
             .padding(.vertical, 8)
-            .background(Capsule().fill(Color.appGreen))
+            .background(Capsule().fill(preferences.accentColor.color))
         }
     }
 }

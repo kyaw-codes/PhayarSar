@@ -22,7 +22,7 @@ struct ChooseLanguageScreen: View {
         .toolbar {
             if !isStandalone {
                 LocalizedButton(.next, action:  { preferences.hasAppLangChosen = true })
-                    .tint(.appGreen)
+                    .tint(preferences.accentColor.color)
             }
         }
     }
@@ -47,7 +47,7 @@ struct ChooseLanguageScreen: View {
             
             if preferences.appLang == lang {
                 Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.appGreen)
+                    .foregroundColor(preferences.accentColor.color)
             }
         }
         .contentShape(Rectangle())

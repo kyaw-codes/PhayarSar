@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeListItemView: View {
+    @EnvironmentObject private var preferences: UserPreferences
     var title: String
     
     var body: some View {
@@ -28,7 +29,7 @@ struct HomeListItemView: View {
                 .fill(.ultraThickMaterial)
                 .overlay {
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(Color.appGreen.opacity(0.2), lineWidth: 1.0)
+                        .stroke(preferences.accentColor.color.opacity(0.2), lineWidth: 1.0)
                 }
         )
     }

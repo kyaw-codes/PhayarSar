@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AppBtnFilled: View {
+    @EnvironmentObject private var preferences: UserPreferences
+    
     var action: () -> Void
     var title: LocalizedKey
     
@@ -15,7 +17,7 @@ struct AppBtnFilled: View {
         Button(action: action) {
             ZStack {
                 RoundedRectangle(cornerRadius: 18)
-                    .fill(Color.appGreen)
+                    .fill(preferences.accentColor.color)
                     .frame(height: 60)
                 
                 LocalizedText(title)
