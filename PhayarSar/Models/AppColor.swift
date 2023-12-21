@@ -43,7 +43,7 @@ enum AppColor: String, CaseIterable, Hashable, Equatable, Decodable, Identifiabl
         case .brightPink:
             return "Bright Pink"
         case .aerospaceOrange:
-            return "Aerospace Orange"
+            return "Orange"
         case .bole:
             return "Bole"
         case .darkPurple:
