@@ -34,6 +34,7 @@ struct SettingsScreen: View {
             Section {
                 ChooseLang()
                 AppAccentColor()
+                EnableHaptic()
             }
         }
         .navigationTitle(.settings)
@@ -77,6 +78,15 @@ struct SettingsScreen: View {
                 
             }
         }
+    }
+    
+    @ViewBuilder
+    private func EnableHaptic() -> some View {
+        Toggle(isOn: $preferences.isHapticEnable, label: {
+            LocalizedText(.haptic_on, default: "Haptic on")
+                .font(.qsSb(16))
+        })
+        .tint(preferences.accentColor.color)
     }
 }
 

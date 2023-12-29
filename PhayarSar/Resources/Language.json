@@ -58,5 +58,9 @@
     "choose_accent_color": {
         "En": "Choose accent color",
         "Mm": "အဓိကအရောင် ရွေးပါ"
+    },
+    "haptic_on": {
+        "En": "Haptic on",
+        "Mm": "တုန်ခါမှု ဖွင့်မယ်"
     }
 }

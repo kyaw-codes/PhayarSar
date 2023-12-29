@@ -9,8 +9,9 @@ import SwiftUI
 
 @MainActor
 class UserPreferences: ObservableObject {
-    @AppStorage(Defaults.isFirstLaunch.rawValue) var isFirstLaunch: Bool?
-    @AppStorage(Defaults.hasAppLangChosen.rawValue) var hasAppLangChosen: Bool?
-    @AppStorage(Defaults.appLang.rawValue) var appLang: AppLanguage = .Eng
-    @AppStorage(Defaults.accentColor.rawValue) var accentColor: AppColor = .pineGreen
+    @AppStorage("isFirstLaunch") var isFirstLaunch: Bool?
+    @AppStorage("hasAppLangChosen") var hasAppLangChosen: Bool?
+    @AppStorage("appLang") var appLang: AppLanguage = .Eng
+    @AppStorage("accentColor") var accentColor: AppColor = .pineGreen
+    @AppStorage("isHapticEnable") var isHapticEnable: Bool = false
 }

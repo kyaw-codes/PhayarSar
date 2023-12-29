@@ -32,7 +32,7 @@ struct ChooseColorScreen: View {
                 .background {
                     RoundedRectangle(cornerRadius: 12)
                         .stroke(preferences.accentColor == appColor ? Color.white : .clear, lineWidth: 6)
-                        .shadow(color: preferences.accentColor == appColor ? .black : .clear, radius: 20, x: 0.0, y: -4)
+                        .shadow(color: preferences.accentColor == appColor ? .black.opacity(0.8) : .clear, radius: 20, x: 0.0, y: -4)
                 }
                 .overlay {
                     VStack(spacing: 8) {
@@ -69,11 +69,11 @@ struct ChooseColorScreen: View {
                 .scaleEffect(preferences.accentColor == appColor ? 1 : 0.96, anchor: .center)
             
             Text(appColor.displayName)
-                .font(.dmSerif(13))
+                .font(.qsB(13))
                 .background {
                     if preferences.accentColor == appColor {
                         Text(appColor.displayName)
-                            .font(.dmSerif(13))
+                            .font(.qsB(13))
                             .blur(radius: 10)
                     }
                 }
@@ -97,9 +97,8 @@ struct ChooseColorScreen: View {
         .offset(y: preferences.accentColor == appColor ? -7 : 0)
         .contentShape(Rectangle())
         .onTapGesture {
-            let generator = UISelectionFeedbackGenerator()
-            generator.selectionChanged()
-            withAnimation(.spring(duration: 0.3, bounce: 0.4, blendDuration: 0.7)) {
+            HapticKit.selection.generate()
+            withAnimation(.spring(duration: 0.3, bounce: 0.5, blendDuration: 0.7)) {
                 preferences.accentColor = appColor
             }
         }
