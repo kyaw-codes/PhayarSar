@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct SettingsScreen: View {
+    @Binding var showTabBar: Bool
     @EnvironmentObject private var preferences: UserPreferences
     
     var body: some View {
@@ -45,6 +46,9 @@ struct SettingsScreen: View {
     private func ChooseLang() -> some View {
         NavigationLink {
             ChooseLanguageScreen(isStandalone: true)
+                .onAppear {
+                    showTabBar = false
+                }
         } label: {
             HStack {
                 LocalizedText(.app_language)
@@ -62,6 +66,9 @@ struct SettingsScreen: View {
     private func AppAccentColor() -> some View {
         NavigationLink {
             ChooseColorScreen()
+                .onAppear {
+                    showTabBar = false
+                }
         } label: {
             HStack {
                 LocalizedText(.app_accent_color)
@@ -92,7 +99,7 @@ struct SettingsScreen: View {
 
 #Preview {
     NavigationView {
-        SettingsScreen()
+        SettingsScreen(showTabBar: .constant(true))
     }
     .environmentObject(UserPreferences())
 }

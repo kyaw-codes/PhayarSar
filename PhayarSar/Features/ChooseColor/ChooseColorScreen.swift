@@ -111,5 +111,5 @@ struct ChooseColorScreen: View {
     NavigationView {
         ChooseColorScreen()
     }
-    .environmentObject(UserPreferences())
+    .previewEnvironment()
 }

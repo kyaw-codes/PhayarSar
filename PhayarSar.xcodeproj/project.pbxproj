@@ -27,6 +27,8 @@
 		C82039F72B1CDB4F000EEF61 /* NatPint.json in Resources */ = {isa = PBXBuildFile; fileRef = C82039F62B1CDB4F000EEF61 /* NatPint.json */; };
 		C82039FA2B1CE1C7000EEF61 /* NatPintVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039F92B1CE1C7000EEF61 /* NatPintVO.swift */; };
 		C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039FB2B1CE2B4000EEF61 /* Bundle+Decode.swift */; };
+		C83961B22B4053E900E189D9 /* View+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83961B12B4053E900E189D9 /* View+Preview.swift */; };
+		C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83961B52B40578200E189D9 /* SafeAreaInsets.swift */; };
 		C83E27F02B2DDAB20038EDF1 /* LocalizedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83E27EF2B2DDAB20038EDF1 /* LocalizedText.swift */; };
 		C83E27F22B2DDACC0038EDF1 /* LocalizedNavTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83E27F12B2DDACC0038EDF1 /* LocalizedNavTitle.swift */; };
 		C83E27F42B2DDC9B0038EDF1 /* LocalizedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83E27F32B2DDC9B0038EDF1 /* LocalizedButton.swift */; };
@@ -88,6 +90,8 @@
 		C82039F62B1CDB4F000EEF61 /* NatPint.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NatPint.json; sourceTree = "<group>"; };
 		C82039F92B1CE1C7000EEF61 /* NatPintVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatPintVO.swift; sourceTree = "<group>"; };
 		C82039FB2B1CE2B4000EEF61 /* Bundle+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decode.swift"; sourceTree = "<group>"; };
+		C83961B12B4053E900E189D9 /* View+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Preview.swift"; sourceTree = "<group>"; };
+		C83961B52B40578200E189D9 /* SafeAreaInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsets.swift; sourceTree = "<group>"; };
 		C83E27EF2B2DDAB20038EDF1 /* LocalizedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedText.swift; sourceTree = "<group>"; };
 		C83E27F12B2DDACC0038EDF1 /* LocalizedNavTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedNavTitle.swift; sourceTree = "<group>"; };
 		C83E27F32B2DDC9B0038EDF1 /* LocalizedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedButton.swift; sourceTree = "<group>"; };
@@ -276,6 +280,8 @@
 				C82039EA2B1CCB6D000EEF61 /* Color+CustomColors.swift */,
 				C82039FB2B1CE2B4000EEF61 /* Bundle+Decode.swift */,
 				C8AAE01D2B2DB84200BE54CA /* Optional.swift */,
+				C83961B12B4053E900E189D9 /* View+Preview.swift */,
+				C83961B52B40578200E189D9 /* SafeAreaInsets.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -496,6 +502,7 @@
 				C84240BE2B2DD31700A2B234 /* LocalizedComponents.swift in Sources */,
 				C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */,
 				C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */,
+				C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */,
 				C8D6529D2B2EE5AB00BB6C42 /* CustomCornerView.swift in Sources */,
 				C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */,
 				C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */,
@@ -507,6 +514,7 @@
 				C84626B52B222B6B000931AE /* HomeScreen.swift in Sources */,
 				C8D6529B2B2EA76500BB6C42 /* ChooseColorScreen.swift in Sources */,
 				C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */,
+				C83961B22B4053E900E189D9 /* View+Preview.swift in Sources */,
 				C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */,
 				C8D652962B2EA6BD00BB6C42 /* AppColor.swift in Sources */,
 				C8D652882B2E0F1D00BB6C42 /* SettingsScreen.swift in Sources */,

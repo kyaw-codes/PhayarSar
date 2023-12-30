@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @Binding var showTabBar: Bool
     @EnvironmentObject private var preferences: UserPreferences
     @State private var showOnboarding = false
     @State private var offset: CGPoint = .zero
@@ -36,7 +37,6 @@ struct HomeScreen: View {
         .sheet(isPresented: $showOnboarding) {
             OnboardingScreen()
         }
-        
     }
     
     var navView: some View {
@@ -123,7 +123,7 @@ struct HomeScreen: View {
 
 #Preview {
     NavigationView{
-        HomeScreen()
+        HomeScreen(showTabBar: .constant(true))
     }
     .environmentObject(UserPreferences())
 }
