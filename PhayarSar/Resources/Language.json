@@ -62,5 +62,13 @@
     "haptic_on": {
         "En": "Haptic on",
         "Mm": "တုန်ခါမှု ဖွင့်မယ်"
+    },
+    "themes_and_settings": {
+        "En": "Themes & Settings",
+        "Mm": "ပုံပန်းအသွင်အပြင်"
+    },
+    "about_x": {
+        "En": "About {$}",
+        "Mm": "{$} အကြောင်း"
     }
 }

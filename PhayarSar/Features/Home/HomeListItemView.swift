@@ -34,3 +34,8 @@ struct HomeListItemView: View {
         )
     }
 }
+
+#Preview {
+    HomeListItemView(title: "နတ်ပင့်")
+        .previewEnvironment()
+}

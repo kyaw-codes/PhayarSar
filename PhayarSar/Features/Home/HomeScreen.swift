@@ -20,7 +20,10 @@ struct HomeScreen: View {
             LazyVStack(spacing: 12) {
                 ForEach(1...10, id: \.self) { count in
                     NavigationLink {
-                        Text("Hello")
+                        CommonPrayerScreen(model: natPint)
+                            .onAppear {
+                                showTabBar = false
+                            }
                     } label: {
                         HomeListItemView(title: "နတ်ပင့်")
                     }

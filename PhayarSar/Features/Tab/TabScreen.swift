@@ -81,13 +81,6 @@ extension TabScreen: View {
                     }
             }
             .tag(TabItem.home)
-            .tabItem {
-                Label {
-                    LocalizedText(TabItem.home.title)
-                } icon: {
-                    selected == .home ? TabItem.home.selectedIcon : TabItem.home.icon
-                }
-            }
             
             NavigationView {
                 SettingsScreen(showTabBar: $showTabBar)
@@ -96,13 +89,6 @@ extension TabScreen: View {
                     }
             }
             .tag(TabItem.settings)
-            .tabItem {
-                Label {
-                    LocalizedText(TabItem.settings.title)
-                } icon: {
-                    selected == .settings ? TabItem.settings.selectedIcon : TabItem.settings.icon
-                }
-            }
         }
     }
     
