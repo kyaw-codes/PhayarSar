@@ -23,4 +23,16 @@ extension Font {
     static func qsB(_ size: CGFloat) -> Font {
         return .custom("Quicksand-Bold", size: size)
     }
+    
+    static func jasmine(_ size: CGFloat) -> Font {
+        return .custom("Jasmine_Unicode", size: size)
+    }
+    
+    static func mSquare(_ size: CGFloat) -> Font {
+        return .custom("MyanmarSquare", size: size)
+    }
+    
+    static func yoeYar(_ size: CGFloat) -> Font {
+        return .custom("YoeYar-One", size: size)
+    }
 }

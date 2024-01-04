@@ -70,5 +70,33 @@
     "about_x": {
         "En": "About {$}",
         "Mm": "{$} အကြောင်း"
+    },
+    "jasmine": {
+        "En": "Jasmine",
+        "Mm": "စံပယ်"
+    },
+    "msquare": {
+        "En": "Square",
+        "Mm": "လေးထောင့်"
+    },
+    "yoeyar": {
+        "En": "YoeYar",
+        "Mm": "ရိုးရာ"
+    },
+    "page_white": {
+        "En": "White",
+        "Mm": "အဖြူရောင်"
+    },
+    "page_yellow": {
+        "En": "Yellow",
+        "Mm": "အဝါရောင်"
+    },
+    "page_grey": {
+        "En": "Grey",
+        "Mm": "မီးခိုးရောင်"
+    },
+    "page_black": {
+        "En": "Black",
+        "Mm": "အမဲ(နက်)ရောင်"
     }
 }

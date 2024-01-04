@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AboutPrayerScreen: View {
-    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var preferences: UserPreferences
     
@@ -25,30 +24,7 @@ struct AboutPrayerScreen: View {
                 .navigationBarBackButtonHidden()
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
-                        Button {
-                            dismiss()
-                        } label: {
-                            Circle()
-                                .fill(.ultraThinMaterial)
-                                .background(
-                                    Circle()
-                                        .fill(preferences.accentColor.color)
-                                        .blur(radius: 20)
-                                        .clipShape(Circle())
-                                )
-                                .frame(width: 28)
-                                .overlay {
-                                    Image(systemName: "xmark")
-                                        .font(.caption2.bold())
-                                        .foregroundColor(preferences.accentColor.color)
-                                        .background {
-                                            Image(systemName: "xmark")
-                                                .font(.caption2.bold())
-                                                .foregroundColor(preferences.accentColor.color)
-                                                .blur(radius: colorScheme == .dark ? 2 : 0)
-                                        }
-                                }
-                        }
+                        BtnCloseCircle { dismiss() }
                     }
                 }
         }

@@ -44,6 +44,12 @@
 		C8CA45BF2B41295300240DA7 /* LocalizedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45BE2B41295300240DA7 /* LocalizedLabel.swift */; };
 		C8CA45C22B41304100240DA7 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = C8CA45C12B41304100240DA7 /* NavigationTransitions */; };
 		C8CA45C52B4136CC00240DA7 /* AboutPrayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45C42B4136CC00240DA7 /* AboutPrayerScreen.swift */; };
+		C8CA45C82B413ADD00240DA7 /* ThemesAndSettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45C72B413ADD00240DA7 /* ThemesAndSettingsScreen.swift */; };
+		C8CA45CA2B41415200240DA7 /* BtnCloseCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45C92B41415200240DA7 /* BtnCloseCircle.swift */; };
+		C8CA45D22B41468100240DA7 /* MyanmarSquare.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CA45D12B41468100240DA7 /* MyanmarSquare.ttf */; };
+		C8CA45D62B4146F400240DA7 /* YoeYar-One.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8CA45D52B4146F400240DA7 /* YoeYar-One.ttf */; };
+		C8CA45E42B414A4D00240DA7 /* MyanmarFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45E32B414A4D00240DA7 /* MyanmarFont.swift */; };
+		C8CA45E62B4152AC00240DA7 /* PageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45E52B4152AC00240DA7 /* PageColor.swift */; };
 		C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */; };
 		C8D652812B2E0A3800BB6C42 /* HomeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */; };
 		C8D652852B2E0BDB00BB6C42 /* TabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652842B2E0BDB00BB6C42 /* TabScreen.swift */; };
@@ -51,6 +57,7 @@
 		C8D652962B2EA6BD00BB6C42 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652952B2EA6BD00BB6C42 /* AppColor.swift */; };
 		C8D6529B2B2EA76500BB6C42 /* ChooseColorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D6529A2B2EA76500BB6C42 /* ChooseColorScreen.swift */; };
 		C8D6529D2B2EE5AB00BB6C42 /* CustomCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D6529C2B2EE5AB00BB6C42 /* CustomCornerView.swift */; };
+		C8D730B32B46D42500D19D57 /* OverflowContentViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D730B22B46D42500D19D57 /* OverflowContentViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +117,13 @@
 		C8CA45BC2B41251E00240DA7 /* CommonPrayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerScreen.swift; sourceTree = "<group>"; };
 		C8CA45BE2B41295300240DA7 /* LocalizedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedLabel.swift; sourceTree = "<group>"; };
 		C8CA45C42B4136CC00240DA7 /* AboutPrayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPrayerScreen.swift; sourceTree = "<group>"; };
+		C8CA45C72B413ADD00240DA7 /* ThemesAndSettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesAndSettingsScreen.swift; sourceTree = "<group>"; };
+		C8CA45C92B41415200240DA7 /* BtnCloseCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BtnCloseCircle.swift; sourceTree = "<group>"; };
+		C8CA45D12B41468100240DA7 /* MyanmarSquare.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MyanmarSquare.ttf; sourceTree = "<group>"; };
+		C8CA45D52B4146F400240DA7 /* YoeYar-One.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YoeYar-One.ttf"; sourceTree = "<group>"; };
+		C8CA45E02B4147D600240DA7 /* Jasmine_Unicode.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Jasmine_Unicode.ttf; sourceTree = "<group>"; };
+		C8CA45E32B414A4D00240DA7 /* MyanmarFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyanmarFont.swift; sourceTree = "<group>"; };
+		C8CA45E52B4152AC00240DA7 /* PageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColor.swift; sourceTree = "<group>"; };
 		C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionObservingView.swift; sourceTree = "<group>"; };
 		C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListItemView.swift; sourceTree = "<group>"; };
 		C8D652842B2E0BDB00BB6C42 /* TabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreen.swift; sourceTree = "<group>"; };
@@ -117,6 +131,7 @@
 		C8D652952B2EA6BD00BB6C42 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		C8D6529A2B2EA76500BB6C42 /* ChooseColorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseColorScreen.swift; sourceTree = "<group>"; };
 		C8D6529C2B2EE5AB00BB6C42 /* CustomCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCornerView.swift; sourceTree = "<group>"; };
+		C8D730B22B46D42500D19D57 /* OverflowContentViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverflowContentViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +175,8 @@
 				C8A3424B2B3E6C8F00B24F7C /* PhayarSar */,
 				C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */,
 				C8D652952B2EA6BD00BB6C42 /* AppColor.swift */,
+				C8CA45E32B414A4D00240DA7 /* MyanmarFont.swift */,
+				C8CA45E52B4152AC00240DA7 /* PageColor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -229,6 +246,7 @@
 		C82039D72B1CC2E9000EEF61 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C8CA45C62B413AD300240DA7 /* ThemesAndSettings */,
 				C8CA45C32B4136BD00240DA7 /* AboutPrayer */,
 				C8CA45BB2B4124F600240DA7 /* CommonPrayer */,
 				C8D652972B2EA75400BB6C42 /* ChooseColor */,
@@ -263,6 +281,9 @@
 		C82039DC2B1CC499000EEF61 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				C8CA45E02B4147D600240DA7 /* Jasmine_Unicode.ttf */,
+				C8CA45D12B41468100240DA7 /* MyanmarSquare.ttf */,
+				C8CA45D52B4146F400240DA7 /* YoeYar-One.ttf */,
 				C82039E32B1CC4D6000EEF61 /* DMSerifDisplay-Regular.ttf */,
 				C82039DF2B1CC4B7000EEF61 /* Quicksand-Bold.ttf */,
 				C82039DD2B1CC4B7000EEF61 /* Quicksand-Regular.ttf */,
@@ -279,6 +300,7 @@
 				C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */,
 				C8D6529C2B2EE5AB00BB6C42 /* CustomCornerView.swift */,
 				C8A342512B3E70C800B24F7C /* HapticKit.swift */,
+				C8D730B22B46D42500D19D57 /* OverflowContentViewModifier.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -300,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */,
+				C8CA45C92B41415200240DA7 /* BtnCloseCircle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -356,6 +379,14 @@
 				C8CA45C42B4136CC00240DA7 /* AboutPrayerScreen.swift */,
 			);
 			path = AboutPrayer;
+			sourceTree = "<group>";
+		};
+		C8CA45C62B413AD300240DA7 /* ThemesAndSettings */ = {
+			isa = PBXGroup;
+			children = (
+				C8CA45C72B413ADD00240DA7 /* ThemesAndSettingsScreen.swift */,
+			);
+			path = ThemesAndSettings;
 			sourceTree = "<group>";
 		};
 		C8D652822B2E0BC200BB6C42 /* Tab */ = {
@@ -499,9 +530,11 @@
 				C82039E12B1CC4B7000EEF61 /* Quicksand-SemiBold.ttf in Resources */,
 				C82039E02B1CC4B7000EEF61 /* Quicksand-Regular.ttf in Resources */,
 				C82039B22B1CABE6000EEF61 /* Assets.xcassets in Resources */,
+				C8CA45D62B4146F400240DA7 /* YoeYar-One.ttf in Resources */,
 				C82039F72B1CDB4F000EEF61 /* NatPint.json in Resources */,
 				C82039E22B1CC4B7000EEF61 /* Quicksand-Bold.ttf in Resources */,
 				C82039E42B1CC4D6000EEF61 /* DMSerifDisplay-Regular.ttf in Resources */,
+				C8CA45D22B41468100240DA7 /* MyanmarSquare.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,6 +561,7 @@
 			files = (
 				C83E27F02B2DDAB20038EDF1 /* LocalizedText.swift in Sources */,
 				C82039E92B1CC653000EEF61 /* Font+CustomFonts.swift in Sources */,
+				C8CA45C82B413ADD00240DA7 /* ThemesAndSettingsScreen.swift in Sources */,
 				C84240BE2B2DD31700A2B234 /* LocalizedComponents.swift in Sources */,
 				C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */,
 				C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */,
@@ -547,8 +581,12 @@
 				C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */,
 				C83961B22B4053E900E189D9 /* View+Preview.swift in Sources */,
 				C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */,
+				C8CA45CA2B41415200240DA7 /* BtnCloseCircle.swift in Sources */,
+				C8CA45E62B4152AC00240DA7 /* PageColor.swift in Sources */,
 				C8D652962B2EA6BD00BB6C42 /* AppColor.swift in Sources */,
+				C8CA45E42B414A4D00240DA7 /* MyanmarFont.swift in Sources */,
 				C8D652882B2E0F1D00BB6C42 /* SettingsScreen.swift in Sources */,
+				C8D730B32B46D42500D19D57 /* OverflowContentViewModifier.swift in Sources */,
 				C82039FA2B1CE1C7000EEF61 /* NatPintVO.swift in Sources */,
 				C84240C02B2DD34900A2B234 /* LocalizedKey.swift in Sources */,
 				C8CA45BF2B41295300240DA7 /* LocalizedLabel.swift in Sources */,
