@@ -33,6 +33,12 @@ enum LocalizedKey: String {
     case page_yellow
     case page_grey
     case page_black
+    case font
+    case background_and_color
+    case letter_and_line_spacing
+    case letter_spacing
+    case line_spacing
+    case text_size_and_alignment
     
     func localize(_ lang: AppLanguage) -> String? {
         let dict = langDict[self.rawValue]

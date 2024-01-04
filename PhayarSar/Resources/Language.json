@@ -98,5 +98,29 @@
     "page_black": {
         "En": "Black",
         "Mm": "အမဲ(နက်)ရောင်"
+    },
+    "font": {
+        "En": "Font",
+        "Mm": "ဖောင့်"
+    },
+    "background_and_color": {
+        "En": "Background & Color",
+        "Mm": "နောက်ခံနှင့် စာသားအရောင်"
+    },
+    "letter_and_line_spacing": {
+        "En": "Letter & Line Spacing",
+        "Mm": "စာလုံးနှင့်စာကြောင်း အကွာအဝေး"
+    },
+    "letter_spacing": {
+        "En": "Letter spacing",
+        "Mm": "စာလုံး အကွာအဝေး"
+    },
+    "line_spacing": {
+        "En": "Line spacing",
+        "Mm": "စာကြောင်း အကွာအဝေး"
+    },
+    "text_size_and_alignment": {
+        "En": "Text size & alignment",
+        "Mm": "အရွယ်အစားနှင့် အလိုင်းမန့်"
     }
 }

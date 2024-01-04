@@ -57,7 +57,12 @@ extension CommonPrayerScreen: View {
                 LocalizedLabel(.about_x, args: [model.title], systemImage: "info.circle.fill")
             }
         } label: {
-            Label("Filter", systemImage: "line.3.horizontal.decrease.circle.fill")
+            Image(systemName: "line.3.horizontal.decrease.circle.fill")
+                .symbolRenderingMode(.monochrome)
+                .background(
+                    Circle()
+                        .fill(Color.white)
+                )
         }
     }
 }

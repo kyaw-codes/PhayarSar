@@ -58,6 +58,7 @@
 		C8D6529B2B2EA76500BB6C42 /* ChooseColorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D6529A2B2EA76500BB6C42 /* ChooseColorScreen.swift */; };
 		C8D6529D2B2EE5AB00BB6C42 /* CustomCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D6529C2B2EE5AB00BB6C42 /* CustomCornerView.swift */; };
 		C8D730B32B46D42500D19D57 /* OverflowContentViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D730B22B46D42500D19D57 /* OverflowContentViewModifier.swift */; };
+		C8D730B92B46F74900D19D57 /* CompactSlider in Frameworks */ = {isa = PBXBuildFile; productRef = C8D730B82B46F74900D19D57 /* CompactSlider */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C82039F22B1CCF13000EEF61 /* SwiftUIBackports in Frameworks */,
+				C8D730B92B46F74900D19D57 /* CompactSlider in Frameworks */,
 				C8CA45C22B41304100240DA7 /* NavigationTransitions in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +434,7 @@
 			packageProductDependencies = (
 				C82039F12B1CCF13000EEF61 /* SwiftUIBackports */,
 				C8CA45C12B41304100240DA7 /* NavigationTransitions */,
+				C8D730B82B46F74900D19D57 /* CompactSlider */,
 			);
 			productName = PhayarSar;
 			productReference = C82039AA2B1CABE4000EEF61 /* PhayarSar.app */;
@@ -508,6 +511,7 @@
 			packageReferences = (
 				C82039F02B1CCF13000EEF61 /* XCRemoteSwiftPackageReference "SwiftUIBackports" */,
 				C8CA45C02B41304100240DA7 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */,
+				C8D730B72B46F74900D19D57 /* XCRemoteSwiftPackageReference "CompactSlider" */,
 			);
 			productRefGroup = C82039AB2B1CABE4000EEF61 /* Products */;
 			projectDirPath = "";
@@ -952,6 +956,14 @@
 				minimumVersion = 0.13.3;
 			};
 		};
+		C8D730B72B46F74900D19D57 /* XCRemoteSwiftPackageReference "CompactSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/buh/CompactSlider.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.5;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -964,6 +976,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C8CA45C02B41304100240DA7 /* XCRemoteSwiftPackageReference "swiftui-navigation-transitions" */;
 			productName = NavigationTransitions;
+		};
+		C8D730B82B46F74900D19D57 /* CompactSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8D730B72B46F74900D19D57 /* XCRemoteSwiftPackageReference "CompactSlider" */;
+			productName = CompactSlider;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

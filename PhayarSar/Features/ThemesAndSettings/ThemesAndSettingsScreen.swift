@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import CompactSlider
 
 struct ThemesAndSettingsScreen: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var preferences: UserPreferences
+    @State private var letterSpacing = 10.0
+    @State private var lineSpacing = 3.0
     
     var body: some View {
         ZStack {
@@ -17,13 +20,14 @@ struct ThemesAndSettingsScreen: View {
                 HeaderView()
                 TextPreviewView()
                 
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     FontPickerView()
-
-                    Divider()
-                        .padding(.top)
-                    
+                    Divider().padding(.top)
+                    FontSizeView()
+                    Divider().padding(.top)
                     ColorPickerView()
+                    Divider().padding(.top)
+                    LetterAndLineSpacingView()
                 }
                 .clipShape(
                     CustomCornerView(corners: [.topLeft, .topRight], radius: 20)
@@ -31,6 +35,7 @@ struct ThemesAndSettingsScreen: View {
             }
             .padding()
         }
+        .edgesIgnoringSafeArea(.bottom)
     }
     
     @ViewBuilder
@@ -54,7 +59,7 @@ struct ThemesAndSettingsScreen: View {
             Group {
                 Text("သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။")
                     .tracking(1)
-                    .font(.yoeYar(20))
+                    .font(.jasmine(20))
                     .lineSpacing(10)
                     .padding()
             }
@@ -67,7 +72,7 @@ struct ThemesAndSettingsScreen: View {
     @ViewBuilder
     private func FontPickerView() -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Font")
+            LocalizedText(.font)
                 .font(.dmSerif(20))
             HStack(spacing: 14) {
                 ForEach(MyanmarFont.allCases) { font in
@@ -100,7 +105,7 @@ struct ThemesAndSettingsScreen: View {
     @ViewBuilder
     private func ColorPickerView() -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Background & Color")
+            LocalizedText(.background_and_color)
                 .font(.dmSerif(20))
             
             ScrollView {
@@ -131,6 +136,130 @@ struct ThemesAndSettingsScreen: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    @ViewBuilder
+    private func LetterAndLineSpacingView() -> some View {
+        VStack(alignment: .leading) {
+            LocalizedText(.letter_and_line_spacing)
+                .font(.dmSerif(20))
+            
+            CompactSlider(value: $letterSpacing, in: 0...20, step: 0.5) {
+                LocalizedLabel(.letter_spacing, systemImage: "arrow.left.and.right.text.vertical")
+                    .font(.qsB(16))
+                Spacer()
+                Text("\(preferences.appLang == .Eng ? convertNumberMmToEng("\(Int(letterSpacing))") : convertNumberEngToMm("\(Int(letterSpacing))"))")
+                    .font(.dmSerif(18))
+            }
+            .compactSliderStyle(CustomCompactSliderStyle(accentColor: preferences.accentColor.color))
+            
+            CompactSlider(value: $lineSpacing, in: 0...20, step: 0.5) {
+                LocalizedLabel(.line_spacing, systemImage: "arrow.up.and.down.text.horizontal")
+                    .font(.qsB(16))
+                Spacer()
+                Text("\(preferences.appLang == .Eng ? convertNumberMmToEng("\(Int(lineSpacing))") : convertNumberEngToMm("\(Int(lineSpacing))"))")
+                    .font(.dmSerif(18))
+            }
+            .compactSliderStyle(CustomCompactSliderStyle(accentColor: preferences.accentColor.color))
+            .padding(.top, 4)
+        }
+    }
+    
+    @ViewBuilder
+    private func FontSizeView() -> some View {
+        VStack(alignment: .leading) {
+            LocalizedText(.text_size_and_alignment)
+                .font(.dmSerif(20))
+            
+            HStack(alignment: .top, spacing: 12) {
+                VStack {
+                    IncreaseDecreaseBtn()
+                    TextSizeIndicator()
+                }
+                
+                Button {
+                    
+                } label: {
+                    Image(systemName: "text.justify.left")
+                        .font(.body.bold())
+                        .foregroundColor(preferences.accentColor.color)
+                        .padding(12)
+                        .background {
+                            RoundedRectangle(cornerRadius: 10)
+                                .fill(preferences.accentColor.color.opacity(0.2))
+                        }
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func IncreaseDecreaseBtn() -> some View {
+        HStack {
+            Button {
+                
+            } label: {
+                HStack {
+                    Spacer()
+                    Image(systemName: "character")
+                        .font(.body)
+                        .padding(.vertical, 12)
+                    Spacer()
+                }
+            }
+            
+            Rectangle()
+                .fill(preferences.accentColor.color.opacity(0.6))
+                .frame(width: 1)
+                .padding(.vertical, 10)
+            
+            Button {
+                
+            } label: {
+                HStack {
+                    Spacer()
+                    Image(systemName: "character")
+                        .font(.title2)
+                    Spacer()
+                }
+            }
+        }
+        .foregroundColor(preferences.accentColor.color)
+        .background {
+            RoundedRectangle(cornerRadius: 12)
+                .fill(preferences.accentColor.color.opacity(0.2))
+        }
+    }
+    
+    @ViewBuilder
+    private func TextSizeIndicator() -> some View {
+        HStack(spacing: 2) {
+            ForEach(0 ..< 15, id: \.self) { id in
+                HStack {
+                    RoundedRectangle(cornerRadius: 6)
+                        .fill(preferences.accentColor.color.opacity(id < 8 ? 1 : 0.3))
+                        .frame(height: 4)
+                }
+            }
+        }
+        .padding(.top, 8)
+        .padding(.horizontal, 30)
+    }
+}
+
+struct CustomCompactSliderStyle: CompactSliderStyle {
+    let accentColor: Color
+    
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .foregroundColor(
+                configuration.isHovering || configuration.isDragging ? accentColor : accentColor.opacity(0.7)
+            )
+            .background(
+                accentColor.opacity(0.1)
+            )
+            .accentColor(accentColor)
+            .clipShape(RoundedRectangle(cornerRadius: 14))
     }
 }
 
