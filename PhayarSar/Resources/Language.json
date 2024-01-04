@@ -120,7 +120,19 @@
         "Mm": "စာကြောင်း အကွာအဝေး"
     },
     "text_size_and_alignment": {
-        "En": "Text size & alignment",
+        "En": "Text Size & Alignment",
         "Mm": "အရွယ်အစားနှင့် အလိုင်းမန့်"
+    },
+    "align_left": {
+        "En": "Align left",
+        "Mm": "ဘယ်ကပ်"
+    },
+    "align_center": {
+        "En": "Align center",
+        "Mm": "အလယ်"
+    },
+    "justify": {
+        "En": "Justify",
+        "Mm": "အပြည့်နေရာယူ"
     }
 }

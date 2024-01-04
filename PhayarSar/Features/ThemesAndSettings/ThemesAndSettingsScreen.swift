@@ -177,10 +177,26 @@ struct ThemesAndSettingsScreen: View {
                     TextSizeIndicator()
                 }
                 
-                Button {
+                Menu {
+                    Button {
+                        
+                    } label: {
+                        LocalizedLabel(.align_left, systemImage: "text.alignleft")
+                    }
                     
+                    Button {
+                        
+                    } label: {
+                        LocalizedLabel(.align_center, systemImage: "text.aligncenter")
+                    }
+                    
+                    Button {
+                        
+                    } label: {
+                        LocalizedLabel(.justify, systemImage: "text.justify")
+                    }
                 } label: {
-                    Image(systemName: "text.justify.left")
+                    Image(systemName: "text.alignleft")
                         .font(.body.bold())
                         .foregroundColor(preferences.accentColor.color)
                         .padding(12)
@@ -189,6 +205,20 @@ struct ThemesAndSettingsScreen: View {
                                 .fill(preferences.accentColor.color.opacity(0.2))
                         }
                 }
+
+                
+//                Button {
+//                    
+//                } label: {
+//                    Image(systemName: "text.justify.left")
+//                        .font(.body.bold())
+//                        .foregroundColor(preferences.accentColor.color)
+//                        .padding(12)
+//                        .background {
+//                            RoundedRectangle(cornerRadius: 10)
+//                                .fill(preferences.accentColor.color.opacity(0.2))
+//                        }
+//                }
             }
         }
     }
