@@ -13,6 +13,7 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
     @EnvironmentObject var preferences: UserPreferences
     @State private var showAboutScreen = false
     @State private var showThemesScreen = false
+    @State private var showPopover = false
     
     // Dependencies
     var model: Model

@@ -9,10 +9,12 @@ import SwiftUI
 import CompactSlider
 
 struct ThemesAndSettingsScreen: View {
+    @Environment(\.safeAreaInsets) var safeAreaInsets
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var preferences: UserPreferences
     @State private var letterSpacing = 10.0
     @State private var lineSpacing = 3.0
+    @State private var showPronunciation = false
     
     var body: some View {
         ZStack {
@@ -28,6 +30,15 @@ struct ThemesAndSettingsScreen: View {
                     ColorPickerView()
                     Divider().padding(.top)
                     LetterAndLineSpacingView()
+                    Divider().padding(.top)
+                    Toggle(isOn: $showPronunciation, label: {
+                        LocalizedLabel(.show_pronunciation, systemImage: "captions.bubble.fill")
+                            .font(.dmSerif(20))
+                    })
+                    .padding(.horizontal, 2)
+                    .padding(.top, 12)
+                    .padding(.bottom, safeAreaInsets.bottom)
+                    .tint(preferences.accentColor.color)
                 }
                 .clipShape(
                     CustomCornerView(corners: [.topLeft, .topRight], radius: 20)

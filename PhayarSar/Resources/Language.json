@@ -134,5 +134,9 @@
     "justify": {
         "En": "Justify",
         "Mm": "အပြည့်နေရာယူ"
+    },
+    "show_pronunciation": {
+        "En": "Show Pronunciation",
+        "Mm": "အသံထွက် ပြမယ်"
     }
 }

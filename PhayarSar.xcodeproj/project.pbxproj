@@ -40,6 +40,7 @@
 		C8AAE0182B2D784900BE54CA /* ChooseLanguageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */; };
 		C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */; };
 		C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE01D2B2DB84200BE54CA /* Optional.swift */; };
+		C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */; };
 		C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45BC2B41251E00240DA7 /* CommonPrayerScreen.swift */; };
 		C8CA45BF2B41295300240DA7 /* LocalizedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45BE2B41295300240DA7 /* LocalizedLabel.swift */; };
 		C8CA45C22B41304100240DA7 /* NavigationTransitions in Frameworks */ = {isa = PBXBuildFile; productRef = C8CA45C12B41304100240DA7 /* NavigationTransitions */; };
@@ -115,6 +116,7 @@
 		C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageScreen.swift; sourceTree = "<group>"; };
 		C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		C8AAE01D2B2DB84200BE54CA /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedToggle.swift; sourceTree = "<group>"; };
 		C8CA45BC2B41251E00240DA7 /* CommonPrayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerScreen.swift; sourceTree = "<group>"; };
 		C8CA45BE2B41295300240DA7 /* LocalizedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedLabel.swift; sourceTree = "<group>"; };
 		C8CA45C42B4136CC00240DA7 /* AboutPrayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPrayerScreen.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				C83E27F12B2DDACC0038EDF1 /* LocalizedNavTitle.swift */,
 				C84240BD2B2DD31700A2B234 /* LocalizedComponents.swift */,
 				C8CA45BE2B41295300240DA7 /* LocalizedLabel.swift */,
+				C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -567,6 +570,7 @@
 				C82039E92B1CC653000EEF61 /* Font+CustomFonts.swift in Sources */,
 				C8CA45C82B413ADD00240DA7 /* ThemesAndSettingsScreen.swift in Sources */,
 				C84240BE2B2DD31700A2B234 /* LocalizedComponents.swift in Sources */,
+				C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */,
 				C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */,
 				C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */,
 				C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */,
