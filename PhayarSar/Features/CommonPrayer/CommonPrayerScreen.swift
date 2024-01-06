@@ -20,10 +20,9 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
     @State private var currentIndex = 0
     @State private var lastParagraphHeight = 0.0
     @State private var paragraphRefreshId = UUID().uuidString
+    @State private var startTime = Date().timeIntervalSince1970
     
-    @StateObject private var scrollManager = SpotlightScrollManager()
-
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     // Dependencies
     @Binding var model: Model
@@ -48,6 +47,7 @@ extension CommonPrayerScreen: View {
                     }
                     .padding(.horizontal)
                 }
+                .allowsHitTesting(false)
                 .onReceive(timer) { _ in
                     guard isPlaying else { return }
                     scrollToNextParagraph(proxy: proxy)
@@ -63,6 +63,7 @@ extension CommonPrayerScreen: View {
             
             ToolbarItem {
                 Button {
+                    startTime = Date().timeIntervalSince1970
                     isPlaying.toggle()
                 } label: {
                     Image(systemName: "play.circle.fill")
@@ -82,29 +83,43 @@ extension CommonPrayerScreen: View {
             }
             .backport.presentationDetents([.medium, .large])
         }
+        .onAppear {
+            model.body[0].isBlur = false
+        }
     }
 }
 
 fileprivate extension CommonPrayerScreen {
+    
     func scrollToNextParagraph(proxy: ScrollViewProxy) {
-        paragraphRefreshId = UUID().uuidString
-        defer { currentIndex += 1 }
-        
-        guard currentIndex < model.body.count else { return }
-
-        withAnimation(.easeIn) {
-            proxy.scrollTo(model.body[currentIndex].id, anchor: .top)
+        guard currentIndex < model.body.count else {
+            currentIndex = 0
+            isPlaying.toggle()
+            return
         }
-        
-        for i in 0 ..< model.body.count {
-            model.body[i].isBlur = i != currentIndex
+
+        let timeLapse = Date().timeIntervalSince1970 - startTime
+
+        if timeLapse >= model.body[currentIndex].duration {
+            defer {
+                startTime = Date().timeIntervalSince1970
+                currentIndex += 1
+                paragraphRefreshId = UUID().uuidString
+            }
+            
+            withAnimation(.easeIn) {
+                proxy.scrollTo(model.body[currentIndex].id, anchor: .top)
+            }
+            
+            for i in 0 ..< model.body.count {
+                model.body[i].isBlur = i != currentIndex
+            }
         }
     }
     
     @ViewBuilder func PrayerMenu() -> some View {
         Menu {
             Button {
-                currentIndex = 0
                 showThemesScreen.toggle()
             } label: {
                 LocalizedLabel(.themes_and_settings, default: "Themes & Settings", systemImage: "textformat.size")

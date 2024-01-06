@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */; };
 		C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */; };
 		C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */; };
 		C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AF2B1CABE4000EEF61 /* ContentView.swift */; };
@@ -85,6 +86,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerProtocol.swift; sourceTree = "<group>"; };
 		C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		C82039AA2B1CABE4000EEF61 /* PhayarSar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhayarSar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarApp.swift; sourceTree = "<group>"; };
@@ -175,6 +177,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C80287452B49410400F165DF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */,
+				C8D652952B2EA6BD00BB6C42 /* AppColor.swift */,
+				C8CA45E32B414A4D00240DA7 /* MyanmarFont.swift */,
+				C8CA45E52B4152AC00240DA7 /* PageColor.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		C81E927B2B2DC94C00F4ED9E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,11 +200,9 @@
 		C81E927E2B2DCDAD00F4ED9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */,
 				C8A3424B2B3E6C8F00B24F7C /* PhayarSar */,
-				C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */,
-				C8D652952B2EA6BD00BB6C42 /* AppColor.swift */,
-				C8CA45E32B414A4D00240DA7 /* MyanmarFont.swift */,
-				C8CA45E52B4152AC00240DA7 /* PageColor.swift */,
+				C80287452B49410400F165DF /* App */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -599,6 +610,7 @@
 				C8BBB3702B49108F00F3828C /* SpotlightScrollManager.swift in Sources */,
 				C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */,
 				C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */,
+				C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */,
 				C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */,
 				C8D6529D2B2EE5AB00BB6C42 /* CustomCornerView.swift in Sources */,
 				C8CA45C52B4136CC00240DA7 /* AboutPrayerScreen.swift in Sources */,

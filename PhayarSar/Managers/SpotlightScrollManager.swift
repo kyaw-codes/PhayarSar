@@ -8,16 +8,29 @@
 import SwiftUI
 import Combine
 
-final class SpotlightScrollManager: ObservableObject {
+final class SpotlightScrollManager<Model>: ObservableObject where Model: CommonPrayerProtocol {
     
-    @Published var isPlaying = false
-    @Published var currentIndex = 0
+    @Published private(set) var isPlaying = false
+    @Published private(set) var currentId = ""
+    @Published var model: Model
+    
+    init(model: Model) {
+        self.model = model
+    }
+    
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     /// Used to force recalculate `body` of paragraph view
     @Published var paragraphRefreshId = UUID().uuidString
     
     func startScrolling() {
-        isPlaying = true
+        isPlaying.toggle()
+        
+        guard isPlaying else { return }
+        paragraphRefreshId = UUID().uuidString
+    }
+    
+    func scrollTo(_ id: String) {
+        currentId = id
     }
 }

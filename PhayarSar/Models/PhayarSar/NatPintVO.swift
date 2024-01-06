@@ -7,28 +7,6 @@
 
 import Foundation
 
-protocol CommonPrayerProtocol: Identifiable {
-    associatedtype Body: CommonPrayerBodyProtocol
-    
-    var id: String { get }
-    var title: String { get }
-    var about: String { get }
-    var body: [Body] { get set }
-}
-
-protocol CommonPrayerBodyProtocol: Identifiable {
-    var id: String { get }
-    var content: String { get }
-    var pronunciation: String { get }
-    var isBlur: Bool { get set }
-}
-
-extension Array where Element: CommonPrayerBodyProtocol {
-    func index(of element: some CommonPrayerBodyProtocol) -> Int {
-        self.firstIndex(where: { $0.id == element.id }) ?? 0
-    }
-}
-
 class NatPintVO: Decodable, CommonPrayerProtocol {
     var id: String { "NatPint" }
     let title: String
