@@ -12,6 +12,7 @@ struct HomeScreen: View {
     @EnvironmentObject private var preferences: UserPreferences
     @State private var showOnboarding = false
     @State private var offset: CGPoint = .zero
+    @State private var demoModel = natPint
     
     var body: some View {
         OffsetObservingScrollView(offset: $offset) {
@@ -20,7 +21,7 @@ struct HomeScreen: View {
             LazyVStack(spacing: 12) {
                 ForEach(1...10, id: \.self) { count in
                     NavigationLink {
-                        CommonPrayerScreen(model: natPint)
+                        CommonPrayerScreen(model: $demoModel)
                             .onAppear {
                                 showTabBar = false
                             }
