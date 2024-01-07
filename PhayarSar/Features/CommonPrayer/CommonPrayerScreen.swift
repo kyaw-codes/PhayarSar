@@ -35,10 +35,7 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
 
 extension CommonPrayerScreen: View {
     var body: some View {
-        VStack(spacing: 0) {
-            HeaderView()
-            AutoScrollingView()
-        }
+        AutoScrollingView()
         .overlay(alignment: .bottomTrailing) {
             // MARK: Progress/Play Area
             Group {
@@ -59,10 +56,12 @@ extension CommonPrayerScreen: View {
             .padding()
             .padding(.trailing)
         }
-//        .navigationTitle(model.title)
-//        .navigationBarTitleDisplayMode(.inline)
-//        .toolbar { ToolbarItem { PrayerMenu() } }
-        .navigationBarHidden(true)
+        .navigationTitle(model.title)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem { PrayerMenu() }
+        }
+//        .navigationBarHidden(true)
         .sheet(isPresented: $showAboutScreen) {
             NavigationView {
                 AboutPrayerScreen(title: model.title, about: model.about)
@@ -228,7 +227,7 @@ fileprivate extension CommonPrayerScreen {
             }
         } label: {
             Image(systemName: "line.3.horizontal.decrease.circle.fill")
-                .font(.title2)
+//                .font(.title2)
                 .symbolRenderingMode(.monochrome)
                 .background(
                     Circle()
