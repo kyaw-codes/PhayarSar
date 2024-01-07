@@ -22,6 +22,8 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
     @State private var paragraphRefreshId = UUID().uuidString
     @State private var startTime = Date().timeIntervalSince1970
     
+    @State private var scrollToId: String?
+    
     private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     // Dependencies
@@ -30,44 +32,66 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
 
 extension CommonPrayerScreen: View {
     var body: some View {
-        GeometryReader { gProxy in
+        GeometryReader {
+            let size = $0.size
+            
             ScrollViewReader { proxy in
                 ScrollView {
                     VStack(spacing: 30) {
                         ForEach($model.body) { prayer in
-                            CommonPrayerParagraphView<Model>(refreshId: $paragraphRefreshId, prayer: prayer, index: $currentIndex)
+                            CommonPrayerParagraphView<Model>(refreshId: $paragraphRefreshId, prayer: prayer, index: $currentIndex, scrollToId: $scrollToId)
                                 .id(prayer.id)
                                 .measure(\.height) { value in
                                     if model.body.last?.id == prayer.wrappedValue.id {
                                         lastParagraphHeight = value
                                     }
                                 }
-                                .padding(.bottom, model.body.last?.id == prayer.wrappedValue.id ? gProxy.size.height - lastParagraphHeight - 60 : 0)
+                                .padding(.bottom, model.body.last?.id == prayer.wrappedValue.id ? size.height - lastParagraphHeight - 60 : 0)
                         }
                     }
                     .padding(.horizontal)
                 }
-                .allowsHitTesting(false)
                 .onReceive(timer) { _ in
                     guard isPlaying else { return }
                     scrollToNextParagraph(proxy: proxy)
                 }
+                .onChange(of: scrollToId, perform: { id in
+                    currentIndex = model.body.firstIndex(where: { $0.id == id })!
+                    
+                    withAnimation(.easeIn) {
+                        proxy.scrollTo(id, anchor: .top)
+                    }
+                    
+                    for i in 0 ..< model.body.count {
+                        model.body[i].isBlur = i != currentIndex
+                    }
+                })
             }
+        }
+        .overlay(alignment: .bottomTrailing) {
+            Group {
+                if isPlaying {
+                    PrayingProgressView(progress: .constant(30), onPause: {
+                        
+                    }, onCancel: {
+                        withAnimation(.spring(duration: 0.5, bounce: 0.1, blendDuration: 0.2)) {
+                            isPlaying.toggle()
+                        }
+                    })
+                    .transition(.move(edge: .bottom).combined(with: .scale).combined(with: .offset(y: 30)))
+                } else {
+                    PrayNowBtn()
+                        .transition(.move(edge: .trailing).combined(with: .scale))
+                }
+            }
+            .padding()
+            .padding(.trailing)
         }
         .navigationTitle(model.title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem {
                 PrayerMenu()
-            }
-            
-            ToolbarItem {
-                Button {
-                    startTime = Date().timeIntervalSince1970
-                    isPlaying.toggle()
-                } label: {
-                    Image(systemName: "play.circle.fill")
-                }
             }
         }
         .tint(preferences.accentColor.color)
@@ -86,6 +110,7 @@ extension CommonPrayerScreen: View {
         .onAppear {
             model.body[0].isBlur = false
         }
+        
     }
 }
 
@@ -114,6 +139,29 @@ fileprivate extension CommonPrayerScreen {
             for i in 0 ..< model.body.count {
                 model.body[i].isBlur = i != currentIndex
             }
+        }
+    }
+    
+    @ViewBuilder func PrayNowBtn() -> some View {
+        Button {
+            startTime = Date().timeIntervalSince1970
+            
+            withAnimation(.spring(duration: 0.4, bounce: 0.2, blendDuration: 0.4)) {
+                isPlaying.toggle()
+            }
+        } label: {
+            HStack(spacing: 5) {
+                Image(systemName: "play.circle.fill")
+                
+                LocalizedText(.btn_pray)
+                    .foregroundColor(.primary)
+            }
+            .foregroundColor(preferences.accentColor.color)
+            .font(.dmSerif(16))
+            .padding(.horizontal)
+            .padding(.vertical, 12)
+            .background(Capsule().fill(preferences.accentColor.color.opacity(0.2)))
+            .background(Capsule().fill(.ultraThinMaterial))
         }
     }
     

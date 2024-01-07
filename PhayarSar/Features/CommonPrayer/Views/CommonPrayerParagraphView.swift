@@ -13,6 +13,7 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
     @Binding var refreshId: String
     @Binding var prayer: Model.Body
     @Binding var index: Int
+    @Binding var scrollToId: String?
     
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -28,6 +29,10 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
         .blur(radius: prayer.isBlur ? 2.5 : 0)
         .frame(maxWidth: .infinity, alignment: .leading)
         .id(refreshId)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            scrollToId = prayer.id
+        }
     }
 }
 
@@ -35,7 +40,8 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
     CommonPrayerParagraphView<NatPintVO>(
         refreshId: .constant(""),
         prayer: .constant(natPint.body[0]), 
-        index: .constant(0)
+        index: .constant(0),
+        scrollToId: .constant(nil)
     )
     .previewEnvironment()
 }
