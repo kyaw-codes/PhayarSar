@@ -5,14 +5,17 @@
 //  Created by Kyaw Zay Ya Lin Tun on 07/01/2024.
 //
 
-import SwiftUI
+import Foundation
 
-struct ScrollingSpeed: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    ScrollingSpeed()
+enum ScrollingSpeed: String, CaseIterable, Hashable, Identifiable {
+    case x0_5
+    case x0_75
+    case x1
+    case x1_25
+    case x1_5
+    case x2
+    
+    var key: LocalizedKey { .init(rawValue: self.rawValue)! }
+    
+    var id: String { self.rawValue }
 }

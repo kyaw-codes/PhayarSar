@@ -15,6 +15,7 @@ struct ThemesAndSettingsScreen: View {
     @State private var letterSpacing = 10.0
     @State private var lineSpacing = 3.0
     @State private var showPronunciation = false
+    @State private var spotlightTextEnable = true
     
     var body: some View {
         ZStack {
@@ -30,10 +31,20 @@ struct ThemesAndSettingsScreen: View {
                     ColorPickerView()
                     Divider().padding(.top)
                     LetterAndLineSpacingView()
+                   
                     Divider().padding(.top)
                     Toggle(isOn: $showPronunciation, label: {
                         LocalizedLabel(.show_pronunciation, systemImage: "captions.bubble.fill")
-                            .font(.dmSerif(20))
+                            .font(.dmSerif(16))
+                    })
+                    .padding(.horizontal, 2)
+                    .padding(.top, 12)
+                    .tint(preferences.accentColor.color)
+                    
+                    Divider().padding(.top)
+                    Toggle(isOn: $spotlightTextEnable, label: {
+                        LocalizedLabel(.spotlight_text, systemImage: "text.line.first.and.arrowtriangle.forward")
+                            .font(.dmSerif(16))
                     })
                     .padding(.horizontal, 2)
                     .padding(.top, 12)

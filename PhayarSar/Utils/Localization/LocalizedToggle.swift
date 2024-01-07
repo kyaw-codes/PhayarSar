@@ -15,7 +15,7 @@ struct LocalizedToggle: View {
     let systemImage: String
     let isOn: Binding<Bool>
     
-    init(_ titleKey: LocalizedKey, defaultTitle title: String = "", args: [String] = [], systemImage: String, isOn: Binding<Bool>) {
+    init(_ titleKey: LocalizedKey, defaultTitle title: String = "", args: [String] = [], systemImage: String = "", isOn: Binding<Bool>) {
         self.titleKey = titleKey
         self.args = args
         self.defaultTitle = title

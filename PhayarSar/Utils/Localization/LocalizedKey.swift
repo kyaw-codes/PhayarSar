@@ -43,6 +43,14 @@ enum LocalizedKey: String {
     case align_center
     case justify
     case show_pronunciation
+    case scrolling_speed
+    case spotlight_text
+    case x0_5
+    case x0_75
+    case x1
+    case x1_25
+    case x1_5
+    case x2
     
     func localize(_ lang: AppLanguage) -> String? {
         let dict = langDict[self.rawValue]

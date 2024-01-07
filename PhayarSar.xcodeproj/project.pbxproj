@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */; };
 		C80287472B4A5F3600F165DF /* PrayingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287462B4A5F3600F165DF /* PrayingProgressView.swift */; };
+		C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287482B4A866E00F165DF /* ScrollingSpeed.swift */; };
 		C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */; };
 		C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */; };
 		C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AF2B1CABE4000EEF61 /* ContentView.swift */; };
@@ -89,6 +90,7 @@
 /* Begin PBXFileReference section */
 		C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerProtocol.swift; sourceTree = "<group>"; };
 		C80287462B4A5F3600F165DF /* PrayingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayingProgressView.swift; sourceTree = "<group>"; };
+		C80287482B4A866E00F165DF /* ScrollingSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingSpeed.swift; sourceTree = "<group>"; };
 		C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		C82039AA2B1CABE4000EEF61 /* PhayarSar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhayarSar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarApp.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				C8D652952B2EA6BD00BB6C42 /* AppColor.swift */,
 				C8CA45E32B414A4D00240DA7 /* MyanmarFont.swift */,
 				C8CA45E52B4152AC00240DA7 /* PageColor.swift */,
+				C80287482B4A866E00F165DF /* ScrollingSpeed.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -626,6 +629,7 @@
 				C83E27F22B2DDACC0038EDF1 /* LocalizedNavTitle.swift in Sources */,
 				C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */,
 				C8D652812B2E0A3800BB6C42 /* HomeListItemView.swift in Sources */,
+				C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */,
 				C84626B52B222B6B000931AE /* HomeScreen.swift in Sources */,
 				C8D6529B2B2EA76500BB6C42 /* ChooseColorScreen.swift in Sources */,
 				C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */,

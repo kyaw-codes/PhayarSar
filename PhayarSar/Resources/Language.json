@@ -138,5 +138,37 @@
     "show_pronunciation": {
         "En": "Show Pronunciation",
         "Mm": "အသံထွက် ပြမယ်"
+    },
+    "scrolling_speed": {
+        "En": "Scrolling Speed",
+        "Mm": "အမြန်နှုန်း"
+    },
+    "spotlight_text": {
+        "En": "Spotlight text",
+        "Mm": "လက်ရှိစာသားကို ဦးစားပေးပြမယ်"
+    },
+    "x0_5": {
+        "En": "0.5x",
+        "Mm": "၀.၅ ဆ"
+    },
+    "x0_75": {
+        "En": "0.75x",
+        "Mm": "၀.၇၅ ဆ"
+    },
+    "x1": {
+        "En": "Normal",
+        "Mm": "ပုံမှန်"
+    },
+    "x1_25": {
+        "En": "1.25x",
+        "Mm": "၁.၂၅ ဆ"
+    },
+    "x1_5": {
+        "En": "1.5x",
+        "Mm": "၁.၅ ဆ"
+    },
+    "x2": {
+        "En": "2x",
+        "Mm": "၂ ဆ"
     }
 }
