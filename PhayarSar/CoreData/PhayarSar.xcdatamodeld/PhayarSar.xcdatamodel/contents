@@ -1,2 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier=""/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23C71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="PrayerConfiguration" representedClassName=".PrayerConfiguration" syncable="YES">
+        <attribute name="backgroundColor" optional="YES" attributeType="String"/>
+        <attribute name="font" optional="YES" attributeType="String"/>
+        <attribute name="letterSpacing" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lineSpacing" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="prayerId" optional="YES" attributeType="String"/>
+        <attribute name="scrollingSpeed" optional="YES" attributeType="String"/>
+        <attribute name="showPronunciation" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="spotlightText" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="textAlignment" optional="YES" attributeType="String"/>
+        <attribute name="textSize" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+</model>

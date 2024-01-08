@@ -40,6 +40,7 @@ enum LocalizedKey: String {
     case line_spacing
     case text_size_and_alignment
     case align_left
+    case align_right
     case align_center
     case justify
     case show_pronunciation

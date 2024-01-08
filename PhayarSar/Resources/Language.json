@@ -127,6 +127,10 @@
         "En": "Align left",
         "Mm": "ဘယ်ကပ်"
     },
+    "align_left": {
+        "En": "Align right",
+        "Mm": "ညာကပ်"
+    },
     "align_center": {
         "En": "Align center",
         "Mm": "အလယ်"
