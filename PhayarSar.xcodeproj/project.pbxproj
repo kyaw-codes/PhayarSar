@@ -45,6 +45,7 @@
 		C84E69202B4C42FA006231CD /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E691F2B4C42FA006231CD /* NSObject+Extension.swift */; };
 		C84E69222B4C4530006231CD /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69212B4C4530006231CD /* DemoView.swift */; };
 		C84E69242B4C4776006231CD /* PrayerAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69232B4C4776006231CD /* PrayerAlignment.swift */; };
+		C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */; };
 		C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A342512B3E70C800B24F7C /* HapticKit.swift */; };
 		C8AAE0182B2D784900BE54CA /* ChooseLanguageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */; };
 		C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */; };
@@ -52,7 +53,6 @@
 		C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */; };
 		C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3672B48534400F3828C /* CommonPrayerParagraphView.swift */; };
 		C8BBB36A2B485AE900F3828C /* CommonPrayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3692B485AE900F3828C /* CommonPrayerModel.swift */; };
-		C8BBB36C2B48616F00F3828C /* ScrollViewReaderDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB36B2B48616F00F3828C /* ScrollViewReaderDemoView.swift */; };
 		C8BBB36E2B48713000F3828C /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB36D2B48713000F3828C /* Measure.swift */; };
 		C8BBB3702B49108F00F3828C /* SpotlightScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB36F2B49108F00F3828C /* SpotlightScrollManager.swift */; };
 		C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45BC2B41251E00240DA7 /* CommonPrayerScreen.swift */; };
@@ -135,6 +135,7 @@
 		C84E691F2B4C42FA006231CD /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		C84E69212B4C4530006231CD /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		C84E69232B4C4776006231CD /* PrayerAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerAlignment.swift; sourceTree = "<group>"; };
+		C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerVM.swift; sourceTree = "<group>"; };
 		C8A342512B3E70C800B24F7C /* HapticKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticKit.swift; sourceTree = "<group>"; };
 		C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageScreen.swift; sourceTree = "<group>"; };
 		C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
@@ -142,7 +143,6 @@
 		C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedToggle.swift; sourceTree = "<group>"; };
 		C8BBB3672B48534400F3828C /* CommonPrayerParagraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerParagraphView.swift; sourceTree = "<group>"; };
 		C8BBB3692B485AE900F3828C /* CommonPrayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerModel.swift; sourceTree = "<group>"; };
-		C8BBB36B2B48616F00F3828C /* ScrollViewReaderDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewReaderDemoView.swift; sourceTree = "<group>"; };
 		C8BBB36D2B48713000F3828C /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		C8BBB36F2B49108F00F3828C /* SpotlightScrollManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightScrollManager.swift; sourceTree = "<group>"; };
 		C8CA45BC2B41251E00240DA7 /* CommonPrayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerScreen.swift; sourceTree = "<group>"; };
@@ -438,7 +438,7 @@
 				C8BBB3662B48532B00F3828C /* Views */,
 				C8CA45BC2B41251E00240DA7 /* CommonPrayerScreen.swift */,
 				C8BBB3692B485AE900F3828C /* CommonPrayerModel.swift */,
-				C8BBB36B2B48616F00F3828C /* ScrollViewReaderDemoView.swift */,
+				C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */,
 			);
 			path = CommonPrayer;
 			sourceTree = "<group>";
@@ -650,6 +650,7 @@
 				C80287472B4A5F3600F165DF /* PrayingProgressView.swift in Sources */,
 				C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */,
 				C8BBB36A2B485AE900F3828C /* CommonPrayerModel.swift in Sources */,
+				C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */,
 				C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */,
 				C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */,
 				C84E69202B4C42FA006231CD /* NSObject+Extension.swift in Sources */,
@@ -671,7 +672,6 @@
 				C8CA45E42B414A4D00240DA7 /* MyanmarFont.swift in Sources */,
 				C8D652882B2E0F1D00BB6C42 /* SettingsScreen.swift in Sources */,
 				C8D730B32B46D42500D19D57 /* OverflowContentViewModifier.swift in Sources */,
-				C8BBB36C2B48616F00F3828C /* ScrollViewReaderDemoView.swift in Sources */,
 				C82039FA2B1CE1C7000EEF61 /* NatPintVO.swift in Sources */,
 				C84240C02B2DD34900A2B234 /* LocalizedKey.swift in Sources */,
 				C8CA45BF2B41295300240DA7 /* LocalizedLabel.swift in Sources */,

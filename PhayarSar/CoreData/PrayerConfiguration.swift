@@ -29,7 +29,7 @@ final class PrayerConfiguration: NSManagedObject {
     setPrimitiveValue(Int16(2), forKey: "letterSpacing")
     setPrimitiveValue(Int16(15), forKey: "lineSpacing")
     setPrimitiveValue(PageColor.classic.rawValue, forKey: "backgroundColor")
-    setPrimitiveValue(ScrollingSpeed.x1, forKey: "scrollingSpeed")
+    setPrimitiveValue(ScrollingSpeed.x1.rawValue, forKey: "scrollingSpeed")
     setPrimitiveValue(true, forKey: "showPronunciation")
     setPrimitiveValue(false, forKey: "spotlightText")
   }
@@ -37,8 +37,27 @@ final class PrayerConfiguration: NSManagedObject {
 }
 
 extension PrayerConfiguration {
-  private static var prayerFetchRequest: NSFetchRequest<PrayerConfiguration> {
+  static var prayerFetchRequest: NSFetchRequest<PrayerConfiguration> {
     NSFetchRequest(entityName: "PrayerConfiguration")
+  }
+  
+  static func all() -> NSFetchRequest<PrayerConfiguration> {
+      let request: NSFetchRequest<PrayerConfiguration> = prayerFetchRequest
+      request.sortDescriptors = [
+        NSSortDescriptor(keyPath: \PrayerConfiguration.prayerId, ascending: false)
+      ]
+      return request
+  }
+  
+  static func findBy(prayerId: String, in context: NSManagedObjectContext = CoreDataStack.shared.viewContext) -> PrayerConfiguration? {
+    let req = PrayerConfiguration.prayerFetchRequest
+    req.predicate = NSPredicate(format: "prayerId = %@", prayerId)
+    
+    if let arr = try? context.fetch(req) {
+      return arr.first
+    }
+    
+    return nil
   }
   
   @discardableResult

@@ -11,5 +11,6 @@ import SwiftUI
     func previewEnvironment() -> some View {
         self
             .environmentObject(UserPreferences())
+            .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
     }
 }
