@@ -16,6 +16,21 @@ struct ThemesAndSettingsScreen: View {
   @State private var lineSpacing = 3.0
   @State private var showPronunciation = false
   @State private var spotlightTextEnable = true
+  @State private var tapToScroll = false
+  
+  // Local properties
+  @State private var selectedFont: MyanmarFont = .jasmine
+  @State private var fontSize: CGFloat = 28
+  @State private var showFontIndicator = false
+  @State private var textAlignment: PrayerAlignment = .left
+  @State private var pageColor: PageColor = .classic
+  
+  @ObservedObject private var vm: CommonPrayerVM
+  @Namespace private var namespace
+  
+  init(vm: CommonPrayerVM) {
+    self._vm = .init(wrappedValue: vm)
+  }
   
   var body: some View {
     ZStack {
@@ -26,25 +41,37 @@ struct ThemesAndSettingsScreen: View {
         ScrollView(showsIndicators: false) {
           FontPickerView()
           Divider().padding(.top)
+          
           FontSizeView()
           Divider().padding(.top)
+          
           ColorPickerView()
           Divider().padding(.top)
-          LetterAndLineSpacingView()
           
+          LetterAndLineSpacingView()
           Divider().padding(.top)
+          
           Toggle(isOn: $showPronunciation, label: {
             LocalizedLabel(.show_pronunciation, systemImage: "captions.bubble.fill")
-              .font(.dmSerif(16))
+              .font(.qsSb(16))
           })
           .padding(.horizontal, 2)
           .padding(.top, 12)
           .tint(preferences.accentColor.color)
-          
           Divider().padding(.top)
+          
           Toggle(isOn: $spotlightTextEnable, label: {
             LocalizedLabel(.spotlight_text, systemImage: "text.line.first.and.arrowtriangle.forward")
-              .font(.dmSerif(16))
+              .font(.qsSb(16))
+          })
+          .padding(.horizontal, 2)
+          .padding(.top, 12)
+          .tint(preferences.accentColor.color)
+          Divider().padding(.top)
+          
+          Toggle(isOn: $tapToScroll, label: {
+            LocalizedLabel(.tap_to_scroll, systemImage: "hand.tap.fill")
+              .font(.qsSb(16))
           })
           .padding(.horizontal, 2)
           .padding(.top, 12)
@@ -54,8 +81,28 @@ struct ThemesAndSettingsScreen: View {
         .clipShape(
           CustomCornerView(corners: [.topLeft, .topRight], radius: 20)
         )
+        
       }
       .padding()
+    }
+    .id(vm.viewRefreshId)
+    .onAppear {
+      selectedFont = .init(rawValue: vm.config.font).orElse(.jasmine)
+      fontSize = CGFloat(vm.config.textSize)
+      textAlignment = PrayerAlignment(rawValue: vm.config.textAlignment).orElse(.left)
+      pageColor = .init(rawValue: vm.config.backgroundColor).orElse(.classic)
+    }
+    .onDisappear {
+      vm.save()
+    }
+    .onChange(of: showFontIndicator) {
+      if $0 {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+          withAnimation(.easeOut) {
+            showFontIndicator = false
+          }
+        }
+      }
     }
     .edgesIgnoringSafeArea(.bottom)
   }
@@ -75,19 +122,19 @@ struct ThemesAndSettingsScreen: View {
   private func TextPreviewView() -> some View {
     ZStack {
       RoundedRectangle(cornerRadius: 12)
-        .fill(.ultraThickMaterial)
+        .fill(pageColor.color)
         .frame(height: 140)
       
-      Group {
-        Text("သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။")
-          .tracking(1)
-          .font(.jasmine(16))
-          .lineSpacing(10)
-          .padding()
-      }
-      .scrollOnOverflow()
+      Text("သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။")
+        .foregroundColor(pageColor.tintColor)
+        .tracking(1)
+        .multilineTextAlignment(textAlignment.alignment)
+        .font(selectedFont.font(fontSize))
+        .lineSpacing(10)
+        .padding()
     }
-    .frame(height: 140)
+    .frame(height: 160)
+    .clipShape(RoundedRectangle(cornerRadius: 12))
     .padding(.top)
   }
   
@@ -95,7 +142,8 @@ struct ThemesAndSettingsScreen: View {
   private func FontPickerView() -> some View {
     VStack(alignment: .leading, spacing: 8) {
       LocalizedText(.font)
-        .font(.dmSerif(20))
+        .font(.qsSb(20))
+      
       HStack(spacing: 14) {
         ForEach(MyanmarFont.allCases) { font in
           RoundedRectangle(cornerRadius: 12)
@@ -111,10 +159,17 @@ struct ThemesAndSettingsScreen: View {
                 .padding(.bottom)
             }
             .overlay {
-              if font == .jasmine {
+              if font == selectedFont {
                 RoundedRectangle(cornerRadius: 12)
                   .stroke(preferences.accentColor.color, lineWidth: 3)
               }
+            }
+            .onTapGesture {
+              HapticKit.selection.generate()
+              withAnimation(.easeOut(duration: 0.3)) {
+                selectedFont = font
+              }
+              vm.config.font = font.rawValue
             }
         }
       }
@@ -128,13 +183,13 @@ struct ThemesAndSettingsScreen: View {
   private func ColorPickerView() -> some View {
     VStack(alignment: .leading, spacing: 8) {
       LocalizedText(.background_and_color)
-        .font(.dmSerif(20))
+        .font(.qsSb(20))
       
       ScrollView {
         HStack {
           ForEach(PageColor.allCases) { color in
             Circle()
-              .stroke(color == .grey ? preferences.accentColor.color : .clear, style: .init(lineWidth: 2))
+              .stroke(pageColor == color ? preferences.accentColor.color : .clear, style: .init(lineWidth: 2))
               .frame(width: 38)
               .padding(3)
               .overlay {
@@ -147,11 +202,18 @@ struct ThemesAndSettingsScreen: View {
                   }
               }
               .overlay {
-                if color == .grey {
+                if pageColor == color {
                   Image(systemName: "checkmark")
                     .foregroundColor(color.tintColor)
                     .font(.footnote.bold())
                 }
+              }
+              .onTapGesture {
+                HapticKit.selection.generate()
+                withAnimation(.easeIn(duration: 0.3)) {
+                  pageColor = color
+                }
+                vm.config.backgroundColor = color.rawValue
               }
           }
         }
@@ -164,7 +226,7 @@ struct ThemesAndSettingsScreen: View {
   private func LetterAndLineSpacingView() -> some View {
     VStack(alignment: .leading) {
       LocalizedText(.letter_and_line_spacing)
-        .font(.dmSerif(20))
+        .font(.qsSb(20))
       
       CompactSlider(value: $letterSpacing, in: 2...18, step: 0.5) {
         LocalizedLabel(.letter_spacing, systemImage: "arrow.left.and.right.text.vertical")
@@ -191,41 +253,27 @@ struct ThemesAndSettingsScreen: View {
   private func FontSizeView() -> some View {
     VStack(alignment: .leading) {
       LocalizedText(.text_size_and_alignment)
-        .font(.dmSerif(20))
+        .font(.qsSb(20))
       
       HStack(alignment: .top, spacing: 12) {
         VStack {
           IncreaseDecreaseBtn()
-          TextSizeIndicator()
+          if showFontIndicator {
+            TextSizeIndicator()
+          }
         }
         
         Menu {
           ForEach(PrayerAlignment.allCases) { alignment in
             Button {
-              
+              self.textAlignment = alignment
+              vm.config.textAlignment = alignment.rawValue
             } label: {
               alignment.label()
             }
           }
-//          Button {
-//            
-//          } label: {
-//            LocalizedLabel(.align_left, systemImage: "text.alignleft")
-//          }
-//          
-//          Button {
-//            
-//          } label: {
-//            LocalizedLabel(.align_center, systemImage: "text.aligncenter")
-//          }
-//          
-//          Button {
-//            
-//          } label: {
-//            LocalizedLabel(.justify, systemImage: "text.justify")
-//          }
         } label: {
-          Image(systemName: "text.alignleft")
+          Image(systemName: textAlignment.systemImage)
             .font(.body.bold())
             .foregroundColor(preferences.accentColor.color)
             .padding(12)
@@ -242,7 +290,14 @@ struct ThemesAndSettingsScreen: View {
   private func IncreaseDecreaseBtn() -> some View {
     HStack {
       Button {
+        HapticKit.selection.generate()
+        let size = max(14, vm.config.textSize - 2)
+        vm.config.textSize = size
+        fontSize = CGFloat(size)
         
+        withAnimation(.easeIn(duration: 0.2)) {
+          showFontIndicator = true
+        }
       } label: {
         HStack {
           Spacer()
@@ -259,7 +314,13 @@ struct ThemesAndSettingsScreen: View {
         .padding(.vertical, 10)
       
       Button {
-        
+        HapticKit.selection.generate()
+        let size = min(vm.config.textSize + 2, 42)
+        vm.config.textSize = size
+        fontSize = CGFloat(size)
+        withAnimation(.easeIn(duration: 0.2)) {
+          showFontIndicator = true
+        }
       } label: {
         HStack {
           Spacer()
@@ -282,8 +343,8 @@ struct ThemesAndSettingsScreen: View {
       ForEach(0 ..< 15, id: \.self) { id in
         HStack {
           RoundedRectangle(cornerRadius: 6)
-            .fill(preferences.accentColor.color.opacity(id < 8 ? 1 : 0.3))
-            .frame(height: 4)
+            .fill(preferences.accentColor.color.opacity(id < (15 - (42 - vm.config.textSize) / 2) ? 1 : 0.3))
+            .frame(height: 2)
         }
       }
     }
@@ -310,7 +371,7 @@ struct CustomCompactSliderStyle: CompactSliderStyle {
 
 #Preview {
   NavigationView {
-    ThemesAndSettingsScreen()
+    ThemesAndSettingsScreen(vm: .init(prayerId: natPint.id))
   }
   .previewEnvironment()
 }

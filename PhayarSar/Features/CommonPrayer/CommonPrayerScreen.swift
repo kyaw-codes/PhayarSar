@@ -16,8 +16,6 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   
   @State private var showAboutScreen = false
   @State private var showThemesScreen = false
-  @State private var showScrollSpeed = false
-  @State private var showPopover = false
   
   @State private var scrollingSpeed: ScrollingSpeed = .x1
   @State private var isPlaying = false
@@ -76,7 +74,7 @@ extension CommonPrayerScreen: View {
       }
       .sheet(isPresented: $showThemesScreen) {
         NavigationView {
-          ThemesAndSettingsScreen()
+          ThemesAndSettingsScreen(vm: vm)
             .ignoresSafeArea()
         }
         .backport.presentationDetents([.medium, .large])
@@ -84,7 +82,11 @@ extension CommonPrayerScreen: View {
       .onAppear {
         model.body[0].isBlur = false
       }
+      .onDisappear {
+        vm.save()
+      }
       .tint(preferences.accentColor.color)
+      .id(vm.viewRefreshId)
   }
   
   func scrollToNextParagraph(proxy: ScrollViewProxy) {
@@ -213,11 +215,12 @@ fileprivate extension CommonPrayerScreen {
       Menu {
         ForEach(ScrollingSpeed.allCases) { speed in
           Button {
-            scrollingSpeed = speed
+            vm.config.scrollingSpeed = speed.rawValue
+            vm.reCalculate()
           } label: {
             HStack {
               LocalizedText(speed.key)
-              if scrollingSpeed == speed {
+              if speed == .init(rawValue: vm.config.scrollingSpeed).orElse(.x1) {
                 Image(systemName: "checkmark")
               }
             }
@@ -234,7 +237,6 @@ fileprivate extension CommonPrayerScreen {
       }
     } label: {
       Image(systemName: "line.3.horizontal.decrease.circle.fill")
-      //                .font(.title2)
         .symbolRenderingMode(.monochrome)
         .background(
           Circle()

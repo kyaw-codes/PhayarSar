@@ -19,6 +19,7 @@ final class PrayerConfiguration: NSManagedObject {
   @NSManaged var scrollingSpeed: String
   @NSManaged var spotlightText: Bool
   @NSManaged var showPronunciation: Bool
+  @NSManaged var tapToScrollEnable: Bool
   
   override func awakeFromInsert() {
     super.awakeFromInsert()
@@ -32,6 +33,7 @@ final class PrayerConfiguration: NSManagedObject {
     setPrimitiveValue(ScrollingSpeed.x1.rawValue, forKey: "scrollingSpeed")
     setPrimitiveValue(true, forKey: "showPronunciation")
     setPrimitiveValue(false, forKey: "spotlightText")
+    setPrimitiveValue(false, forKey: "tapToScrollEnable")
   }
   
 }

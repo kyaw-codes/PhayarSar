@@ -9,6 +9,7 @@
         <attribute name="scrollingSpeed" optional="YES" attributeType="String"/>
         <attribute name="showPronunciation" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="spotlightText" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tapToScrollEnable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="textAlignment" optional="YES" attributeType="String"/>
         <attribute name="textSize" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>

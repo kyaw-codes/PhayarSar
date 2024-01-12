@@ -148,8 +148,12 @@
         "Mm": "အမြန်နှုန်း"
     },
     "spotlight_text": {
-        "En": "Spotlight text",
-        "Mm": "လက်ရှိစာသားကို ဦးစားပေးပြမယ်"
+        "En": "Spotlight text (blur others)",
+        "Mm": "လက်ရှိစာပိုဒ်ကို ဦးစားပေးပြမယ်"
+    },
+    "tap_to_scroll": {
+        "En": "Tap to scroll to that paragraph",
+        "Mm": "စာပိုဒ်ကိုနှိပ်လိုက်တာနဲ့ ရောက်အောင်သွားမယ်"
     },
     "x0_5": {
         "En": "0.5x",

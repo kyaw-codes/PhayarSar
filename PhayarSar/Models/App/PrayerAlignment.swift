@@ -15,6 +15,27 @@ enum PrayerAlignment: String, CaseIterable, Identifiable, Hashable {
   
   var id: String { self.rawValue }
   
+  var systemImage: String {
+    switch self {
+    case .left:
+      return "text.alignleft"
+    case .center:
+      return "text.aligncenter"
+    case .right:
+      return "text.alignright"
+    }
+  }
+  
+  var alignment: TextAlignment {
+    switch self {
+    case .left:
+      return .leading
+    case .center:
+      return .center
+    case .right:
+      return .trailing
+    }
+  }
   
   func label() -> LocalizedLabel {
     switch self {
