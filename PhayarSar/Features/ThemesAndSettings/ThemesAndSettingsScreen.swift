@@ -17,6 +17,7 @@ struct ThemesAndSettingsScreen: View {
   @State private var showPronunciation = false
   @State private var spotlightTextEnable = true
   @State private var tapToScroll = false
+  @State private var previewTextHeight = CGFloat.zero
   
   // Local properties
   @State private var selectedFont: MyanmarFont = .jasmine
@@ -28,6 +29,8 @@ struct ThemesAndSettingsScreen: View {
   @ObservedObject private var vm: CommonPrayerVM
   @Namespace private var namespace
   
+  private let colorSystemBg = Color(uiColor: .systemBackground)
+  
   init(vm: CommonPrayerVM) {
     self._vm = .init(wrappedValue: vm)
   }
@@ -36,51 +39,58 @@ struct ThemesAndSettingsScreen: View {
     ZStack {
       VStack(spacing: 0) {
         HeaderView()
-        TextPreviewView()
-        
-        ScrollView(showsIndicators: false) {
-          FontPickerView()
-          Divider().padding(.top)
+        ZStack(alignment: .top) {
+          TextPreviewView()
+            .measure(\.height) { height in
+              previewTextHeight = height
+            }
+            .zIndex(1)
           
-          FontSizeView()
-          Divider().padding(.top)
-          
-          ColorPickerView()
-          Divider().padding(.top)
-          
-          LetterAndLineSpacingView()
-          Divider().padding(.top)
-          
-          Toggle(isOn: $showPronunciation, label: {
-            LocalizedLabel(.show_pronunciation, systemImage: "captions.bubble.fill")
-              .font(.qsSb(16))
-          })
-          .padding(.horizontal, 2)
-          .padding(.top, 12)
-          .tint(preferences.accentColor.color)
-          Divider().padding(.top)
-          
-          Toggle(isOn: $spotlightTextEnable, label: {
-            LocalizedLabel(.spotlight_text, systemImage: "text.line.first.and.arrowtriangle.forward")
-              .font(.qsSb(16))
-          })
-          .padding(.horizontal, 2)
-          .padding(.top, 12)
-          .tint(preferences.accentColor.color)
-          Divider().padding(.top)
-          
-          Toggle(isOn: $tapToScroll, label: {
-            LocalizedLabel(.tap_to_scroll, systemImage: "hand.tap.fill")
-              .font(.qsSb(16))
-          })
-          .padding(.horizontal, 2)
-          .padding(.top, 12)
-          .padding(.bottom, safeAreaInsets.bottom)
-          .tint(preferences.accentColor.color)
+          ScrollView(showsIndicators: false) {
+            FontPickerView()
+              .padding(.top, previewTextHeight)
+            Divider().padding(.top)
+            
+            FontSizeView()
+            Divider().padding(.top)
+            
+            ColorPickerView()
+            Divider().padding(.top)
+            
+            LetterAndLineSpacingView()
+            Divider().padding(.top)
+            
+            Toggle(isOn: $showPronunciation, label: {
+              LocalizedLabel(.show_pronunciation, systemImage: "captions.bubble.fill")
+                .font(.qsSb(16))
+            })
+            .padding(.horizontal, 2)
+            .padding(.top, 12)
+            .tint(preferences.accentColor.color)
+            Divider().padding(.top)
+            
+            Toggle(isOn: $spotlightTextEnable, label: {
+              LocalizedLabel(.spotlight_text, systemImage: "text.line.first.and.arrowtriangle.forward")
+                .font(.qsSb(16))
+            })
+            .padding(.horizontal, 2)
+            .padding(.top, 12)
+            .tint(preferences.accentColor.color)
+            Divider().padding(.top)
+            
+            Toggle(isOn: $tapToScroll, label: {
+              LocalizedLabel(.tap_to_scroll, systemImage: "hand.tap.fill")
+                .font(.qsSb(16))
+            })
+            .padding(.horizontal, 2)
+            .padding(.top, 12)
+            .padding(.bottom, safeAreaInsets.bottom)
+            .tint(preferences.accentColor.color)
+          }
         }
-        .clipShape(
-          CustomCornerView(corners: [.topLeft, .topRight], radius: 20)
-        )
+//        .clipShape(
+//          CustomCornerView(corners: [.topLeft, .topRight], radius: 20)
+//        )
         
       }
       .padding()
@@ -116,26 +126,32 @@ struct ThemesAndSettingsScreen: View {
       
       BtnCloseCircle { dismiss() }
     }
+    .padding(.bottom)
   }
   
   @ViewBuilder
   private func TextPreviewView() -> some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 12)
-        .fill(pageColor.color)
-        .frame(height: 140)
+    VStack(spacing: 0) {
+      ZStack(alignment: .top) {
+        RoundedRectangle(cornerRadius: 12)
+          .fill(pageColor.color)
+        
+        Text("သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။")
+          .foregroundColor(pageColor.tintColor)
+          .tracking(1)
+          .multilineTextAlignment(textAlignment.alignment)
+          .font(selectedFont.font(fontSize))
+          .lineSpacing(10)
+          .padding([.horizontal, .top])
+      }
+      .frame(height: 160)
+      .clipShape(RoundedRectangle(cornerRadius: 12))
+      .background(colorSystemBg)
       
-      Text("သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။")
-        .foregroundColor(pageColor.tintColor)
-        .tracking(1)
-        .multilineTextAlignment(textAlignment.alignment)
-        .font(selectedFont.font(fontSize))
-        .lineSpacing(10)
-        .padding()
+      Rectangle()
+        .fill(LinearGradient(colors: [colorSystemBg, colorSystemBg.opacity(0.7), colorSystemBg.opacity(0.1), colorSystemBg.opacity(0.1), .clear], startPoint: .top, endPoint: .bottom))
+        .frame(height: 30)
     }
-    .frame(height: 160)
-    .clipShape(RoundedRectangle(cornerRadius: 12))
-    .padding(.top)
   }
   
   @ViewBuilder
@@ -176,7 +192,6 @@ struct ThemesAndSettingsScreen: View {
       .frame(height: 100)
       .padding(.horizontal, 2)
     }
-    .padding(.top, 20)
   }
   
   @ViewBuilder
