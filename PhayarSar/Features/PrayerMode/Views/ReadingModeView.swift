@@ -17,6 +17,8 @@ struct ReadingModeView: View {
   @State private var handOffsetY = 0.0
   @State private var handOffsetX = -10.0
   
+  @Binding var selectedMode: PrayingMode
+  
   var body: some View {
     VStack {
       ZStack {
@@ -68,7 +70,7 @@ struct ReadingModeView: View {
       }
       
       LocalizedText(.reader_mode)
-        .foregroundColor(.white)
+        .foregroundColor(selectedMode == .reader ? .white : .primary)
         .font(.qsB(15))
         .padding(.top, 2)
         .padding(.bottom, 4)
@@ -77,6 +79,7 @@ struct ReadingModeView: View {
     .background {
       RoundedRectangle(cornerRadius: 12)
         .foregroundColor(preferences.accentColor.color)
+        .opacity(selectedMode == .reader ? 1 : 0)
     }
     .onAppear {
       withAnimation(.easeIn(duration: 3).repeatForever(autoreverses: true)) {
@@ -90,10 +93,16 @@ struct ReadingModeView: View {
         paragraphOffsetY = -40
       }
     }
+    .contentShape(Rectangle())
+    .onTapGesture {
+      withAnimation(.easeOut(duration: 0.3)) {
+        selectedMode = .reader
+      }
+    }
   }
 }
 
 #Preview {
-  PrayerModeScreen()
+  PrayerModeScreen(vm: .init(prayerId: "NatPint"))
     .previewEnvironment()
 }

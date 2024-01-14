@@ -5,6 +5,7 @@
         <attribute name="font" optional="YES" attributeType="String"/>
         <attribute name="letterSpacing" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lineSpacing" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mode" optional="YES" attributeType="String"/>
         <attribute name="prayerId" optional="YES" attributeType="String"/>
         <attribute name="scrollingSpeed" optional="YES" attributeType="String"/>
         <attribute name="showPronunciation" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

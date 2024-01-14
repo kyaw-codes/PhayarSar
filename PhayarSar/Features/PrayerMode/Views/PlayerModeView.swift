@@ -14,6 +14,8 @@ struct PlayerModeView: View {
   @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
   @State private var playPauseBtn = "pause.fill"
   
+  @Binding var selectedMode: PrayingMode
+  
   var body: some View {
     VStack {
       ZStack {
@@ -76,7 +78,7 @@ struct PlayerModeView: View {
       }
       
       LocalizedText(.player_mode)
-        .foregroundColor(.primary)
+        .foregroundColor(selectedMode == .player ? .white : .primary)
         .font(.qsB(15))
         .padding(.top, 2)
         .padding(.bottom, 4)
@@ -85,12 +87,18 @@ struct PlayerModeView: View {
     .background {
       RoundedRectangle(cornerRadius: 12)
         .foregroundColor(preferences.accentColor.color)
-        .opacity(0)
+        .opacity(selectedMode == .player ? 1 : 0)
+    }
+    .contentShape(Rectangle())
+    .onTapGesture {
+      withAnimation(.easeOut(duration: 0.3)) {
+        selectedMode = .player
+      }
     }
   }
 }
 
 #Preview {
-  PrayerModeScreen()
+  PrayerModeScreen(vm: .init(prayerId: "NatPint"))
     .previewEnvironment()
 }

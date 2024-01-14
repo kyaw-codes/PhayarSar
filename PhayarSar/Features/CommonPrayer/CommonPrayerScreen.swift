@@ -82,10 +82,10 @@ extension CommonPrayerScreen: View {
       }
       .sheet(isPresented: $showModeScreen) {
         NavigationView {
-          PrayerModeScreen()
+          PrayerModeScreen(vm: vm)
             .ignoresSafeArea()
         }
-        .backport.presentationDetents([.medium, .large])
+        .backport.presentationDetents([.medium])
       }
       .onAppear {
         model.body[0].isBlur = false

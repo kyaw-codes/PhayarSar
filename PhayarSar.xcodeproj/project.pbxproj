@@ -227,6 +227,16 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		C81CF2582B5445B700E1B726 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C81CF2502B53E66100E1B726 /* ReadingModeView.swift */,
+				C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */,
+				C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C81E927B2B2DC94C00F4ED9E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,10 +432,8 @@
 		C84E69462B530DFD006231CD /* PrayerMode */ = {
 			isa = PBXGroup;
 			children = (
+				C81CF2582B5445B700E1B726 /* Views */,
 				C84E69472B530E0B006231CD /* PrayerModeScreen.swift */,
-				C81CF2502B53E66100E1B726 /* ReadingModeView.swift */,
-				C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */,
-				C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */,
 			);
 			path = PrayerMode;
 			sourceTree = "<group>";

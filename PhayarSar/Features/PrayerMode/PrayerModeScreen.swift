@@ -7,20 +7,28 @@
 
 import SwiftUI
 
-struct PrayerModeScreen: View {
+struct PrayerModeScreen {
+  @ObservedObject private var vm: CommonPrayerVM
   @EnvironmentObject private var preferences: UserPreferences
   
+  @State private var selectedMode = PrayingMode.reader
+  
+  init(vm: CommonPrayerVM) {
+    self._vm = .init(wrappedValue: vm)
+  }
+}
+
+extension PrayerModeScreen: View {
   var body: some View {
     VStack(alignment: .leading) {
       LocalizedText(.mode)
         .font(.dmSerif(24))
             
       HStack(alignment: .top, spacing: 20) {
-        ReadingModeView()
+        ReadingModeView(selectedMode: $selectedMode)
           .frame(height: 240)
         
-        
-        PlayerModeView()
+        PlayerModeView(selectedMode: $selectedMode)
           .frame(height: 240)
       }
       .multilineTextAlignment(.center)
@@ -29,10 +37,20 @@ struct PrayerModeScreen: View {
       Spacer(minLength: 20)
     }
     .padding()
+    .onChange(of: selectedMode) { mode in
+      HapticKit.selection.generate()
+      vm.config.mode = selectedMode.rawValue
+    }
+    .onAppear {
+      selectedMode = .init(rawValue: vm.config.mode).orElse(.reader)
+    }
+    .onDisappear {
+      vm.save()
+    }
   }
 }
 
 #Preview {
-  PrayerModeScreen()
+  PrayerModeScreen(vm: CommonPrayerVM(prayerId: "NatPint"))
     .previewEnvironment()
 }

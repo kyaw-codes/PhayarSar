@@ -20,6 +20,7 @@ final class PrayerConfiguration: NSManagedObject {
   @NSManaged var spotlightText: Bool
   @NSManaged var showPronunciation: Bool
   @NSManaged var tapToScrollEnable: Bool
+  @NSManaged var mode: String
   
   override func awakeFromInsert() {
     super.awakeFromInsert()
@@ -34,6 +35,7 @@ final class PrayerConfiguration: NSManagedObject {
     setPrimitiveValue(true, forKey: "showPronunciation")
     setPrimitiveValue(false, forKey: "spotlightText")
     setPrimitiveValue(false, forKey: "tapToScrollEnable")
+    setPrimitiveValue(PrayingMode.reader.rawValue, forKey: "mode")
   }
   
 }
