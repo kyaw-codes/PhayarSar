@@ -8,33 +8,29 @@
 import SwiftUI
 import CompactSlider
 
-struct ThemesAndSettingsScreen: View {
+struct ThemesAndSettingsScreen {
   @Environment(\.safeAreaInsets) var safeAreaInsets
   @Environment(\.dismiss) private var dismiss
   @EnvironmentObject private var preferences: UserPreferences
-  @State private var letterSpacing = 10.0
-  @State private var lineSpacing = 3.0
-  @State private var showPronunciation = false
-  @State private var spotlightTextEnable = true
-  @State private var tapToScroll = false
+
+  @ObservedObject private var vm: CommonPrayerVM
+  @Namespace private var namespace
+
   @State private var previewTextHeight = CGFloat.zero
-  
-  // Local properties
   @State private var selectedFont: MyanmarFont = .jasmine
   @State private var fontSize: CGFloat = 28
   @State private var showFontIndicator = false
   @State private var textAlignment: PrayerAlignment = .left
   @State private var pageColor: PageColor = .classic
   
-  @ObservedObject private var vm: CommonPrayerVM
-  @Namespace private var namespace
-  
   private let colorSystemBg = Color(uiColor: .systemBackground)
   
   init(vm: CommonPrayerVM) {
     self._vm = .init(wrappedValue: vm)
   }
-  
+}
+
+extension ThemesAndSettingsScreen: View {
   var body: some View {
     ZStack {
       VStack(spacing: 0) {
@@ -60,38 +56,37 @@ struct ThemesAndSettingsScreen: View {
             LetterAndLineSpacingView()
             Divider().padding(.top)
             
-            Toggle(isOn: $showPronunciation, label: {
+            Toggle(isOn: $vm.config.showPronunciation, label: {
               LocalizedLabel(.show_pronunciation, systemImage: "captions.bubble.fill")
                 .font(.qsSb(16))
             })
             .padding(.horizontal, 2)
             .padding(.top, 12)
             .tint(preferences.accentColor.color)
-            Divider().padding(.top)
+            .padding(.bottom, vm.config.mode == PrayingMode.reader.rawValue ? safeAreaInsets.bottom : 0)
             
-            Toggle(isOn: $spotlightTextEnable, label: {
-              LocalizedLabel(.spotlight_text, systemImage: "text.line.first.and.arrowtriangle.forward")
-                .font(.qsSb(16))
-            })
-            .padding(.horizontal, 2)
-            .padding(.top, 12)
-            .tint(preferences.accentColor.color)
-            Divider().padding(.top)
-            
-            Toggle(isOn: $tapToScroll, label: {
-              LocalizedLabel(.tap_to_scroll, systemImage: "hand.tap.fill")
-                .font(.qsSb(16))
-            })
-            .padding(.horizontal, 2)
-            .padding(.top, 12)
-            .padding(.bottom, safeAreaInsets.bottom)
-            .tint(preferences.accentColor.color)
+            if vm.config.mode == PrayingMode.player.rawValue {
+              Divider().padding(.top)
+              Toggle(isOn: $vm.config.spotlightTextEnable, label: {
+                LocalizedLabel(.spotlight_text, systemImage: "text.line.first.and.arrowtriangle.forward")
+                  .font(.qsSb(16))
+              })
+              .padding(.horizontal, 2)
+              .padding(.top, 12)
+              .tint(preferences.accentColor.color)
+              Divider().padding(.top)
+              
+              Toggle(isOn: $vm.config.tapToScrollEnable, label: {
+                LocalizedLabel(.tap_to_scroll, systemImage: "hand.tap.fill")
+                  .font(.qsSb(16))
+              })
+              .padding(.horizontal, 2)
+              .padding(.top, 12)
+              .padding(.bottom, safeAreaInsets.bottom)
+              .tint(preferences.accentColor.color)
+            }
           }
         }
-//        .clipShape(
-//          CustomCornerView(corners: [.topLeft, .topRight], radius: 20)
-//        )
-        
       }
       .padding()
     }
@@ -138,10 +133,10 @@ struct ThemesAndSettingsScreen: View {
         
         Text("သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။")
           .foregroundColor(pageColor.tintColor)
-          .tracking(1)
+          .tracking(vm.config.letterSpacing)
           .multilineTextAlignment(textAlignment.alignment)
           .font(selectedFont.font(fontSize))
-          .lineSpacing(10)
+          .lineSpacing(vm.config.lineSpacing)
           .padding([.horizontal, .top])
       }
       .frame(height: 160)
@@ -243,20 +238,20 @@ struct ThemesAndSettingsScreen: View {
       LocalizedText(.letter_and_line_spacing)
         .font(.qsSb(20))
       
-      CompactSlider(value: $letterSpacing, in: 2...18, step: 0.5) {
+      CompactSlider(value: $vm.config.letterSpacing, in: 2...18, step: 0.5) {
         LocalizedLabel(.letter_spacing, systemImage: "arrow.left.and.right.text.vertical")
           .font(.qsB(16))
         Spacer()
-        Text("\(preferences.appLang == .Eng ? convertNumberMmToEng("\(Int(letterSpacing))") : convertNumberEngToMm("\(Int(letterSpacing))"))")
+        Text("\(preferences.appLang == .Eng ? convertNumberMmToEng("\(Int(vm.config.letterSpacing - 2))") : convertNumberEngToMm("\(Int(vm.config.letterSpacing - 2))"))")
           .font(.dmSerif(18))
       }
       .compactSliderStyle(CustomCompactSliderStyle(accentColor: preferences.accentColor.color))
       
-      CompactSlider(value: $lineSpacing, in: 15...30, step: 0.5) {
+      CompactSlider(value: $vm.config.lineSpacing, in: 15...30, step: 0.5) {
         LocalizedLabel(.line_spacing, systemImage: "arrow.up.and.down.text.horizontal")
           .font(.qsB(16))
         Spacer()
-        Text("\(preferences.appLang == .Eng ? convertNumberMmToEng("\(Int(lineSpacing))") : convertNumberEngToMm("\(Int(lineSpacing))"))")
+        Text("\(preferences.appLang == .Eng ? convertNumberMmToEng("\(Int(vm.config.lineSpacing - 15))") : convertNumberEngToMm("\(Int(vm.config.lineSpacing - 15))"))")
           .font(.dmSerif(18))
       }
       .compactSliderStyle(CustomCompactSliderStyle(accentColor: preferences.accentColor.color))

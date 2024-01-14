@@ -3,13 +3,13 @@
     <entity name="PrayerConfiguration" representedClassName=".PrayerConfiguration" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String"/>
         <attribute name="font" optional="YES" attributeType="String"/>
-        <attribute name="letterSpacing" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="lineSpacing" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="letterSpacing" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lineSpacing" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="mode" optional="YES" attributeType="String"/>
         <attribute name="prayerId" optional="YES" attributeType="String"/>
         <attribute name="scrollingSpeed" optional="YES" attributeType="String"/>
         <attribute name="showPronunciation" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="spotlightText" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="spotlightTextEnable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="tapToScrollEnable" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="textAlignment" optional="YES" attributeType="String"/>
         <attribute name="textSize" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

@@ -13,11 +13,11 @@ final class PrayerConfiguration: NSManagedObject {
   @NSManaged var font: String
   @NSManaged var textSize: Int16
   @NSManaged var textAlignment: String
-  @NSManaged var letterSpacing: Int16
-  @NSManaged var lineSpacing: Int16
+  @NSManaged var letterSpacing: Double
+  @NSManaged var lineSpacing: Double
   @NSManaged var backgroundColor: String
   @NSManaged var scrollingSpeed: String
-  @NSManaged var spotlightText: Bool
+  @NSManaged var spotlightTextEnable: Bool
   @NSManaged var showPronunciation: Bool
   @NSManaged var tapToScrollEnable: Bool
   @NSManaged var mode: String
