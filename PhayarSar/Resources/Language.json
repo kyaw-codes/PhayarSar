@@ -178,5 +178,21 @@
     "x2": {
         "En": "2x",
         "Mm": "၂ ဆ"
+    },
+    "mode": {
+      "En": "Choose Mode",
+      "Mm": "အသုံးပြု ပုံစံ"
+    },
+    "reader_mode": {
+      "En": "Reader mode",
+      "Mm": "ကိုယ်တိုင် ဖတ်မယ်"
+    },
+    "player_mode": {
+      "En": "Player mode",
+      "Mm": "အလိုအလျောက်"
+    },
+    "selected": {
+      "En": "Selected",
+      "Mm": "ရွေးထားသည်"
     }
 }

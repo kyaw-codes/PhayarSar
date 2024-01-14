@@ -13,6 +13,10 @@
 		C815D6CB2B4B141600BFB79C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */; };
 		C815D6CE2B4B142900BFB79C /* PhayarSar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CC2B4B142900BFB79C /* PhayarSar.xcdatamodeld */; };
 		C815D6D02B4B158F00BFB79C /* PrayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */; };
+		C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2502B53E66100E1B726 /* ReadingModeView.swift */; };
+		C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */; };
+		C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */; };
+		C81CF2572B53FCA000E1B726 /* PrayingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2562B53FCA000E1B726 /* PrayingMode.swift */; };
 		C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */; };
 		C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */; };
 		C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AF2B1CABE4000EEF61 /* ContentView.swift */; };
@@ -46,6 +50,7 @@
 		C84E69222B4C4530006231CD /* DemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69212B4C4530006231CD /* DemoView.swift */; };
 		C84E69242B4C4776006231CD /* PrayerAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69232B4C4776006231CD /* PrayerAlignment.swift */; };
 		C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */; };
+		C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69472B530E0B006231CD /* PrayerModeScreen.swift */; };
 		C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A342512B3E70C800B24F7C /* HapticKit.swift */; };
 		C8AAE0182B2D784900BE54CA /* ChooseLanguageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */; };
 		C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */; };
@@ -100,6 +105,10 @@
 		C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C815D6CD2B4B142900BFB79C /* PhayarSar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhayarSar.xcdatamodel; sourceTree = "<group>"; };
 		C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerConfiguration.swift; sourceTree = "<group>"; };
+		C81CF2502B53E66100E1B726 /* ReadingModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingModeView.swift; sourceTree = "<group>"; };
+		C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectedView.swift; sourceTree = "<group>"; };
+		C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModeView.swift; sourceTree = "<group>"; };
+		C81CF2562B53FCA000E1B726 /* PrayingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayingMode.swift; sourceTree = "<group>"; };
 		C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		C82039AA2B1CABE4000EEF61 /* PhayarSar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhayarSar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarApp.swift; sourceTree = "<group>"; };
@@ -136,6 +145,7 @@
 		C84E69212B4C4530006231CD /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
 		C84E69232B4C4776006231CD /* PrayerAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerAlignment.swift; sourceTree = "<group>"; };
 		C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerVM.swift; sourceTree = "<group>"; };
+		C84E69472B530E0B006231CD /* PrayerModeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerModeScreen.swift; sourceTree = "<group>"; };
 		C8A342512B3E70C800B24F7C /* HapticKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticKit.swift; sourceTree = "<group>"; };
 		C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageScreen.swift; sourceTree = "<group>"; };
 		C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
@@ -202,6 +212,7 @@
 				C8CA45E52B4152AC00240DA7 /* PageColor.swift */,
 				C80287482B4A866E00F165DF /* ScrollingSpeed.swift */,
 				C84E69232B4C4776006231CD /* PrayerAlignment.swift */,
+				C81CF2562B53FCA000E1B726 /* PrayingMode.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -301,6 +312,7 @@
 		C82039D72B1CC2E9000EEF61 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C84E69462B530DFD006231CD /* PrayerMode */,
 				C8CA45C62B413AD300240DA7 /* ThemesAndSettings */,
 				C8CA45C32B4136BD00240DA7 /* AboutPrayer */,
 				C8CA45BB2B4124F600240DA7 /* CommonPrayer */,
@@ -405,6 +417,17 @@
 				C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		C84E69462B530DFD006231CD /* PrayerMode */ = {
+			isa = PBXGroup;
+			children = (
+				C84E69472B530E0B006231CD /* PrayerModeScreen.swift */,
+				C81CF2502B53E66100E1B726 /* ReadingModeView.swift */,
+				C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */,
+				C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */,
+			);
+			path = PrayerMode;
 			sourceTree = "<group>";
 		};
 		C8A3424B2B3E6C8F00B24F7C /* PhayarSar */ = {
@@ -638,12 +661,14 @@
 				C82039E92B1CC653000EEF61 /* Font+CustomFonts.swift in Sources */,
 				C8CA45C82B413ADD00240DA7 /* ThemesAndSettingsScreen.swift in Sources */,
 				C84240BE2B2DD31700A2B234 /* LocalizedComponents.swift in Sources */,
+				C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */,
 				C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */,
 				C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */,
 				C8BBB3702B49108F00F3828C /* SpotlightScrollManager.swift in Sources */,
 				C82039B02B1CABE4000EEF61 /* ContentView.swift in Sources */,
 				C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */,
 				C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */,
+				C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */,
 				C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */,
 				C8D6529D2B2EE5AB00BB6C42 /* CustomCornerView.swift in Sources */,
 				C8CA45C52B4136CC00240DA7 /* AboutPrayerScreen.swift in Sources */,
@@ -673,10 +698,13 @@
 				C8D652882B2E0F1D00BB6C42 /* SettingsScreen.swift in Sources */,
 				C8D730B32B46D42500D19D57 /* OverflowContentViewModifier.swift in Sources */,
 				C82039FA2B1CE1C7000EEF61 /* NatPintVO.swift in Sources */,
+				C81CF2572B53FCA000E1B726 /* PrayingMode.swift in Sources */,
 				C84240C02B2DD34900A2B234 /* LocalizedKey.swift in Sources */,
 				C8CA45BF2B41295300240DA7 /* LocalizedLabel.swift in Sources */,
 				C815D6CE2B4B142900BFB79C /* PhayarSar.xcdatamodeld in Sources */,
 				C8D652852B2E0BDB00BB6C42 /* TabScreen.swift in Sources */,
+				C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */,
+				C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */,
 				C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */,
 				C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */,
 				C82039DA2B1CC30A000EEF61 /* OnboardingScreen.swift in Sources */,

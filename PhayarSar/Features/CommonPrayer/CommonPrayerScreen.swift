@@ -16,6 +16,7 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   
   @State private var showAboutScreen = false
   @State private var showThemesScreen = false
+  @State private var showModeScreen = false
   
   @State private var scrollingSpeed: ScrollingSpeed = .x1
   @State private var isPlaying = false
@@ -75,6 +76,13 @@ extension CommonPrayerScreen: View {
       .sheet(isPresented: $showThemesScreen) {
         NavigationView {
           ThemesAndSettingsScreen(vm: vm)
+            .ignoresSafeArea()
+        }
+        .backport.presentationDetents([.medium, .large])
+      }
+      .sheet(isPresented: $showModeScreen) {
+        NavigationView {
+          PrayerModeScreen()
             .ignoresSafeArea()
         }
         .backport.presentationDetents([.medium, .large])
@@ -207,6 +215,12 @@ fileprivate extension CommonPrayerScreen {
   @ViewBuilder func PrayerMenu() -> some View {
     Menu {
       Button {
+        showModeScreen.toggle()
+      } label: {
+        LocalizedLabel(.mode, systemImage: "dpad.left.filled")
+      }
+      
+      Button {
         showThemesScreen.toggle()
       } label: {
         LocalizedLabel(.themes_and_settings, default: "Themes & Settings", systemImage: "textformat.size")
@@ -236,7 +250,7 @@ fileprivate extension CommonPrayerScreen {
         LocalizedLabel(.about_x, args: [model.title], systemImage: "info.circle.fill")
       }
     } label: {
-      Image(systemName: "line.3.horizontal.decrease.circle.fill")
+      Image(systemName: "line.3.horizontal.circle.fill")
         .symbolRenderingMode(.monochrome)
         .background(
           Circle()

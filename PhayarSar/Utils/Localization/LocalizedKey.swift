@@ -53,6 +53,10 @@ enum LocalizedKey: String {
   case x1_5
   case x2
   case tap_to_scroll
+  case mode
+  case reader_mode
+  case player_mode
+  case selected
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]
