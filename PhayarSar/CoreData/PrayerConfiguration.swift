@@ -33,7 +33,7 @@ final class PrayerConfiguration: NSManagedObject {
     setPrimitiveValue(PageColor.classic.rawValue, forKey: "backgroundColor")
     setPrimitiveValue(ScrollingSpeed.x1.rawValue, forKey: "scrollingSpeed")
     setPrimitiveValue(true, forKey: "showPronunciation")
-    setPrimitiveValue(false, forKey: "spotlightText")
+    setPrimitiveValue(false, forKey: "spotlightTextEnable")
     setPrimitiveValue(false, forKey: "tapToScrollEnable")
     setPrimitiveValue(PrayingMode.reader.rawValue, forKey: "mode")
   }
