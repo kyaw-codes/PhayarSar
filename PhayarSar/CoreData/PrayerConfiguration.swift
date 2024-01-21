@@ -15,6 +15,7 @@ final class PrayerConfiguration: NSManagedObject {
   @NSManaged var textAlignment: String
   @NSManaged var letterSpacing: Double
   @NSManaged var lineSpacing: Double
+  @NSManaged var paragraphSpacing: Double
   @NSManaged var backgroundColor: String
   @NSManaged var scrollingSpeed: String
   @NSManaged var spotlightTextEnable: Bool
@@ -25,11 +26,12 @@ final class PrayerConfiguration: NSManagedObject {
   override func awakeFromInsert() {
     super.awakeFromInsert()
 
-    setPrimitiveValue(MyanmarFont.jasmine.rawValue, forKey: "font")
+    setPrimitiveValue(MyanmarFont.msquare.rawValue, forKey: "font")
     setPrimitiveValue(Int16(28), forKey: "textSize")
     setPrimitiveValue(PrayerAlignment.left.rawValue, forKey: "textAlignment")
     setPrimitiveValue(Int16(2), forKey: "letterSpacing")
     setPrimitiveValue(Int16(15), forKey: "lineSpacing")
+    setPrimitiveValue(Double(10), forKey: "paragraphSpacing")
     setPrimitiveValue(PageColor.classic.rawValue, forKey: "backgroundColor")
     setPrimitiveValue(ScrollingSpeed.x1.rawValue, forKey: "scrollingSpeed")
     setPrimitiveValue(true, forKey: "showPronunciation")

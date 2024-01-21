@@ -42,6 +42,7 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
 extension CommonPrayerScreen: View {
   var body: some View {
     AutoScrollingView()
+      .background(PageColor(rawValue: vm.config.backgroundColor).orElse(.classic).color)
       .overlay(alignment: .bottomTrailing) {
         // MARK: Progress/Play Area
         Group {
@@ -55,8 +56,10 @@ extension CommonPrayerScreen: View {
             })
             .transition(.move(edge: .bottom).combined(with: .scale).combined(with: .offset(y: 30)))
           } else {
-            PrayNowBtn()
-              .transition(.move(edge: .trailing).combined(with: .scale))
+            if PrayingMode(rawValue: vm.config.mode).orElse(.reader) != .reader {
+              PrayBtn()
+                .transition(.move(edge: .trailing).combined(with: .scale))
+            }
           }
         }
         .padding()
@@ -67,7 +70,6 @@ extension CommonPrayerScreen: View {
       .toolbar {
         ToolbarItem { PrayerMenu() }
       }
-    //        .navigationBarHidden(true)
       .sheet(isPresented: $showAboutScreen) {
         NavigationView {
           AboutPrayerScreen(title: model.title, about: model.about)
@@ -156,16 +158,23 @@ fileprivate extension CommonPrayerScreen {
       
       ScrollViewReader { proxy in
         ScrollView {
-          VStack(spacing: 30) {
+          VStack(spacing: vm.config.paragraphSpacing) {
             ForEach($model.body) { prayer in
-              CommonPrayerParagraphView<Model>(refreshId: $paragraphRefreshId, prayer: prayer, index: $currentIndex, scrollToId: $scrollToId)
-                .id(prayer.id)
-                .measure(\.height) { value in
-                  if model.body.last?.id == prayer.wrappedValue.id {
-                    lastParagraphHeight = value
-                  }
+              CommonPrayerParagraphView<Model>(
+                refreshId: $paragraphRefreshId,
+                prayer: prayer,
+                index: $currentIndex,
+                scrollToId: $scrollToId,
+                config: $vm.config
+              )
+              .foregroundColor(PageColor(rawValue: vm.config.backgroundColor).orElse(.classic).tintColor)
+              .id(prayer.id)
+              .measure(\.height) { value in
+                if model.body.last?.id == prayer.wrappedValue.id {
+                  lastParagraphHeight = value
                 }
-                .padding(.bottom, model.body.last?.id == prayer.wrappedValue.id ? size.height - lastParagraphHeight - 60 : 0)
+              }
+              .padding(.bottom, model.body.last?.id == prayer.wrappedValue.id ? size.height - lastParagraphHeight - 60 : 0)
             }
           }
           .padding(.horizontal)
@@ -189,7 +198,7 @@ fileprivate extension CommonPrayerScreen {
     }
   }
   
-  @ViewBuilder func PrayNowBtn() -> some View {
+  @ViewBuilder func PrayBtn() -> some View {
     Button {
       startTime = Date().timeIntervalSince1970
       
@@ -201,14 +210,12 @@ fileprivate extension CommonPrayerScreen {
         Image(systemName: "play.circle.fill")
         
         LocalizedText(.btn_pray)
-          .foregroundColor(.primary)
       }
-      .foregroundColor(preferences.accentColor.color)
+      .foregroundColor(.white)
       .font(.dmSerif(16))
       .padding(.horizontal)
       .padding(.vertical, 12)
-      .background(Capsule().fill(preferences.accentColor.color.opacity(0.2)))
-      .background(Capsule().fill(.ultraThinMaterial))
+      .background(Capsule().fill(preferences.accentColor.color))
     }
   }
   

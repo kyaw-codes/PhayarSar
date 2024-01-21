@@ -27,6 +27,7 @@ enum LocalizedKey: String {
   case themes_and_settings
   case about_x
   case jasmine
+  case panglong
   case msquare
   case yoeyar
   case page_white
@@ -38,6 +39,7 @@ enum LocalizedKey: String {
   case letter_and_line_spacing
   case letter_spacing
   case line_spacing
+  case paragraph_spacing
   case text_size_and_alignment
   case align_left
   case align_right

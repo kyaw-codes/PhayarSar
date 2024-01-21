@@ -52,6 +52,8 @@
 		C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69472B530E0B006231CD /* PrayerModeScreen.swift */; };
 		C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A342512B3E70C800B24F7C /* HapticKit.swift */; };
 		C8A661CE2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A661CD2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift */; };
+		C8A661D02B55795600F2A553 /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A661CF2B55795600F2A553 /* NavigationBarColor.swift */; };
+		C8A661D42B55847200F2A553 /* PangLong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8A661D32B55846C00F2A553 /* PangLong.ttf */; };
 		C8AAE0182B2D784900BE54CA /* ChooseLanguageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */; };
 		C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */; };
 		C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE01D2B2DB84200BE54CA /* Optional.swift */; };
@@ -147,6 +149,8 @@
 		C84E69472B530E0B006231CD /* PrayerModeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerModeScreen.swift; sourceTree = "<group>"; };
 		C8A342512B3E70C800B24F7C /* HapticKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticKit.swift; sourceTree = "<group>"; };
 		C8A661CD2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptToSoftwareKeyboard.swift; sourceTree = "<group>"; };
+		C8A661CF2B55795600F2A553 /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
+		C8A661D32B55846C00F2A553 /* PangLong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PangLong.ttf; sourceTree = "<group>"; };
 		C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageScreen.swift; sourceTree = "<group>"; };
 		C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		C8AAE01D2B2DB84200BE54CA /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
@@ -359,6 +363,7 @@
 			children = (
 				C8CA45E02B4147D600240DA7 /* Jasmine_Unicode.ttf */,
 				C8CA45D12B41468100240DA7 /* MyanmarSquare.ttf */,
+				C8A661D32B55846C00F2A553 /* PangLong.ttf */,
 				C8CA45D52B4146F400240DA7 /* YoeYar-One.ttf */,
 				C82039E32B1CC4D6000EEF61 /* DMSerifDisplay-Regular.ttf */,
 				C82039DF2B1CC4B7000EEF61 /* Quicksand-Bold.ttf */,
@@ -379,6 +384,7 @@
 				C8D730B22B46D42500D19D57 /* OverflowContentViewModifier.swift */,
 				C8BBB36D2B48713000F3828C /* Measure.swift */,
 				C8A661CD2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift */,
+				C8A661CF2B55795600F2A553 /* NavigationBarColor.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -637,6 +643,7 @@
 				C8CA45D62B4146F400240DA7 /* YoeYar-One.ttf in Resources */,
 				C82039F72B1CDB4F000EEF61 /* NatPint.json in Resources */,
 				C82039E22B1CC4B7000EEF61 /* Quicksand-Bold.ttf in Resources */,
+				C8A661D42B55847200F2A553 /* PangLong.ttf in Resources */,
 				C82039E42B1CC4D6000EEF61 /* DMSerifDisplay-Regular.ttf in Resources */,
 				C8CA45D22B41468100240DA7 /* MyanmarSquare.ttf in Resources */,
 			);
@@ -685,6 +692,7 @@
 				C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */,
 				C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */,
 				C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */,
+				C8A661D02B55795600F2A553 /* NavigationBarColor.swift in Sources */,
 				C84E69202B4C42FA006231CD /* NSObject+Extension.swift in Sources */,
 				C82039EB2B1CCB6D000EEF61 /* Color+CustomColors.swift in Sources */,
 				C83E27F22B2DDACC0038EDF1 /* LocalizedNavTitle.swift in Sources */,

@@ -75,6 +75,10 @@
         "En": "Jasmine",
         "Mm": "စံပယ်"
     },
+    "panglong": {
+        "En": "PangLong",
+        "Mm": "ပန်းလောင်"
+    },
     "msquare": {
         "En": "Square",
         "Mm": "လေးထောင့်"
@@ -118,6 +122,10 @@
     "line_spacing": {
         "En": "Line spacing",
         "Mm": "စာကြောင်း အကွာအဝေး"
+    },
+    "paragraph_spacing": {
+        "En": "Paragraph spacing",
+        "Mm": "စာပိုဒ် အကွာအဝေး"
     },
     "text_size_and_alignment": {
         "En": "Text Size & Alignment",

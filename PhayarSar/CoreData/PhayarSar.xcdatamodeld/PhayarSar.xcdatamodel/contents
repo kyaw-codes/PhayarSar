@@ -6,6 +6,7 @@
         <attribute name="letterSpacing" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="lineSpacing" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="mode" optional="YES" attributeType="String"/>
+        <attribute name="paragraphSpacing" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="prayerId" optional="YES" attributeType="String"/>
         <attribute name="scrollingSpeed" optional="YES" attributeType="String"/>
         <attribute name="showPronunciation" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>

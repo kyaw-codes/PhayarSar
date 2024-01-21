@@ -26,7 +26,18 @@ enum PrayerAlignment: String, CaseIterable, Identifiable, Hashable {
     }
   }
   
-  var alignment: TextAlignment {
+  var textAlignment: TextAlignment {
+    switch self {
+    case .left:
+      return .leading
+    case .center:
+      return .center
+    case .right:
+      return .trailing
+    }
+  }
+    
+  var alignment: Alignment {
     switch self {
     case .left:
       return .leading

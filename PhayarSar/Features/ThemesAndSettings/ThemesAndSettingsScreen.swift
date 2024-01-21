@@ -17,7 +17,7 @@ struct ThemesAndSettingsScreen {
   @Namespace private var namespace
 
   @State private var previewTextHeight = CGFloat.zero
-  @State private var selectedFont: MyanmarFont = .jasmine
+  @State private var selectedFont: MyanmarFont = .msquare
   @State private var fontSize: CGFloat = 28
   @State private var showFontIndicator = false
   @State private var textAlignment: PrayerAlignment = .left
@@ -92,7 +92,7 @@ extension ThemesAndSettingsScreen: View {
     }
     .id(vm.viewRefreshId)
     .onAppear {
-      selectedFont = .init(rawValue: vm.config.font).orElse(.jasmine)
+      selectedFont = .init(rawValue: vm.config.font).orElse(.msquare)
       fontSize = CGFloat(vm.config.textSize)
       textAlignment = PrayerAlignment(rawValue: vm.config.textAlignment).orElse(.left)
       pageColor = .init(rawValue: vm.config.backgroundColor).orElse(.classic)
@@ -134,7 +134,8 @@ extension ThemesAndSettingsScreen: View {
         Text("သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။")
           .foregroundColor(pageColor.tintColor)
           .tracking(vm.config.letterSpacing)
-          .multilineTextAlignment(textAlignment.alignment)
+          .multilineTextAlignment(textAlignment.textAlignment)
+          .frame(maxWidth: .infinity, alignment: textAlignment.alignment)
           .font(selectedFont.font(fontSize))
           .lineSpacing(vm.config.lineSpacing)
           .padding([.horizontal, .top])
@@ -252,6 +253,16 @@ extension ThemesAndSettingsScreen: View {
           .font(.qsB(16))
         Spacer()
         Text("\(preferences.appLang == .Eng ? convertNumberMmToEng("\(Int(vm.config.lineSpacing - 15))") : convertNumberEngToMm("\(Int(vm.config.lineSpacing - 15))"))")
+          .font(.dmSerif(18))
+      }
+      .compactSliderStyle(CustomCompactSliderStyle(accentColor: preferences.accentColor.color))
+      .padding(.top, 4)
+      
+      CompactSlider(value: $vm.config.paragraphSpacing, in: 0...30, step: 0.5) {
+        LocalizedLabel(.paragraph_spacing, systemImage: "arrow.up.and.line.horizontal.and.arrow.down")
+          .font(.qsB(16))
+        Spacer()
+        Text("\(preferences.appLang == .Eng ? convertNumberMmToEng("\(Int(vm.config.paragraphSpacing))") : convertNumberEngToMm("\(Int(vm.config.paragraphSpacing))"))")
           .font(.dmSerif(18))
       }
       .compactSliderStyle(CustomCompactSliderStyle(accentColor: preferences.accentColor.color))
