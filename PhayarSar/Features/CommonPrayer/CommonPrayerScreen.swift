@@ -90,7 +90,7 @@ extension CommonPrayerScreen: View {
         .backport.presentationDetents([.medium])
       }
       .onAppear {
-        model.body[0].isBlur = false
+//        model.body[0].isBlur = false
       }
       .onDisappear {
         vm.save()
@@ -120,7 +120,7 @@ extension CommonPrayerScreen: View {
       }
       
       for i in 0 ..< model.body.count {
-        model.body[i].isBlur = i != currentIndex
+//        model.body[i].isBlur = i != currentIndex
       }
     }
   }
@@ -174,7 +174,11 @@ fileprivate extension CommonPrayerScreen {
                   lastParagraphHeight = value
                 }
               }
-              .padding(.bottom, model.body.last?.id == prayer.wrappedValue.id ? size.height - lastParagraphHeight - 60 : 0)
+              .padding(.bottom, calculatePaddingBottom(model: model, 
+                                                       prayer: prayer.wrappedValue,
+                                                       size: size,
+                                                       lastParagraphHeight: lastParagraphHeight)
+              )
             }
           }
           .padding(.horizontal)
@@ -191,10 +195,18 @@ fileprivate extension CommonPrayerScreen {
           }
           
           for i in 0 ..< model.body.count {
-            model.body[i].isBlur = i != currentIndex
+//            model.body[i].isBlur = i != currentIndex
           }
         })
       }
+    }
+  }
+  
+  private func calculatePaddingBottom(model: Model, prayer: Model.Body, size: CGSize, lastParagraphHeight: Double) -> CGFloat {
+    if vm.config.mode == PrayingMode.player.rawValue {
+      return model.body.last?.id == prayer.id ? size.height - lastParagraphHeight - 60 : 0
+    } else {
+      return 0
     }
   }
   

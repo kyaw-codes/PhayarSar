@@ -41,9 +41,7 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
     .opacity(config.mode == PrayingMode.player.rawValue ? 0.5 : 1)
     .contentShape(Rectangle())
     .id(refreshId)
-    .onTapGesture {
-      scrollToId = prayer.id
-    }
+    .onTapGesture(perform: scrollToCertainParagraph)
   }
   
   private func calculateBlurRadius() -> CGFloat {
@@ -51,6 +49,12 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
       return 0
     }
     return prayer.isBlur ? 2.5 : 0
+  }
+  
+  private func scrollToCertainParagraph() {
+    if config.mode == PrayingMode.player.rawValue && config.tapToScrollEnable {
+      scrollToId = prayer.id
+    }
   }
 }
 
