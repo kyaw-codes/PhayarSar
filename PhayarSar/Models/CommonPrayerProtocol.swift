@@ -29,17 +29,17 @@ extension CommonPrayerBodyProtocol {
     let normal = Double(pronunciation.count - 2) * 0.1
     switch speed {
     case .x0_5:
-      return normal * 0.5
+      return normal / 0.5
     case .x0_75:
-      return normal * 0.75
+      return normal / 0.75
     case .x1:
       return normal
     case .x1_25:
-      return normal * 1.25
+      return normal / 1.25
     case .x1_5:
-      return normal * 1.5
+      return normal / 1.5
     case .x2:
-      return normal * 2
+      return normal / 2
     }
   }
 }

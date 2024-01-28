@@ -23,11 +23,8 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   @State private var currentIndex = 0
   @State private var lastParagraphHeight = 0.0
   @State private var paragraphRefreshId = UUID().uuidString
-  @State private var startTime = Date().timeIntervalSince1970
   
   @State private var scrollToId: String?
-  
-  private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
   
   // MARK: Dependencies
   @StateObject private var vm: CommonPrayerVM<Model>
@@ -64,6 +61,9 @@ extension CommonPrayerScreen: View {
             .ignoresSafeArea()
         }
         .backport.presentationDetents([.medium])
+      }
+      .onAppear {
+        vm.makeFirstParagraphVisibleIfNeeded()
       }
       .onDisappear {
         vm.saveThemeAndSettings()
@@ -131,6 +131,9 @@ fileprivate extension CommonPrayerScreen {
         }
         .onChange(of: vm.scrollToId, perform: { _ in
           vm.scrollToSpecificParagraph(proxy: proxy)
+        })
+        .onChange(of: vm.config.mode, perform: { _  in
+          vm.makeFirstParagraphVisibleIfNeeded()
         })
       }
     }

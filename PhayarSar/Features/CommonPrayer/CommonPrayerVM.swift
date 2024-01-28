@@ -112,4 +112,12 @@ final class CommonPrayerVM<Model>: ObservableObject where Model: CommonPrayerPro
       model.body[i].isBlur = i != currentIndex
     }
   }
+  
+  func makeFirstParagraphVisibleIfNeeded() {
+    guard config.mode == PrayingMode.player.rawValue else { return }
+
+    for i in 0 ..< model.body.count {
+      model.body[i].isBlur = i != 0
+    }
+  }
 }
