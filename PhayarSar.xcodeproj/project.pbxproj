@@ -59,7 +59,6 @@
 		C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE01D2B2DB84200BE54CA /* Optional.swift */; };
 		C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */; };
 		C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3672B48534400F3828C /* CommonPrayerParagraphView.swift */; };
-		C8BBB36A2B485AE900F3828C /* CommonPrayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3692B485AE900F3828C /* CommonPrayerModel.swift */; };
 		C8BBB36E2B48713000F3828C /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB36D2B48713000F3828C /* Measure.swift */; };
 		C8BBB3702B49108F00F3828C /* SpotlightScrollManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB36F2B49108F00F3828C /* SpotlightScrollManager.swift */; };
 		C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45BC2B41251E00240DA7 /* CommonPrayerScreen.swift */; };
@@ -156,7 +155,6 @@
 		C8AAE01D2B2DB84200BE54CA /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedToggle.swift; sourceTree = "<group>"; };
 		C8BBB3672B48534400F3828C /* CommonPrayerParagraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerParagraphView.swift; sourceTree = "<group>"; };
-		C8BBB3692B485AE900F3828C /* CommonPrayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerModel.swift; sourceTree = "<group>"; };
 		C8BBB36D2B48713000F3828C /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		C8BBB36F2B49108F00F3828C /* SpotlightScrollManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightScrollManager.swift; sourceTree = "<group>"; };
 		C8CA45BC2B41251E00240DA7 /* CommonPrayerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerScreen.swift; sourceTree = "<group>"; };
@@ -474,7 +472,6 @@
 			children = (
 				C8BBB3662B48532B00F3828C /* Views */,
 				C8CA45BC2B41251E00240DA7 /* CommonPrayerScreen.swift */,
-				C8BBB3692B485AE900F3828C /* CommonPrayerModel.swift */,
 				C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */,
 			);
 			path = CommonPrayer;
@@ -688,7 +685,6 @@
 				C8CA45C52B4136CC00240DA7 /* AboutPrayerScreen.swift in Sources */,
 				C80287472B4A5F3600F165DF /* PrayingProgressView.swift in Sources */,
 				C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */,
-				C8BBB36A2B485AE900F3828C /* CommonPrayerModel.swift in Sources */,
 				C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */,
 				C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */,
 				C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */,

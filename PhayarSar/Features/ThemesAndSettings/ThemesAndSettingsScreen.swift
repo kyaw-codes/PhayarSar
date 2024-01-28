@@ -8,12 +8,12 @@
 import SwiftUI
 import CompactSlider
 
-struct ThemesAndSettingsScreen {
+struct ThemesAndSettingsScreen<Model> where Model: CommonPrayerProtocol {
   @Environment(\.safeAreaInsets) var safeAreaInsets
   @Environment(\.dismiss) private var dismiss
   @EnvironmentObject private var preferences: UserPreferences
 
-  @ObservedObject private var vm: CommonPrayerVM
+  @ObservedObject private var vm: CommonPrayerVM<Model>
   @Namespace private var namespace
 
   @State private var previewTextHeight = CGFloat.zero
@@ -25,7 +25,7 @@ struct ThemesAndSettingsScreen {
   
   private let colorSystemBg = Color(uiColor: .systemBackground)
   
-  init(vm: CommonPrayerVM) {
+  init(vm: CommonPrayerVM<Model>) {
     self._vm = .init(wrappedValue: vm)
   }
 }
@@ -98,7 +98,7 @@ extension ThemesAndSettingsScreen: View {
       pageColor = .init(rawValue: vm.config.backgroundColor).orElse(.classic)
     }
     .onDisappear {
-      vm.save()
+      vm.saveThemeAndSettings()
     }
     .onChange(of: showFontIndicator) {
       if $0 {
@@ -392,7 +392,7 @@ struct CustomCompactSliderStyle: CompactSliderStyle {
 
 #Preview {
   NavigationView {
-    ThemesAndSettingsScreen(vm: .init(prayerId: natPint.id))
+    ThemesAndSettingsScreen(vm: .init(model: natPint))
   }
   .previewEnvironment()
 }

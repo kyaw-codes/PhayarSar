@@ -21,7 +21,7 @@ struct HomeScreen: View {
             LazyVStack(spacing: 12) {
                 ForEach(1...10, id: \.self) { count in
                     NavigationLink {
-                        CommonPrayerScreen(model: $demoModel)
+                        CommonPrayerScreen(model: demoModel)
                             .onAppear {
                                 showTabBar = false
                             }

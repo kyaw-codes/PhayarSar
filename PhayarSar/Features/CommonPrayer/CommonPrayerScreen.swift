@@ -29,50 +29,26 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   
   private let timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
   
-  // Dependencies
-  @Binding var model: Model
-  @StateObject private var vm: CommonPrayerVM
+  // MARK: Dependencies
+  @StateObject private var vm: CommonPrayerVM<Model>
   
-  init(model: Binding<Model>) {
-    self._model = model
-    self._vm = .init(wrappedValue: CommonPrayerVM(prayerId: model.wrappedValue.id))
+  init(model: Model) {
+    self._vm = .init(wrappedValue: .init(model: model))
   }
 }
 
+// MARK: View
 extension CommonPrayerScreen: View {
   var body: some View {
     AutoScrollingView()
       .background(PageColor(rawValue: vm.config.backgroundColor).orElse(.classic).color)
-      .overlay(alignment: .bottomTrailing) {
-        // MARK: Progress/Play Area
-        Group {
-          if isPlaying {
-            PrayingProgressView(progress: .constant(30), onPause: {
-              
-            }, onCancel: {
-              withAnimation(.spring(duration: 0.5, bounce: 0.1, blendDuration: 0.2)) {
-                isPlaying.toggle()
-              }
-            })
-            .transition(.move(edge: .bottom).combined(with: .scale).combined(with: .offset(y: 30)))
-          } else {
-            if PrayingMode(rawValue: vm.config.mode).orElse(.reader) != .reader {
-              PrayBtn()
-                .transition(.move(edge: .trailing).combined(with: .scale))
-            }
-          }
-        }
-        .padding()
-        .padding(.trailing)
-      }
-      .navigationTitle(model.title)
+      .overlay(alignment: .bottomTrailing) { PrayOrProgressView() }
+      .navigationTitle(vm.model.title)
       .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ToolbarItem { PrayerMenu() }
-      }
+      .toolbar { ToolbarItem { PrayerMenu() } }
       .sheet(isPresented: $showAboutScreen) {
         NavigationView {
-          AboutPrayerScreen(title: model.title, about: model.about)
+          AboutPrayerScreen(title: vm.model.title, about: vm.model.about)
         }
       }
       .sheet(isPresented: $showThemesScreen) {
@@ -89,67 +65,36 @@ extension CommonPrayerScreen: View {
         }
         .backport.presentationDetents([.medium])
       }
-      .onAppear {
-//        model.body[0].isBlur = false
-      }
       .onDisappear {
-        vm.save()
+        vm.saveThemeAndSettings()
       }
       .tint(preferences.accentColor.color)
       .id(vm.viewRefreshId)
   }
-  
-  func scrollToNextParagraph(proxy: ScrollViewProxy) {
-    guard currentIndex < model.body.count else {
-      currentIndex = 0
-      isPlaying.toggle()
-      return
-    }
-    
-    let timeLapse = Date().timeIntervalSince1970 - startTime
-    
-    if timeLapse >= model.body[currentIndex].duration {
-      defer {
-        startTime = Date().timeIntervalSince1970
-        currentIndex += 1
-        paragraphRefreshId = UUID().uuidString
-      }
-      
-      withAnimation(.easeIn) {
-        proxy.scrollTo(model.body[currentIndex].id, anchor: .top)
-      }
-      
-      for i in 0 ..< model.body.count {
-//        model.body[i].isBlur = i != currentIndex
-      }
-    }
-  }
 }
 
+// MARK: Sub-views
 fileprivate extension CommonPrayerScreen {
-  @ViewBuilder func HeaderView() -> some View {
-    GeometryReader {
-      let size = $0.size
-      Rectangle()
-        .fill(.regularMaterial)
-        .ignoresSafeArea()
-        .overlay {
-          Text(model.title)
-            .frame(width: size.width * 0.75)
+
+  @ViewBuilder 
+  func PrayOrProgressView() -> some View {
+    Group {
+      if vm.isPlaying {
+        PrayingProgressView(progress: .constant(30), onPause: {
+          
+        }, onCancel: {
+            vm.stopPraying()
+        })
+        .transition(.move(edge: .bottom).combined(with: .scale).combined(with: .offset(y: 30)))
+      } else {
+        if PrayingMode(rawValue: vm.config.mode).orElse(.reader) != .reader {
+          PrayBtn()
+            .transition(.move(edge: .trailing).combined(with: .scale))
         }
-        .overlay(alignment: .leading) {
-          BackBtn()
-            .padding(.leading, 8)
-        }
-        .overlay(alignment: .trailing) {
-          PrayerMenu()
-            .padding(.trailing)
-        }
-        .overlay(alignment: .bottom) {
-          Divider()
-        }
+      }
     }
-    .frame(height: 50)
+    .padding()
+    .padding(.trailing)
   }
   
   @ViewBuilder func AutoScrollingView() -> some View {
@@ -159,22 +104,20 @@ fileprivate extension CommonPrayerScreen {
       ScrollViewReader { proxy in
         ScrollView {
           VStack(spacing: vm.config.paragraphSpacing) {
-            ForEach($model.body) { prayer in
+            ForEach($vm.model.body) { prayer in
+              
               CommonPrayerParagraphView<Model>(
-                refreshId: $paragraphRefreshId,
                 prayer: prayer,
-                index: $currentIndex,
-                scrollToId: $scrollToId,
-                config: $vm.config
+                vm: vm
               )
               .foregroundColor(PageColor(rawValue: vm.config.backgroundColor).orElse(.classic).tintColor)
               .id(prayer.id)
               .measure(\.height) { value in
-                if model.body.last?.id == prayer.wrappedValue.id {
+                if vm.model.body.last?.id == prayer.wrappedValue.id {
                   lastParagraphHeight = value
                 }
               }
-              .padding(.bottom, calculatePaddingBottom(model: model, 
+              .padding(.bottom, calculatePaddingBottom(model: vm.model,
                                                        prayer: prayer.wrappedValue,
                                                        size: size,
                                                        lastParagraphHeight: lastParagraphHeight)
@@ -183,20 +126,11 @@ fileprivate extension CommonPrayerScreen {
           }
           .padding(.horizontal)
         }
-        .onReceive(timer) { _ in
-          guard isPlaying else { return }
-          scrollToNextParagraph(proxy: proxy)
+        .onReceive(vm.timer) { _ in
+          vm.scrollToNextParagraph(proxy: proxy)
         }
-        .onChange(of: scrollToId, perform: { id in
-          currentIndex = model.body.firstIndex(where: { $0.id == id })!
-          
-          withAnimation(.easeIn) {
-            proxy.scrollTo(id, anchor: .top)
-          }
-          
-          for i in 0 ..< model.body.count {
-//            model.body[i].isBlur = i != currentIndex
-          }
+        .onChange(of: vm.scrollToId, perform: { _ in
+          vm.scrollToSpecificParagraph(proxy: proxy)
         })
       }
     }
@@ -211,13 +145,7 @@ fileprivate extension CommonPrayerScreen {
   }
   
   @ViewBuilder func PrayBtn() -> some View {
-    Button {
-      startTime = Date().timeIntervalSince1970
-      
-      withAnimation(.spring(duration: 0.4, bounce: 0.2, blendDuration: 0.4)) {
-        isPlaying.toggle()
-      }
-    } label: {
+    Button(action: vm.startPraying) {
       HStack(spacing: 5) {
         Image(systemName: "play.circle.fill")
         
@@ -232,49 +160,51 @@ fileprivate extension CommonPrayerScreen {
   }
   
   @ViewBuilder func PrayerMenu() -> some View {
-    Menu {
-      Button {
-        showModeScreen.toggle()
-      } label: {
-        LocalizedLabel(.mode, systemImage: "dpad.left.filled")
-      }
-      
-      Button {
-        showThemesScreen.toggle()
-      } label: {
-        LocalizedLabel(.themes_and_settings, default: "Themes & Settings", systemImage: "textformat.size")
-      }
-      
+    if !vm.isPlaying {
       Menu {
-        ForEach(ScrollingSpeed.allCases) { speed in
-          Button {
-            vm.config.scrollingSpeed = speed.rawValue
-            vm.reCalculate()
-          } label: {
-            HStack {
-              LocalizedText(speed.key)
-              if speed == .init(rawValue: vm.config.scrollingSpeed).orElse(.x1) {
-                Image(systemName: "checkmark")
+        Button {
+          showModeScreen.toggle()
+        } label: {
+          LocalizedLabel(.mode, systemImage: "dpad.left.filled")
+        }
+        
+        Button {
+          showThemesScreen.toggle()
+        } label: {
+          LocalizedLabel(.themes_and_settings, default: "Themes & Settings", systemImage: "textformat.size")
+        }
+        
+        Menu {
+          ForEach(ScrollingSpeed.allCases) { speed in
+            Button {
+              vm.config.scrollingSpeed = speed.rawValue
+              vm.reCalculate()
+            } label: {
+              HStack {
+                LocalizedText(speed.key)
+                if speed == .init(rawValue: vm.config.scrollingSpeed).orElse(.x1) {
+                  Image(systemName: "checkmark")
+                }
               }
             }
           }
+        } label: {
+          LocalizedLabel(.scrolling_speed, systemImage: "dial.medium")
+        }
+        
+        Button {
+          showAboutScreen.toggle()
+        } label: {
+          LocalizedLabel(.about_x, args: [vm.model.title], systemImage: "info.circle.fill")
         }
       } label: {
-        LocalizedLabel(.scrolling_speed, systemImage: "dial.medium")
+        Image(systemName: "line.3.horizontal.circle.fill")
+          .symbolRenderingMode(.monochrome)
+          .background(
+            Circle()
+              .fill(Color.white)
+          )
       }
-      
-      Button {
-        showAboutScreen.toggle()
-      } label: {
-        LocalizedLabel(.about_x, args: [model.title], systemImage: "info.circle.fill")
-      }
-    } label: {
-      Image(systemName: "line.3.horizontal.circle.fill")
-        .symbolRenderingMode(.monochrome)
-        .background(
-          Circle()
-            .fill(Color.white)
-        )
     }
   }
   
@@ -293,7 +223,7 @@ fileprivate extension CommonPrayerScreen {
 
 #Preview {
   NavigationView {
-    CommonPrayerScreen(model: .constant(natPint))
+    CommonPrayerScreen(model: natPint)
   }
   .previewEnvironment()
 }

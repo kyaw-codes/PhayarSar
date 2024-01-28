@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct PrayerModeScreen {
-  @ObservedObject private var vm: CommonPrayerVM
+struct PrayerModeScreen<Model> where Model: CommonPrayerProtocol {
+  @ObservedObject private var vm: CommonPrayerVM<Model>
   @EnvironmentObject private var preferences: UserPreferences
   
   @State private var selectedMode = PrayingMode.reader
   
-  init(vm: CommonPrayerVM) {
+  init(vm: CommonPrayerVM<Model>) {
     self._vm = .init(wrappedValue: vm)
   }
 }
@@ -45,12 +45,12 @@ extension PrayerModeScreen: View {
       selectedMode = .init(rawValue: vm.config.mode).orElse(.reader)
     }
     .onDisappear {
-      vm.save()
+      vm.saveThemeAndSettings()
     }
   }
 }
 
 #Preview {
-  PrayerModeScreen(vm: CommonPrayerVM(prayerId: "NatPint"))
+  PrayerModeScreen(vm: CommonPrayerVM(model: natPint))
     .previewEnvironment()
 }

@@ -10,61 +10,62 @@ import SwiftUI
 struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
   @EnvironmentObject private var preferences: UserPreferences
   
-  @Binding var refreshId: String
   @Binding var prayer: Model.Body
-  @Binding var index: Int
-  @Binding var scrollToId: String?
-  @Binding var config: PrayerConfiguration
+  @ObservedObject var vm: CommonPrayerVM<Model>
   
   var body: some View {
     VStack(alignment: .leading, spacing: 10) {
       Text(prayer.content)
-        .tracking(config.letterSpacing)
-        .lineSpacing(config.lineSpacing)
-        .frame(maxWidth: .infinity, 
-               alignment: PrayerAlignment(rawValue: config.textAlignment).orElse(.left).alignment)
+        .tracking(vm.config.letterSpacing)
+        .lineSpacing(vm.config.lineSpacing)
+        .frame(maxWidth: .infinity,
+               alignment: PrayerAlignment(rawValue: vm.config.textAlignment).orElse(.left).alignment)
 
-      if config.showPronunciation {
+      if vm.config.showPronunciation {
         Text("(\(prayer.pronunciation))")
-          .font(MyanmarFont(rawValue: config.font).orElse(.msquare).font(CGFloat(config.textSize) * 0.9))
-          .tracking(config.letterSpacing)
-          .lineSpacing(config.lineSpacing)
+          .font(MyanmarFont(rawValue: vm.config.font).orElse(.msquare).font(CGFloat(vm.config.textSize) * 0.9))
+          .tracking(vm.config.letterSpacing)
+          .lineSpacing(vm.config.lineSpacing)
           .opacity(0.5)
           .frame(maxWidth: .infinity, 
-                 alignment: PrayerAlignment(rawValue: config.textAlignment).orElse(.left).alignment)
+                 alignment: PrayerAlignment(rawValue: vm.config.textAlignment).orElse(.left).alignment)
       }
     }
-    .font(MyanmarFont(rawValue: config.font).orElse(.msquare).font(CGFloat(config.textSize)))
-    .multilineTextAlignment(PrayerAlignment(rawValue: config.textAlignment).orElse(.left).textAlignment)
+    .font(MyanmarFont(rawValue: vm.config.font).orElse(.msquare).font(CGFloat(vm.config.textSize)))
+    .multilineTextAlignment(PrayerAlignment(rawValue: vm.config.textAlignment).orElse(.left).textAlignment)
     .padding([.top, .bottom], 10)
     .blur(radius: calculateBlurRadius())
-    .opacity(config.mode == PrayingMode.player.rawValue ? 0.5 : 1)
+    .opacity(calculateOpacity())
     .contentShape(Rectangle())
-    .id(refreshId)
     .onTapGesture(perform: scrollToCertainParagraph)
   }
   
   private func calculateBlurRadius() -> CGFloat {
-    guard config.mode != PrayingMode.reader.rawValue else {
+    guard vm.config.mode != PrayingMode.reader.rawValue else {
       return 0
     }
     return prayer.isBlur ? 2.5 : 0
   }
   
+  private func calculateOpacity() -> Double {
+    if vm.config.mode == PrayingMode.player.rawValue {
+      return prayer.isBlur ? 0.5 : 1
+    } else {
+      return 1
+    }
+  }
+  
   private func scrollToCertainParagraph() {
-    if config.mode == PrayingMode.player.rawValue && config.tapToScrollEnable {
-      scrollToId = prayer.id
+    if vm.config.mode == PrayingMode.player.rawValue && vm.config.tapToScrollEnable {
+      vm.scrollToId = prayer.id
     }
   }
 }
 
 #Preview {
   CommonPrayerParagraphView<NatPintVO>(
-    refreshId: .constant(""),
     prayer: .constant(natPint.body[0]),
-    index: .constant(0),
-    scrollToId: .constant(nil),
-    config: .constant(PrayerConfiguration.preview())
+    vm: .init()
   )
   .previewEnvironment()
 }
