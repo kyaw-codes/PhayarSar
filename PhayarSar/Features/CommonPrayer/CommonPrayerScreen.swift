@@ -177,22 +177,24 @@ fileprivate extension CommonPrayerScreen {
           LocalizedLabel(.themes_and_settings, default: "Themes & Settings", systemImage: "textformat.size")
         }
         
-        Menu {
-          ForEach(ScrollingSpeed.allCases) { speed in
-            Button {
-              vm.config.scrollingSpeed = speed.rawValue
-              vm.reCalculate()
-            } label: {
-              HStack {
-                LocalizedText(speed.key)
-                if speed == .init(rawValue: vm.config.scrollingSpeed).orElse(.x1) {
-                  Image(systemName: "checkmark")
+        if vm.config.mode == PrayingMode.player.rawValue {
+          Menu {
+            ForEach(ScrollingSpeed.allCases) { speed in
+              Button {
+                vm.config.scrollingSpeed = speed.rawValue
+                vm.reCalculate()
+              } label: {
+                HStack {
+                  LocalizedText(speed.key)
+                  if speed == .init(rawValue: vm.config.scrollingSpeed).orElse(.x1) {
+                    Image(systemName: "checkmark")
+                  }
                 }
               }
             }
+          } label: {
+            LocalizedLabel(.scrolling_speed, systemImage: "dial.medium")
           }
-        } label: {
-          LocalizedLabel(.scrolling_speed, systemImage: "dial.medium")
         }
         
         Button {

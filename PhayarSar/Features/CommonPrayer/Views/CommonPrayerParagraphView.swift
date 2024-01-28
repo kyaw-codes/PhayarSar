@@ -41,14 +41,14 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
   }
   
   private func calculateBlurRadius() -> CGFloat {
-    guard vm.config.mode != PrayingMode.reader.rawValue else {
+    guard vm.config.mode != PrayingMode.reader.rawValue, vm.config.spotlightTextEnable else {
       return 0
     }
     return prayer.isBlur ? 2.5 : 0
   }
   
   private func calculateOpacity() -> Double {
-    if vm.config.mode == PrayingMode.player.rawValue {
+    if vm.config.mode == PrayingMode.player.rawValue && vm.config.spotlightTextEnable {
       return prayer.isBlur ? 0.5 : 1
     } else {
       return 1
