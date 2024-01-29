@@ -99,6 +99,6 @@ struct PlayerModeView: View {
 }
 
 #Preview {
-  PrayerModeScreen(vm: .init())
+  PrayerModeScreen(vm: .init(model: natPint))
     .previewEnvironment()
 }

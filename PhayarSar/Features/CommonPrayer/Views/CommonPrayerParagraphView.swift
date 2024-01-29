@@ -21,7 +21,7 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
         .frame(maxWidth: .infinity,
                alignment: PrayerAlignment(rawValue: vm.config.textAlignment).orElse(.left).alignment)
 
-      if vm.config.showPronunciation {
+      if vm.config.showPronunciation && !prayer.pronunciation.isEmpty {
         Text("(\(prayer.pronunciation))")
           .font(MyanmarFont(rawValue: vm.config.font).orElse(.msquare).font(CGFloat(vm.config.textSize) * 0.9))
           .tracking(vm.config.letterSpacing)
@@ -65,7 +65,7 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
 #Preview {
   CommonPrayerParagraphView<NatPintVO>(
     prayer: .constant(natPint.body[0]),
-    vm: .init()
+    vm: .init(model: natPint)
   )
   .previewEnvironment()
 }

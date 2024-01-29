@@ -35,3 +35,4 @@ class NatPintVOBody: Decodable, CommonPrayerBodyProtocol {
 }
 
 let natPint = Bundle.main.decode(NatPintVO.self, from: "NatPint.json")
+let dhammacakka = Bundle.main.decode(NatPintVO.self, from: "Dhammacakka.json")

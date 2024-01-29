@@ -23,7 +23,7 @@ final class CommonPrayerVM<Model>: ObservableObject where Model: CommonPrayerPro
   private var currentIndex = 0
   private var startTime = Date().timeIntervalSince1970
   
-  init(model: Model = natPint) {
+  init(model: Model) {
     let prayerId = model.id
     
     if let config = PrayerConfiguration.findBy(prayerId: prayerId) {

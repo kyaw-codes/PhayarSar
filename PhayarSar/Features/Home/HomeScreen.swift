@@ -12,23 +12,29 @@ struct HomeScreen: View {
     @EnvironmentObject private var preferences: UserPreferences
     @State private var showOnboarding = false
     @State private var offset: CGPoint = .zero
-    @State private var demoModel = natPint
     
     var body: some View {
         OffsetObservingScrollView(offset: $offset) {
             navView
             
             LazyVStack(spacing: 12) {
-                ForEach(1...10, id: \.self) { count in
-                    NavigationLink {
-                        CommonPrayerScreen(model: demoModel)
-                            .onAppear {
-                                showTabBar = false
-                            }
-                    } label: {
-                        HomeListItemView(title: "နတ်ပင့်")
-                    }
-                }
+              NavigationLink {
+                CommonPrayerScreen(model: natPint)
+                  .onAppear {
+                    showTabBar = false
+                  }
+              } label: {
+                HomeListItemView(title: "နတ်ပင့်")
+              }
+
+              NavigationLink {
+                CommonPrayerScreen(model: dhammacakka)
+                  .onAppear {
+                    showTabBar = false
+                  }
+              } label: {
+                HomeListItemView(title: "ဓမ္မစကြာ")
+              }
             }
             .padding([.horizontal, .top])
         }
