@@ -34,7 +34,9 @@ extension CommonPrayerScreen: View {
   var body: some View {
     AutoScrollingView()
       .background(PageColor(rawValue: vm.config.backgroundColor).orElse(.classic).color)
-      .overlay(alignment: .bottomTrailing) { PrayOrProgressView() }
+      .overlay(alignment: .bottomTrailing) {
+          PrayOrProgressView()
+      }
       .navigationTitle(vm.model.title)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar { 
@@ -65,6 +67,11 @@ extension CommonPrayerScreen: View {
         }
         .backport.presentationDetents([.medium])
       }
+      .onChange(of: vm.config.mode, perform: { mode in
+        if mode == PrayingMode.reader.rawValue {
+          vm.resetPrayingState()
+        }
+      })
       .onAppear {
         vm.makeFirstParagraphVisibleIfNeeded()
       }
@@ -118,24 +125,26 @@ fileprivate extension CommonPrayerScreen {
 
   @ViewBuilder 
   func PrayOrProgressView() -> some View {
-    Group {
-      if vm.isPlaying || vm.isPaused {
-        PrayingProgressView(
-          progress: vm.progress * 100,
-          onPause: vm.pausePraying,
-          onCancel:vm.resetPrayingState,
-          isPaused: vm.isPaused
-        )
-        .transition(.move(edge: .bottom).combined(with: .scale).combined(with: .offset(y: 30)))
-      } else {
-        if PrayingMode(rawValue: vm.config.mode).orElse(.reader) != .reader {
-          PrayBtn()
-            .transition(.move(edge: .trailing).combined(with: .scale))
+    if vm.config.mode == PrayingMode.player.rawValue {
+      Group {
+        if vm.isPlaying || vm.isPaused {
+          PrayingProgressView(
+            progress: vm.progress * 100,
+            onPause: vm.pausePraying,
+            onCancel:vm.resetPrayingState,
+            isPaused: vm.isPaused
+          )
+          .transition(.move(edge: .bottom).combined(with: .scale).combined(with: .offset(y: 30)))
+        } else {
+          if PrayingMode(rawValue: vm.config.mode).orElse(.reader) != .reader {
+            PrayBtn()
+              .transition(.move(edge: .trailing).combined(with: .scale))
+          }
         }
       }
+      .padding()
+      .padding(.trailing)
     }
-    .padding()
-    .padding(.trailing)
   }
   
   @ViewBuilder func AutoScrollingView() -> some View {

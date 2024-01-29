@@ -103,7 +103,6 @@ final class CommonPrayerVM<Model>: ObservableObject where Model: CommonPrayerPro
     
     let timeLapse = Date().timeIntervalSince1970 - startTime
     if timeLapse >= model.body[currentIndex].duration(config.scrollingSpeed) {
-      print(model.body[currentIndex].duration(config.scrollingSpeed))
       defer {
         startTime = Date().timeIntervalSince1970
         currentIndex += 1
