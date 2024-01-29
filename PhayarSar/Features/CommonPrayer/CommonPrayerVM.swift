@@ -19,9 +19,21 @@ final class CommonPrayerVM<Model>: ObservableObject where Model: CommonPrayerPro
   @Published private(set) var timer = Timer.publish(every: 1/120, on: .main, in: .common).autoconnect()
   @Published private(set) var viewRefreshId = ""
   @Published private(set) var isPlaying = false
+  @Published private(set) var isPaused = false
+  @Published private(set) var progress: CGFloat = 0.0
 
-  private var currentIndex = 0
+  private var currentIndex = 0 {
+    didSet {
+      progress = CGFloat(currentIndex) / CGFloat(model.body.count)
+      if progress == 1 {
+        DispatchQueue.main.asyncAfter(deadline: .now() + model.body[model.body.count - 1].duration(config.scrollingSpeed)) { [weak self] in
+          self?.resetPrayingState()
+        }
+      }
+    }
+  }
   private var startTime = Date().timeIntervalSince1970
+  private var proxy: ScrollViewProxy?
   
   init(model: Model) {
     let prayerId = model.id
@@ -62,20 +74,26 @@ final class CommonPrayerVM<Model>: ObservableObject where Model: CommonPrayerPro
     }
   }
   
-  func stopPraying() {
-    withAnimation(.spring(duration: 0.5, bounce: 0.1, blendDuration: 0.2)) {
+  func resetPrayingState() {
+    withAnimation(.interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7)) {
       isPlaying = false
+      isPaused = false
+      currentIndex = 0
+      proxy?.scrollTo(model.body[0].id)
+      makeFirstParagraphVisibleIfNeeded()
     }
   }
   
   func pausePraying() {
-    
+    isPaused.toggle()
+    isPlaying.toggle()
   }
   
   func scrollToNextParagraph(
     proxy: ScrollViewProxy,
     onScrollToEnd: (() -> Void)? = nil
   ) {
+    if self.proxy == nil { self.proxy = proxy }
     guard isPlaying else { return }
     
     guard currentIndex < model.body.count else {
@@ -85,6 +103,7 @@ final class CommonPrayerVM<Model>: ObservableObject where Model: CommonPrayerPro
     
     let timeLapse = Date().timeIntervalSince1970 - startTime
     if timeLapse >= model.body[currentIndex].duration(config.scrollingSpeed) {
+      print(model.body[currentIndex].duration(config.scrollingSpeed))
       defer {
         startTime = Date().timeIntervalSince1970
         currentIndex += 1

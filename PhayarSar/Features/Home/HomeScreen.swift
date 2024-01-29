@@ -19,12 +19,20 @@ struct HomeScreen: View {
             
             LazyVStack(spacing: 12) {
               NavigationLink {
+                CommonPrayerScreen(model: awwKartha)
+                  .onAppear {
+                    showTabBar = false
+                  }
+              } label: {
+                HomeListItemView(title: awwKartha.title)
+              }
+              NavigationLink {
                 CommonPrayerScreen(model: natPint)
                   .onAppear {
                     showTabBar = false
                   }
               } label: {
-                HomeListItemView(title: "နတ်ပင့်")
+                HomeListItemView(title: natPint.title)
               }
 
               NavigationLink {
@@ -33,7 +41,7 @@ struct HomeScreen: View {
                     showTabBar = false
                   }
               } label: {
-                HomeListItemView(title: "ဓမ္မစကြာ")
+                HomeListItemView(title: dhammacakka.title)
               }
             }
             .padding([.horizontal, .top])

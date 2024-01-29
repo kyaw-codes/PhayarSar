@@ -17,15 +17,10 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   @State private var showAboutScreen = false
   @State private var showThemesScreen = false
   @State private var showModeScreen = false
-  
-  @State private var scrollingSpeed: ScrollingSpeed = .x1
-  @State private var isPlaying = false
-  @State private var currentIndex = 0
   @State private var lastParagraphHeight = 0.0
-  @State private var paragraphRefreshId = UUID().uuidString
   
-  @State private var scrollToId: String?
-  
+  @State private var startPulsating = false
+    
   // MARK: Dependencies
   @StateObject private var vm: CommonPrayerVM<Model>
   
@@ -42,7 +37,15 @@ extension CommonPrayerScreen: View {
       .overlay(alignment: .bottomTrailing) { PrayOrProgressView() }
       .navigationTitle(vm.model.title)
       .navigationBarTitleDisplayMode(.inline)
-      .toolbar { ToolbarItem { PrayerMenu() } }
+      .toolbar { 
+        ToolbarItem(placement: .navigationBarLeading) {
+          if vm.isPlaying {
+            PulsatingScrollSpeedView()
+              .transition(.slide)
+          }
+        }
+        ToolbarItem { PrayerMenu() }
+      }
       .sheet(isPresented: $showAboutScreen) {
         NavigationView {
           AboutPrayerScreen(title: vm.model.title, about: vm.model.about)
@@ -68,6 +71,7 @@ extension CommonPrayerScreen: View {
       .onDisappear {
         vm.saveThemeAndSettings()
       }
+      .navigationBarBackButtonHidden(vm.isPlaying)
       .tint(preferences.accentColor.color)
       .id(vm.viewRefreshId)
   }
@@ -75,16 +79,53 @@ extension CommonPrayerScreen: View {
 
 // MARK: Sub-views
 fileprivate extension CommonPrayerScreen {
+  
+  @ViewBuilder
+  func PulsatingScrollSpeedView() -> some View {
+    ZStack {
+      Capsule()
+        .foregroundColor(preferences.accentColor.color)
+        .opacity(0.1)
+        .scaleEffect(startPulsating ? 1.6 : 1)
+      
+      Capsule()
+        .foregroundColor(preferences.accentColor.color)
+        .opacity(0.3)
+        .scaleEffect(startPulsating ? 1.4 : 1)
+      
+      Capsule()
+        .foregroundColor(preferences.accentColor.color)
+        .opacity(0.5)
+        .scaleEffect(startPulsating ? 1.2 : 0.9)
+      
+      LocalizedText(ScrollingSpeed(rawValue: vm.config.scrollingSpeed).orElse(.x1).key)
+        .font(.qsB(12))
+        .foregroundColor(.white)
+        .padding(.horizontal, 8)
+        .padding(.vertical, 4)
+        .background {
+          Capsule()
+            .fill(preferences.accentColor.color)
+            .frame(height: 20)
+        }
+    }
+    .onAppear {
+      withAnimation(.easeIn(duration: 1).repeatForever(autoreverses: true)) {
+        startPulsating.toggle()
+      }
+    }
+  }
 
   @ViewBuilder 
   func PrayOrProgressView() -> some View {
     Group {
-      if vm.isPlaying {
-        PrayingProgressView(progress: .constant(30), onPause: {
-          
-        }, onCancel: {
-            vm.stopPraying()
-        })
+      if vm.isPlaying || vm.isPaused {
+        PrayingProgressView(
+          progress: vm.progress * 100,
+          onPause: vm.pausePraying,
+          onCancel:vm.resetPrayingState,
+          isPaused: vm.isPaused
+        )
         .transition(.move(edge: .bottom).combined(with: .scale).combined(with: .offset(y: 30)))
       } else {
         if PrayingMode(rawValue: vm.config.mode).orElse(.reader) != .reader {

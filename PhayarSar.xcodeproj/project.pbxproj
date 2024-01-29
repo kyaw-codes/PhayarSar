@@ -72,6 +72,7 @@
 		C8CA45E42B414A4D00240DA7 /* MyanmarFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45E32B414A4D00240DA7 /* MyanmarFont.swift */; };
 		C8CA45E62B4152AC00240DA7 /* PageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA45E52B4152AC00240DA7 /* PageColor.swift */; };
 		C8CEF9E52B66D30700EF9B9E /* Dhammacakka.json in Resources */ = {isa = PBXBuildFile; fileRef = C8CEF9E42B66D30700EF9B9E /* Dhammacakka.json */; };
+		C8CEF9E72B67D01A00EF9B9E /* သြကာသ.json in Resources */ = {isa = PBXBuildFile; fileRef = C8CEF9E62B67D01A00EF9B9E /* သြကာသ.json */; };
 		C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */; };
 		C8D652812B2E0A3800BB6C42 /* HomeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */; };
 		C8D652852B2E0BDB00BB6C42 /* TabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652842B2E0BDB00BB6C42 /* TabScreen.swift */; };
@@ -169,6 +170,7 @@
 		C8CA45E32B414A4D00240DA7 /* MyanmarFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyanmarFont.swift; sourceTree = "<group>"; };
 		C8CA45E52B4152AC00240DA7 /* PageColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageColor.swift; sourceTree = "<group>"; };
 		C8CEF9E42B66D30700EF9B9E /* Dhammacakka.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Dhammacakka.json; sourceTree = "<group>"; };
+		C8CEF9E62B67D01A00EF9B9E /* သြကာသ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "သြကာသ.json"; sourceTree = "<group>"; };
 		C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionObservingView.swift; sourceTree = "<group>"; };
 		C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListItemView.swift; sourceTree = "<group>"; };
 		C8D652842B2E0BDB00BB6C42 /* TabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreen.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				C82039DC2B1CC499000EEF61 /* Fonts */,
 				C82039B12B1CABE6000EEF61 /* Assets.xcassets */,
 				C82039F62B1CDB4F000EEF61 /* NatPint.json */,
+				C8CEF9E62B67D01A00EF9B9E /* သြကာသ.json */,
 				C8CEF9E42B66D30700EF9B9E /* Dhammacakka.json */,
 				C84240BB2B2DD29300A2B234 /* Language.json */,
 			);
@@ -639,6 +642,7 @@
 				C84240BC2B2DD29300A2B234 /* Language.json in Resources */,
 				C82039E12B1CC4B7000EEF61 /* Quicksand-SemiBold.ttf in Resources */,
 				C82039E02B1CC4B7000EEF61 /* Quicksand-Regular.ttf in Resources */,
+				C8CEF9E72B67D01A00EF9B9E /* သြကာသ.json in Resources */,
 				C82039B22B1CABE6000EEF61 /* Assets.xcassets in Resources */,
 				C8CA45D62B4146F400240DA7 /* YoeYar-One.ttf in Resources */,
 				C82039F72B1CDB4F000EEF61 /* NatPint.json in Resources */,
