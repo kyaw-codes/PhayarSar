@@ -8,7 +8,7 @@
 import Foundation
 
 class NatPintVO: Decodable, CommonPrayerProtocol {
-    var id: String { "NatPint" }
+    let id: String
     let title: String
     let about: String
     var body: [NatPintVOBody]

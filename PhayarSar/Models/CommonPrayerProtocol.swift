@@ -26,7 +26,7 @@ protocol CommonPrayerBodyProtocol: Identifiable {
 extension CommonPrayerBodyProtocol {
   func duration(_ speedStr: String) -> Double {
     let speed = ScrollingSpeed(rawValue: speedStr).orElse(.x1)
-    let normal = Double(pronunciation.count - 2) * 0.1
+    let normal = Double((pronunciation.isEmpty ? content : pronunciation).count) * 0.1
     switch speed {
     case .x0_5:
       return normal / 0.5
