@@ -18,33 +18,19 @@ struct HomeScreen: View {
             navView
             
             LazyVStack(spacing: 12) {
-              NavigationLink {
-                CommonPrayerScreen(model: awwKartha)
-                  .onAppear {
-                    showTabBar = false
-                  }
-              } label: {
-                HomeListItemView(title: awwKartha.title)
-              }
-              NavigationLink {
-                CommonPrayerScreen(model: natPint)
-                  .onAppear {
-                    showTabBar = false
-                  }
-              } label: {
-                HomeListItemView(title: natPint.title)
-              }
-
-              NavigationLink {
-                CommonPrayerScreen(model: dhammacakka)
-                  .onAppear {
-                    showTabBar = false
-                  }
-              } label: {
-                HomeListItemView(title: dhammacakka.title)
+              ForEach(allCommonPrayers) { prayer in
+                NavigationLink {
+                  CommonPrayerScreen(model: prayer)
+                    .onAppear {
+                      showTabBar = false
+                    }
+                } label: {
+                  HomeListItemView(title: prayer.title)
+                }
               }
             }
             .padding([.horizontal, .top])
+            .padding(.bottom, 80)
         }
         .overlay(alignment: .top) {
             inlineNavView

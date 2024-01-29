@@ -20,7 +20,7 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   @State private var lastParagraphHeight = 0.0
   
   @State private var startPulsating = false
-    
+  
   // MARK: Dependencies
   @StateObject private var vm: CommonPrayerVM<Model>
   
@@ -35,11 +35,11 @@ extension CommonPrayerScreen: View {
     AutoScrollingView()
       .background(PageColor(rawValue: vm.config.backgroundColor).orElse(.classic).color)
       .overlay(alignment: .bottomTrailing) {
-          PrayOrProgressView()
+        PrayOrProgressView()
       }
       .navigationTitle(vm.model.title)
       .navigationBarTitleDisplayMode(.inline)
-      .toolbar { 
+      .toolbar {
         ToolbarItem(placement: .navigationBarLeading) {
           if vm.isPlaying {
             PulsatingScrollSpeedView()
@@ -122,8 +122,8 @@ fileprivate extension CommonPrayerScreen {
       }
     }
   }
-
-  @ViewBuilder 
+  
+  @ViewBuilder
   func PrayOrProgressView() -> some View {
     if vm.config.mode == PrayingMode.player.rawValue {
       Group {
@@ -247,10 +247,12 @@ fileprivate extension CommonPrayerScreen {
           }
         }
         
-        Button {
-          showAboutScreen.toggle()
-        } label: {
-          LocalizedLabel(.about_x, args: [vm.model.title], systemImage: "info.circle.fill")
+        if !vm.model.about.isEmpty {
+          Button {
+            showAboutScreen.toggle()
+          } label: {
+            LocalizedLabel(.about_x, args: [vm.model.title], systemImage: "info.circle.fill")
+          }
         }
       } label: {
         Image(systemName: "line.3.horizontal.circle.fill")
