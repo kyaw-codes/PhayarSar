@@ -59,6 +59,10 @@ enum LocalizedKey: String {
   case reader_mode
   case player_mode
   case selected
+  case add_new
+  case worship_plan_helps_you_pray
+  case view_collection
+  case plus_x_more
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]
@@ -74,6 +78,10 @@ enum LocalizedKey: String {
     let templateString = localize(lang)?.replacingOccurrences(of: "{$}", with: "%@") ?? ""
     return String(format: templateString, arguments: args).replacingOccurrences(of: "0.000000", with: "% F")
   }
+}
+
+func localizeNumber(_ appLang: AppLanguage, str: String) -> String {
+  appLang == .Eng ? convertNumberMmToEng(str) : convertNumberEngToMm(str)
 }
 
 func convertNumberEngToMm(_ engText: String) -> String {

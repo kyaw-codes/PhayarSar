@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "imagemorphing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kodlian/ImageMorphing",
+      "state" : {
+        "revision" : "6c1f2b9c7dd79238d1e4ddb3223803c318995eb0",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "swiftbackports",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/shaps80/SwiftBackports",

@@ -202,5 +202,21 @@
     "selected": {
       "En": "Selected",
       "Mm": "ရွေးထားသည်"
+    },
+    "add_new": {
+      "En": "Add new",
+      "Mm": "အသစ်ထည့်"
+    },
+    "worship_plan_helps_you_pray": {
+      "En": "Worship plan helps you pray uninterruptedly.",
+      "Mm": "ဘုရားရှိခိုးအစီအစဥ်သည် အနှောင့်အယှက်ကင်းစွာ ဝတ်ပြုနိုင်စေသည်။"
+    },
+    "view_collection": {
+      "En": "View collection",
+      "Mm": "အကုန်ကြည့်မယ်"
+    },
+    "plus_x_more": {
+      "En": "+{$} more",
+      "Mm": "+{$} ခုကျန်"
     }
 }
