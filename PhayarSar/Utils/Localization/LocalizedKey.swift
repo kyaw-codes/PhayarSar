@@ -63,6 +63,7 @@ enum LocalizedKey: String {
   case worship_plan_helps_you_pray
   case view_collection
   case plus_x_more
+  case other_prayers
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]

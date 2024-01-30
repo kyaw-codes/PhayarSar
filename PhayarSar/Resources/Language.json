@@ -218,5 +218,9 @@
     "plus_x_more": {
       "En": "+{$} more",
       "Mm": "+{$} ခုကျန်"
+    },
+    "other_prayers": {
+      "En": "Others",
+      "Mm": "အခြားဂါထာများ"
     }
 }

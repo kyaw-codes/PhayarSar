@@ -87,6 +87,8 @@
 		C8CEF9FF2B68061500EF9B9E /* အမျှဝေ.json in Resources */ = {isa = PBXBuildFile; fileRef = C8CEF9FE2B68061500EF9B9E /* အမျှဝေ.json */; };
 		C8D403092B68A94F00448EDC /* MorphinDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D403082B68A94F00448EDC /* MorphinDemoView.swift */; };
 		C8D4030C2B68C03700448EDC /* ImageMorphing in Frameworks */ = {isa = PBXBuildFile; productRef = C8D4030B2B68C03700448EDC /* ImageMorphing */; };
+		C8D4030F2B68FA7600448EDC /* PrayerCollectionsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D4030E2B68FA7600448EDC /* PrayerCollectionsScreen.swift */; };
+		C8D403112B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json in Resources */ = {isa = PBXBuildFile; fileRef = C8D403102B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json */; };
 		C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */; };
 		C8D652812B2E0A3800BB6C42 /* HomeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */; };
 		C8D652852B2E0BDB00BB6C42 /* TabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652842B2E0BDB00BB6C42 /* TabScreen.swift */; };
@@ -198,6 +200,8 @@
 		C8CEF9FC2B6804DF00EF9B9E /* ဆယ်မျက်နှာမ္မေတ္တာပွား.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ဆယ်မျက်နှာမ္မေတ္တာပွား.json"; sourceTree = "<group>"; };
 		C8CEF9FE2B68061500EF9B9E /* အမျှဝေ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "အမျှဝေ.json"; sourceTree = "<group>"; };
 		C8D403082B68A94F00448EDC /* MorphinDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphinDemoView.swift; sourceTree = "<group>"; };
+		C8D4030E2B68FA7600448EDC /* PrayerCollectionsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerCollectionsScreen.swift; sourceTree = "<group>"; };
+		C8D403102B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "သမ္ဗုဒ္ဓေ.json"; sourceTree = "<group>"; };
 		C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionObservingView.swift; sourceTree = "<group>"; };
 		C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListItemView.swift; sourceTree = "<group>"; };
 		C8D652842B2E0BDB00BB6C42 /* TabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreen.swift; sourceTree = "<group>"; };
@@ -355,6 +359,7 @@
 		C82039D72B1CC2E9000EEF61 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C8D4030D2B68FA6300448EDC /* PrayerCollections */,
 				C84E69462B530DFD006231CD /* PrayerMode */,
 				C8CA45C62B413AD300240DA7 /* ThemesAndSettings */,
 				C8CA45C32B4136BD00240DA7 /* AboutPrayer */,
@@ -395,6 +400,7 @@
 				C8CEF9FE2B68061500EF9B9E /* အမျှဝေ.json */,
 				C8CEF9F62B68003000EF9B9E /* တရားဂုဏ်တော်.json */,
 				C8CEF9F02B67FD5400EF9B9E /* ရှစ်ပါးသီလ.json */,
+				C8D403102B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json */,
 				C8CEF9F22B67FE7D00EF9B9E /* ဆယ်ပါးသီလ.json */,
 				C8CEF9E42B66D30700EF9B9E /* Dhammacakka.json */,
 				C84240BB2B2DD29300A2B234 /* Language.json */,
@@ -541,6 +547,14 @@
 			path = ThemesAndSettings;
 			sourceTree = "<group>";
 		};
+		C8D4030D2B68FA6300448EDC /* PrayerCollections */ = {
+			isa = PBXGroup;
+			children = (
+				C8D4030E2B68FA7600448EDC /* PrayerCollectionsScreen.swift */,
+			);
+			path = PrayerCollections;
+			sourceTree = "<group>";
+		};
 		C8D652822B2E0BC200BB6C42 /* Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -684,6 +698,7 @@
 				C82039B52B1CABE6000EEF61 /* Preview Assets.xcassets in Resources */,
 				C8CEF9F72B68003000EF9B9E /* တရားဂုဏ်တော်.json in Resources */,
 				C8CEF9F52B67FF9500EF9B9E /* ဘုရားဂုဏ်တော်.json in Resources */,
+				C8D403112B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json in Resources */,
 				C8CEF9ED2B67FA8900EF9B9E /* သီလတောင်း.json in Resources */,
 				C84240BC2B2DD29300A2B234 /* Language.json in Resources */,
 				C8CEF9F32B67FE7D00EF9B9E /* ဆယ်ပါးသီလ.json in Resources */,
@@ -754,6 +769,7 @@
 				C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */,
 				C8A661D02B55795600F2A553 /* NavigationBarColor.swift in Sources */,
 				C84E69202B4C42FA006231CD /* NSObject+Extension.swift in Sources */,
+				C8D4030F2B68FA7600448EDC /* PrayerCollectionsScreen.swift in Sources */,
 				C82039EB2B1CCB6D000EEF61 /* Color+CustomColors.swift in Sources */,
 				C83E27F22B2DDACC0038EDF1 /* LocalizedNavTitle.swift in Sources */,
 				C8A661CE2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift in Sources */,

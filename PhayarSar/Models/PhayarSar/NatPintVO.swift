@@ -48,6 +48,7 @@ let allCommonPrayers: [NatPintVO] = [
   Bundle.main.decode(NatPintVO.self, from: "ဘုရားဂုဏ်တော်.json"),
   Bundle.main.decode(NatPintVO.self, from: "တရားဂုဏ်တော်.json"),
   Bundle.main.decode(NatPintVO.self, from: "သံဃာဂုဏ်တော်.json"),
+  Bundle.main.decode(NatPintVO.self, from: "သမ္ဗုဒ္ဓေ.json"),
   Bundle.main.decode(NatPintVO.self, from: "Dhammacakka.json"),
   Bundle.main.decode(NatPintVO.self, from: "မေတ္တာသုတ်လာမ္မေတ္တာပွား.json"),
   Bundle.main.decode(NatPintVO.self, from: "ဆယ်မျက်နှာမ္မေတ္တာပွား.json"),

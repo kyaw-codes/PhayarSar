@@ -19,14 +19,14 @@ struct HomeScreen: View {
       
       LazyVStack(spacing: 12) {
         addNewWorshipPlanView
+          .padding(.bottom)
 
         PrayerCardView(
-          title: "ဘုရားရှိခိုး အမျိုးမျိုး",
+          title: "ဘုရားရှိခိုး ဂါထာများ",
           subtitle: "ဘုရားကန်တော့",
           systemImage: "hands.and.sparkles.fill",
           duration: "5",
-          list: [allCommonPrayers[0], allCommonPrayers[1], allCommonPrayers[2]],
-          plusMore: "8", 
+          list: allCommonPrayers.prefix(10).map { $0 },
           color: preferences.accentColor.color
         )
         
@@ -38,20 +38,8 @@ struct HomeScreen: View {
           systemImage: "heart.circle.fill",
           duration: "3",
           list: [allCommonPrayers[12], allCommonPrayers[13], allCommonPrayers[14]],
-          plusMore: "",
           color: .pink
         )
-        
-        ForEach(allCommonPrayers) { prayer in
-          NavigationLink {
-            CommonPrayerScreen(model: prayer)
-              .onAppear {
-                showTabBar = false
-              }
-          } label: {
-            HomeListItemView(title: prayer.title)
-          }
-        }
       }
       .padding([.horizontal, .top])
       .padding(.bottom, 80)
@@ -220,7 +208,7 @@ struct HomeScreen: View {
   }
   
   @ViewBuilder
-  private func PrayerCardView(title: String, subtitle: String, systemImage: String, duration: String, list: [NatPintVO], plusMore: String, color: Color) -> some View {
+  private func PrayerCardView(title: String, subtitle: String, systemImage: String, duration: String, list: [NatPintVO], color: Color) -> some View {
     VStack(alignment: .leading) {
       HStack {
         Text(subtitle)
@@ -229,7 +217,7 @@ struct HomeScreen: View {
         HStack(spacing: 3) {
           Image(systemName: "clock.fill")
           LocalizedText(.x_min, args: [localizeNumber(preferences.appLang, str: duration)])
-            .padding(.top, -4)
+            .padding(.top, preferences.appLang == .Eng ? 0 : -4)
         }
         .font(.qsB(12))
       }
@@ -246,8 +234,8 @@ struct HomeScreen: View {
       
       VStack(spacing: 12) {
         VStack(spacing: 8) {
-          ForEach(0 ..< list.count, id: \.self) { id in
-            PrayerListCell(list[id], systemImage: systemImage, hideSeparator: !(id < list.count - 1))
+          ForEach(0 ..< min(list.count, 3), id: \.self) { id in
+            PrayerListCell(list[id], systemImage: systemImage, hideSeparator: id == 2 || id == list.count - 1)
           }
         }
         .padding()
@@ -258,13 +246,16 @@ struct HomeScreen: View {
             .colorScheme(.dark)
         }
         
-        if !plusMore.isEmpty {
+        if list.count > 3 {
           NavigationLink {
-            // TODO:
-            CommonPrayerScreen(model: allCommonPrayers[2])
-              .onAppear {
-                showTabBar = false
-              }
+            PrayerCollectionsScreen(
+              title: title,
+              systemImage: systemImage,
+              prayers: list
+            )
+            .onAppear {
+              showTabBar = false
+            }
           } label: {
             HStack {
               LocalizedText(.view_collection)
@@ -272,7 +263,7 @@ struct HomeScreen: View {
                 .padding(.vertical, 12)
               Spacer()
               HStack(spacing: 4) {
-                LocalizedText(.plus_x_more, args: [localizeNumber(preferences.appLang, str: plusMore)])
+                LocalizedText(.plus_x_more, args: [localizeNumber(preferences.appLang, str: String(list.count - 3))])
                   .font(.qsB(12))
                 Image(systemName: "chevron.right")
                   .font(.footnote.bold())
@@ -293,7 +284,7 @@ struct HomeScreen: View {
     .background {
       RoundedRectangle(cornerRadius: 12)
         .fill(LinearGradient(colors: [color.opacity(0.8), color.opacity(0.8), color.opacity(0.9), color], startPoint: .top, endPoint: .bottom))
-        .shadow(color: .black.opacity(0.3), radius: 20, x: 0, y: 0)
+        .shadow(color: .black.opacity(0.2), radius: 20, x: 0, y: 4)
     }
   }
   
@@ -302,7 +293,7 @@ struct HomeScreen: View {
     VStack {
       HStack(spacing: 6) {
         Image(systemName: "books.vertical")
-        Text("Others")
+        LocalizedText(.other_prayers)
           .font(.qsB(20))
         Spacer()
       }
@@ -322,16 +313,47 @@ struct HomeScreen: View {
               .font(.footnote.bold())
               .foregroundColor(.primary)
               .padding(.vertical, 16)
+            
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+              .foregroundColor(preferences.accentColor.color)
+              .padding(.trailing)
           }
           .frame(maxWidth: .infinity, alignment: .leading)
           .padding(.leading, 12)
           .background(
             RoundedRectangle(cornerRadius: 12)
-              .fill(.ultraThickMaterial)
-              .overlay {
-                RoundedRectangle(cornerRadius: 12)
-                  .stroke(preferences.accentColor.color.opacity(0.2), lineWidth: 1.0)
-              }
+              .fill(.cardBg)
+          )
+        }
+        
+        NavigationLink {
+          CommonPrayerScreen(model: allCommonPrayers[12])
+            .onAppear {
+              showTabBar = false
+            }
+        } label: {
+          HStack(spacing: 6) {
+            Image(systemName: "text.book.closed.fill")
+              .foregroundColor(.primary)
+            
+            Text(allCommonPrayers[12].title)
+              .font(.footnote.bold())
+              .foregroundColor(.primary)
+              .padding(.vertical, 16)
+            
+            Spacer()
+            
+            Image(systemName: "chevron.right")
+              .foregroundColor(preferences.accentColor.color)
+              .padding(.trailing)
+          }
+          .frame(maxWidth: .infinity, alignment: .leading)
+          .padding(.leading, 12)
+          .background(
+            RoundedRectangle(cornerRadius: 12)
+              .fill(.cardBg)
           )
         }
       }
