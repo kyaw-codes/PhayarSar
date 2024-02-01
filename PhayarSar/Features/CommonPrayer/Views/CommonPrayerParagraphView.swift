@@ -14,7 +14,7 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
   @ObservedObject var vm: CommonPrayerVM<Model>
   
   var body: some View {
-    VStack(alignment: .leading, spacing: 10) {
+    LazyVStack(alignment: .leading, spacing: 10) {
       Text(prayer.content)
         .tracking(vm.config.letterSpacing)
         .lineSpacing(vm.config.lineSpacing)

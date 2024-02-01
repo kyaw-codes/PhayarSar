@@ -153,7 +153,7 @@ fileprivate extension CommonPrayerScreen {
       
       ScrollViewReader { proxy in
         ScrollView {
-          VStack(spacing: vm.config.paragraphSpacing) {
+          LazyVStack(spacing: vm.config.paragraphSpacing) {
             ForEach($vm.model.body) { prayer in
               
               CommonPrayerParagraphView<Model>(
