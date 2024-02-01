@@ -347,6 +347,7 @@ struct HomeScreen: View {
         )
         
         OtherListCell(model: pahtanShort)
+        OtherListCell(model: pahtanLong)
       }
     }
     .padding(.vertical)

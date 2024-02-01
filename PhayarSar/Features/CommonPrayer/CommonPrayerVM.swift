@@ -34,6 +34,7 @@ final class CommonPrayerVM<Model>: ObservableObject where Model: CommonPrayerPro
   }
   private var startTime = Date().timeIntervalSince1970
   private var proxy: ScrollViewProxy?
+  private var bgContext = CoreDataStack.shared.newContext
   
   init(model: Model) {
     let prayerId = model.id

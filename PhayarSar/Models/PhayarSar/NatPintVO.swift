@@ -76,3 +76,4 @@ let payeik: [NatPintVO] = [
 ]
 
 let pahtanShort = Bundle.main.decode(NatPintVO.self, from: "ပဋ္ဌာန်းအကျဥ်း.json")
+let pahtanLong = Bundle.main.decode(NatPintVO.self, from: "ပဋ္ဌာန်းအကျယ်.json")

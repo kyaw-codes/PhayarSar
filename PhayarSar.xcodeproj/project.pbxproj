@@ -22,6 +22,7 @@
 		C81E828B2B6B5ED800A59147 /* ဗောဇ္ဈင်္ဂသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C81E828A2B6B5ED800A59147 /* ဗောဇ္ဈင်္ဂသုတ်.json */; };
 		C81E828D2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C81E828C2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json */; };
 		C81E828F2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json in Resources */ = {isa = PBXBuildFile; fileRef = C81E828E2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json */; };
+		C81E82912B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C81E82902B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json */; };
 		C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */; };
 		C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */; };
 		C82039B22B1CABE6000EEF61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C82039B12B1CABE6000EEF61 /* Assets.xcassets */; };
@@ -145,6 +146,7 @@
 		C81E828A2B6B5ED800A59147 /* ဗောဇ္ဈင်္ဂသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ဗောဇ္ဈင်္ဂသုတ်.json"; sourceTree = "<group>"; };
 		C81E828C2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ပုဗ္ဗဏှသုတ်.json"; sourceTree = "<group>"; };
 		C81E828E2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ပဋ္ဌာန်းအကျဥ်း.json"; sourceTree = "<group>"; };
+		C81E82902B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ပဋ္ဌာန်းအကျယ်.json"; sourceTree = "<group>"; };
 		C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		C82039AA2B1CABE4000EEF61 /* PhayarSar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhayarSar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarApp.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				C81E828A2B6B5ED800A59147 /* ဗောဇ္ဈင်္ဂသုတ်.json */,
 				C81E828C2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json */,
 				C81E828E2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json */,
+				C81E82902B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json */,
 				C8CEF9EE2B67FB6B00EF9B9E /* သရဏဂုံ.json */,
 				C8CEF9EA2B67F96A00EF9B9E /* ငါးပါးသီလ.json */,
 				C8CEF9F42B67FF9500EF9B9E /* ဘုရားဂုဏ်တော်.json */,
@@ -740,6 +743,7 @@
 				C8CEF9ED2B67FA8900EF9B9E /* သီလတောင်း.json in Resources */,
 				C8D403132B6A031600448EDC /* မင်္ဂလသုတ်.json in Resources */,
 				C84240BC2B2DD29300A2B234 /* Language.json in Resources */,
+				C81E82912B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json in Resources */,
 				C8CEF9F32B67FE7D00EF9B9E /* ဆယ်ပါးသီလ.json in Resources */,
 				C8CEF9FF2B68061500EF9B9E /* အမျှဝေ.json in Resources */,
 				C82039E12B1CC4B7000EEF61 /* Quicksand-SemiBold.ttf in Resources */,

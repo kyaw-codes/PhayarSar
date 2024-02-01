@@ -38,7 +38,9 @@ extension PhayarSarApp {
     WindowGroup {
       Group {
         if preferences.hasAppLangChosen == nil {
-          ChooseLanguageScreen()
+          NavigationView {
+            ChooseLanguageScreen()
+          }
         } else {
           TabScreen()
         }
