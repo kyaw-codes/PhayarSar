@@ -12,6 +12,7 @@ struct HomeScreen: View {
   @EnvironmentObject private var preferences: UserPreferences
   @State private var showOnboarding = false
   @State private var offset: CGPoint = .zero
+  @State private var payeikCollapsed = true
   
   var body: some View {
     OffsetObservingScrollView(offset: $offset) {
@@ -297,65 +298,52 @@ struct HomeScreen: View {
           .font(.qsB(20))
         Spacer()
       }
+      .padding(.top, 8)
+      .padding(.bottom)
       
-      VStack {
-        NavigationLink {
-          CommonPrayerScreen(model: allCommonPrayers[11])
-            .onAppear {
-              showTabBar = false
-            }
-        } label: {
-          HStack(spacing: 6) {
-            Image(systemName: "text.book.closed.fill")
-              .foregroundColor(.primary)
-            
-            Text(allCommonPrayers[11].title)
-              .font(.footnote.bold())
-              .foregroundColor(.primary)
-              .padding(.vertical, 16)
-            
-            Spacer()
-            
-            Image(systemName: "chevron.right")
-              .foregroundColor(preferences.accentColor.color)
-              .padding(.trailing)
-          }
-          .frame(maxWidth: .infinity, alignment: .leading)
-          .padding(.leading, 12)
-          .background(
-            RoundedRectangle(cornerRadius: 12)
-              .fill(.cardBg)
-          )
-        }
+      VStack(spacing: 8) {
+        OtherListCell(model: allCommonPrayers[11])
+        OtherListCell(model: allCommonPrayers[12])
         
-        NavigationLink {
-          CommonPrayerScreen(model: allCommonPrayers[12])
-            .onAppear {
-              showTabBar = false
-            }
-        } label: {
+        VStack(spacing: 0) {
           HStack(spacing: 6) {
             Image(systemName: "text.book.closed.fill")
               .foregroundColor(.primary)
             
-            Text(allCommonPrayers[12].title)
+            Text("ပရိတ်ကြီး ဆယ့်တစ်သုတ်")
               .font(.footnote.bold())
               .foregroundColor(.primary)
               .padding(.vertical, 16)
             
             Spacer()
             
-            Image(systemName: "chevron.right")
+            Image(systemName: "chevron.down")
+              .rotationEffect(.degrees(payeikCollapsed ? 0 : 180))
               .foregroundColor(preferences.accentColor.color)
               .padding(.trailing)
           }
           .frame(maxWidth: .infinity, alignment: .leading)
           .padding(.leading, 12)
-          .background(
-            RoundedRectangle(cornerRadius: 12)
-              .fill(.cardBg)
-          )
+          .contentShape(Rectangle())
+          .onTapGesture {
+            withAnimation(.easeOut) {
+              payeikCollapsed.toggle()
+            }
+          }
+          
+          if !payeikCollapsed {
+            Divider()
+              .padding(.bottom, 8)
+            ForEach(payeik) { model in
+              OtherListCell(model: model)
+              Divider()
+            }
+          }
         }
+        .background(
+          RoundedRectangle(cornerRadius: 12)
+            .fill(.cardBg)
+        )
       }
     }
     .padding(.vertical)
@@ -365,6 +353,38 @@ struct HomeScreen: View {
         .padding(.horizontal, -20)
     }
     .padding(.top, 8)
+  }
+  
+  @ViewBuilder
+  private func OtherListCell(model: NatPintVO) -> some View {
+    NavigationLink {
+      CommonPrayerScreen(model: model)
+        .onAppear {
+          showTabBar = false
+        }
+    } label: {
+      HStack(spacing: 6) {
+        Image(systemName: "text.book.closed.fill")
+          .foregroundColor(.primary)
+        
+        Text(model.title)
+          .font(.footnote.bold())
+          .foregroundColor(.primary)
+          .padding(.vertical, 16)
+        
+        Spacer()
+        
+        Image(systemName: "chevron.right")
+          .foregroundColor(preferences.accentColor.color)
+          .padding(.trailing)
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .padding(.leading, 12)
+      .background(
+        RoundedRectangle(cornerRadius: 12)
+          .fill(.cardBg)
+      )
+    }
   }
 }
 
