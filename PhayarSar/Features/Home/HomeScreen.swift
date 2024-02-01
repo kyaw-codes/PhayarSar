@@ -27,7 +27,7 @@ struct HomeScreen: View {
           subtitle: "ဘုရားကန်တော့",
           systemImage: "hands.and.sparkles.fill",
           duration: "5",
-          list: allCommonPrayers.prefix(10).map { $0 },
+          list: cantotkyo,
           color: preferences.accentColor.color
         )
         
@@ -38,12 +38,12 @@ struct HomeScreen: View {
           subtitle: "အမျှဝေ",
           systemImage: "heart.circle.fill",
           duration: "3",
-          list: [allCommonPrayers[12], allCommonPrayers[13], allCommonPrayers[14]],
+          list: myittarPoe,
           color: .pink
         )
       }
       .padding([.horizontal, .top])
-      .padding(.bottom, 80)
+      .padding(.bottom, 92)
     }
     .overlay(alignment: .top) {
       inlineNavView
@@ -302,8 +302,9 @@ struct HomeScreen: View {
       .padding(.bottom)
       
       VStack(spacing: 8) {
-        OtherListCell(model: allCommonPrayers[11])
-        OtherListCell(model: allCommonPrayers[12])
+        ForEach(others) {
+          OtherListCell(model: $0)
+        }
         
         VStack(spacing: 0) {
           HStack(spacing: 6) {
@@ -344,6 +345,8 @@ struct HomeScreen: View {
           RoundedRectangle(cornerRadius: 12)
             .fill(.cardBg)
         )
+        
+        OtherListCell(model: pahtanShort)
       }
     }
     .padding(.vertical)

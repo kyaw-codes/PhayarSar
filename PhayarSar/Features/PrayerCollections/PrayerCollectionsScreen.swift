@@ -48,27 +48,12 @@ struct PrayerCollectionsScreen: View {
       .padding()
     }
     .navigationTitle(title)
-//    List {
-//      ForEach(prayers) { prayer in
-//        HStack {
-//          Image(systemName: systemImage)
-//          Text(prayer.title)
-//            .font(.system(size: 16))
-//
-//          Spacer()
-//          Image(systemName: "chevron.right")
-//            .font(.footnote)
-//        }
-//      }
-//    }
-//    .listStyle(.insetGrouped)
-//    .navigationTitle(title)
   }
 }
 
 #Preview {
   NavigationView {
-    PrayerCollectionsScreen(title: "ဘုရားရှိခိုး အမျိုးမျိုး", systemImage: "heart.fill", prayers: allCommonPrayers)
+    PrayerCollectionsScreen(title: "ဘုရားရှိခိုး အမျိုးမျိုး", systemImage: "heart.fill", prayers: cantotkyo)
   }
   .previewEnvironment()
 }

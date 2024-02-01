@@ -36,7 +36,7 @@ extension PhayarSarApp {
   
   var body: some Scene {
     WindowGroup {
-      NavigationView {
+      Group {
         if preferences.hasAppLangChosen == nil {
           ChooseLanguageScreen()
         } else {

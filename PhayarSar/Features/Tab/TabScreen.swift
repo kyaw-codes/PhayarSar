@@ -79,6 +79,7 @@ extension TabScreen: View {
                     .onAppear {
                         showTabBar = true
                     }
+                    .navigationBarHidden(true)
             }
             .tag(TabItem.home)
             
@@ -113,6 +114,7 @@ extension TabScreen: View {
         .background(preferences.accentColor.color)
         .cornerRadius(35)
         .padding(.horizontal, 26)
+        .padding(.bottom, 12)
     }
     
     @ViewBuilder
