@@ -42,7 +42,7 @@ struct AllPrayerPickerScreen: View {
       })
       .environment(\.editMode, .constant(EditMode.active))
       .listStyle(.grouped)
-      .navigationTitle("Select prayers")
+      .navigationTitle(.select_prayers)
       .navigationBarTitleDisplayMode(.inline)
       .toolbar {
         ToolbarItem {
@@ -50,7 +50,7 @@ struct AllPrayerPickerScreen: View {
             prayers = internalPrayers
             dismiss()
           } label: {
-            Text("Save")
+            LocalizedText(.btn_save)
               .font(.qsB(15))
           }
         }
@@ -59,7 +59,7 @@ struct AllPrayerPickerScreen: View {
           Button {
             dismiss()
           } label: {
-            Text("Close")
+            LocalizedText(.btn_close)
               .font(.qsSb(15))
           }
         }

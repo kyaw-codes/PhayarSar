@@ -19,6 +19,10 @@
         "En": "Next",
         "Mm": "ဆက်သွားပါ"
     },
+    "finished": {
+        "En": "Finished!",
+        "Mm": "စိတ်တိုင်းကျပြီ"
+    },
     "today_pray_time_x": {
         "En": "Today's Pray Time  {$} min(s)",
         "Mm": "ဒီနေ့ဘုရားရှိခိုးချိန်  {$} မိနစ်"
@@ -222,5 +226,109 @@
     "other_prayers": {
       "En": "Others",
       "Mm": "အခြားဂါထာများ"
-    }
+    },
+    "new_plan": {
+      "En": "New Plan",
+      "Mm": "ဝတ်ပြုစဥ် အသစ်"
+    },
+    "name_your_worship_plan": {
+      "En": "Name your worship plan",
+      "Mm": "ဝတ်ပြုအစီအစဥ်အတွက် နာမည်ပေးပါ"
+    },
+    "plan_name": {
+      "En": "Plan name",
+      "Mm": "နာမည်"
+    },
+    "add_new_prayer": {
+      "En": "Add new prayer",
+      "Mm": "ဘုရားစာအသစ် ထည့်မယ်"
+    },
+    "btn_close": {
+      "En": "Close",
+      "Mm": "ပိတ်မယ်"
+    },
+    "btn_save": {
+      "En": "Save",
+      "Mm": "သိမ်းမယ်"
+    },
+    "select_prayers": {
+      "En": "Select prayers",
+      "Mm": "ဘုရားစာ ရွေးမယ်"
+    },
+    "everyday": {
+      "En": "Everyday",
+      "Mm": "နေ့တိုင်း"
+    },
+    "sun": {
+      "En": "Sunday",
+      "Mm": "တနင်္ဂနွေ"
+    },
+    "mon": {
+      "En": "Monday",
+      "Mm": "တနင်္လာ"
+    },
+    "tue": {
+      "En": "Tuesday",
+      "Mm": "အင်္ဂါ"
+    },
+    "wed": {
+      "En": "Wednesday",
+      "Mm": "ဗုဒ္ဓဟူး"
+    },
+    "thu": {
+      "En": "Thursday",
+      "Mm": "ကြာသာပတေး"
+    },
+    "fri": {
+      "En": "Friday",
+      "Mm": "သောကြာ"
+    },
+    "sat": {
+      "En": "Saturday",
+      "Mm": "စနေ"
+    },
+    "selectDay": {
+      "En": "1. Select days of week",
+      "Mm": "၁။ ရက်ရွေးပါ"
+    },
+    "selectTime": {
+      "En": "2. Choose time",
+      "Mm": "၂။ အချိန်ရွေးပါ"
+    },
+    "selectTagColor": {
+      "En": "3. Choose tag color",
+      "Mm": "၃။ အဓိကအရောင် ရွေးပါ"
+    },
+    "setReminder": {
+      "En": "4. Set reminder",
+      "Mm": "၄။ သံပါတ်ပေးထားမယ်"
+    },
+    "do_you_have_praying_time": {
+      "En": "Do you have praying time?",
+      "Mm": "သင့်မှာ ဘုရားရှိခိုးချိန်ရှိသလား?"
+    },
+    "yes_i_do": {
+      "En": "Yes, I do",
+      "Mm": "ရှိပါတယ်"
+    },
+    "no_i_dont": {
+      "En": "No, I don't",
+      "Mm": "မရှိပါ"
+    },
+    "time": {
+      "En": "Time",
+      "Mm": "အချိန်"
+    },
+    "remind": {
+      "En": "Remind",
+      "Mm": ""
+    },
+    "before": {
+      "En": "before.",
+      "Mm": "ကြိုသတိပေးပါ။"
+    },
+    "x_min_s": {
+      "En": "{$} min(s)",
+      "Mm": "{$} မိနစ်"
+    },
 }

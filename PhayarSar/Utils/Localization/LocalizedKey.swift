@@ -13,6 +13,7 @@ enum LocalizedKey: String {
   case btn_get_started
   case choose_a_language
   case next
+  case finished
   case today_pray_time_x
   case today_pray_time
   case x_min
@@ -64,6 +65,32 @@ enum LocalizedKey: String {
   case view_collection
   case plus_x_more
   case other_prayers
+  case new_plan
+  case name_your_worship_plan
+  case plan_name
+  case add_new_prayer
+  case btn_close
+  case btn_save
+  case select_prayers
+  case everyday
+  case sun
+  case mon
+  case tue
+  case wed
+  case thu
+  case fri
+  case sat
+  case selectDay
+  case selectTime
+  case selectTagColor
+  case setReminder
+  case do_you_have_praying_time
+  case yes_i_do
+  case no_i_dont
+  case time
+  case remind
+  case before
+  case x_min_s
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]
