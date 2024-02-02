@@ -7,7 +7,11 @@
 
 import Foundation
 
-class NatPintVO: Decodable, CommonPrayerProtocol {
+class NatPintVO: Decodable, Equatable, CommonPrayerProtocol {
+  static func == (lhs: NatPintVO, rhs: NatPintVO) -> Bool {
+    lhs.id == rhs.id
+  }
+  
     let id: String
     let title: String
     let about: String

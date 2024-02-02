@@ -13,6 +13,7 @@ struct HomeScreen: View {
   @State private var showOnboarding = false
   @State private var offset: CGPoint = .zero
   @State private var payeikCollapsed = true
+  @State private var showWorshipPlanScreen = false
   
   var body: some View {
     OffsetObservingScrollView(offset: $offset) {
@@ -54,6 +55,12 @@ struct HomeScreen: View {
     .sheet(isPresented: $showOnboarding) {
       OnboardingScreen()
     }
+    .fullScreenCover(isPresented: $showWorshipPlanScreen, content: {
+      WorshipPlanScreen()
+    })
+//    .sheet(isPresented: $showWorshipPlanScreen, content: {
+//      WorshipPlanScreen()
+//    })
   }
   
   var navView: some View {
@@ -151,7 +158,7 @@ struct HomeScreen: View {
       Spacer(minLength: 0)
       
       Button {
-        
+        showWorshipPlanScreen.toggle()
       } label: {
         LocalizedText(.add_new)
           .font(.qsB(14))

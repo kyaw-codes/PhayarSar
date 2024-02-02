@@ -23,6 +23,8 @@
 		C81E828D2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C81E828C2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json */; };
 		C81E828F2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json in Resources */ = {isa = PBXBuildFile; fileRef = C81E828E2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json */; };
 		C81E82912B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C81E82902B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json */; };
+		C81E829B2B6BFEBB00A59147 /* WorshipPlanScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E829A2B6BFEBB00A59147 /* WorshipPlanScreen.swift */; };
+		C81E829D2B6CAC8300A59147 /* AllPrayerPickerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E829C2B6CAC8300A59147 /* AllPrayerPickerScreen.swift */; };
 		C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */; };
 		C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */; };
 		C82039B22B1CABE6000EEF61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C82039B12B1CABE6000EEF61 /* Assets.xcassets */; };
@@ -147,6 +149,8 @@
 		C81E828C2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ပုဗ္ဗဏှသုတ်.json"; sourceTree = "<group>"; };
 		C81E828E2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ပဋ္ဌာန်းအကျဥ်း.json"; sourceTree = "<group>"; };
 		C81E82902B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ပဋ္ဌာန်းအကျယ်.json"; sourceTree = "<group>"; };
+		C81E829A2B6BFEBB00A59147 /* WorshipPlanScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanScreen.swift; sourceTree = "<group>"; };
+		C81E829C2B6CAC8300A59147 /* AllPrayerPickerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPrayerPickerScreen.swift; sourceTree = "<group>"; };
 		C81E927C2B2DCD0200F4ED9E /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		C82039AA2B1CABE4000EEF61 /* PhayarSar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhayarSar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarApp.swift; sourceTree = "<group>"; };
@@ -301,6 +305,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C81E82992B6BFEB200A59147 /* WorshipPlan */ = {
+			isa = PBXGroup;
+			children = (
+				C81E829A2B6BFEBB00A59147 /* WorshipPlanScreen.swift */,
+				C81E829C2B6CAC8300A59147 /* AllPrayerPickerScreen.swift */,
+			);
+			path = WorshipPlan;
+			sourceTree = "<group>";
+		};
 		C81E927B2B2DC94C00F4ED9E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +398,7 @@
 		C82039D72B1CC2E9000EEF61 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C81E82992B6BFEB200A59147 /* WorshipPlan */,
 				C8D4030D2B68FA6300448EDC /* PrayerCollections */,
 				C84E69462B530DFD006231CD /* PrayerMode */,
 				C8CA45C62B413AD300240DA7 /* ThemesAndSettings */,
@@ -465,6 +479,7 @@
 		C82039E62B1CC63D000EEF61 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C8CA45C92B41415200240DA7 /* BtnCloseCircle.swift */,
 				C83E27EE2B2DDAA60038EDF1 /* Localization */,
 				C82039E72B1CC64A000EEF61 /* Extensions */,
 				C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */,
@@ -496,7 +511,6 @@
 			isa = PBXGroup;
 			children = (
 				C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */,
-				C8CA45C92B41415200240DA7 /* BtnCloseCircle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -797,6 +811,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81E829D2B6CAC8300A59147 /* AllPrayerPickerScreen.swift in Sources */,
 				C83E27F02B2DDAB20038EDF1 /* LocalizedText.swift in Sources */,
 				C815D6CB2B4B141600BFB79C /* CoreDataStack.swift in Sources */,
 				C8D403092B68A94F00448EDC /* MorphinDemoView.swift in Sources */,
@@ -812,6 +827,7 @@
 				C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */,
 				C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */,
 				C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */,
+				C81E829B2B6BFEBB00A59147 /* WorshipPlanScreen.swift in Sources */,
 				C8D6529D2B2EE5AB00BB6C42 /* CustomCornerView.swift in Sources */,
 				C8CA45C52B4136CC00240DA7 /* AboutPrayerScreen.swift in Sources */,
 				C80287472B4A5F3600F165DF /* PrayingProgressView.swift in Sources */,
