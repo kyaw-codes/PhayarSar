@@ -65,6 +65,10 @@
 		C8AAE0182B2D784900BE54CA /* ChooseLanguageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */; };
 		C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */; };
 		C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE01D2B2DB84200BE54CA /* Optional.swift */; };
+		C8AE59252B6E368C00ABB8F3 /* StraightLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE59242B6E368C00ABB8F3 /* StraightLine.swift */; };
+		C8AE59282B6E36C900ABB8F3 /* WorshipPlanSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE59272B6E36C900ABB8F3 /* WorshipPlanSteps.swift */; };
+		C8AE592A2B6E36D700ABB8F3 /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE59292B6E36D700ABB8F3 /* DaysOfWeek.swift */; };
+		C8AE592C2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE592B2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift */; };
 		C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */; };
 		C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3672B48534400F3828C /* CommonPrayerParagraphView.swift */; };
 		C8BBB36E2B48713000F3828C /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB36D2B48713000F3828C /* Measure.swift */; };
@@ -194,6 +198,10 @@
 		C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageScreen.swift; sourceTree = "<group>"; };
 		C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		C8AAE01D2B2DB84200BE54CA /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
+		C8AE59242B6E368C00ABB8F3 /* StraightLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StraightLine.swift; sourceTree = "<group>"; };
+		C8AE59272B6E36C900ABB8F3 /* WorshipPlanSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanSteps.swift; sourceTree = "<group>"; };
+		C8AE59292B6E36D700ABB8F3 /* DaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeek.swift; sourceTree = "<group>"; };
+		C8AE592B2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanConfigStep.swift; sourceTree = "<group>"; };
 		C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedToggle.swift; sourceTree = "<group>"; };
 		C8BBB3672B48534400F3828C /* CommonPrayerParagraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerParagraphView.swift; sourceTree = "<group>"; };
 		C8BBB36D2B48713000F3828C /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
@@ -326,6 +334,7 @@
 		C81E927E2B2DCDAD00F4ED9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C8AE59262B6E36B500ABB8F3 /* Worshipplan */,
 				C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */,
 				C8A3424B2B3E6C8F00B24F7C /* PhayarSar */,
 				C80287452B49410400F165DF /* App */,
@@ -511,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */,
+				C8AE59242B6E368C00ABB8F3 /* StraightLine.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -561,6 +571,16 @@
 				C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */,
 			);
 			path = ChooseLangauge;
+			sourceTree = "<group>";
+		};
+		C8AE59262B6E36B500ABB8F3 /* Worshipplan */ = {
+			isa = PBXGroup;
+			children = (
+				C8AE59272B6E36C900ABB8F3 /* WorshipPlanSteps.swift */,
+				C8AE59292B6E36D700ABB8F3 /* DaysOfWeek.swift */,
+				C8AE592B2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift */,
+			);
+			path = Worshipplan;
 			sourceTree = "<group>";
 		};
 		C8BBB3662B48532B00F3828C /* Views */ = {
@@ -842,6 +862,7 @@
 				C83E27F22B2DDACC0038EDF1 /* LocalizedNavTitle.swift in Sources */,
 				C8A661CE2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift in Sources */,
 				C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */,
+				C8AE592C2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift in Sources */,
 				C8D652812B2E0A3800BB6C42 /* HomeListItemView.swift in Sources */,
 				C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */,
 				C84626B52B222B6B000931AE /* HomeScreen.swift in Sources */,
@@ -866,7 +887,10 @@
 				C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */,
 				C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */,
 				C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */,
+				C8AE59282B6E36C900ABB8F3 /* WorshipPlanSteps.swift in Sources */,
+				C8AE59252B6E368C00ABB8F3 /* StraightLine.swift in Sources */,
 				C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */,
+				C8AE592A2B6E36D700ABB8F3 /* DaysOfWeek.swift in Sources */,
 				C82039DA2B1CC30A000EEF61 /* OnboardingScreen.swift in Sources */,
 				C84E69242B4C4776006231CD /* PrayerAlignment.swift in Sources */,
 				C8AAE0182B2D784900BE54CA /* ChooseLanguageScreen.swift in Sources */,

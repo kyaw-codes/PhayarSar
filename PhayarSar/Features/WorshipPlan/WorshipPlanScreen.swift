@@ -7,38 +7,6 @@
 
 import SwiftUI
 
-enum WorshipPlanSteps: String, Hashable, CaseIterable {
-  case addName
-  case addPrayers
-  case addConfigData
-}
-
-enum DaysOfWeek: String, Hashable, Equatable, CaseIterable {
-  case everyday
-  case sun
-  case mon
-  case tue
-  case wed
-  case thu
-  case fri
-  case sat
-  
-  var key: LocalizedKey {
-    .init(rawValue: self.rawValue)!
-  }
-}
-
-enum WorshipOptionalStep: String, Hashable, Equatable, CaseIterable {
-  case selectDay
-  case selectTime
-  case selectTagColor
-  case setReminder
-  
-  var key: LocalizedKey {
-    .init(rawValue: self.rawValue)!
-  }
-}
-
 struct WorshipPlanScreen: View {
   @Environment(\.dismiss) private var dismiss
   @EnvironmentObject private var preferences: UserPreferences
@@ -55,7 +23,7 @@ struct WorshipPlanScreen: View {
   @State private var selectedTime: Date = .init()
   @State private var enableReminder = true
   @State private var remindMeBefore = 5
-  @State private var expandedSteps: [WorshipOptionalStep] = [.selectDay]
+  @State private var expandedSteps: [WorshipPlanConfigStep] = [.selectDay]
   
   @State private var currentStep: WorshipPlanSteps = .addName
   @State private var showAllPrayerPickerScreen = false
@@ -88,22 +56,26 @@ struct WorshipPlanScreen: View {
       focusedName = "planname"
     }
     .onChange(of: currentStep) { _ in
-      let position = WorshipPlanSteps.allCases.firstIndex(where: { $0 == currentStep }).orElse(0) + 1
-      
-      withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.8, blendDuration: 0.7)) {
-        progress = CGFloat(position) / CGFloat(WorshipPlanSteps.allCases.count)
-      }
-      
-      switch currentStep {
-      case .addName, .addPrayers:
-        ctaBtnText = .next
-      case .addConfigData:
-        ctaBtnText = .finished
-      }
+      updateProgressAndButtonText()
     }
     .sheet(isPresented: $showAllPrayerPickerScreen, content: {
       AllPrayerPickerScreen(prayers: $selectedPrayers)
     })
+  }
+  
+  private func updateProgressAndButtonText() {
+    let position = WorshipPlanSteps.allCases.firstIndex(where: { $0 == currentStep }).orElse(0) + 1
+    
+    withAnimation(.interactiveSpring(response: 0.4, dampingFraction: 0.8, blendDuration: 0.7)) {
+      progress = CGFloat(position) / CGFloat(WorshipPlanSteps.allCases.count)
+    }
+    
+    switch currentStep {
+    case .addName, .addPrayers:
+      ctaBtnText = .next
+    case .addConfigData:
+      ctaBtnText = .finished
+    }
   }
   
   private func enableNextButton() -> Bool {
@@ -132,6 +104,7 @@ struct WorshipPlanScreen: View {
     }
   }
   
+  // MARK: - Sub views
   @ViewBuilder
   private func NavView() -> some View {
     VStack(spacing: 0) {
@@ -157,15 +130,7 @@ struct WorshipPlanScreen: View {
       ProgressView()
         .padding(.bottom, 8)
     }
-    .padding()
-    .background {
-      VStack(spacing: 0) {
-        Color(uiColor: .systemBackground).ignoresSafeArea()
-        Rectangle()
-          .fill(LinearGradient(colors: [Color(uiColor: .systemBackground), .clear], startPoint: .top, endPoint: .bottom))
-          .frame(height: 10)
-      }
-    }
+    .padding([.horizontal, .top])
   }
   
   @ViewBuilder
@@ -214,6 +179,7 @@ struct WorshipPlanScreen: View {
     VStack(spacing: 0) {
       AddNewPrayerButton()
         .padding([.horizontal, .top])
+        .padding(.top)
         .zIndex(1)
       
       List {
@@ -295,54 +261,65 @@ struct WorshipPlanScreen: View {
         }
         
         CollapsableView(step: .setReminder) {
-          HStack(spacing: 4) {
-            LocalizedText(.remind)
-              .font(.qsSb(16))
-              .opacity(enableReminder ? 1 : 0.2)
-            Menu {
-              ForEach(0 ... 60, id: \.self) { id in
-                Button {
-                  HapticKit.selection.generate()
-                  remindMeBefore = id
-                } label: {
-                  LocalizedText(.x_min_s, args: [localizeNumber(preferences.appLang, str: "\(id)")])
-                    .font(.qsB(18))
-                }
-              }
-            } label: {
-              LocalizedText(.x_min_s, args: [localizeNumber(preferences.appLang, str: "\(remindMeBefore)")])
-                .font(.qsB(16))
-                .padding(.horizontal, 8)
-                .padding(.vertical, 4)
-                .background {
-                  RoundedRectangle(cornerRadius: 12)
-                    .foregroundColor(preferences.accentColor.color.opacity(0.2))
-                }
-                .opacity(enableReminder ? 1 : 0.2)
-            }
-            .allowsHitTesting(enableReminder)
-            
-            LocalizedText(.before)
-              .font(preferences.appLang == .Mm ? .qsB(13) : .qsB(16))
-              .opacity(enableReminder ? 1 : 0.2)
-            
-            Spacer()
-            
-            Toggle(isOn: $enableReminder, label: {})
-              .padding(.trailing, -10)
-              .scaleEffect(0.85)
-          }
-          .padding(.horizontal)
-          .padding(.vertical)
-          .background {
-            RoundedRectangle(cornerRadius: 12)
-              .fill(Color.cardBg)
-          }
+          SetReminderView()
         }
       }
+      .padding(.top, 16)
+    }
+    .overlay(alignment: .top) {
+      Rectangle()
+        .fill(LinearGradient(colors: [.init(uiColor: .systemBackground), .clear, .clear], startPoint: .top, endPoint: .bottom))
+        .frame(height: 30)
     }
     .tint(preferences.accentColor.color)
     .padding()
+  }
+  
+  @ViewBuilder
+  private func SetReminderView() -> some View {
+    HStack(spacing: 4) {
+      LocalizedText(.remind)
+        .font(.qsSb(16))
+        .opacity(enableReminder ? 1 : 0.2)
+      Menu {
+        ForEach(0 ... 60, id: \.self) { id in
+          Button {
+            HapticKit.selection.generate()
+            remindMeBefore = id
+          } label: {
+            LocalizedText(.x_min_s, args: [localizeNumber(preferences.appLang, str: "\(id)")])
+              .font(.qsB(18))
+          }
+        }
+      } label: {
+        LocalizedText(.x_min_s, args: [localizeNumber(preferences.appLang, str: "\(remindMeBefore)")])
+          .font(.qsB(16))
+          .padding(.horizontal, 8)
+          .padding(.vertical, 4)
+          .background {
+            RoundedRectangle(cornerRadius: 12)
+              .foregroundColor(preferences.accentColor.color.opacity(0.2))
+          }
+          .opacity(enableReminder ? 1 : 0.2)
+      }
+      .allowsHitTesting(enableReminder)
+      
+      LocalizedText(.before)
+        .font(preferences.appLang == .Mm ? .qsB(13) : .qsB(16))
+        .opacity(enableReminder ? 1 : 0.2)
+      
+      Spacer()
+      
+      Toggle(isOn: $enableReminder, label: {})
+        .padding(.trailing, -10)
+        .scaleEffect(0.85)
+    }
+    .padding(.horizontal)
+    .padding(.vertical)
+    .background {
+      RoundedRectangle(cornerRadius: 12)
+        .fill(Color.cardBg)
+    }
   }
   
   @ViewBuilder
@@ -488,7 +465,7 @@ struct WorshipPlanScreen: View {
   
   @ViewBuilder
   private func CollapsableView<Content: View>(
-    step: WorshipOptionalStep,
+    step: WorshipPlanConfigStep,
     valid: Bool = true,
     @ViewBuilder content: @escaping () -> Content
   ) -> some View {
@@ -559,13 +536,3 @@ struct WorshipPlanScreen: View {
   WorshipPlanScreen()
     .previewEnvironment()
 }
-
-struct StraightLine: Shape {
-  func path(in rect: CGRect) -> Path {
-    Path { path in
-      path.move(to: .init(x: rect.midX, y: 0))
-      path.addLine(to: .init(x: rect.midX, y: rect.maxY))
-    }
-  }
-}
-
