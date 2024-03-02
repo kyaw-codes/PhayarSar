@@ -58,10 +58,12 @@
 		C84E69242B4C4776006231CD /* PrayerAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69232B4C4776006231CD /* PrayerAlignment.swift */; };
 		C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */; };
 		C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69472B530E0B006231CD /* PrayerModeScreen.swift */; };
+		C86AAA422B9228D800D899B2 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AAA412B9228D800D899B2 /* PageControlView.swift */; };
 		C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A342512B3E70C800B24F7C /* HapticKit.swift */; };
 		C8A661CE2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A661CD2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift */; };
 		C8A661D02B55795600F2A553 /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A661CF2B55795600F2A553 /* NavigationBarColor.swift */; };
 		C8A661D42B55847200F2A553 /* PangLong.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8A661D32B55846C00F2A553 /* PangLong.ttf */; };
+		C8A73FED2B6F794E00216C89 /* AppleCardHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A73FEC2B6F794E00216C89 /* AppleCardHolder.swift */; };
 		C8AAE0182B2D784900BE54CA /* ChooseLanguageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */; };
 		C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */; };
 		C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AAE01D2B2DB84200BE54CA /* Optional.swift */; };
@@ -69,6 +71,8 @@
 		C8AE59282B6E36C900ABB8F3 /* WorshipPlanSteps.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE59272B6E36C900ABB8F3 /* WorshipPlanSteps.swift */; };
 		C8AE592A2B6E36D700ABB8F3 /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE59292B6E36D700ABB8F3 /* DaysOfWeek.swift */; };
 		C8AE592C2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE592B2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift */; };
+		C8AE592E2B6E38BE00ABB8F3 /* WorshipPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE592D2B6E38BE00ABB8F3 /* WorshipPlan.swift */; };
+		C8AE59302B6E471B00ABB8F3 /* RollingText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AE592F2B6E471B00ABB8F3 /* RollingText.swift */; };
 		C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */; };
 		C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB3672B48534400F3828C /* CommonPrayerParagraphView.swift */; };
 		C8BBB36E2B48713000F3828C /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8BBB36D2B48713000F3828C /* Measure.swift */; };
@@ -191,10 +195,12 @@
 		C84E69232B4C4776006231CD /* PrayerAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerAlignment.swift; sourceTree = "<group>"; };
 		C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerVM.swift; sourceTree = "<group>"; };
 		C84E69472B530E0B006231CD /* PrayerModeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerModeScreen.swift; sourceTree = "<group>"; };
+		C86AAA412B9228D800D899B2 /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
 		C8A342512B3E70C800B24F7C /* HapticKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticKit.swift; sourceTree = "<group>"; };
 		C8A661CD2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptToSoftwareKeyboard.swift; sourceTree = "<group>"; };
 		C8A661CF2B55795600F2A553 /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
 		C8A661D32B55846C00F2A553 /* PangLong.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PangLong.ttf; sourceTree = "<group>"; };
+		C8A73FEC2B6F794E00216C89 /* AppleCardHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCardHolder.swift; sourceTree = "<group>"; };
 		C8AAE0172B2D784900BE54CA /* ChooseLanguageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseLanguageScreen.swift; sourceTree = "<group>"; };
 		C8AAE0192B2D7B5F00BE54CA /* AppLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguage.swift; sourceTree = "<group>"; };
 		C8AAE01D2B2DB84200BE54CA /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
@@ -202,6 +208,8 @@
 		C8AE59272B6E36C900ABB8F3 /* WorshipPlanSteps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanSteps.swift; sourceTree = "<group>"; };
 		C8AE59292B6E36D700ABB8F3 /* DaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeek.swift; sourceTree = "<group>"; };
 		C8AE592B2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanConfigStep.swift; sourceTree = "<group>"; };
+		C8AE592D2B6E38BE00ABB8F3 /* WorshipPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlan.swift; sourceTree = "<group>"; };
+		C8AE592F2B6E471B00ABB8F3 /* RollingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollingText.swift; sourceTree = "<group>"; };
 		C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedToggle.swift; sourceTree = "<group>"; };
 		C8BBB3672B48534400F3828C /* CommonPrayerParagraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerParagraphView.swift; sourceTree = "<group>"; };
 		C8BBB36D2B48713000F3828C /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
@@ -298,6 +306,7 @@
 			children = (
 				C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */,
 				C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */,
+				C8AE592D2B6E38BE00ABB8F3 /* WorshipPlan.swift */,
 				C815D6CC2B4B142900BFB79C /* PhayarSar.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -521,6 +530,8 @@
 			children = (
 				C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */,
 				C8AE59242B6E368C00ABB8F3 /* StraightLine.swift */,
+				C8AE592F2B6E471B00ABB8F3 /* RollingText.swift */,
+				C86AAA412B9228D800D899B2 /* PageControlView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -544,6 +555,7 @@
 			children = (
 				C84626B42B222B6B000931AE /* HomeScreen.swift */,
 				C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */,
+				C8A73FEC2B6F794E00216C89 /* AppleCardHolder.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -832,12 +844,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C81E829D2B6CAC8300A59147 /* AllPrayerPickerScreen.swift in Sources */,
+				C8AE592E2B6E38BE00ABB8F3 /* WorshipPlan.swift in Sources */,
 				C83E27F02B2DDAB20038EDF1 /* LocalizedText.swift in Sources */,
 				C815D6CB2B4B141600BFB79C /* CoreDataStack.swift in Sources */,
 				C8D403092B68A94F00448EDC /* MorphinDemoView.swift in Sources */,
 				C8BBB36E2B48713000F3828C /* Measure.swift in Sources */,
 				C82039E92B1CC653000EEF61 /* Font+CustomFonts.swift in Sources */,
+				C8A73FED2B6F794E00216C89 /* AppleCardHolder.swift in Sources */,
 				C8CA45C82B413ADD00240DA7 /* ThemesAndSettingsScreen.swift in Sources */,
+				C86AAA422B9228D800D899B2 /* PageControlView.swift in Sources */,
 				C84240BE2B2DD31700A2B234 /* LocalizedComponents.swift in Sources */,
 				C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */,
 				C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */,
@@ -850,6 +865,7 @@
 				C81E829B2B6BFEBB00A59147 /* WorshipPlanScreen.swift in Sources */,
 				C8D6529D2B2EE5AB00BB6C42 /* CustomCornerView.swift in Sources */,
 				C8CA45C52B4136CC00240DA7 /* AboutPrayerScreen.swift in Sources */,
+				C8AE59302B6E471B00ABB8F3 /* RollingText.swift in Sources */,
 				C80287472B4A5F3600F165DF /* PrayingProgressView.swift in Sources */,
 				C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */,
 				C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */,

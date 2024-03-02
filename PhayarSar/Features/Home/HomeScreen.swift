@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeScreen: View {
   @Binding var showTabBar: Bool
   @EnvironmentObject private var preferences: UserPreferences
+  @Environment(\.colorScheme) private var colorScheme
+  
   @State private var showOnboarding = false
   @State private var offset: CGPoint = .zero
   @State private var payeikCollapsed = true
@@ -20,28 +22,16 @@ struct HomeScreen: View {
       navView
       
       LazyVStack(spacing: 12) {
-        addNewWorshipPlanView
-          .padding(.bottom)
-
-        PrayerCardView(
-          title: "ဘုရားရှိခိုး ဂါထာများ",
-          subtitle: "ဘုရားကန်တော့",
-          systemImage: "hands.and.sparkles.fill",
-          duration: "5",
-          list: cantotkyo,
-          color: preferences.accentColor.color
-        )
+//        addNewWorshipPlanView
+//          .padding(.bottom)
+        
+        WorshipPlansSection()
+        
+        canTokKyoSection
         
         OthersSection()
         
-        PrayerCardView(
-          title: "မေတ္တာပို့ အမျှဝေ",
-          subtitle: "အမျှဝေ",
-          systemImage: "heart.circle.fill",
-          duration: "3",
-          list: myittarPoe,
-          color: .pink
-        )
+        myittarPoeSection
       }
       .padding([.horizontal, .top])
       .padding(.bottom, 92)
@@ -58,9 +48,28 @@ struct HomeScreen: View {
     .fullScreenCover(isPresented: $showWorshipPlanScreen, content: {
       WorshipPlanScreen()
     })
-//    .sheet(isPresented: $showWorshipPlanScreen, content: {
-//      WorshipPlanScreen()
-//    })
+  }
+  
+  var canTokKyoSection: some View {
+    PrayerCardView(
+      title: "ဘုရားရှိခိုး ဂါထာများ",
+      subtitle: "ဘုရားကန်တော့",
+      systemImage: "hands.and.sparkles.fill",
+      duration: "5",
+      list: cantotkyo,
+      color: preferences.accentColor.color
+    )
+  }
+  
+  var myittarPoeSection: some View {
+    PrayerCardView(
+      title: "မေတ္တာပို့ အမျှဝေ",
+      subtitle: "အမျှဝေ",
+      systemImage: "heart.circle.fill",
+      duration: "3",
+      list: myittarPoe,
+      color: .pink
+    )
   }
   
   var navView: some View {
@@ -185,6 +194,115 @@ struct HomeScreen: View {
   }
   
   @ViewBuilder
+  private func WorshipPlansSection() -> some View {
+    // enableReminder, hasPrayingTime, planName, remindMeBefore, selectedDays, selectedPrayerIds, selectedTime, tagColor
+    VStack(alignment: .leading) {
+      HStack {
+        Text("Worship plan")
+          .font(.qsB(22))
+        Spacer(minLength: 20)
+        HStack(spacing: 4) {
+          Text("View more")
+          Image(systemName: "chevron.right")
+            .font(.caption.bold())
+        }
+        .font(.qsB(14))
+        .foregroundColor(preferences.accentColor.color)
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
+      
+      VStack {
+        TabView(selection: .constant(0)) {
+          ForEach(0 ..< 3, id: \.self) { id in
+            
+            WorshipPlanCardView()
+              .padding(.horizontal)
+              .tag(id)
+          }
+        }
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        .padding(.horizontal, -15)
+        .frame(height: 130)
+        
+        PageControlView(
+          currentPage: .constant(0),
+          currentPageIndicatorTintColor: preferences.accentColor.color,
+          numberOfPages: 3
+        )
+      }
+    }
+  }
+  
+  @ViewBuilder
+  private func WorshipPlanCardView() -> some View {
+    ZStack {
+      RoundedRectangle(cornerRadius: 12)
+        .foregroundColor(.cardBg)
+      
+      VStack {
+        HStack {
+          HStack(spacing: 4) {
+            Image(systemName: "alarm")
+            Text("9:00 AM")
+          }
+          .font(.qsSb(12))
+          
+          Spacer(minLength: 20)
+          
+          LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: 20), spacing: 4), count: 7)) {
+            ForEach(["SU", "MO", "TU", "WE", "TH", "FR", "SA"], id: \.self) { name in
+              Circle()
+                .stroke(preferences.accentColor.color, lineWidth: 1)
+                .background {
+                  if (name == "MO" || name == "TU") {
+                    Circle()
+                      .fill(preferences.accentColor.color)
+                  }
+                }
+                .overlay {
+                  Text(name)
+                    .font(.qsB(8))
+                    .foregroundColor((name == "MO" || name == "TU") ? .white : preferences.accentColor.color)
+                }
+            }
+          }
+          
+        }
+        
+        HStack {
+          Text("Chloe's ဘုရားရှိခိုး plan")
+            .font(.qsB(20))
+            .padding(.top, -10)
+          
+          Spacer(minLength: 20)
+        }
+        .padding(.top, 20)
+        
+        HStack(spacing: 20) {
+          HStack(spacing: 5) {
+            Image(systemName: "bell.fill")
+            Text("Notify 5 min(s) before.")
+          }
+          .font(.qsB(12))
+          
+          HStack(spacing: 5) {
+            Image(systemName: "book.closed.fill")
+            Text("10 Prayers")
+          }
+          .font(.qsB(12))
+          
+          Spacer()
+
+        }
+        .foregroundColor(.secondary)
+        .padding(.top, 10)
+      }
+      .padding()
+    }
+    
+  }
+  
+  @ViewBuilder
   private func PrayerListCell(_ model: NatPintVO, systemImage: String, hideSeparator: Bool = false) -> some View {
     NavigationLink {
       CommonPrayerScreen(model: model)
@@ -230,7 +348,7 @@ struct HomeScreen: View {
         .font(.qsB(12))
       }
       .opacity(0.85)
-
+      
       Text(title)
         .font(.qsB(18))
         .padding(.top, 2)

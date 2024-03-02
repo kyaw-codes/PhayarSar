@@ -15,4 +15,13 @@
         <attribute name="textAlignment" optional="YES" attributeType="String"/>
         <attribute name="textSize" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="WorshipPlan" representedClassName=".WorshipPlan" syncable="YES">
+        <attribute name="enableReminder" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="hasPrayingTime" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="planName" optional="YES" attributeType="String"/>
+        <attribute name="remindMeBefore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="selectedDays" optional="YES" attributeType="Binary"/>
+        <attribute name="selectedPrayerIds" optional="YES" attributeType="Binary"/>
+        <attribute name="selectedTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
 </model>

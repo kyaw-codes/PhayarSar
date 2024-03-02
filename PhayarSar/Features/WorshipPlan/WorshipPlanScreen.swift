@@ -256,9 +256,9 @@ struct WorshipPlanScreen: View {
           TimeGridView()
         }
         
-        CollapsableView(step: .selectTagColor) {
-          TagColorGridView()
-        }
+//        CollapsableView(step: .selectTagColor) {
+//          TagColorGridView()
+//        }
         
         CollapsableView(step: .setReminder) {
           SetReminderView()
@@ -279,7 +279,7 @@ struct WorshipPlanScreen: View {
   private func SetReminderView() -> some View {
     HStack(spacing: 4) {
       LocalizedText(.remind)
-        .font(.qsSb(16))
+        .font(preferences.appLang == .Mm ? .qsB(13) : .qsB(14))
         .opacity(enableReminder ? 1 : 0.2)
       Menu {
         ForEach(0 ... 60, id: \.self) { id in
@@ -305,7 +305,7 @@ struct WorshipPlanScreen: View {
       .allowsHitTesting(enableReminder)
       
       LocalizedText(.before)
-        .font(preferences.appLang == .Mm ? .qsB(13) : .qsB(16))
+        .font(preferences.appLang == .Mm ? .qsB(13) : .qsB(14))
         .opacity(enableReminder ? 1 : 0.2)
       
       Spacer()
@@ -446,7 +446,7 @@ struct WorshipPlanScreen: View {
         if hasPrayingTime {
           DatePicker(selection: $selectedTime, displayedComponents: [.hourAndMinute]) {
             HStack {
-              Image(systemName: "clock.fill")
+              Image(systemName: "alarm")
               LocalizedText(.time)
             }
             .font(.qsSb(16))
