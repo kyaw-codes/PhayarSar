@@ -12,6 +12,8 @@ struct WorshipPlanScreen: View {
   @EnvironmentObject private var preferences: UserPreferences
   @FocusState private var focusedName: String?
   
+  @ObservedObject var worshipPlanVM: WorshipPlanVM
+  
   // MARK: - Step one
   @State private var name = ""
   // MARK: - Step two
@@ -100,6 +102,25 @@ struct WorshipPlanScreen: View {
         currentStep = .addConfigData
       }
     case .addConfigData:
+      let newPlan = worshipPlanVM.newPlan
+      let encoder = JSONEncoder()
+      
+      newPlan?.planName = name
+      
+      if let data = try? encoder.encode(selectedPrayers.map(\.id)) {
+        newPlan?.selectedPrayerIds = data
+      }
+      
+      if let data = try? encoder.encode(selectedDays.map(\.rawValue)) {
+        newPlan?.selectedDays = data
+      }
+      
+      newPlan?.hasPrayingTime = hasPrayingTime
+      newPlan?.selectedTime = selectedTime
+      newPlan?.enableReminder = enableReminder
+      newPlan?.remindMeBefore = Int16(remindMeBefore)
+      
+      worshipPlanVM.saveToDb()
       dismiss()
     }
   }
@@ -119,6 +140,7 @@ struct WorshipPlanScreen: View {
         Spacer()
         
         Button {
+          worshipPlanVM.cancel()
           dismiss()
         } label: {
           Image(systemName: "xmark")
@@ -187,7 +209,8 @@ struct WorshipPlanScreen: View {
           HStack {
             Image(systemName: "minus.circle.fill")
               .foregroundColor(preferences.accentColor.color)
-              .padding(12)
+              .padding(.vertical, 12)
+              .padding(.horizontal, 8)
               .contentShape(Rectangle())
               .onTapGesture {
                 HapticKit.impact(.soft).generate()
@@ -293,7 +316,7 @@ struct WorshipPlanScreen: View {
         }
       } label: {
         LocalizedText(.x_min_s, args: [localizeNumber(preferences.appLang, str: "\(remindMeBefore)")])
-          .font(.qsB(16))
+          .font(.qsB(15))
           .padding(.horizontal, 8)
           .padding(.vertical, 4)
           .background {
@@ -532,7 +555,7 @@ struct WorshipPlanScreen: View {
   }
 }
 
-#Preview {
-  WorshipPlanScreen()
-    .previewEnvironment()
-}
+//#Preview {
+//  WorshipPlanScreen(worshipPlanVM: .init())
+//    .previewEnvironment()
+//}

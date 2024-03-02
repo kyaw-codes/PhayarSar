@@ -16,16 +16,20 @@ struct HomeScreen: View {
   @State private var offset: CGPoint = .zero
   @State private var payeikCollapsed = true
   @State private var showWorshipPlanScreen = false
+  @StateObject private var worshipPlanVM = WorshipPlanVM()
+  @FetchRequest(fetchRequest: WorshipPlan.all()) var allWorships
   
   var body: some View {
     OffsetObservingScrollView(offset: $offset) {
       navView
       
       LazyVStack(spacing: 12) {
-//        addNewWorshipPlanView
-//          .padding(.bottom)
-        
-        WorshipPlansSection()
+        if allWorships.isEmpty {
+          addNewWorshipPlanView
+            .padding(.bottom)
+        } else {
+          WorshipPlansSection()
+        }
         
         canTokKyoSection
         
@@ -46,7 +50,7 @@ struct HomeScreen: View {
       OnboardingScreen()
     }
     .fullScreenCover(isPresented: $showWorshipPlanScreen, content: {
-      WorshipPlanScreen()
+      WorshipPlanScreen(worshipPlanVM: worshipPlanVM)
     })
   }
   
@@ -167,6 +171,7 @@ struct HomeScreen: View {
       Spacer(minLength: 0)
       
       Button {
+        worshipPlanVM.addNewPlan()
         showWorshipPlanScreen.toggle()
       } label: {
         LocalizedText(.add_new)

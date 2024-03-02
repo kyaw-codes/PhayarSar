@@ -9,13 +9,13 @@ import Foundation
 import CoreData
 
 final class WorshipPlan: NSManagedObject {
-  @NSManaged var enableReminder: Bool
-  @NSManaged var hasPrayingTime: Bool
   @NSManaged var planName: String
-  @NSManaged var remindMeBefore: Int16
-  @NSManaged var selectedDays: Data?
   @NSManaged var selectedPrayerIds: Data?
+  @NSManaged var selectedDays: Data?
+  @NSManaged var hasPrayingTime: Bool
   @NSManaged var selectedTime: Date?
+  @NSManaged var enableReminder: Bool
+  @NSManaged var remindMeBefore: Int16
   
   override func awakeFromInsert() {
     super.awakeFromInsert()
@@ -24,5 +24,17 @@ final class WorshipPlan: NSManagedObject {
     setPrimitiveValue(false, forKey: "hasPrayingTime")
     setPrimitiveValue(Int16(3), forKey: "remindMeBefore")
     setPrimitiveValue(try? JSONEncoder().encode([DaysOfWeek.everyday.rawValue]), forKey: "selectedDays")
+  }
+}
+
+extension WorshipPlan {
+  static var planFetchRequest: NSFetchRequest<WorshipPlan> {
+    NSFetchRequest(entityName: "WorshipPlan")
+  }
+  
+  static func all() -> NSFetchRequest<WorshipPlan> {
+    let request: NSFetchRequest<WorshipPlan> = planFetchRequest
+    request.sortDescriptors = []
+    return request
   }
 }

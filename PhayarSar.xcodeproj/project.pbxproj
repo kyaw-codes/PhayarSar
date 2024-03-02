@@ -59,6 +59,7 @@
 		C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */; };
 		C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69472B530E0B006231CD /* PrayerModeScreen.swift */; };
 		C86AAA422B9228D800D899B2 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AAA412B9228D800D899B2 /* PageControlView.swift */; };
+		C86AAA4B2B92DEAB00D899B2 /* WorshipPlanVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AAA4A2B92DEAB00D899B2 /* WorshipPlanVM.swift */; };
 		C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A342512B3E70C800B24F7C /* HapticKit.swift */; };
 		C8A661CE2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A661CD2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift */; };
 		C8A661D02B55795600F2A553 /* NavigationBarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A661CF2B55795600F2A553 /* NavigationBarColor.swift */; };
@@ -113,7 +114,6 @@
 		C8D4031D2B6B493100448EDC /* ဝဋ္ဋသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C8D4031C2B6B493100448EDC /* ဝဋ္ဋသုတ်.json */; };
 		C8D4031F2B6B4AAA00448EDC /* ဓဇဂ္ဂသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C8D4031E2B6B4AAA00448EDC /* ဓဇဂ္ဂသုတ်.json */; };
 		C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */; };
-		C8D652812B2E0A3800BB6C42 /* HomeListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */; };
 		C8D652852B2E0BDB00BB6C42 /* TabScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652842B2E0BDB00BB6C42 /* TabScreen.swift */; };
 		C8D652882B2E0F1D00BB6C42 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652872B2E0F1D00BB6C42 /* SettingsScreen.swift */; };
 		C8D652962B2EA6BD00BB6C42 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D652952B2EA6BD00BB6C42 /* AppColor.swift */; };
@@ -196,6 +196,7 @@
 		C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerVM.swift; sourceTree = "<group>"; };
 		C84E69472B530E0B006231CD /* PrayerModeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerModeScreen.swift; sourceTree = "<group>"; };
 		C86AAA412B9228D800D899B2 /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
+		C86AAA4A2B92DEAB00D899B2 /* WorshipPlanVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanVM.swift; sourceTree = "<group>"; };
 		C8A342512B3E70C800B24F7C /* HapticKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticKit.swift; sourceTree = "<group>"; };
 		C8A661CD2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptToSoftwareKeyboard.swift; sourceTree = "<group>"; };
 		C8A661CF2B55795600F2A553 /* NavigationBarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarColor.swift; sourceTree = "<group>"; };
@@ -249,7 +250,6 @@
 		C8D4031C2B6B493100448EDC /* ဝဋ္ဋသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ဝဋ္ဋသုတ်.json"; sourceTree = "<group>"; };
 		C8D4031E2B6B4AAA00448EDC /* ဓဇဂ္ဂသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ဓဇဂ္ဂသုတ်.json"; sourceTree = "<group>"; };
 		C8D6527E2B2E02DB00BB6C42 /* PositionObservingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionObservingView.swift; sourceTree = "<group>"; };
-		C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListItemView.swift; sourceTree = "<group>"; };
 		C8D652842B2E0BDB00BB6C42 /* TabScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabScreen.swift; sourceTree = "<group>"; };
 		C8D652872B2E0F1D00BB6C42 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		C8D652952B2EA6BD00BB6C42 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
@@ -326,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				C81E829A2B6BFEBB00A59147 /* WorshipPlanScreen.swift */,
+				C86AAA4A2B92DEAB00D899B2 /* WorshipPlanVM.swift */,
 				C81E829C2B6CAC8300A59147 /* AllPrayerPickerScreen.swift */,
 			);
 			path = WorshipPlan;
@@ -554,7 +555,6 @@
 			isa = PBXGroup;
 			children = (
 				C84626B42B222B6B000931AE /* HomeScreen.swift */,
-				C8D652802B2E0A3800BB6C42 /* HomeListItemView.swift */,
 				C8A73FEC2B6F794E00216C89 /* AppleCardHolder.swift */,
 			);
 			path = Home;
@@ -879,7 +879,6 @@
 				C8A661CE2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift in Sources */,
 				C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */,
 				C8AE592C2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift in Sources */,
-				C8D652812B2E0A3800BB6C42 /* HomeListItemView.swift in Sources */,
 				C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */,
 				C84626B52B222B6B000931AE /* HomeScreen.swift in Sources */,
 				C8D6529B2B2EA76500BB6C42 /* ChooseColorScreen.swift in Sources */,
@@ -896,6 +895,7 @@
 				C8D730B32B46D42500D19D57 /* OverflowContentViewModifier.swift in Sources */,
 				C82039FA2B1CE1C7000EEF61 /* NatPintVO.swift in Sources */,
 				C81CF2572B53FCA000E1B726 /* PrayingMode.swift in Sources */,
+				C86AAA4B2B92DEAB00D899B2 /* WorshipPlanVM.swift in Sources */,
 				C84240C02B2DD34900A2B234 /* LocalizedKey.swift in Sources */,
 				C8CA45BF2B41295300240DA7 /* LocalizedLabel.swift in Sources */,
 				C815D6CE2B4B142900BFB79C /* PhayarSar.xcdatamodeld in Sources */,
