@@ -6,25 +6,29 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeScreen: View {
   @Binding var showTabBar: Bool
   @EnvironmentObject private var preferences: UserPreferences
   @Environment(\.colorScheme) private var colorScheme
+  @Environment(\.managedObjectContext) private var moc
   
   @State private var showOnboarding = false
   @State private var offset: CGPoint = .zero
   @State private var payeikCollapsed = true
   @State private var showWorshipPlanScreen = false
-  @StateObject private var worshipPlanVM = WorshipPlanVM()
-  @FetchRequest(fetchRequest: WorshipPlan.all()) var allWorships
+  @State private var currentWorshipPlan: NSManagedObjectID = .init()
+  @State private var worshipPlanListRefresh = UUID()
+
+  @StateObject private var worshipPlanRepo = WorshipPlanRepository()
   
   var body: some View {
     OffsetObservingScrollView(offset: $offset) {
       navView
       
       LazyVStack(spacing: 12) {
-        if allWorships.isEmpty {
+        if worshipPlanRepo.latestPlans.isEmpty {
           addNewWorshipPlanView
             .padding(.bottom)
         } else {
@@ -50,7 +54,7 @@ struct HomeScreen: View {
       OnboardingScreen()
     }
     .fullScreenCover(isPresented: $showWorshipPlanScreen, content: {
-      WorshipPlanScreen(worshipPlanVM: worshipPlanVM)
+      WorshipPlanScreen(worshipPlanRepo: worshipPlanRepo, worshipPlan: .constant(nil))
     })
   }
   
@@ -171,7 +175,6 @@ struct HomeScreen: View {
       Spacer(minLength: 0)
       
       Button {
-        worshipPlanVM.addNewPlan()
         showWorshipPlanScreen.toggle()
       } label: {
         LocalizedText(.add_new)
@@ -200,111 +203,80 @@ struct HomeScreen: View {
   
   @ViewBuilder
   private func WorshipPlansSection() -> some View {
-    // enableReminder, hasPrayingTime, planName, remindMeBefore, selectedDays, selectedPrayerIds, selectedTime, tagColor
     VStack(alignment: .leading) {
       HStack {
-        Text("Worship plan")
+        LocalizedText(.worship_plan)
           .font(.qsB(22))
         Spacer(minLength: 20)
-        HStack(spacing: 4) {
-          Text("View more")
-          Image(systemName: "chevron.right")
-            .font(.caption.bold())
+        NavigationLink {
+          WorshipPlanListScreen(worshipPlanRepo: worshipPlanRepo)
+            .onAppear {
+              showTabBar = false
+            }
+            .onDisappear {
+              worshipPlanListRefresh = .init()
+            }
+        } label: {
+          HStack(spacing: 4) {
+            LocalizedText(.view_more)
+            Image(systemName: "chevron.right")
+              .font(.caption.bold())
+          }
+          .font(.qsB(14))
+          .foregroundColor(preferences.accentColor.color)
         }
-        .font(.qsB(14))
-        .foregroundColor(preferences.accentColor.color)
       }
       .frame(maxWidth: .infinity, alignment: .leading)
       
       VStack {
-        TabView(selection: .constant(0)) {
-          ForEach(0 ..< 3, id: \.self) { id in
-            
-            WorshipPlanCardView()
+        TabView(selection: $currentWorshipPlan) {
+          ForEach(worshipPlanRepo.latestPlans.prefix(3).map { $0 }, id: \.objectID) { worship in
+            WorshipPlanCardView(worshipPlan: worship)
               .padding(.horizontal)
-              .tag(id)
+              .tag(worship.objectID)
           }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
         .padding(.horizontal, -15)
         .frame(height: 130)
+        .padding(.bottom, worshipPlanRepo.latestPlans.count > 1 ? 0 : 15)
+        .id(worshipPlanListRefresh)
         
-        PageControlView(
-          currentPage: .constant(0),
-          currentPageIndicatorTintColor: preferences.accentColor.color,
-          numberOfPages: 3
-        )
+        if worshipPlanRepo.latestPlans.count > 1 {
+          PageControlView(
+            currentPage: worshipPlanRepo.latestPlans.prefix(3).map(\.objectID).firstIndex(of: currentWorshipPlan) ?? 0,
+            currentPageIndicatorTintColor: preferences.accentColor.color,
+            numberOfPages: min(3, worshipPlanRepo.latestPlans.count)
+          )
+          .id(worshipPlanListRefresh)
+          .padding(.bottom, 8)
+        }
+        
+//        Button {
+//          showWorshipPlanScreen.toggle()
+//        } label: {
+//          HStack {
+//            LocalizedText(.new_worship_plan)
+//              .font(.qsB(16))
+//            Spacer()
+//            Image(systemName: "plus.circle")
+//              .font(.body.bold())
+//          }
+//          .padding(.vertical, 15)
+//          .padding(.horizontal)
+//          .foregroundColor(.white)
+//          .background {
+//            RoundedRectangle(cornerRadius: 12)
+//              .fill(LinearGradient(
+//                colors: [preferences.accentColor.color.opacity(0.9), preferences.accentColor.color.opacity(0.8)],
+//                startPoint: .topLeading,
+//                endPoint: .bottomTrailing)
+//              )
+//          }
+//        }
+//        .padding(.bottom, 12)
       }
     }
-  }
-  
-  @ViewBuilder
-  private func WorshipPlanCardView() -> some View {
-    ZStack {
-      RoundedRectangle(cornerRadius: 12)
-        .foregroundColor(.cardBg)
-      
-      VStack {
-        HStack {
-          HStack(spacing: 4) {
-            Image(systemName: "alarm")
-            Text("9:00 AM")
-          }
-          .font(.qsSb(12))
-          
-          Spacer(minLength: 20)
-          
-          LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: 20), spacing: 4), count: 7)) {
-            ForEach(["SU", "MO", "TU", "WE", "TH", "FR", "SA"], id: \.self) { name in
-              Circle()
-                .stroke(preferences.accentColor.color, lineWidth: 1)
-                .background {
-                  if (name == "MO" || name == "TU") {
-                    Circle()
-                      .fill(preferences.accentColor.color)
-                  }
-                }
-                .overlay {
-                  Text(name)
-                    .font(.qsB(8))
-                    .foregroundColor((name == "MO" || name == "TU") ? .white : preferences.accentColor.color)
-                }
-            }
-          }
-          
-        }
-        
-        HStack {
-          Text("Chloe's ဘုရားရှိခိုး plan")
-            .font(.qsB(20))
-            .padding(.top, -10)
-          
-          Spacer(minLength: 20)
-        }
-        .padding(.top, 20)
-        
-        HStack(spacing: 20) {
-          HStack(spacing: 5) {
-            Image(systemName: "bell.fill")
-            Text("Notify 5 min(s) before.")
-          }
-          .font(.qsB(12))
-          
-          HStack(spacing: 5) {
-            Image(systemName: "book.closed.fill")
-            Text("10 Prayers")
-          }
-          .font(.qsB(12))
-          
-          Spacer()
-
-        }
-        .foregroundColor(.secondary)
-        .padding(.top, 10)
-      }
-      .padding()
-    }
-    
   }
   
   @ViewBuilder
@@ -522,9 +494,20 @@ struct HomeScreen: View {
   }
 }
 
-#Preview {
-  NavigationView{
-    HomeScreen(showTabBar: .constant(true))
+fileprivate struct HomeScreenPreviewContainer: View {
+  
+  init() {
+    WorshipPlan.makePreview(count: 3, in: CoreDataStack.shared.viewContext)
   }
-  .environmentObject(UserPreferences())
+  
+  var body: some View {
+    NavigationView{
+      HomeScreen(showTabBar: .constant(true))
+    }
+    .environmentObject(UserPreferences())
+  }
+}
+
+#Preview {
+  HomeScreenPreviewContainer()
 }

@@ -81,6 +81,7 @@ extension TabScreen: View {
                     }
                     .navigationBarHidden(true)
             }
+            .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
             .tag(TabItem.home)
             
             NavigationView {

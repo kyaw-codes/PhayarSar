@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct PageControlView: UIViewRepresentable {
-  @Binding var currentPage: Int
+  var currentPage: Int
   var currentPageIndicatorTintColor: Color
   var numberOfPages: Int
   
   func makeUIView(context: Context) -> UIPageControl {
     let view = UIPageControl()
     view.numberOfPages = numberOfPages
-    view.pageIndicatorTintColor = .secondaryLabel
+    view.pageIndicatorTintColor = .label.withAlphaComponent(0.2)
     return view
   }
   

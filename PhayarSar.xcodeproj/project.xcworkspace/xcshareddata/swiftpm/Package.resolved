@@ -1,21 +1,21 @@
 {
   "pins" : [
     {
+      "identity" : "alerttoast",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/elai950/AlertToast.git",
+      "state" : {
+        "revision" : "b39252eacd159904afd7d718bba0afabb87f2f2f",
+        "version" : "1.3.9"
+      }
+    },
+    {
       "identity" : "compactslider",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/buh/CompactSlider.git",
       "state" : {
         "revision" : "6d591a76caecd583ad69fbcd06f2fb83135318c0",
         "version" : "1.1.5"
-      }
-    },
-    {
-      "identity" : "imagemorphing",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kodlian/ImageMorphing",
-      "state" : {
-        "revision" : "6c1f2b9c7dd79238d1e4ddb3223803c318995eb0",
-        "version" : "1.0.0"
       }
     },
     {
@@ -52,6 +52,15 @@
       "state" : {
         "revision" : "3042f0cf4b9f0d5b0bb08ad17f742a43bc4fdfc5",
         "version" : "2.8.0"
+      }
+    },
+    {
+      "identity" : "swipeactions",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aheze/SwipeActions.git",
+      "state" : {
+        "revision" : "41e6f6dce02d8cfa164f8c5461a41340850ca3ab",
+        "version" : "1.1.0"
       }
     }
   ],

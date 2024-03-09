@@ -1,334 +1,394 @@
 {
-    "welcome_to_phayarsar": {
-        "En": "Welcome to \nPhayarSar",
-        "Mm": "ဘုရားစာ App ကနေ\nကြိုဆိုပါတယ်"
-    },
-    "onboarding_desc": {
-        "En": "Religion and Generation Z can seamlessly coexist. With the PhayarSar app, you can ergonomically religious.",
-        "Mm": "ဘာသာတရားနဲ့လူငယ် အတူယှဥ်တွဲနေထိုင်လို့ရပါတယ်။ ဘုရားစာ app ကိုသုံးပြီးတော့ ဘာသာတရားကိုင်းရှိုင်းလိုက်ပါ။"
-    },
-    "btn_get_started": {
-        "En": "Get started",
-        "Mm": "စသုံးမယ်"
-    },
-    "choose_a_language": {
-        "En": "Select a Language",
-        "Mm": "ဘာသာစကား ရွေးချယ်ပါ"
-    },
-    "next": {
-        "En": "Next",
-        "Mm": "ဆက်သွားပါ"
-    },
-    "finished": {
-        "En": "Finished!",
-        "Mm": "စိတ်တိုင်းကျပြီ"
-    },
-    "today_pray_time_x": {
-        "En": "Today's Pray Time  {$} min(s)",
-        "Mm": "ဒီနေ့ဘုရားရှိခိုးချိန်  {$} မိနစ်"
-    },
-    "today_pray_time": {
-        "En": "Today's Pray Time  ",
-        "Mm": "ဒီနေ့ဘုရားရှိခိုးချိန်  "
-    },
-    "x_min": {
-        "En": "{$} min(s)",
-        "Mm": "{$} မိနစ်"
-    },
-    "btn_add": {
-        "En": "Add",
-        "Mm": "ထည့်မယ်"
-    },
-    "btn_pray": {
-        "En": "Pray",
-        "Mm": "ရှိခိုးမယ်"
-    },
-    "home": {
-        "En": "Home",
-        "Mm": "ပင်မစာမျက်နှာ"
-    },
-    "settings": {
-        "En": "Settings",
-        "Mm": "ပြင်ဆင်ချက်"
-    },
-    "app_language": {
-        "En": "App language",
-        "Mm": "ဘာသာစကား"
-    },
-    "app_accent_color": {
-        "En": "App accent color",
-        "Mm": "အဓိက အရောင်"
-    },
-    "choose_accent_color": {
-        "En": "Choose accent color",
-        "Mm": "အဓိကအရောင် ရွေးပါ"
-    },
-    "haptic_on": {
-        "En": "Haptic on",
-        "Mm": "တုန်ခါမှု ဖွင့်မယ်"
-    },
-    "themes_and_settings": {
-        "En": "Themes & Settings",
-        "Mm": "ပုံပန်းအသွင်အပြင်"
-    },
-    "about_x": {
-        "En": "About {$}",
-        "Mm": "{$} အကြောင်း"
-    },
-    "jasmine": {
-        "En": "Jasmine",
-        "Mm": "စံပယ်"
-    },
-    "panglong": {
-        "En": "PangLong",
-        "Mm": "ပန်းလောင်"
-    },
-    "msquare": {
-        "En": "Square",
-        "Mm": "လေးထောင့်"
-    },
-    "yoeyar": {
-        "En": "YoeYar",
-        "Mm": "ရိုးရာ"
-    },
-    "page_white": {
-        "En": "White",
-        "Mm": "အဖြူရောင်"
-    },
-    "page_yellow": {
-        "En": "Yellow",
-        "Mm": "အဝါရောင်"
-    },
-    "page_grey": {
-        "En": "Grey",
-        "Mm": "မီးခိုးရောင်"
-    },
-    "page_black": {
-        "En": "Black",
-        "Mm": "အမဲ(နက်)ရောင်"
-    },
-    "font": {
-        "En": "Font",
-        "Mm": "ဖောင့်"
-    },
-    "background_and_color": {
-        "En": "Background & Color",
-        "Mm": "နောက်ခံနှင့် စာသားအရောင်"
-    },
-    "letter_and_line_spacing": {
-        "En": "Letter & Line Spacing",
-        "Mm": "စာလုံးနှင့်စာကြောင်း အကွာအဝေး"
-    },
-    "letter_spacing": {
-        "En": "Letter spacing",
-        "Mm": "စာလုံး အကွာအဝေး"
-    },
-    "line_spacing": {
-        "En": "Line spacing",
-        "Mm": "စာကြောင်း အကွာအဝေး"
-    },
-    "paragraph_spacing": {
-        "En": "Paragraph spacing",
-        "Mm": "စာပိုဒ် အကွာအဝေး"
-    },
-    "text_size_and_alignment": {
-        "En": "Text Size & Alignment",
-        "Mm": "အရွယ်အစားနှင့် အလိုင်းမန့်"
-    },
-    "align_left": {
-        "En": "Align left",
-        "Mm": "ဘယ်ကပ်"
-    },
-    "align_left": {
-        "En": "Align right",
-        "Mm": "ညာကပ်"
-    },
-    "align_center": {
-        "En": "Align center",
-        "Mm": "အလယ်"
-    },
-    "justify": {
-        "En": "Justify",
-        "Mm": "အပြည့်နေရာယူ"
-    },
-    "show_pronunciation": {
-        "En": "Show Pronunciation",
-        "Mm": "အသံထွက် ပြမယ်"
-    },
-    "scrolling_speed": {
-        "En": "Scrolling Speed",
-        "Mm": "အမြန်နှုန်း"
-    },
-    "spotlight_text": {
-        "En": "Spotlight text (blur others)",
-        "Mm": "လက်ရှိစာပိုဒ်ကို ဦးစားပေးပြမယ်"
-    },
-    "tap_to_scroll": {
-        "En": "Tap to scroll to that paragraph",
-        "Mm": "စာပိုဒ်ကိုနှိပ်လိုက်တာနဲ့ ရောက်အောင်သွားမယ်"
-    },
-    "x0_5": {
-        "En": "0.5x",
-        "Mm": "၀.၅ ဆ"
-    },
-    "x0_75": {
-        "En": "0.75x",
-        "Mm": "၀.၇၅ ဆ"
-    },
-    "x1": {
-        "En": "Normal",
-        "Mm": "ပုံမှန်"
-    },
-    "x1_25": {
-        "En": "1.25x",
-        "Mm": "၁.၂၅ ဆ"
-    },
-    "x1_5": {
-        "En": "1.5x",
-        "Mm": "၁.၅ ဆ"
-    },
-    "x2": {
-        "En": "2x",
-        "Mm": "၂ ဆ"
-    },
-    "mode": {
-      "En": "Choose Mode",
-      "Mm": "အသုံးပြု ပုံစံ"
-    },
-    "reader_mode": {
-      "En": "Reader mode",
-      "Mm": "ကိုယ်တိုင် ဖတ်မယ်"
-    },
-    "player_mode": {
-      "En": "Player mode",
-      "Mm": "အလိုအလျောက်"
-    },
-    "selected": {
-      "En": "Selected",
-      "Mm": "ရွေးထားသည်"
-    },
-    "add_new": {
-      "En": "Add new",
-      "Mm": "အသစ်ထည့်"
-    },
-    "worship_plan_helps_you_pray": {
-      "En": "Worship plan helps you pray uninterruptedly.",
-      "Mm": "ဘုရားရှိခိုးအစီအစဥ်သည် အနှောင့်အယှက်ကင်းစွာ ဝတ်ပြုနိုင်စေသည်။"
-    },
-    "view_collection": {
-      "En": "View collection",
-      "Mm": "အကုန်ကြည့်မယ်"
-    },
-    "plus_x_more": {
-      "En": "+{$} more",
-      "Mm": "+{$} ခုကျန်"
-    },
-    "other_prayers": {
-      "En": "Others",
-      "Mm": "အခြားဂါထာများ"
-    },
-    "new_plan": {
-      "En": "New Plan",
-      "Mm": "ဝတ်ပြုစဥ် အသစ်"
-    },
-    "name_your_worship_plan": {
-      "En": "Name your worship plan",
-      "Mm": "ဝတ်ပြုအစီအစဥ်အတွက် နာမည်ပေးပါ"
-    },
-    "plan_name": {
-      "En": "Plan name",
-      "Mm": "နာမည်"
-    },
-    "add_new_prayer": {
-      "En": "Add new prayer",
-      "Mm": "ဘုရားစာအသစ် ထည့်မယ်"
-    },
-    "btn_close": {
-      "En": "Close",
-      "Mm": "ပိတ်မယ်"
-    },
-    "btn_save": {
-      "En": "Save",
-      "Mm": "သိမ်းမယ်"
-    },
-    "select_prayers": {
-      "En": "Select prayers",
-      "Mm": "ဘုရားစာ ရွေးမယ်"
-    },
-    "everyday": {
-      "En": "Everyday",
-      "Mm": "နေ့တိုင်း"
-    },
-    "sun": {
-      "En": "Sunday",
-      "Mm": "တနင်္ဂနွေ"
-    },
-    "mon": {
-      "En": "Monday",
-      "Mm": "တနင်္လာ"
-    },
-    "tue": {
-      "En": "Tuesday",
-      "Mm": "အင်္ဂါ"
-    },
-    "wed": {
-      "En": "Wednesday",
-      "Mm": "ဗုဒ္ဓဟူး"
-    },
-    "thu": {
-      "En": "Thursday",
-      "Mm": "ကြာသာပတေး"
-    },
-    "fri": {
-      "En": "Friday",
-      "Mm": "သောကြာ"
-    },
-    "sat": {
-      "En": "Saturday",
-      "Mm": "စနေ"
-    },
-    "selectDay": {
-      "En": "1. Select days of week",
-      "Mm": "၁။ ရက်ရွေးပါ"
-    },
-    "selectTime": {
-      "En": "2. Choose time",
-      "Mm": "၂။ အချိန်ရွေးပါ"
-    },
-    "selectTagColor": {
-      "En": "3. Choose tag color",
-      "Mm": "၃။ အဓိကအရောင် ရွေးပါ"
-    },
-    "setReminder": {
-      "En": "3. Set reminder",
-      "Mm": "၃။ သံပါတ်ပေးထားမယ်"
-    },
-    "do_you_have_praying_time": {
-      "En": "Do you have praying time?",
-      "Mm": "သင့်မှာ ဘုရားရှိခိုးချိန်ရှိသလား?"
-    },
-    "yes_i_do": {
-      "En": "Yes, I do",
-      "Mm": "ရှိပါတယ်"
-    },
-    "no_i_dont": {
-      "En": "No, I don't",
-      "Mm": "မရှိပါ"
-    },
-    "time": {
-      "En": "Time",
-      "Mm": "အချိန်"
-    },
-    "remind": {
-      "En": "Remind",
-      "Mm": ""
-    },
-    "before": {
-      "En": "before.",
-      "Mm": "ကြိုသတိပေးပါ။"
-    },
-    "x_min_s": {
-      "En": "{$} min(s)",
-      "Mm": "{$} မိနစ်"
-    },
+  "welcome_to_phayarsar": {
+    "En": "Welcome to \nPhayarSar",
+    "Mm": "ဘုရားစာ App ကနေ\nကြိုဆိုပါတယ်"
+  },
+  "onboarding_desc": {
+    "En": "Religion and Generation Z can seamlessly coexist. With the PhayarSar app, you can ergonomically religious.",
+    "Mm": "ဘာသာတရားနဲ့လူငယ် အတူယှဥ်တွဲနေထိုင်လို့ရပါတယ်။ ဘုရားစာ app ကိုသုံးပြီးတော့ ဘာသာတရားကိုင်းရှိုင်းလိုက်ပါ။"
+  },
+  "btn_get_started": {
+    "En": "Get started",
+    "Mm": "စသုံးမယ်"
+  },
+  "choose_a_language": {
+    "En": "Select a Language",
+    "Mm": "ဘာသာစကား ရွေးချယ်ပါ"
+  },
+  "next": {
+    "En": "Next",
+    "Mm": "ဆက်သွားပါ"
+  },
+  "finished": {
+    "En": "Finished!",
+    "Mm": "စိတ်တိုင်းကျပြီ"
+  },
+  "today_pray_time_x": {
+    "En": "Today's Pray Time  {$} min(s)",
+    "Mm": "ဒီနေ့ဘုရားရှိခိုးချိန်  {$} မိနစ်"
+  },
+  "today_pray_time": {
+    "En": "Today's Pray Time  ",
+    "Mm": "ဒီနေ့ဘုရားရှိခိုးချိန်  "
+  },
+  "x_min": {
+    "En": "{$} min(s)",
+    "Mm": "{$} မိနစ်"
+  },
+  "btn_add": {
+    "En": "Add",
+    "Mm": "ထည့်မယ်"
+  },
+  "btn_pray": {
+    "En": "Pray",
+    "Mm": "ရှိခိုးမယ်"
+  },
+  "home": {
+    "En": "Home",
+    "Mm": "ပင်မစာမျက်နှာ"
+  },
+  "settings": {
+    "En": "Settings",
+    "Mm": "ပြင်ဆင်ချက်"
+  },
+  "app_language": {
+    "En": "App language",
+    "Mm": "ဘာသာစကား"
+  },
+  "app_accent_color": {
+    "En": "App accent color",
+    "Mm": "အဓိက အရောင်"
+  },
+  "choose_accent_color": {
+    "En": "Choose accent color",
+    "Mm": "အဓိကအရောင် ရွေးပါ"
+  },
+  "haptic_on": {
+    "En": "Haptic on",
+    "Mm": "တုန်ခါမှု ဖွင့်မယ်"
+  },
+  "themes_and_settings": {
+    "En": "Themes & Settings",
+    "Mm": "ပုံပန်းအသွင်အပြင်"
+  },
+  "about_x": {
+    "En": "About {$}",
+    "Mm": "{$} အကြောင်း"
+  },
+  "jasmine": {
+    "En": "Jasmine",
+    "Mm": "စံပယ်"
+  },
+  "panglong": {
+    "En": "PangLong",
+    "Mm": "ပန်းလောင်"
+  },
+  "msquare": {
+    "En": "Square",
+    "Mm": "လေးထောင့်"
+  },
+  "yoeyar": {
+    "En": "YoeYar",
+    "Mm": "ရိုးရာ"
+  },
+  "page_white": {
+    "En": "White",
+    "Mm": "အဖြူရောင်"
+  },
+  "page_yellow": {
+    "En": "Yellow",
+    "Mm": "အဝါရောင်"
+  },
+  "page_grey": {
+    "En": "Grey",
+    "Mm": "မီးခိုးရောင်"
+  },
+  "page_black": {
+    "En": "Black",
+    "Mm": "အမဲ(နက်)ရောင်"
+  },
+  "font": {
+    "En": "Font",
+    "Mm": "ဖောင့်"
+  },
+  "background_and_color": {
+    "En": "Background & Color",
+    "Mm": "နောက်ခံနှင့် စာသားအရောင်"
+  },
+  "letter_and_line_spacing": {
+    "En": "Letter & Line Spacing",
+    "Mm": "စာလုံးနှင့်စာကြောင်း အကွာအဝေး"
+  },
+  "letter_spacing": {
+    "En": "Letter spacing",
+    "Mm": "စာလုံး အကွာအဝေး"
+  },
+  "line_spacing": {
+    "En": "Line spacing",
+    "Mm": "စာကြောင်း အကွာအဝေး"
+  },
+  "paragraph_spacing": {
+    "En": "Paragraph spacing",
+    "Mm": "စာပိုဒ် အကွာအဝေး"
+  },
+  "text_size_and_alignment": {
+    "En": "Text Size & Alignment",
+    "Mm": "အရွယ်အစားနှင့် အလိုင်းမန့်"
+  },
+  "align_left": {
+    "En": "Align left",
+    "Mm": "ဘယ်ကပ်"
+  },
+  "align_left": {
+    "En": "Align right",
+    "Mm": "ညာကပ်"
+  },
+  "align_center": {
+    "En": "Align center",
+    "Mm": "အလယ်"
+  },
+  "justify": {
+    "En": "Justify",
+    "Mm": "အပြည့်နေရာယူ"
+  },
+  "show_pronunciation": {
+    "En": "Show Pronunciation",
+    "Mm": "အသံထွက် ပြမယ်"
+  },
+  "scrolling_speed": {
+    "En": "Scrolling Speed",
+    "Mm": "အမြန်နှုန်း"
+  },
+  "spotlight_text": {
+    "En": "Spotlight text (blur others)",
+    "Mm": "လက်ရှိစာပိုဒ်ကို ဦးစားပေးပြမယ်"
+  },
+  "tap_to_scroll": {
+    "En": "Tap to scroll to that paragraph",
+    "Mm": "စာပိုဒ်ကိုနှိပ်လိုက်တာနဲ့ ရောက်အောင်သွားမယ်"
+  },
+  "x0_5": {
+    "En": "0.5x",
+    "Mm": "၀.၅ ဆ"
+  },
+  "x0_75": {
+    "En": "0.75x",
+    "Mm": "၀.၇၅ ဆ"
+  },
+  "x1": {
+    "En": "Normal",
+    "Mm": "ပုံမှန်"
+  },
+  "x1_25": {
+    "En": "1.25x",
+    "Mm": "၁.၂၅ ဆ"
+  },
+  "x1_5": {
+    "En": "1.5x",
+    "Mm": "၁.၅ ဆ"
+  },
+  "x2": {
+    "En": "2x",
+    "Mm": "၂ ဆ"
+  },
+  "mode": {
+    "En": "Choose Mode",
+    "Mm": "အသုံးပြု ပုံစံ"
+  },
+  "reader_mode": {
+    "En": "Reader mode",
+    "Mm": "ကိုယ်တိုင် ဖတ်မယ်"
+  },
+  "player_mode": {
+    "En": "Player mode",
+    "Mm": "အလိုအလျောက်"
+  },
+  "selected": {
+    "En": "Selected",
+    "Mm": "ရွေးထားသည်"
+  },
+  "add_new": {
+    "En": "Add new",
+    "Mm": "အသစ်ထည့်"
+  },
+  "worship_plan_helps_you_pray": {
+    "En": "Worship plan helps you pray uninterruptedly.",
+    "Mm": "ဘုရားရှိခိုးအစီအစဥ်သည် အနှောင့်အယှက်ကင်းစွာ ဝတ်ပြုနိုင်စေသည်။"
+  },
+  "view_collection": {
+    "En": "View collection",
+    "Mm": "အကုန်ကြည့်မယ်"
+  },
+  "plus_x_more": {
+    "En": "+{$} more",
+    "Mm": "+{$} ခုကျန်"
+  },
+  "other_prayers": {
+    "En": "Others",
+    "Mm": "အခြားဂါထာများ"
+  },
+  "new_plan": {
+    "En": "New Plan",
+    "Mm": "အစီအစဥ် အသစ်"
+  },
+  "name_your_worship_plan": {
+    "En": "Name your worship plan",
+    "Mm": "ဝတ်ပြုအစီအစဥ်အတွက် နာမည်ပေးပါ"
+  },
+  "plan_name": {
+    "En": "Plan name",
+    "Mm": "နာမည်"
+  },
+  "add_new_prayer": {
+    "En": "Add new prayer",
+    "Mm": "ဘုရားစာအသစ် ထည့်မယ်"
+  },
+  "btn_close": {
+    "En": "Close",
+    "Mm": "ပိတ်မယ်"
+  },
+  "btn_save": {
+    "En": "Save",
+    "Mm": "သိမ်းမယ်"
+  },
+  "select_prayers": {
+    "En": "Select prayers",
+    "Mm": "ဘုရားစာ ရွေးမယ်"
+  },
+  "everyday": {
+    "En": "Everyday",
+    "Mm": "နေ့တိုင်း"
+  },
+  "sun": {
+    "En": "Sunday",
+    "Mm": "တနင်္ဂနွေ"
+  },
+  "mon": {
+    "En": "Monday",
+    "Mm": "တနင်္လာ"
+  },
+  "tue": {
+    "En": "Tuesday",
+    "Mm": "အင်္ဂါ"
+  },
+  "wed": {
+    "En": "Wednesday",
+    "Mm": "ဗုဒ္ဓဟူး"
+  },
+  "thu": {
+    "En": "Thursday",
+    "Mm": "ကြာသာပတေး"
+  },
+  "fri": {
+    "En": "Friday",
+    "Mm": "သောကြာ"
+  },
+  "sat": {
+    "En": "Saturday",
+    "Mm": "စနေ"
+  },
+  "selectDay": {
+    "En": "1. Select days of week",
+    "Mm": "၁။ ရက်ရွေးပါ"
+  },
+  "selectTime": {
+    "En": "2. Choose time",
+    "Mm": "၂။ အချိန်ရွေးပါ"
+  },
+  "selectTagColor": {
+    "En": "3. Choose tag color",
+    "Mm": "၃။ အဓိကအရောင် ရွေးပါ"
+  },
+  "setReminder": {
+    "En": "3. Set reminder",
+    "Mm": "၃။ သံပါတ်ပေးထားမယ်"
+  },
+  "do_you_have_praying_time": {
+    "En": "Do you have praying time?",
+    "Mm": "သင့်မှာ ဘုရားရှိခိုးချိန်ရှိသလား?"
+  },
+  "yes_i_do": {
+    "En": "Yes, I do",
+    "Mm": "ရှိပါတယ်"
+  },
+  "no_i_dont": {
+    "En": "No, I don't",
+    "Mm": "မရှိပါ"
+  },
+  "time": {
+    "En": "Time",
+    "Mm": "အချိန်"
+  },
+  "remind": {
+    "En": "Remind",
+    "Mm": ""
+  },
+  "before": {
+    "En": "before.",
+    "Mm": "ကြိုသတိပေးပါ။"
+  },
+  "x_min_s": {
+    "En": "{$} min(s)",
+    "Mm": "{$} မိနစ်"
+  },
+  "su": {
+    "En": "SU",
+    "Mm": "နွေ"
+  },
+  "mo": {
+    "En": "MO",
+    "Mm": "လာ"
+  },
+  "tu": {
+    "En": "TU",
+    "Mm": "ဂါ"
+  },
+  "we": {
+    "En": "WE",
+    "Mm": "ဟူး"
+  },
+  "th": {
+    "En": "TH",
+    "Mm": "ကြာ"
+  },
+  "fr": {
+    "En": "FR",
+    "Mm": "သော"
+  },
+  "sa": {
+    "En": "SA",
+    "Mm": "နေ"
+  },
+  "worship_plan": {
+    "En": "Worship plans",
+    "Mm": "အစီအစဥ်များ"
+  },
+  "view_more": {
+    "En": "See all",
+    "Mm": "အကုန်ကြည့်မယ်"
+  },
+  "notify_x_mins_before": {
+    "En": "Notify {$} min(s) before",
+    "Mm": "{$} မိနစ်ကြိုသတိပေး"
+  },
+  "x_prayers": {
+    "En": "{$} Prayers",
+    "Mm": "{$} ပုဒ်"
+  },
+  "not_specified": {
+    "En": "Not specified",
+    "Mm": "မသတ်မှတ််ထားပါ"
+  },
+  "new_worship_plan": {
+    "En": "New worship plan",
+    "Mm": "ဘုရားရှိခိုး အစီအစဥ်အသစ်"
+  },
+  "all_worship_plans": {
+    "En": "All worship plans",
+    "Mm": "ဘုရားရှိခိုး အစီအစဥ်များ"
+  },
+  "edit_plan": {
+    "En": "Edit Plan",
+    "Mm": "ပြင်ဆင်မည်"
+  },
 }

@@ -9,10 +9,13 @@ import SwiftUI
 
 struct WorshipPlanScreen: View {
   @Environment(\.dismiss) private var dismiss
+  @Environment(\.managedObjectContext) private var moc
   @EnvironmentObject private var preferences: UserPreferences
-  @FocusState private var focusedName: String?
   
-  @ObservedObject var worshipPlanVM: WorshipPlanVM
+  @ObservedObject var worshipPlanRepo: WorshipPlanRepository
+  @Binding var worshipPlan: WorshipPlan?
+
+  @FocusState private var focusedName: String?
   
   // MARK: - Step one
   @State private var name = ""
@@ -56,6 +59,15 @@ struct WorshipPlanScreen: View {
     }
     .onAppear {
       focusedName = "planname"
+      if let plan = worshipPlan {
+        name = plan.planName
+        selectedPrayers = plan.selectedPrayers
+        selectedDays = plan.selectedDaysEnum ?? []
+        selectedTime = plan.selectedTime ?? .init()
+        hasPrayingTime = plan.hasPrayingTime
+        remindMeBefore = Int(plan.remindMeBefore)
+        enableReminder = plan.enableReminder
+      }
     }
     .onChange(of: currentStep) { _ in
       updateProgressAndButtonText()
@@ -102,27 +114,34 @@ struct WorshipPlanScreen: View {
         currentStep = .addConfigData
       }
     case .addConfigData:
-      let newPlan = worshipPlanVM.newPlan
-      let encoder = JSONEncoder()
-      
-      newPlan?.planName = name
-      
-      if let data = try? encoder.encode(selectedPrayers.map(\.id)) {
-        newPlan?.selectedPrayerIds = data
-      }
-      
-      if let data = try? encoder.encode(selectedDays.map(\.rawValue)) {
-        newPlan?.selectedDays = data
-      }
-      
-      newPlan?.hasPrayingTime = hasPrayingTime
-      newPlan?.selectedTime = selectedTime
-      newPlan?.enableReminder = enableReminder
-      newPlan?.remindMeBefore = Int16(remindMeBefore)
-      
-      worshipPlanVM.saveToDb()
+      saveWorshipPlan()
       dismiss()
     }
+  }
+  
+  private func saveWorshipPlan() {
+    let plan = worshipPlan ?? WorshipPlan(context: moc)
+    let encoder = JSONEncoder()
+    
+    plan.planName = name
+    print(selectedPrayers.map(\.id))
+    
+    if let data = try? encoder.encode(selectedPrayers.map(\.id)) {
+      plan.selectedPrayerIds = data
+      let arr = try? JSONDecoder().decode([String].self, from: data)
+      print(arr)
+    }
+    
+    if let data = try? encoder.encode(selectedDays.map(\.rawValue)) {
+      plan.selectedDays = data
+    }
+    
+    plan.hasPrayingTime = hasPrayingTime
+    plan.selectedTime = selectedTime
+    plan.enableReminder = enableReminder
+    plan.remindMeBefore = Int16(remindMeBefore)
+    
+    worshipPlanRepo.savePlan(plan)
   }
   
   // MARK: - Sub views
@@ -134,13 +153,12 @@ struct WorshipPlanScreen: View {
           .font(.title)
           .foregroundColor(preferences.accentColor.color)
         
-        LocalizedText(.new_plan)
+        LocalizedText(worshipPlan.isNotNil ? .edit_plan : .new_plan)
           .font(.dmSerif(28))
         
         Spacer()
         
         Button {
-          worshipPlanVM.cancel()
           dismiss()
         } label: {
           Image(systemName: "xmark")
@@ -555,7 +573,7 @@ struct WorshipPlanScreen: View {
   }
 }
 
-//#Preview {
-//  WorshipPlanScreen(worshipPlanVM: .init())
-//    .previewEnvironment()
-//}
+#Preview {
+  WorshipPlanScreen(worshipPlanRepo: .init(), worshipPlan: .constant(nil))
+    .previewEnvironment()
+}

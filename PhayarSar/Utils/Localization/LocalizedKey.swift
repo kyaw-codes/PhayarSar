@@ -91,6 +91,21 @@ enum LocalizedKey: String {
   case remind
   case before
   case x_min_s
+  case su
+  case mo
+  case tu
+  case we
+  case th
+  case fr
+  case sa
+  case worship_plan
+  case view_more
+  case notify_x_mins_before
+  case x_prayers
+  case not_specified
+  case new_worship_plan
+  case all_worship_plans
+  case edit_plan
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]
@@ -110,6 +125,14 @@ enum LocalizedKey: String {
 
 func localizeNumber(_ appLang: AppLanguage, str: String) -> String {
   appLang == .Eng ? convertNumberMmToEng(str) : convertNumberEngToMm(str)
+}
+
+func localizeTime(_ appLang: AppLanguage, str: String) -> String {
+  guard appLang == .Mm else { return str }
+  let arr = str.split(separator: " ")
+  guard let time = arr.first else { return "" }
+  let localizedNumber = localizeNumber(appLang, str: "\(time)")
+  return "\(localizedNumber) နာရီ"
 }
 
 func convertNumberEngToMm(_ engText: String) -> String {

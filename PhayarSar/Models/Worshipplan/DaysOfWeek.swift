@@ -17,6 +17,27 @@ enum DaysOfWeek: String, Hashable, Equatable, CaseIterable {
   case fri
   case sat
   
+  var shortStr: LocalizedKey {
+    switch self {
+    case .everyday:
+      return .about_x
+    case .sun:
+      return .su
+    case .mon:
+      return .mo
+    case .tue:
+      return .tu
+    case .wed:
+      return .we
+    case .thu:
+      return .th
+    case .fri:
+      return .fr
+    case .sat:
+      return .sa
+    }
+  }
+  
   var key: LocalizedKey {
     .init(rawValue: self.rawValue)!
   }
