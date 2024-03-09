@@ -23,6 +23,14 @@ final class WorshipPlan: NSManagedObject {
     let decoder = JSONDecoder()
     let arr = try? decoder.decode([String].self, from: selectedDays)
     let daysOfWeek = arr?.compactMap(DaysOfWeek.init(rawValue:))
+    return daysOfWeek.orElse([])
+  }
+  
+  var selectedDaysEnumForList: [DaysOfWeek]? {
+    guard let selectedDays else { return nil }
+    let decoder = JSONDecoder()
+    let arr = try? decoder.decode([String].self, from: selectedDays)
+    let daysOfWeek = arr?.compactMap(DaysOfWeek.init(rawValue:))
     return daysOfWeek.orElse([]).contains(.everyday) ? DaysOfWeek.allCases : daysOfWeek
   }
   

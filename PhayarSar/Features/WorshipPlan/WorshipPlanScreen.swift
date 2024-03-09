@@ -124,12 +124,9 @@ struct WorshipPlanScreen: View {
     let encoder = JSONEncoder()
     
     plan.planName = name
-    print(selectedPrayers.map(\.id))
     
     if let data = try? encoder.encode(selectedPrayers.map(\.id)) {
       plan.selectedPrayerIds = data
-      let arr = try? JSONDecoder().decode([String].self, from: data)
-      print(arr)
     }
     
     if let data = try? encoder.encode(selectedDays.map(\.rawValue)) {

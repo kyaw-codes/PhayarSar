@@ -391,4 +391,32 @@
     "En": "Edit Plan",
     "Mm": "ပြင်ဆင်မည်"
   },
+  "plan_detail": {
+    "En": "Plan Detail",
+    "Mm": "အစီအစဥ် အသေးစိတ်"
+  },
+  "prayers_x": {
+    "En": "Prayers ({$})",
+    "Mm": "ဘုရားစာများ ({$} ပုဒ်)"
+  },
+  "selected_days": {
+    "En": "Selected days",
+    "Mm": "ရွေးချယ်ထားသော နေ့များ"
+  },
+  "remind_me_before": {
+    "En": "Remind me before",
+    "Mm": "ကြိုတင် သတိပေးချိန်"
+  },
+  "edit": {
+    "En": "Edit",
+    "Mm": "ပြင်ဆင်မည်"
+  },
+  "delete": {
+    "En": "Delete",
+    "Mm": "ဖျက်မည်"
+  },
+  "plan_deleted_successfully": {
+    "En": "Plan deleted successfully!",
+    "Mm": "ဖျက်ပြီးပါပြီ။"
+  },
 }

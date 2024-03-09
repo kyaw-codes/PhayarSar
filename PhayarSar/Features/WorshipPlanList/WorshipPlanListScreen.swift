@@ -11,14 +11,14 @@ import AlertToast
 import Combine
 
 struct WorshipPlanListScreen: View {
-
+  
   @ObservedObject var worshipPlanRepo: WorshipPlanRepository
   @Environment(\.colorScheme) private var colorScheme
   @EnvironmentObject private var preferences: UserPreferences
   
   @State private var showWorshipPlanScreen = false
   @State private var worshipPlanToEdit: WorshipPlan?
-
+  
   @State private var showDeletedToast = false
   @State private var refreshList = UUID()
   @State private var closeSwipeAction = PassthroughSubject<Void, Never>()
@@ -27,51 +27,17 @@ struct WorshipPlanListScreen: View {
     ScrollView {
       LazyVStack(spacing: 20) {
         ForEach($worshipPlanRepo.latestPlans, id: \.objectID) { $plan in
-          SwipeView {
-            WorshipPlanCardView(worshipPlan: plan)
-          } trailingActions: { context in
-            SwipeAction {
-              worshipPlanToEdit = plan
-            } label: { context in
-              VStack(spacing: 15) {
-                Image(systemName: "square.and.pencil")
-                Text("Edit")
-              }
-              .font(.qsB(18))
-              .foregroundColor(.white)
-            } background: { _ in
-              Color.orange
+          NavigationLink {
+            WorshipPlanDetailScreen(plan: $plan, worshipPlanRepo: worshipPlanRepo)
+          } label: {
+            SwipeView {
+              WorshipPlanCardView(worshipPlan: plan)
+            } trailingActions: { context in
+              TrailingActions(plan: plan, context: context)
             }
-            .onReceive(closeSwipeAction) { _ in
-              context.state.wrappedValue = .closed
-            }
-            
-            SwipeAction {
-              var planToDelete: WorshipPlan?
-              withAnimation {
-                planToDelete = plan
-                worshipPlanRepo.latestPlans.removeAll(where: { $0 == plan })
-              }
-              delay(0.3) {
-                if let planToDelete {
-                  worshipPlanRepo.delete(planToDelete)
-                }
-              }
-              HapticKit.selection.generate()
-              showDeletedToast.toggle()
-            } label: { _ in
-              VStack(spacing: 15) {
-                Image(systemName: "trash.fill")
-                Text("Delete")
-              }
-              .font(.qsB(18))
-              .foregroundColor(.white)
-            } background: { _ in
-              Color.red
-            }
-            .allowSwipeToTrigger()
+            .swipeActionsStyle(.mask)
           }
-          .swipeActionsStyle(.mask)
+
         }
       }
       .padding()
@@ -79,33 +45,11 @@ struct WorshipPlanListScreen: View {
     .id(refreshList)
     .navigationTitle(.all_worship_plans)
     .navigationBarTitleDisplayMode(.inline)
-    .safeAreaInset(edge: .bottom, content: {
-        Button {
-          showWorshipPlanScreen.toggle()
-        } label: {
-          HStack {
-            Image(systemName: "plus.circle.fill")
-              .font(.title)
-            LocalizedText(.new_worship_plan)
-            Spacer()
-          }
-          .font(.qsB(18))
-        }
-        .foregroundColor(preferences.accentColor.color)
-        .padding()
-        .background {
-          Rectangle()
-            .fill(.regularMaterial)
-            .edgesIgnoringSafeArea(.bottom)
-        }
-    })
+    .safeAreaInset(edge: .bottom) {
+      AddNewWorshipButton()
+    }
     .toast(isPresenting: $showDeletedToast) {
-      AlertToast(
-        displayMode: .banner(.pop),
-        type: .systemImage("checkmark.circle.fill", .white),
-        title: "Plan deleted successfully!",
-        style: .style(backgroundColor: .green, titleColor: .white, subTitleColor: .white, titleFont: .qsSb(16), subTitleFont: nil)
-      )
+      DeletedSuccessfullyToast()
     }
     .fullScreenCover(isPresented: $showWorshipPlanScreen) {
       WorshipPlanScreen(worshipPlanRepo: worshipPlanRepo, worshipPlan: .constant(nil))
@@ -121,6 +65,85 @@ struct WorshipPlanListScreen: View {
     ) { _ in
       WorshipPlanScreen(worshipPlanRepo: worshipPlanRepo, worshipPlan: $worshipPlanToEdit)
     }
+  }
+}
+
+// MARK: - sub views
+extension WorshipPlanListScreen {
+  @ViewBuilder
+  private func DeletedSuccessfullyToast() -> AlertToast {
+    AlertToast(
+      displayMode: .banner(.pop),
+      type: .systemImage("checkmark.circle.fill", .white),
+      title: LocalizedKey.plan_deleted_successfully.localize(preferences.appLang),
+      style: .style(backgroundColor: .green, titleColor: .white, subTitleColor: .white, titleFont: .qsSb(16), subTitleFont: nil)
+    )
+  }
+  
+  @ViewBuilder
+  private func AddNewWorshipButton() -> some View {
+    Button {
+      showWorshipPlanScreen.toggle()
+    } label: {
+      HStack {
+        Image(systemName: "plus.circle.fill")
+          .font(.title)
+        LocalizedText(.new_worship_plan)
+        Spacer()
+      }
+      .font(.qsB(18))
+    }
+    .foregroundColor(preferences.accentColor.color)
+    .padding()
+    .background {
+      Rectangle()
+        .fill(.regularMaterial)
+        .edgesIgnoringSafeArea(.bottom)
+    }
+  }
+  
+  @ViewBuilder
+  private func TrailingActions(plan: WorshipPlan, context: SwipeContext) -> some View {
+    SwipeAction {
+      worshipPlanToEdit = plan
+    } label: { context in
+      VStack(spacing: 15) {
+        Image(systemName: "square.and.pencil")
+        LocalizedText(.edit)
+      }
+      .font(.qsB(18))
+      .foregroundColor(.white)
+    } background: { _ in
+      Color.orange
+    }
+    .onReceive(closeSwipeAction) { _ in
+      context.state.wrappedValue = .closed
+    }
+    
+    SwipeAction {
+      var planToDelete: WorshipPlan?
+      withAnimation {
+        planToDelete = plan
+        worshipPlanRepo.latestPlans.removeAll(where: { $0 == plan })
+      }
+      delay(0.3) {
+        if let planToDelete {
+          worshipPlanRepo.delete(planToDelete)
+        }
+      }
+      HapticKit.selection.generate()
+      showDeletedToast.toggle()
+    } label: { _ in
+      VStack(spacing: 15) {
+        Image(systemName: "trash.fill")
+        LocalizedText(.delete)
+      }
+      .font(.qsB(18))
+      .foregroundColor(.white)
+    } background: { _ in
+      Color.red
+    }
+    .allowSwipeToTrigger()
   }
   
   @ViewBuilder
@@ -149,7 +172,6 @@ struct WorshipPlanListScreen: View {
         .padding(.top, 4)
       
       Button {
-//        worshipPlanVM.addNewPlan()
         showWorshipPlanScreen.toggle()
       } label: {
         HStack {

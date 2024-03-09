@@ -30,24 +30,7 @@ struct WorshipPlanCardView: View {
           
           Spacer(minLength: 20)
           
-          LazyVGrid(columns: Array(repeating: .init(.flexible(minimum: 20), spacing: 4), count: 7)) {
-            ForEach([DaysOfWeek.sun, .mon, .tue, .wed, .thu, .fri, .sat].map(\.shortStr), id: \.self) { name in
-              Circle()
-                .stroke(preferences.accentColor.color, lineWidth: 1)
-                .background {
-                  if worshipPlan.selectedDaysEnum.orElse([]).map(\.shortStr).contains(name) {
-                    Circle()
-                      .fill(preferences.accentColor.color)
-                  }
-                }
-                .overlay {
-                  LocalizedText(name)
-                    .font(.qsB(8))
-                    .foregroundColor(worshipPlan.selectedDaysEnum.orElse([]).map(\.shortStr).contains(name) ? .white : preferences.accentColor.color)
-                }
-            }
-          }
-          
+          SelectedWorshipDaysView(selectedDaysEnum: worshipPlan.selectedDaysEnumForList.orElse([]))
         }
         
         HStack {

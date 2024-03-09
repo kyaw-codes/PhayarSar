@@ -49,6 +49,7 @@ struct HomeScreen: View {
     }
     .onAppear {
       showOnboarding = preferences.isFirstLaunch == nil
+      worshipPlanListRefresh = .init()
     }
     .sheet(isPresented: $showOnboarding) {
       OnboardingScreen()
@@ -96,7 +97,7 @@ struct HomeScreen: View {
         }
         Spacer()
         
-        btnPray
+//        btnPray
       }
       .padding(.horizontal, 20)
       
@@ -213,9 +214,6 @@ struct HomeScreen: View {
             .onAppear {
               showTabBar = false
             }
-            .onDisappear {
-              worshipPlanListRefresh = .init()
-            }
         } label: {
           HStack(spacing: 4) {
             LocalizedText(.view_more)
@@ -231,9 +229,17 @@ struct HomeScreen: View {
       VStack {
         TabView(selection: $currentWorshipPlan) {
           ForEach(worshipPlanRepo.latestPlans.prefix(3).map { $0 }, id: \.objectID) { worship in
-            WorshipPlanCardView(worshipPlan: worship)
-              .padding(.horizontal)
-              .tag(worship.objectID)
+            NavigationLink {
+              WorshipPlanDetailScreen(plan: .constant(worship), worshipPlanRepo: worshipPlanRepo)
+                .onAppear {
+                  showTabBar = false
+                }
+            } label: {
+              WorshipPlanCardView(worshipPlan: worship)
+                .padding(.horizontal)
+                .tag(worship.objectID)
+                .tint(.primary)
+            }
           }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))

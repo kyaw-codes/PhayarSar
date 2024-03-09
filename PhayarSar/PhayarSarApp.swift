@@ -24,7 +24,11 @@ struct PhayarSarApp: App {
       .font: UIFont(name: "DMSerifDisplay-Regular", size: 18)!
     ]
     
-    appear.largeTitleTextAttributes = atters
+    let largeTitleAtters: [NSAttributedString.Key: Any] = [
+      .font: UIFont(name: "DMSerifDisplay-Regular", size: 26)!
+    ]
+    
+    appear.largeTitleTextAttributes = largeTitleAtters
     appear.titleTextAttributes = atters
     UINavigationBar.appearance().standardAppearance = appear
     UINavigationBar.appearance().compactAppearance = appear
