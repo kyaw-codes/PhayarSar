@@ -51,7 +51,7 @@ struct SettingsScreen: View {
     .navigationBarTitleDisplayMode(.inline)
     .toast(isPresenting: $showResetSuccessfulToast) {
       AlertToast(
-        displayMode: .banner(.pop),
+        displayMode: .alert,
         type: .systemImage("checkmark.circle.fill", .white),
         title: LocalizedKey.prayers_theme_data_reset_successfully.localize(preferences.appLang),
         style: .style(backgroundColor: .green, titleColor: .white, subTitleColor: .white, titleFont: .qsSb(16), subTitleFont: nil)
