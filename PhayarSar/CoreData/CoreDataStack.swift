@@ -49,6 +49,12 @@ final class CoreDataStack {
     }
   }
   
+  func deleteAll<E: NSManagedObject>(_ type: E.Type) throws {
+    let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: String(describing: type))
+    let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+    try persistentContainer.persistentStoreCoordinator.execute(deleteRequest, with: viewContext)
+  }
+  
   func persist(in context: NSManagedObjectContext) throws {
     if context.hasChanges {
       try context.save()

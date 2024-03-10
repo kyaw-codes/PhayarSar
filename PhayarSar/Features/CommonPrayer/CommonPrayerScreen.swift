@@ -20,6 +20,7 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   @State private var lastParagraphHeight = 0.0
   
   @State private var startPulsating = false
+  @State private var pageColor: PageColor = .classic
   
   // MARK: Dependencies
   @StateObject private var vm: CommonPrayerVM<Model>
@@ -39,7 +40,7 @@ extension CommonPrayerScreen: View {
         FakeNavView()
       }
       AutoScrollingView()
-        .background(PageColor(rawValue: vm.config.backgroundColor).orElse(.classic).color)
+        .background(pageColor.color)
     }
     .overlay(alignment: .bottomTrailing) {
       PrayOrProgressView()
@@ -62,7 +63,7 @@ extension CommonPrayerScreen: View {
     }
     .sheet(isPresented: $showThemesScreen) {
       NavigationView {
-        ThemesAndSettingsScreen(vm: vm)
+        ThemesAndSettingsScreen(vm: vm, pageColor: $pageColor)
           .ignoresSafeArea()
       }
       .backport.presentationDetents([.medium, .large])
@@ -81,6 +82,7 @@ extension CommonPrayerScreen: View {
     })
     .onAppear {
       vm.makeFirstParagraphVisibleIfNeeded()
+      pageColor = PageColor(rawValue: vm.config.backgroundColor).orElse(.classic)
     }
     .onDisappear {
       vm.saveThemeAndSettings()

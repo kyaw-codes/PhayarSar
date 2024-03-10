@@ -21,12 +21,13 @@ struct ThemesAndSettingsScreen<Model> where Model: CommonPrayerProtocol {
   @State private var fontSize: CGFloat = 28
   @State private var showFontIndicator = false
   @State private var textAlignment: PrayerAlignment = .left
-  @State private var pageColor: PageColor = .classic
+  @Binding var pageColor: PageColor
   
   private let colorSystemBg = Color(uiColor: .systemBackground)
   
-  init(vm: CommonPrayerVM<Model>) {
+  init(vm: CommonPrayerVM<Model>, pageColor: Binding<PageColor>) {
     self._vm = .init(wrappedValue: vm)
+    self._pageColor = pageColor
   }
 }
 
@@ -392,7 +393,7 @@ struct CustomCompactSliderStyle: CompactSliderStyle {
 
 #Preview {
   NavigationView {
-    ThemesAndSettingsScreen(vm: .init(model: natPint))
+    ThemesAndSettingsScreen(vm: .init(model: natPint), pageColor: .constant(.classic))
   }
   .previewEnvironment()
 }

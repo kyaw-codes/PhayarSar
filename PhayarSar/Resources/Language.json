@@ -422,5 +422,17 @@
   "x_of_y": {
     "En": "{$} of {$}",
     "Mm": "{$} / {$}"
-  }
+  },
+  "reset_prayers_theme": {
+    "En": "Reset prayers theme data",
+    "Mm": "ဘုရားစာပုံပန်းသွင်ပြင်များကို မူလပုံစံပြန်ထားမည်"
+  },
+  "reset_prayers_theme_desc": {
+    "En": "This action will rest all prayers' themes, settings and configurations.",
+    "Mm": "ယခုလုပ်ဆောင်ချက်သည် ဘုရားစာအားလုံး၏ အသွင်အပြင်များနှင့် ဆက်တင်များအားလုံးကို မူလပုံစံအတိုင်းပြန်လည်သတ်မှတ်မည်ဖြစ်ပါသည်။"
+  },
+  "prayers_theme_data_reset_successfully": {
+    "En": "Prayers theme data reset successfully.",
+    "Mm": "ပြန်လည်သတ်မှတ်မှု အောင်မြင်ပါသည်။"
+  },
 }
