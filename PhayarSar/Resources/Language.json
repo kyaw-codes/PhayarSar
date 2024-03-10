@@ -419,4 +419,8 @@
     "En": "Plan deleted successfully!",
     "Mm": "ဖျက်ပြီးပါပြီ။"
   },
+  "x_of_y": {
+    "En": "{$} of {$}",
+    "Mm": "{$} / {$}"
+  }
 }

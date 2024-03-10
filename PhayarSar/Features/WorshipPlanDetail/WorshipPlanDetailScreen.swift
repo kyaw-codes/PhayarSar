@@ -12,7 +12,8 @@ struct WorshipPlanDetailScreen: View {
   @ObservedObject var worshipPlanRepo: WorshipPlanRepository
   @EnvironmentObject private var preferences: UserPreferences
   @State private var showWorshipPlanScreen = false
-
+  @State private var showWorshipPlanPrayingScreen = false
+  
   var body: some View {
     ScrollView {
       LazyVStack(alignment: .leading, spacing: 32) {
@@ -103,7 +104,7 @@ struct WorshipPlanDetailScreen: View {
           Button {
             HapticKit.selection.generate()
             worshipPlanRepo.delete(plan)
-
+            
           } label: {
             HStack {
               Image(systemName: "trash")
@@ -131,6 +132,9 @@ struct WorshipPlanDetailScreen: View {
     .toolbar {
       BtnPray()
     }
+    .fullScreenCover(isPresented: $showWorshipPlanPrayingScreen) {
+      WorshipPlanPrayingScreen(worshipPlan: $plan)
+    }
     .fullScreenCover(isPresented: $showWorshipPlanScreen) {
       WorshipPlanScreen(
         worshipPlanRepo: worshipPlanRepo,
@@ -140,12 +144,34 @@ struct WorshipPlanDetailScreen: View {
         )
       )
     }
+//    .overlay {
+//      Rectangle()
+//        .opacity(0.8)
+//        .ignoresSafeArea()
+//        .overlay(alignment: .top) {
+//          HStack {
+//            Spacer(minLength: 20)
+//            Text("Tap here to start praying")
+//              .font(.qsB(20))
+//              .padding(.top, 60)
+//              .padding(.trailing, 20)
+//            Image("arrow")
+//              .renderingMode(.template)
+//              .resizable()
+//              .aspectRatio(contentMode: .fit)
+//              .rotationEffect(.degrees(-130))
+//              .frame(height: 60)
+//              .padding(.trailing, 80)
+//          }
+//          .foregroundColor(.white)
+//        }
+//    }
   }
   
   @ViewBuilder
   private func BtnPray() -> some View {
     Button {
-      
+      showWorshipPlanPrayingScreen.toggle()
     } label: {
       HStack(spacing: 5) {
         Image(.pray)

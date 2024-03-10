@@ -28,24 +28,6 @@
       }
     },
     {
-      "identity" : "swiftui-introspect",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/siteline/swiftui-introspect",
-      "state" : {
-        "revision" : "9e1cc02a65b22e09a8251261cccbccce02731fc5",
-        "version" : "1.1.1"
-      }
-    },
-    {
-      "identity" : "swiftui-navigation-transitions",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/davdroman/swiftui-navigation-transitions.git",
-      "state" : {
-        "revision" : "a6a3c70ad5d771bd1e927fb55897231cd9592024",
-        "version" : "0.13.3"
-      }
-    },
-    {
       "identity" : "swiftuibackports",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/shaps80/SwiftUIBackports.git",

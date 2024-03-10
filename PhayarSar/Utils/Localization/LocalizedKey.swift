@@ -113,6 +113,7 @@ enum LocalizedKey: String {
   case edit
   case delete
   case plan_deleted_successfully
+  case x_of_y
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]

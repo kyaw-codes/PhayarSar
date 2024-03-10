@@ -23,69 +23,120 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   
   // MARK: Dependencies
   @StateObject private var vm: CommonPrayerVM<Model>
+  private let worshipPlanName: String
   
-  init(model: Model) {
+  init(model: Model, worshipPlanName: String = "") {
     self._vm = .init(wrappedValue: .init(model: model))
+    self.worshipPlanName = worshipPlanName
   }
 }
 
 // MARK: View
 extension CommonPrayerScreen: View {
   var body: some View {
-    AutoScrollingView()
-      .background(PageColor(rawValue: vm.config.backgroundColor).orElse(.classic).color)
-      .overlay(alignment: .bottomTrailing) {
-        PrayOrProgressView()
+    VStack(spacing: 0) {
+      if !worshipPlanName.isEmpty {
+        FakeNavView()
       }
-      .navigationTitle(vm.model.title)
-      .navigationBarTitleDisplayMode(.inline)
-      .toolbar {
-        ToolbarItem(placement: .navigationBarLeading) {
-          if vm.isPlaying {
-            PulsatingScrollSpeedView()
-              .transition(.slide)
-          }
-        }
-        ToolbarItem { PrayerMenu() }
-      }
-      .sheet(isPresented: $showAboutScreen) {
-        NavigationView {
-          AboutPrayerScreen(title: vm.model.title, about: vm.model.about)
+      AutoScrollingView()
+        .background(PageColor(rawValue: vm.config.backgroundColor).orElse(.classic).color)
+    }
+    .overlay(alignment: .bottomTrailing) {
+      PrayOrProgressView()
+    }
+    .navigationTitle(vm.model.title)
+    .navigationBarTitleDisplayMode(.inline)
+    .toolbar {
+      ToolbarItem(placement: .navigationBarLeading) {
+        if vm.isPlaying {
+          PulsatingScrollSpeedView()
+            .transition(.slide)
         }
       }
-      .sheet(isPresented: $showThemesScreen) {
-        NavigationView {
-          ThemesAndSettingsScreen(vm: vm)
-            .ignoresSafeArea()
-        }
-        .backport.presentationDetents([.medium, .large])
+      ToolbarItem { PrayerMenu() }
+    }
+    .sheet(isPresented: $showAboutScreen) {
+      NavigationView {
+        AboutPrayerScreen(title: vm.model.title, about: vm.model.about)
       }
-      .sheet(isPresented: $showModeScreen) {
-        NavigationView {
-          PrayerModeScreen(vm: vm)
-            .ignoresSafeArea()
-        }
-        .backport.presentationDetents([.medium])
+    }
+    .sheet(isPresented: $showThemesScreen) {
+      NavigationView {
+        ThemesAndSettingsScreen(vm: vm)
+          .ignoresSafeArea()
       }
-      .onChange(of: vm.config.mode, perform: { mode in
-        if mode == PrayingMode.reader.rawValue {
-          vm.resetPrayingState()
-        }
-      })
-      .onAppear {
-        vm.makeFirstParagraphVisibleIfNeeded()
+      .backport.presentationDetents([.medium, .large])
+    }
+    .sheet(isPresented: $showModeScreen) {
+      NavigationView {
+        PrayerModeScreen(vm: vm)
+          .ignoresSafeArea()
       }
-      .onDisappear {
-        vm.saveThemeAndSettings()
+      .backport.presentationDetents([.medium])
+    }
+    .onChange(of: vm.config.mode, perform: { mode in
+      if mode == PrayingMode.reader.rawValue {
+        vm.resetPrayingState()
       }
-      .navigationBarBackButtonHidden(vm.isPlaying)
-      .tint(preferences.accentColor.color)
-      .id(vm.viewRefreshId)
+    })
+    .onAppear {
+      vm.makeFirstParagraphVisibleIfNeeded()
+    }
+    .onDisappear {
+      vm.saveThemeAndSettings()
+    }
+    .navigationBarHidden(!worshipPlanName.isEmpty)
+    .navigationBarBackButtonHidden(vm.isPlaying)
+    .tint(preferences.accentColor.color)
+    .id(vm.viewRefreshId)
   }
 }
 
 // MARK: Sub-views
 fileprivate extension CommonPrayerScreen {
+  
+  @ViewBuilder
+  func FakeNavView() -> some View {
+    HStack {
+      Spacer()
+      Text(worshipPlanName)
+        .font(.qsSb(18))
+        .padding(.vertical)
+      Spacer()
+    }
+    .background(Color.navBar)
+    .overlay(alignment: .leading) {
+      if vm.isPlaying {
+        HStack {
+          PulsatingScrollSpeedView()
+            .frame(width: 70, height: 30)
+            .transition(.slide)
+          Spacer()
+        }
+        .padding(.leading)
+      } else {
+        HStack(spacing: 4) {
+          Button {
+            dismiss()
+          } label: {
+            Image(systemName: "xmark")
+              .font(.system(size: 20, weight: .semibold))
+//            Text("Back")
+          }
+        }
+        .padding(.leading)
+        .foregroundColor(preferences.accentColor.color)
+      }
+    }
+    .overlay(alignment: .trailing) {
+      PrayerMenu()
+        .scaleEffect(1.3)
+        .padding(.trailing)
+    }
+    .overlay(alignment: .bottom) {
+      Divider()
+    }
+  }
   
   @ViewBuilder
   func PulsatingScrollSpeedView() -> some View {
