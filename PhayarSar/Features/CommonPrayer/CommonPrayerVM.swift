@@ -106,16 +106,16 @@ final class CommonPrayerVM<Model>: ObservableObject where Model: CommonPrayerPro
     if timeLapse >= model.body[currentIndex].duration(config.scrollingSpeed) {
       defer {
         startTime = Date().timeIntervalSince1970
-        currentIndex += 1
+        currentIndex += currentIndex == 0 ? 2 : 1
         paragraphRefreshId = UUID().uuidString
       }
       
       withAnimation(.easeIn) {
-        proxy.scrollTo(model.body[currentIndex].id, anchor: .top)
+        proxy.scrollTo(model.body[currentIndex == 0 ? currentIndex + 1 : currentIndex].id, anchor: .top)
       }
       
       for i in 0 ..< model.body.count {
-        model.body[i].isBlur = i != currentIndex
+        model.body[i].isBlur = i != (currentIndex == 0 ? currentIndex + 1 : currentIndex)
       }
     }
   }
