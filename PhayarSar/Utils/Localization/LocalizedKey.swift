@@ -123,6 +123,8 @@ enum LocalizedKey: String {
   case disable_worship_reminders_desc
   case enable_worship_reminders
   case enable_worship_reminders_desc
+  case disable_worship_reminders_success
+  case disabled
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]

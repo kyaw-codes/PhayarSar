@@ -97,7 +97,7 @@ struct WorshipPlanPrayingScreen: View {
       } else {
         AnimateNumberText(
           font: .qsB(12),
-          value: $currentIndex,
+          value: .init(get: { currentIndex + 1 }, set: { currentIndex = $0 }),
           textColor: .init(get: { .secondary }, set: { _ in }),
           stringFormatter: "%@ of \(worshipPlan.selectedPrayers.count)"
         )

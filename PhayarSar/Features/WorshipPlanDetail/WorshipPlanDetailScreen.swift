@@ -21,6 +21,7 @@ struct WorshipPlanDetailScreen: View {
         Section(title: .plan_name) {
           Text(plan.planName)
             .font(.qsB(24))
+            .padding(.top, 2)
         }
         
         Section(title: .prayers_x, args: [localizeNumber(preferences.appLang, str: "\(plan.selectedPrayers.count)")]) {
@@ -70,7 +71,7 @@ struct WorshipPlanDetailScreen: View {
               if plan.enableReminder {
                 LocalizedText(.x_min_s, args: [localizeNumber(preferences.appLang, str: "\(plan.remindMeBefore)")])
               } else {
-                LocalizedText(.not_specified)
+                LocalizedText(.disabled)
               }
               
               Spacer()

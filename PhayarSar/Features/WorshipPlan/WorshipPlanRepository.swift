@@ -50,4 +50,22 @@ final class WorshipPlanRepository: ObservableObject {
       print("Failed to delete plan: \(error)")
     }
   }
+  
+  func disableAllReminders() {
+    let request = WorshipPlan.latest()
+    do {
+      let allPlans = try moc.fetch(request)
+      
+      try allPlans.forEach { plan in
+        plan.enableReminder = false
+        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: plan.reminderIdStrings)
+        plan.reminderIds = Data()
+        let context = plan.managedObjectContext ?? moc
+        try context.save()
+      }
+      
+    } catch {
+      print(error)
+    }
+  }
 }

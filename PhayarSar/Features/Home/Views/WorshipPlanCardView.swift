@@ -48,7 +48,7 @@ struct WorshipPlanCardView: View {
             if worshipPlan.enableReminder {
               LocalizedText(.notify_x_mins_before, args: [localizeNumber(preferences.appLang, str: "\(worshipPlan.remindMeBefore)")])
             } else {
-              LocalizedText(.not_specified)
+              LocalizedText(.disabled)
             }
           }
           .font(.qsB(12))

@@ -11,7 +11,9 @@ import AlertToast
 struct SettingsScreen: View {
   @Binding var showTabBar: Bool
   @EnvironmentObject private var preferences: UserPreferences
+  @EnvironmentObject private var worshipPlanRepo: WorshipPlanRepository
   @State private var showResetSuccessfulToast = false
+  @State private var showDisableReminderSuccessfulToast = false
   
   var body: some View {
     List {
@@ -47,20 +49,11 @@ struct SettingsScreen: View {
           .font(.qsR(14))
       }
       
-      if preferences.areRemindersEnabled {
-        Section {
-          DisableAllRemainder()
-        } footer: {
-          LocalizedText(.disable_worship_reminders_desc)
-            .font(.qsR(14))
-        }
-      } else {
-        Section {
-          EnableAllRemainder()
-        } footer: {
-          LocalizedText(.enable_worship_reminders_desc)
-            .font(.qsR(14))
-        }
+      Section {
+        DisableAllRemainder()
+      } footer: {
+        LocalizedText(.disable_worship_reminders_desc)
+          .font(.qsR(14))
       }
     }
     .navigationTitle(.settings)
@@ -70,6 +63,14 @@ struct SettingsScreen: View {
         displayMode: .alert,
         type: .systemImage("checkmark.circle.fill", .white),
         title: LocalizedKey.prayers_theme_data_reset_successfully.localize(preferences.appLang),
+        style: .style(backgroundColor: .green, titleColor: .white, subTitleColor: .white, titleFont: .qsSb(16), subTitleFont: nil)
+      )
+    }
+    .toast(isPresenting: $showDisableReminderSuccessfulToast) {
+      AlertToast(
+        displayMode: .alert,
+        type: .systemImage("checkmark.circle.fill", .white),
+        title: LocalizedKey.disable_worship_reminders_success.localize(preferences.appLang),
         style: .style(backgroundColor: .green, titleColor: .white, subTitleColor: .white, titleFont: .qsSb(16), subTitleFont: nil)
       )
     }
@@ -147,29 +148,8 @@ struct SettingsScreen: View {
   @ViewBuilder
   private func DisableAllRemainder() -> some View {
     LocalizedButton(.disable_worship_reminders) {
-      do {
-        
-//        try CoreDataStack.shared.deleteAll(PrayerConfiguration.self)
-//        HapticKit.selection.generate()
-//        showResetSuccessfulToast.toggle()
-      } catch {
-//        print("Failed to delete all PrayerConfiguration: \(error.localizedDescription)")
-      }
-    }
-    .font(.qsSb(16))
-    .tint(.pink)
-  }
-  
-  @ViewBuilder
-  private func EnableAllRemainder() -> some View {
-    LocalizedButton(.enable_worship_reminders) {
-      do {
-//        try CoreDataStack.shared.deleteAll(PrayerConfiguration.self)
-//        HapticKit.selection.generate()
-//        showResetSuccessfulToast.toggle()
-      } catch {
-//        print("Failed to delete all PrayerConfiguration: \(error.localizedDescription)")
-      }
+      worshipPlanRepo.disableAllReminders()
+      showDisableReminderSuccessfulToast.toggle()
     }
     .font(.qsSb(16))
     .tint(.pink)

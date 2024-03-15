@@ -228,7 +228,7 @@ struct HomeScreen: View {
       
       VStack {
         TabView(selection: $currentWorshipPlan) {
-          ForEach(worshipPlanRepo.latestPlans.prefix(3).map { $0 }, id: \.objectID) { worship in
+          ForEach(worshipPlanRepo.latestPlans.prefix(5).map { $0 }, id: \.objectID) { worship in
             NavigationLink {
               WorshipPlanDetailScreen(plan: .constant(worship))
                 .onAppear {
@@ -250,12 +250,13 @@ struct HomeScreen: View {
         
         if worshipPlanRepo.latestPlans.count > 1 {
           PageControlView(
-            currentPage: worshipPlanRepo.latestPlans.prefix(3).map(\.objectID).firstIndex(of: currentWorshipPlan) ?? 0,
+            currentPage: worshipPlanRepo.latestPlans.prefix(5).map(\.objectID).firstIndex(of: currentWorshipPlan) ?? 0,
             currentPageIndicatorTintColor: preferences.accentColor.color,
-            numberOfPages: min(3, worshipPlanRepo.latestPlans.count)
+            numberOfPages: min(5, worshipPlanRepo.latestPlans.count)
           )
           .id(worshipPlanListRefresh)
           .padding(.bottom, 8)
+          .allowsHitTesting(false)
         }
         
 //        Button {
@@ -510,7 +511,7 @@ fileprivate struct HomeScreenPreviewContainer: View {
     NavigationView{
       HomeScreen(showTabBar: .constant(true))
     }
-    .environmentObject(UserPreferences())
+    .previewEnvironment()
   }
 }
 

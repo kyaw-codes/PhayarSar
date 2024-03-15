@@ -444,7 +444,7 @@
     "Mm": "မလုပ်တော့ပါ"
   },
   "disable_worship_reminders": {
-    "En": "Turn off all worship plan reminders.",
+    "En": "Turn off all worship plan reminders",
     "Mm": "အဓိဌာန် သတိပေးနှိုးဆော်ချက်များအားလုံးကို ပိတ်မယ်"
   },
   "disable_worship_reminders_desc": {
@@ -452,11 +452,19 @@
     "Mm": "ယခုလုပ်ဆောင်ချက်သည် အဓိဌာန်များအားလုံး၏ သတိပေးနှိုးဆော်ချက်များအားလုံးကို ပိတ်ပင်တားမြစ်မည်ဖြစ်ပါသည်။ အဓိဌာန်ချိန်အတွက် သတိပေးချက်များ ပေးပို့တော့မည်မဟုတ်ပါ။"
   },
   "enable_worship_reminders": {
-    "En": "Turn on all worship plan reminders.",
+    "En": "Turn on all worship plan reminders",
     "Mm": "အဓိဌာန် သတိပေးနှိုးဆော်ချက်များအားလုံးကို ဖွင့်မယ်"
   },
   "enable_worship_reminders_desc": {
     "En": "This action will turn on(enable) all worship plans' reminder. The app will remind you punctually.",
     "Mm": "ယခုလုပ်ဆောင်ချက်သည် အဓိဌာန်များအားလုံး၏ သတိပေးနှိုးဆော်ချက်များအားလုံးကို ခွင့်ပြုသွားမည်ဖြစ်ပါသည်။ အဓိဌာန်ချိန်အတွက် သတိပေးချက်များ အချိန်မှန်ပေးပို့ပါမည်။"
+  },
+  "disable_worship_reminders_success": {
+    "En": "Reminders disabled successfully",
+    "Mm": "အောင်မြင်ပါသည်"
+  },
+  "disabled": {
+    "En": "Disabled",
+    "Mm": "ပိတ်ထားသည်"
   },
 }
