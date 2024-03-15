@@ -11,6 +11,7 @@ import SwiftUI
     func previewEnvironment() -> some View {
         self
             .environmentObject(UserPreferences())
+            .environmentObject(WorshipPlanRepository())
             .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
     }
 }

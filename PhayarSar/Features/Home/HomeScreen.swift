@@ -21,7 +21,7 @@ struct HomeScreen: View {
   @State private var currentWorshipPlan: NSManagedObjectID = .init()
   @State private var worshipPlanListRefresh = UUID()
 
-  @StateObject private var worshipPlanRepo = WorshipPlanRepository()
+  @EnvironmentObject private var worshipPlanRepo: WorshipPlanRepository
   
   var body: some View {
     OffsetObservingScrollView(offset: $offset) {
@@ -55,7 +55,7 @@ struct HomeScreen: View {
       OnboardingScreen()
     }
     .fullScreenCover(isPresented: $showWorshipPlanScreen, content: {
-      WorshipPlanScreen(worshipPlanRepo: worshipPlanRepo, worshipPlan: .constant(nil))
+      WorshipPlanScreen(worshipPlan: .constant(nil))
     })
   }
   
@@ -210,7 +210,7 @@ struct HomeScreen: View {
           .font(.qsB(22))
         Spacer(minLength: 20)
         NavigationLink {
-          WorshipPlanListScreen(worshipPlanRepo: worshipPlanRepo)
+          WorshipPlanListScreen()
             .onAppear {
               showTabBar = false
             }
@@ -230,7 +230,7 @@ struct HomeScreen: View {
         TabView(selection: $currentWorshipPlan) {
           ForEach(worshipPlanRepo.latestPlans.prefix(3).map { $0 }, id: \.objectID) { worship in
             NavigationLink {
-              WorshipPlanDetailScreen(plan: .constant(worship), worshipPlanRepo: worshipPlanRepo)
+              WorshipPlanDetailScreen(plan: .constant(worship))
                 .onAppear {
                   showTabBar = false
                 }

@@ -13,7 +13,7 @@ struct WorshipPlanScreen: View {
   @Environment(\.managedObjectContext) private var moc
   @EnvironmentObject private var preferences: UserPreferences
   
-  @ObservedObject var worshipPlanRepo: WorshipPlanRepository
+  @EnvironmentObject var worshipPlanRepo: WorshipPlanRepository
   @Binding var worshipPlan: WorshipPlan?
 
   @FocusState private var focusedName: String?

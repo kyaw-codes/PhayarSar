@@ -425,7 +425,7 @@
   },
   "reset_prayers_theme": {
     "En": "Reset prayers theme data",
-    "Mm": "ဘုရားစာပုံပန်းသွင်ပြင်များကို မူလပုံစံပြန်ထားမည်"
+    "Mm": "ဘုရားစာပုံပန်းသွင်ပြင်များကို မူလပုံစံပြန်ထားမယ်"
   },
   "reset_prayers_theme_desc": {
     "En": "This action will rest all prayers' themes, settings and configurations.",
@@ -442,5 +442,21 @@
   "cancel": {
     "En": "Cancel",
     "Mm": "မလုပ်တော့ပါ"
-  }
+  },
+  "disable_worship_reminders": {
+    "En": "Turn off all worship plan reminders.",
+    "Mm": "အဓိဌာန် သတိပေးနှိုးဆော်ချက်များအားလုံးကို ပိတ်မယ်"
+  },
+  "disable_worship_reminders_desc": {
+    "En": "This action will turn off(disable) all worship plans' reminder. The app won't remind you anymore.",
+    "Mm": "ယခုလုပ်ဆောင်ချက်သည် အဓိဌာန်များအားလုံး၏ သတိပေးနှိုးဆော်ချက်များအားလုံးကို ပိတ်ပင်တားမြစ်မည်ဖြစ်ပါသည်။ အဓိဌာန်ချိန်အတွက် သတိပေးချက်များ ပေးပို့တော့မည်မဟုတ်ပါ။"
+  },
+  "enable_worship_reminders": {
+    "En": "Turn on all worship plan reminders.",
+    "Mm": "အဓိဌာန် သတိပေးနှိုးဆော်ချက်များအားလုံးကို ဖွင့်မယ်"
+  },
+  "enable_worship_reminders_desc": {
+    "En": "This action will turn on(enable) all worship plans' reminder. The app will remind you punctually.",
+    "Mm": "ယခုလုပ်ဆောင်ချက်သည် အဓိဌာန်များအားလုံး၏ သတိပေးနှိုးဆော်ချက်များအားလုံးကို ခွင့်ပြုသွားမည်ဖြစ်ပါသည်။ အဓိဌာန်ချိန်အတွက် သတိပေးချက်များ အချိန်မှန်ပေးပို့ပါမည်။"
+  },
 }

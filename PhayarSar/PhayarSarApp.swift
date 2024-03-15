@@ -15,6 +15,7 @@ struct PhayarSarApp: App {
   @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
   
   @StateObject private var preferences = UserPreferences()
+  @StateObject private var worshipPlanRepo = WorshipPlanRepository()
   
   private let coreDataStack = CoreDataStack.shared
   
@@ -51,6 +52,7 @@ extension PhayarSarApp {
         }
       }
       .environmentObject(preferences)
+      .environmentObject(worshipPlanRepo)
       .environment(\.managedObjectContext, coreDataStack.viewContext)
     }
   }

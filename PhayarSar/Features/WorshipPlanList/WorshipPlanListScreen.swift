@@ -12,7 +12,7 @@ import Combine
 
 struct WorshipPlanListScreen: View {
   
-  @ObservedObject var worshipPlanRepo: WorshipPlanRepository
+  @EnvironmentObject var worshipPlanRepo: WorshipPlanRepository
   @Environment(\.colorScheme) private var colorScheme
   @EnvironmentObject private var preferences: UserPreferences
   
@@ -30,7 +30,7 @@ struct WorshipPlanListScreen: View {
       LazyVStack(spacing: 20) {
         ForEach($worshipPlanRepo.latestPlans, id: \.objectID) { $plan in
           NavigationLink {
-            WorshipPlanDetailScreen(plan: $plan, worshipPlanRepo: worshipPlanRepo)
+            WorshipPlanDetailScreen(plan: $plan)
           } label: {
             SwipeView {
               WorshipPlanCardView(worshipPlan: plan)
@@ -71,7 +71,7 @@ struct WorshipPlanListScreen: View {
       }
     }
     .fullScreenCover(isPresented: $showWorshipPlanScreen) {
-      WorshipPlanScreen(worshipPlanRepo: worshipPlanRepo, worshipPlan: .constant(nil))
+      WorshipPlanScreen(worshipPlan: .constant(nil))
     }
     .fullScreenCover(
       item: $worshipPlanToEdit,
@@ -82,7 +82,7 @@ struct WorshipPlanListScreen: View {
         }
       }
     ) { _ in
-      WorshipPlanScreen(worshipPlanRepo: worshipPlanRepo, worshipPlan: $worshipPlanToEdit)
+      WorshipPlanScreen(worshipPlan: $worshipPlanToEdit)
     }
   }
 }
@@ -203,6 +203,6 @@ extension WorshipPlanListScreen {
 }
 
 #Preview {
-  WorshipPlanListScreen(worshipPlanRepo: WorshipPlanRepository())
+  WorshipPlanListScreen()
     .previewEnvironment()
 }

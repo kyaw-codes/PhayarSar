@@ -119,6 +119,10 @@ enum LocalizedKey: String {
   case prayers_theme_data_reset_successfully
   case delete_confirmation
   case cancel
+  case disable_worship_reminders
+  case disable_worship_reminders_desc
+  case enable_worship_reminders
+  case enable_worship_reminders_desc
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]

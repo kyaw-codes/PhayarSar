@@ -46,6 +46,22 @@ struct SettingsScreen: View {
         LocalizedText(.reset_prayers_theme_desc)
           .font(.qsR(14))
       }
+      
+      if preferences.areRemindersEnabled {
+        Section {
+          DisableAllRemainder()
+        } footer: {
+          LocalizedText(.disable_worship_reminders_desc)
+            .font(.qsR(14))
+        }
+      } else {
+        Section {
+          EnableAllRemainder()
+        } footer: {
+          LocalizedText(.enable_worship_reminders_desc)
+            .font(.qsR(14))
+        }
+      }
     }
     .navigationTitle(.settings)
     .navigationBarTitleDisplayMode(.inline)
@@ -122,6 +138,37 @@ struct SettingsScreen: View {
         showResetSuccessfulToast.toggle()
       } catch {
         print("Failed to delete all PrayerConfiguration: \(error.localizedDescription)")
+      }
+    }
+    .font(.qsSb(16))
+    .tint(.pink)
+  }
+  
+  @ViewBuilder
+  private func DisableAllRemainder() -> some View {
+    LocalizedButton(.disable_worship_reminders) {
+      do {
+        
+//        try CoreDataStack.shared.deleteAll(PrayerConfiguration.self)
+//        HapticKit.selection.generate()
+//        showResetSuccessfulToast.toggle()
+      } catch {
+//        print("Failed to delete all PrayerConfiguration: \(error.localizedDescription)")
+      }
+    }
+    .font(.qsSb(16))
+    .tint(.pink)
+  }
+  
+  @ViewBuilder
+  private func EnableAllRemainder() -> some View {
+    LocalizedButton(.enable_worship_reminders) {
+      do {
+//        try CoreDataStack.shared.deleteAll(PrayerConfiguration.self)
+//        HapticKit.selection.generate()
+//        showResetSuccessfulToast.toggle()
+      } catch {
+//        print("Failed to delete all PrayerConfiguration: \(error.localizedDescription)")
       }
     }
     .font(.qsSb(16))

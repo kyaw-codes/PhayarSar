@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WorshipPlanDetailScreen: View {
   @Binding var plan: WorshipPlan
-  @ObservedObject var worshipPlanRepo: WorshipPlanRepository
+  @EnvironmentObject var worshipPlanRepo: WorshipPlanRepository
   @EnvironmentObject private var preferences: UserPreferences
   @State private var showWorshipPlanScreen = false
   @State private var showWorshipPlanPrayingScreen = false
@@ -143,7 +143,6 @@ struct WorshipPlanDetailScreen: View {
     }
     .fullScreenCover(isPresented: $showWorshipPlanScreen) {
       WorshipPlanScreen(
-        worshipPlanRepo: worshipPlanRepo,
         worshipPlan: .init(
           get: { .some(plan) },
           set: { if let p = $0 { plan = p } }
