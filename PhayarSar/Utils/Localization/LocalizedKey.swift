@@ -17,6 +17,8 @@ enum LocalizedKey: String {
   case today_pray_time_x
   case today_pray_time
   case x_min
+  case x_sec
+  case x_hour_y_min
   case btn_add
   case btn_pray
   case home

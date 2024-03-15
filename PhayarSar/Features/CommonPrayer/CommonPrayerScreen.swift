@@ -11,6 +11,7 @@ import SwiftUIBackports
 struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   @State private var showPronounciation = true
   @EnvironmentObject var preferences: UserPreferences
+  @EnvironmentObject var prayingTimeRepo: DailyPrayingTimeRepository
   @Environment(\.dismiss) var dismiss
   @Environment(\.managedObjectContext) var moc
   
@@ -83,9 +84,15 @@ extension CommonPrayerScreen: View {
     .onAppear {
       vm.makeFirstParagraphVisibleIfNeeded()
       pageColor = PageColor(rawValue: vm.config.backgroundColor).orElse(.classic)
+      if worshipPlanName.isEmpty {
+        prayingTimeRepo.startRecordingTime()
+      }
     }
     .onDisappear {
       vm.saveThemeAndSettings()
+      if worshipPlanName.isEmpty {
+        prayingTimeRepo.stopRecordingTime()
+      }
     }
     .navigationBarHidden(!worshipPlanName.isEmpty)
     .navigationBarBackButtonHidden(vm.isPlaying)

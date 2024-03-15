@@ -10,6 +10,7 @@ import SwiftUI
 struct WorshipPlanPrayingScreen: View {
   @Environment(\.safeAreaInsets) private var safeAreaInsets
   @EnvironmentObject private var preferences: UserPreferences
+  @EnvironmentObject private var prayingTimeRepo: DailyPrayingTimeRepository
   @Binding var worshipPlan: WorshipPlan
   
   @State private var currentPrayerId: String = ""
@@ -17,7 +18,7 @@ struct WorshipPlanPrayingScreen: View {
   @State private var currentIndex: Double = 0
   
   var body: some View {
-    VStack(spacing: 0){
+    VStack(spacing: 0) {
       SafeAreaFillerView()
 
       CommonPrayerTabView()
@@ -36,6 +37,10 @@ struct WorshipPlanPrayingScreen: View {
     .ignoresSafeArea()
     .onAppear {
       currentPrayerId = worshipPlan.selectedPrayers.first?.id ?? ""
+      prayingTimeRepo.startRecordingTime()
+    }
+    .onDisappear {
+      prayingTimeRepo.stopRecordingTime()
     }
     .onChange(of: currentPrayerId) { id in
       currentIndex = Double(index(of: id))

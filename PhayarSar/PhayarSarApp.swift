@@ -16,6 +16,7 @@ struct PhayarSarApp: App {
   
   @StateObject private var preferences = UserPreferences()
   @StateObject private var worshipPlanRepo = WorshipPlanRepository()
+  @StateObject private var dailyPrayingTimeRepository = DailyPrayingTimeRepository()
   
   private let coreDataStack = CoreDataStack.shared
   
@@ -53,6 +54,7 @@ extension PhayarSarApp {
       }
       .environmentObject(preferences)
       .environmentObject(worshipPlanRepo)
+      .environmentObject(dailyPrayingTimeRepository)
       .environment(\.managedObjectContext, coreDataStack.viewContext)
     }
   }

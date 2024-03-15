@@ -11,6 +11,8 @@ import CoreData
 struct HomeScreen: View {
   @Binding var showTabBar: Bool
   @EnvironmentObject private var preferences: UserPreferences
+  @EnvironmentObject private var worshipPlanRepo: WorshipPlanRepository
+  @EnvironmentObject private var prayingTimeRepo: DailyPrayingTimeRepository
   @Environment(\.colorScheme) private var colorScheme
   @Environment(\.managedObjectContext) private var moc
   
@@ -21,7 +23,6 @@ struct HomeScreen: View {
   @State private var currentWorshipPlan: NSManagedObjectID = .init()
   @State private var worshipPlanListRefresh = UUID()
 
-  @EnvironmentObject private var worshipPlanRepo: WorshipPlanRepository
   
   var body: some View {
     OffsetObservingScrollView(offset: $offset) {
@@ -91,7 +92,20 @@ struct HomeScreen: View {
           HStack(spacing: 0) {
             LocalizedText(.today_pray_time)
               .foregroundColor(preferences.accentColor.color)
-            LocalizedText(.x_min, args: [preferences.appLang == .Eng ? convertNumberMmToEng("5") : convertNumberEngToMm("5")])
+            
+            if prayingTimeRepo.today.durationInSeconds < 60 {
+              LocalizedText(.x_sec, args: [localizeNumber(preferences.appLang, str: "\(prayingTimeRepo.today.durationInSeconds)")])
+            } else if prayingTimeRepo.today.durationInSeconds >= 60 && prayingTimeRepo.today.durationInSeconds < 3600 {
+              LocalizedText(.x_min, args: [localizeNumber(preferences.appLang, str: "\(prayingTimeRepo.today.durationInSeconds / 60)")])
+            } else {
+              LocalizedText(
+                .x_hour_y_min,
+                args: [
+                  localizeNumber(preferences.appLang, str: "\(prayingTimeRepo.today.durationInSeconds / 3600)"),
+                  localizeNumber(preferences.appLang, str: "\((prayingTimeRepo.today.durationInSeconds % 3600) / 60)")
+                ]
+              )
+            }
           }
           .font(.qsSb(14))
         }

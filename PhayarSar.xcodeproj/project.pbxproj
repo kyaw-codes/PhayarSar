@@ -132,6 +132,8 @@
 		C8F339432B9433E900C1730B /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = C8F339422B9433E900C1730B /* SwipeActions */; };
 		C8F339462B94374300C1730B /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = C8F339452B94374300C1730B /* AlertToast */; };
 		C8FCD1342BA462D900AB5BD3 /* LocalizedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1332BA462D900AB5BD3 /* LocalizedAlert.swift */; };
+		C8FCD1362BA482C400AB5BD3 /* DailyPrayingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1352BA482C400AB5BD3 /* DailyPrayingTime.swift */; };
+		C8FCD1382BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1372BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -278,6 +280,8 @@
 		C8F3393C2B94301600C1730B /* WorshipPlanListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanListScreen.swift; sourceTree = "<group>"; };
 		C8F3393F2B94317500C1730B /* WorshipPlanCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanCardView.swift; sourceTree = "<group>"; };
 		C8FCD1332BA462D900AB5BD3 /* LocalizedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlert.swift; sourceTree = "<group>"; };
+		C8FCD1352BA482C400AB5BD3 /* DailyPrayingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrayingTime.swift; sourceTree = "<group>"; };
+		C8FCD1372BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrayingTimeRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */,
+				C8FCD1352BA482C400AB5BD3 /* DailyPrayingTime.swift */,
 				C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */,
 				C8AE592D2B6E38BE00ABB8F3 /* WorshipPlan.swift */,
 				C815D6CC2B4B142900BFB79C /* PhayarSar.xcdatamodeld */,
@@ -585,6 +590,7 @@
 			children = (
 				C8F3393E2B94316000C1730B /* Views */,
 				C84626B42B222B6B000931AE /* HomeScreen.swift */,
+				C8FCD1372BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift */,
 				C8A73FEC2B6F794E00216C89 /* AppleCardHolder.swift */,
 			);
 			path = Home;
@@ -929,6 +935,7 @@
 				C86AAA422B9228D800D899B2 /* PageControlView.swift in Sources */,
 				C88DECBB2B9DF96900A96B29 /* AnimateNumberTextFomatter.swift in Sources */,
 				C84240BE2B2DD31700A2B234 /* LocalizedComponents.swift in Sources */,
+				C8FCD1362BA482C400AB5BD3 /* DailyPrayingTime.swift in Sources */,
 				C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */,
 				C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */,
 				C8F3393D2B94301600C1730B /* WorshipPlanListScreen.swift in Sources */,
@@ -960,6 +967,7 @@
 				C8AE592C2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift in Sources */,
 				C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */,
 				C84626B52B222B6B000931AE /* HomeScreen.swift in Sources */,
+				C8FCD1382BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift in Sources */,
 				C8D6529B2B2EA76500BB6C42 /* ChooseColorScreen.swift in Sources */,
 				C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */,
 				C83961B22B4053E900E189D9 /* View+Preview.swift in Sources */,

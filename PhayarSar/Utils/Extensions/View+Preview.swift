@@ -12,6 +12,7 @@ import SwiftUI
         self
             .environmentObject(UserPreferences())
             .environmentObject(WorshipPlanRepository())
+            .environmentObject(DailyPrayingTimeRepository())
             .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
     }
 }
