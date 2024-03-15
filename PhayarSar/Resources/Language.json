@@ -213,7 +213,7 @@
   },
   "worship_plan_helps_you_pray": {
     "En": "Worship plan helps you pray uninterruptedly.",
-    "Mm": "ဘုရားရှိခိုးအစီအစဥ်သည် အနှောင့်အယှက်ကင်းစွာ ဝတ်ပြုနိုင်စေသည်။"
+    "Mm": "ဘုရားရှိခိုးအဓိဌာန်သည် အနှောင့်အယှက်ကင်းစွာ ဝတ်ပြုနိုင်စေသည်။"
   },
   "view_collection": {
     "En": "View collection",
@@ -229,15 +229,15 @@
   },
   "new_plan": {
     "En": "New Plan",
-    "Mm": "အစီအစဥ် အသစ်"
+    "Mm": "အဓိဌာန် အသစ်"
   },
   "name_your_worship_plan": {
     "En": "Name your worship plan",
-    "Mm": "ဝတ်ပြုအစီအစဥ်အတွက် နာမည်ပေးပါ"
+    "Mm": "အဓိဌာန်အတွက် နာမည်ပေးပါ"
   },
   "plan_name": {
     "En": "Plan name",
-    "Mm": "နာမည်"
+    "Mm": "အဓိဌာန်နာမည်"
   },
   "add_new_prayer": {
     "En": "Add new prayer",
@@ -361,7 +361,7 @@
   },
   "worship_plan": {
     "En": "Worship plans",
-    "Mm": "အစီအစဥ်များ"
+    "Mm": "အဓိဌာန်များ"
   },
   "view_more": {
     "En": "See all",
@@ -381,11 +381,11 @@
   },
   "new_worship_plan": {
     "En": "New worship plan",
-    "Mm": "ဘုရားရှိခိုး အစီအစဥ်အသစ်"
+    "Mm": "ဘုရားရှိခိုး အဓိဌာန်အသစ်"
   },
   "all_worship_plans": {
     "En": "All worship plans",
-    "Mm": "ဘုရားရှိခိုး အစီအစဥ်များ"
+    "Mm": "ဘုရားရှိခိုး အဓိဌာန်များ"
   },
   "edit_plan": {
     "En": "Edit Plan",
@@ -393,7 +393,7 @@
   },
   "plan_detail": {
     "En": "Plan Detail",
-    "Mm": "အစီအစဥ် အသေးစိတ်"
+    "Mm": "အဓိဌာန် အသေးစိတ်"
   },
   "prayers_x": {
     "En": "Prayers ({$})",
@@ -435,4 +435,12 @@
     "En": "Prayers theme data reset successfully.",
     "Mm": "ပြန်လည်သတ်မှတ်မှု အောင်မြင်ပါသည်။"
   },
+  "delete_confirmation": {
+    "En": "Are you sure you want to delete this plan?",
+    "Mm": "အဓိဌာန်ကိုဖျက်မှာ သေချာပြီလား?"
+  },
+  "cancel": {
+    "En": "Cancel",
+    "Mm": "မလုပ်တော့ပါ"
+  }
 }

@@ -131,6 +131,7 @@
 		C8F339402B94317500C1730B /* WorshipPlanCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F3393F2B94317500C1730B /* WorshipPlanCardView.swift */; };
 		C8F339432B9433E900C1730B /* SwipeActions in Frameworks */ = {isa = PBXBuildFile; productRef = C8F339422B9433E900C1730B /* SwipeActions */; };
 		C8F339462B94374300C1730B /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = C8F339452B94374300C1730B /* AlertToast */; };
+		C8FCD1342BA462D900AB5BD3 /* LocalizedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1332BA462D900AB5BD3 /* LocalizedAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +277,7 @@
 		C8F339392B938D7A00C1730B /* String+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Date.swift"; sourceTree = "<group>"; };
 		C8F3393C2B94301600C1730B /* WorshipPlanListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanListScreen.swift; sourceTree = "<group>"; };
 		C8F3393F2B94317500C1730B /* WorshipPlanCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanCardView.swift; sourceTree = "<group>"; };
+		C8FCD1332BA462D900AB5BD3 /* LocalizedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,6 +575,7 @@
 				C84240BD2B2DD31700A2B234 /* LocalizedComponents.swift */,
 				C8CA45BE2B41295300240DA7 /* LocalizedLabel.swift */,
 				C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */,
+				C8FCD1332BA462D900AB5BD3 /* LocalizedAlert.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -946,6 +949,7 @@
 				C88DECB72B9DF94700A96B29 /* TextType.swift in Sources */,
 				C82039AE2B1CABE4000EEF61 /* PhayarSarApp.swift in Sources */,
 				C8A661D02B55795600F2A553 /* NavigationBarColor.swift in Sources */,
+				C8FCD1342BA462D900AB5BD3 /* LocalizedAlert.swift in Sources */,
 				C849BF3F2B9C751A004F771F /* WorshipPlanDetailScreen.swift in Sources */,
 				C84E69202B4C42FA006231CD /* NSObject+Extension.swift in Sources */,
 				C8D4030F2B68FA7600448EDC /* PrayerCollectionsScreen.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct WorshipPlanScreen: View {
   @Environment(\.dismiss) private var dismiss
@@ -34,6 +35,8 @@ struct WorshipPlanScreen: View {
   @State private var showAllPrayerPickerScreen = false
   @State private var ctaBtnText = LocalizedKey.next
   @State private var progress: CGFloat = 1/3
+  
+  @State private var worshipPlanToSave: WorshipPlan!
   
   var body: some View {
     VStack(spacing: 0) {
@@ -114,31 +117,102 @@ struct WorshipPlanScreen: View {
         currentStep = .addConfigData
       }
     case .addConfigData:
-      saveWorshipPlan()
+      updateWorshipPlanProps()
+      setReminder()
+      worshipPlanRepo.savePlan(worshipPlanToSave)
       dismiss()
     }
   }
   
-  private func saveWorshipPlan() {
-    let plan = worshipPlan ?? WorshipPlan(context: moc)
+  private func updateWorshipPlanProps() {
+    worshipPlanToSave = worshipPlan ?? WorshipPlan(context: moc)
     let encoder = JSONEncoder()
     
-    plan.planName = name
+    worshipPlanToSave.planName = name
     
     if let data = try? encoder.encode(selectedPrayers.map(\.id)) {
-      plan.selectedPrayerIds = data
+      worshipPlanToSave.selectedPrayerIds = data
     }
     
     if let data = try? encoder.encode(selectedDays.map(\.rawValue)) {
-      plan.selectedDays = data
+      worshipPlanToSave.selectedDays = data
     }
     
-    plan.hasPrayingTime = hasPrayingTime
-    plan.selectedTime = selectedTime
-    plan.enableReminder = enableReminder
-    plan.remindMeBefore = Int16(remindMeBefore)
+    worshipPlanToSave.hasPrayingTime = hasPrayingTime
+    worshipPlanToSave.selectedTime = selectedTime
+    worshipPlanToSave.enableReminder = enableReminder
+    worshipPlanToSave.remindMeBefore = Int16(remindMeBefore)
+  }
+  
+  private func setReminder() {
+    guard hasPrayingTime && enableReminder else { return }
     
-    worshipPlanRepo.savePlan(plan)
+    // 1. remove existing noti
+    removeNotification(identifiers: worshipPlanToSave.reminderIdStrings)
+
+    // 2. create new dates and ids
+    let dateAndId = createReminderDates()
+      .map { ($0, "\(worshipPlanToSave.objectID)-\(UUID().uuidString)") }
+    
+    // 3. save newly created ids to core data
+    setReminderIdsToWorshipPlan(identifiers: dateAndId.map(\.1))
+
+    // 4. schedule notification for newly created date
+    dateAndId
+      .forEach { date, id in
+        scheduleNotification(at: date, body: "Take a moment to pray to Buddha now.", title: "\(name) 🙏", identifier: id)
+      }
+  }
+  
+  private func createReminderDates() -> [Date] {
+    guard let timeToRemind = Calendar.current.date(
+      byAdding: .minute,
+      value: -remindMeBefore,
+      to: selectedTime
+    ) else { return [] }
+    let timeToRemindComponents = Calendar.current.dateComponents([.hour, .minute], from: timeToRemind)
+
+    let selectedWeekDays = if selectedDays.contains(.everyday) {
+      (1 ... 7).map { $0 }
+    } else {
+      selectedDays.map(\.weekday)
+    }
+    
+    return selectedWeekDays.compactMap { weekday in
+      var components = DateComponents()
+      components.hour = timeToRemindComponents.hour
+      components.minute = timeToRemindComponents.minute
+      components.year = 2024
+      components.weekday = weekday
+      components.weekdayOrdinal = 10
+      components.timeZone = .current
+      let calendar = Calendar(identifier: .gregorian)
+      return calendar.date(from: components)
+    }
+  }
+  
+  private func scheduleNotification(at date: Date, body: String, title: String, identifier: String) {
+    let triggerWeekly = Calendar.current.dateComponents([.weekday, .hour, .minute], from: date)
+    
+    let trigger = UNCalendarNotificationTrigger(dateMatching: triggerWeekly, repeats: true)
+    
+    let content = UNMutableNotificationContent()
+    content.title = title
+    content.body = body
+    content.sound = UNNotificationSound.default
+    content.categoryIdentifier = "worshipPlan"
+    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+    UNUserNotificationCenter.current().add(request)
+  }
+  
+  private func removeNotification(identifiers: [String]) {
+    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
+  }
+  
+  private func setReminderIdsToWorshipPlan(identifiers: [String]) {
+    if let data = try? JSONEncoder().encode(identifiers) {
+      worshipPlanToSave.reminderIds = data
+    }
   }
   
   // MARK: - Sub views

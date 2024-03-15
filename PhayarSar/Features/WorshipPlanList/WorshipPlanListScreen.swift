@@ -18,11 +18,13 @@ struct WorshipPlanListScreen: View {
   
   @State private var showWorshipPlanScreen = false
   @State private var worshipPlanToEdit: WorshipPlan?
+  @State private var planToDelete: WorshipPlan?
   
   @State private var showDeletedToast = false
   @State private var refreshList = UUID()
   @State private var closeSwipeAction = PassthroughSubject<Void, Never>()
-  
+  @State private var showDeleteConfirmation = false
+
   var body: some View {
     ScrollView {
       LazyVStack(spacing: 20) {
@@ -50,6 +52,23 @@ struct WorshipPlanListScreen: View {
     }
     .toast(isPresenting: $showDeletedToast) {
       DeletedSuccessfullyToast()
+    }
+    .alert(.delete_confirmation, isPresented: $showDeleteConfirmation) {
+      Button(LocalizedKey.cancel.localize(preferences.appLang).orElse("Cancel"), role: .cancel) { }
+
+      Button(LocalizedKey.delete.localize(preferences.appLang).orElse("Delete"), role: .destructive) {
+        defer { planToDelete = nil }
+        withAnimation {
+          worshipPlanRepo.latestPlans.removeAll(where: { $0 == planToDelete })
+        }
+        delay(0.3) {
+          if let planToDelete {
+            worshipPlanRepo.delete(planToDelete)
+          }
+        }
+        HapticKit.selection.generate()
+        showDeletedToast.toggle()
+      }
     }
     .fullScreenCover(isPresented: $showWorshipPlanScreen) {
       WorshipPlanScreen(worshipPlanRepo: worshipPlanRepo, worshipPlan: .constant(nil))
@@ -121,18 +140,8 @@ extension WorshipPlanListScreen {
     }
     
     SwipeAction {
-      var planToDelete: WorshipPlan?
-      withAnimation {
-        planToDelete = plan
-        worshipPlanRepo.latestPlans.removeAll(where: { $0 == plan })
-      }
-      delay(0.3) {
-        if let planToDelete {
-          worshipPlanRepo.delete(planToDelete)
-        }
-      }
-      HapticKit.selection.generate()
-      showDeletedToast.toggle()
+      planToDelete = plan
+      showDeleteConfirmation.toggle()
     } label: { _ in
       VStack(spacing: 15) {
         Image(systemName: "trash.fill")

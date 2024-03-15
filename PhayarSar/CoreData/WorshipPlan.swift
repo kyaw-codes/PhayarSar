@@ -17,6 +17,7 @@ final class WorshipPlan: NSManagedObject {
   @NSManaged var enableReminder: Bool
   @NSManaged var remindMeBefore: Int16
   @NSManaged var lastUpdated: Date
+  @NSManaged var reminderIds: Data
   
   var selectedDaysEnum: [DaysOfWeek]? {
     guard let selectedDays else { return nil }
@@ -32,6 +33,10 @@ final class WorshipPlan: NSManagedObject {
     let arr = try? decoder.decode([String].self, from: selectedDays)
     let daysOfWeek = arr?.compactMap(DaysOfWeek.init(rawValue:))
     return daysOfWeek.orElse([]).contains(.everyday) ? DaysOfWeek.allCases : daysOfWeek
+  }
+  
+  var reminderIdStrings: [String] {
+    (try? JSONDecoder().decode([String].self, from: reminderIds)) ?? []
   }
   
   var selectedPrayers: [NatPintVO] {

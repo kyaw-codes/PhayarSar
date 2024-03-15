@@ -13,6 +13,7 @@ struct WorshipPlanDetailScreen: View {
   @EnvironmentObject private var preferences: UserPreferences
   @State private var showWorshipPlanScreen = false
   @State private var showWorshipPlanPrayingScreen = false
+  @State private var showDeleteConfirmation = false
   
   var body: some View {
     ScrollView {
@@ -89,7 +90,7 @@ struct WorshipPlanDetailScreen: View {
             HStack {
               Image(systemName: "square.and.pencil")
                 .font(.body.bold())
-              Text("Edit")
+              LocalizedText(.edit)
                 .font(.qsSb(18))
               Spacer()
             }
@@ -102,15 +103,13 @@ struct WorshipPlanDetailScreen: View {
           }
           
           Button {
-            HapticKit.selection.generate()
-            worshipPlanRepo.delete(plan)
-            
+            showDeleteConfirmation.toggle()
           } label: {
             HStack {
               Image(systemName: "trash")
                 .font(.body.bold())
               
-              Text("Delete")
+              LocalizedText(.delete)
                 .font(.qsSb(18))
               Spacer()
             }
@@ -131,6 +130,13 @@ struct WorshipPlanDetailScreen: View {
     .navigationBarTitleDisplayMode(.inline)
     .toolbar {
       BtnPray()
+    }
+    .alert(.delete_confirmation, isPresented: $showDeleteConfirmation) {
+      Button(LocalizedKey.cancel.localize(preferences.appLang).orElse("Cancel"), role: .cancel) { }
+      Button(LocalizedKey.delete.localize(preferences.appLang).orElse("Delete"), role: .destructive) {
+        HapticKit.selection.generate()
+        worshipPlanRepo.delete(plan)
+      }
     }
     .fullScreenCover(isPresented: $showWorshipPlanPrayingScreen) {
       WorshipPlanPrayingScreen(worshipPlan: $plan)

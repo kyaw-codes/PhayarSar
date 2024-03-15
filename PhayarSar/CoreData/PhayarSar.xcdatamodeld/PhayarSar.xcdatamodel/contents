@@ -20,6 +20,7 @@
         <attribute name="hasPrayingTime" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lastUpdated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="planName" optional="YES" attributeType="String"/>
+        <attribute name="reminderIds" optional="YES" attributeType="Binary"/>
         <attribute name="remindMeBefore" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="selectedDays" optional="YES" attributeType="Binary"/>
         <attribute name="selectedPrayerIds" optional="YES" attributeType="Binary"/>

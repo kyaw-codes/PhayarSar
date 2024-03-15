@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 var langDict: [String: [String: String]] = [:]
 
@@ -55,11 +56,24 @@ extension PhayarSarApp {
   }
 }
 
-class AppDelegate: NSObject, UIApplicationDelegate {
+class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
   
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     langDict = Bundle.main.decode([String: [String: String]].self, from: "Language.json")
     
+    
+    UNUserNotificationCenter.current()
+      .requestAuthorization(options: [.alert, .sound, .badge]) { success, error in
+        if let error {
+          print(error)
+        }
+      }
+    UNUserNotificationCenter.current().delegate = self
+    
     return true
+  }
+  
+  func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    completionHandler([.banner, .sound])
   }
 }

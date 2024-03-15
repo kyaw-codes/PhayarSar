@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import UserNotifications
 
 @MainActor
 final class WorshipPlanRepository: ObservableObject {
@@ -40,6 +41,7 @@ final class WorshipPlanRepository: ObservableObject {
   
   func delete(_ plan: WorshipPlan) {
     let context = plan.managedObjectContext ?? moc
+    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: plan.reminderIdStrings)
     
     do {
       try stack.delete(plan, in: context)
