@@ -160,7 +160,21 @@ struct WorshipPlanScreen: View {
     // 4. schedule notification for newly created date
     dateAndId
       .forEach { date, id in
-        scheduleNotification(at: date, body: "Take a moment to pray to Buddha now.", title: "\(name) 🙏", identifier: id)
+        if remindMeBefore == 0 {
+          scheduleNotification(
+            at: date,
+            body: "ဘုရားရှိခိုးချိန်ရောက်ပါပြီ။",
+            title: "\(name) 🙏",
+            identifier: id
+          )
+        } else {
+          scheduleNotification(
+            at: date,
+            body: "ဘုရားရှိခိုးချိန်ရောက်ရန် \(localizeNumber(.Mm, str: "\(remindMeBefore)")) မိနစ်သာလိုပါတော့သည်။",
+            title: "\(name) 🙏",
+            identifier: id
+          )
+        }
       }
   }
   
