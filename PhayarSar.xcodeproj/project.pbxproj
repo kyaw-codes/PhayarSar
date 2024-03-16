@@ -67,6 +67,8 @@
 		C851EB0F2BA5C68E0021275F /* မဟာသမယသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */; };
 		C851EB112BA5CA250021275F /* ဂုဏ်တော်ကွန်ချာ.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB102BA5CA250021275F /* ဂုဏ်တော်ကွန်ချာ.json */; };
 		C851EB132BA5CBC30021275F /* မစ္ဆရာဇသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB122BA5CBC30021275F /* မစ္ဆရာဇသုတ်.json */; };
+		C851EB152BA5DC3F0021275F /* SwiftPackagesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C851EB142BA5DC3F0021275F /* SwiftPackagesScreen.swift */; };
+		C851EB172BA5E2290021275F /* ReferencedWebsitesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C851EB162BA5E2290021275F /* ReferencedWebsitesScreen.swift */; };
 		C86AAA422B9228D800D899B2 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AAA412B9228D800D899B2 /* PageControlView.swift */; };
 		C86AAA4B2B92DEAB00D899B2 /* WorshipPlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AAA4A2B92DEAB00D899B2 /* WorshipPlanRepository.swift */; };
 		C88DECB72B9DF94700A96B29 /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DECB62B9DF94700A96B29 /* TextType.swift */; };
@@ -226,6 +228,8 @@
 		C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "မဟာသမယသုတ်.json"; sourceTree = "<group>"; };
 		C851EB102BA5CA250021275F /* ဂုဏ်တော်ကွန်ချာ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ဂုဏ်တော်ကွန်ချာ.json"; sourceTree = "<group>"; };
 		C851EB122BA5CBC30021275F /* မစ္ဆရာဇသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "မစ္ဆရာဇသုတ်.json"; sourceTree = "<group>"; };
+		C851EB142BA5DC3F0021275F /* SwiftPackagesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftPackagesScreen.swift; sourceTree = "<group>"; };
+		C851EB162BA5E2290021275F /* ReferencedWebsitesScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReferencedWebsitesScreen.swift; sourceTree = "<group>"; };
 		C86AAA412B9228D800D899B2 /* PageControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlView.swift; sourceTree = "<group>"; };
 		C86AAA4A2B92DEAB00D899B2 /* WorshipPlanRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorshipPlanRepository.swift; sourceTree = "<group>"; };
 		C88DECB62B9DF94700A96B29 /* TextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextType.swift; sourceTree = "<group>"; };
@@ -739,6 +743,8 @@
 			isa = PBXGroup;
 			children = (
 				C8D652872B2E0F1D00BB6C42 /* SettingsScreen.swift */,
+				C851EB142BA5DC3F0021275F /* SwiftPackagesScreen.swift */,
+				C851EB162BA5E2290021275F /* ReferencedWebsitesScreen.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -975,7 +981,9 @@
 				C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */,
 				C8BBB3702B49108F00F3828C /* SpotlightScrollManager.swift in Sources */,
 				C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */,
+				C851EB152BA5DC3F0021275F /* SwiftPackagesScreen.swift in Sources */,
 				C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */,
+				C851EB172BA5E2290021275F /* ReferencedWebsitesScreen.swift in Sources */,
 				C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */,
 				C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */,
 				C81E829B2B6BFEBB00A59147 /* WorshipPlanScreen.swift in Sources */,

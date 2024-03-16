@@ -42,6 +42,54 @@ struct SettingsScreen: View {
         EnableHaptic()
       }
       
+      HelpSection()
+      
+      Section {
+        NavigationLink {
+          SwiftPackagesScreen()
+            .onAppear {
+              showTabBar = false
+            }
+        } label: {
+          HStack {
+            Image(systemName: "swift")
+              .foregroundColor(.white)
+              .font(.caption)
+              .padding(5)
+              .background(
+                RoundedRectangle(cornerRadius: 4)
+                  .fill(.gray)
+              )
+            LocalizedText(.licenses)
+              .font(.qsSb(16))
+              .foregroundColor(.primary)
+          }
+          .foregroundColor(.primary)
+        }
+        
+        NavigationLink {
+          ReferencedWebsitesScreen()
+            .onAppear {
+              showTabBar = false
+            }
+        } label: {
+          HStack {
+            Image(systemName: "globe")
+              .foregroundColor(.white)
+              .font(.caption)
+              .padding(5)
+              .background(
+                RoundedRectangle(cornerRadius: 4)
+                  .fill(.brown)
+              )
+            LocalizedText(.websites_referenced_for_prayers)
+              .font(.qsSb(16))
+              .foregroundColor(.primary)
+          }
+          .foregroundColor(.primary)
+        }
+      }
+      
       Section {
         ResetPrayersThemeData()
       } footer: {
@@ -49,11 +97,14 @@ struct SettingsScreen: View {
           .font(.qsR(14))
       }
       
-      Section {
-        DisableAllRemainder()
-      } footer: {
-        LocalizedText(.disable_worship_reminders_desc)
-          .font(.qsR(14))
+      Group {
+        Section {
+          DisableAllRemainder()
+        } footer: {
+          LocalizedText(.disable_worship_reminders_desc)
+            .font(.qsR(14))
+            .padding(.bottom, 100)
+        }
       }
     }
     .navigationTitle(.settings)
@@ -73,6 +124,97 @@ struct SettingsScreen: View {
         title: LocalizedKey.disable_worship_reminders_success.localize(preferences.appLang),
         style: .style(backgroundColor: .green, titleColor: .white, subTitleColor: .white, titleFont: .qsSb(16), subTitleFont: nil)
       )
+    }
+  }
+  
+  @ViewBuilder
+  func HelpSection() -> some View {
+    Section {
+      Button(action: rateApp) {
+        HStack {
+          Image(systemName: "star.fill")
+            .foregroundColor(.white)
+            .font(.caption)
+            .padding(5)
+            .background(
+              RoundedRectangle(cornerRadius: 4)
+                .fill(.yellow)
+            )
+          LocalizedText(.rate_app)
+            .font(.qsSb(16))
+            .foregroundColor(.primary)
+          
+          Spacer()
+          
+          Image(systemName: "arrow.up.right")
+            .foregroundColor(.secondary)
+        }
+        .foregroundColor(.primary)
+      }
+      
+      if #available(iOS 16, *) {
+        ShareLink(item: URL(string: "https://apps.apple.com/us/app/phayarsar/id6475991817")!) {
+          HStack {
+            Image(systemName: "square.and.arrow.up.fill")
+              .foregroundColor(.white)
+              .font(.caption)
+              .padding(5)
+              .background(
+                RoundedRectangle(cornerRadius: 4)
+                  .fill(.blue)
+              )
+            LocalizedText(.tell_friends)
+              .font(.qsSb(16))
+              .foregroundColor(.primary)
+            
+            Spacer()
+            
+            Image(systemName: "arrow.up.right")
+              .foregroundColor(.secondary)
+          }
+          .foregroundColor(.primary)
+        }
+      }
+      
+      Button(action: sendFeedback) {
+        HStack {
+          Image(systemName: "paperplane.fill")
+            .foregroundColor(.white)
+            .font(.caption)
+            .padding(5)
+            .background(
+              RoundedRectangle(cornerRadius: 4)
+                .fill(.pink)
+            )
+          LocalizedText(.send_feedback)
+            .font(.qsSb(16))
+          
+          Spacer()
+          
+          Image(systemName: "arrow.up.right")
+            .foregroundColor(.secondary)
+        }
+        .foregroundColor(.primary)
+      }
+    }
+  }
+  
+  private func sendFeedback() {
+    let mailtoString = "mailto:kyaw.codes@gmail.com?subject=PhayarSar App feedback".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+    let mailToUrl = URL(string: mailtoString!)!
+    
+    if UIApplication.shared.canOpenURL(mailToUrl) {
+      UIApplication.shared.open(mailToUrl, options: [:])
+    } else {
+      //          alertTitle = "Failed to open Mail App"
+      //          alertMessage = "This app is not allowed to query for scheme mailto."
+      //          showingAlert.toggle()
+    }
+  }
+  
+  private func rateApp() {
+    if let url = URL(string: "itms-apps://itunes.apple.com/app/id6475991817") {
+      UIApplication.shared.open(url)
     }
   }
   

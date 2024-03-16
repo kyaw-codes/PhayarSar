@@ -591,4 +591,24 @@
     "En": "Worship plans",
     "Mm": "အဓိဌာန်များ"
   },
+  "rate_app": {
+    "En": "Rate app",
+    "Mm": "စတားပေးမယ်"
+  },
+  "tell_friends": {
+    "En": "Tell friends",
+    "Mm": "သူငယ်ချင်းတွေကို​ ရှဲမယ်"
+  },
+  "send_feedback": {
+    "En": "Send feedback",
+    "Mm": "အကြံပြုချက်ပေးပို့မယ်"
+  },
+  "licenses": {
+    "En": "Swift packages used",
+    "Mm": "အသုံးပြုထားသည့် Swift package များ"
+  },
+  "websites_referenced_for_prayers": {
+    "En": "Referenced websites for prayers",
+    "Mm": "ဂါထာများအတွက် မှီငြမ်းထားသည့် ဝက်ဘ်ဆိုဒ်များ"
+  },
 }
