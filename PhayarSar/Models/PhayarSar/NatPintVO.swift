@@ -56,7 +56,12 @@ let cantotkyo: [NatPintVO] = [
 
 let others = [
   Bundle.main.decode(NatPintVO.self, from: "သမ္ဗုဒ္ဓေ.json"),
-  Bundle.main.decode(NatPintVO.self, from: "Dhammacakka.json")
+  Bundle.main.decode(NatPintVO.self, from: "ရှင်သီဝလိ.json"),
+  Bundle.main.decode(NatPintVO.self, from: "Dhammacakka.json"),
+  Bundle.main.decode(NatPintVO.self, from: "အနတ္တလက္ခဏသုတ်.json"),
+  Bundle.main.decode(NatPintVO.self, from: "မဟာသမယသုတ်.json"),
+  Bundle.main.decode(NatPintVO.self, from: "ဂုဏ်တော်ကွန်ချာ.json"),
+  Bundle.main.decode(NatPintVO.self, from: "မစ္ဆရာဇသုတ်.json")
 ]
 
 let myittarPoe: [NatPintVO] = [
