@@ -21,6 +21,7 @@ enum PrayingDurationChartSegment: String, CaseIterable, Identifiable {
 }
 
 struct PrayingDurationChartView: View {
+  @State private var id = UUID()
   @EnvironmentObject private var preferences: UserPreferences
   @EnvironmentObject private var prayingTimeRepo: DailyPrayingTimeRepository
   @State private var weeklyData: BarChartData?
@@ -65,9 +66,11 @@ struct PrayingDurationChartView: View {
           .frame(height: 350)
       }
     }
+    .id(id)
     .onAppear {
       setupWeeklyData()
       setupMonthlyData()
+      id = .init()
     }
   }
   
