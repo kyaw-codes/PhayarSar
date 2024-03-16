@@ -103,13 +103,14 @@ struct PrayingDurationChartView: View {
       BarDataSet(
         dataPoints: thisWeekData
           .map {
-            let localizedDesc = if $0.durationInSeconds < 60 {
-              $0.durationInSeconds == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
-            } else if $0.durationInSeconds >= 60 && $0.durationInSeconds < 3600 {
-              $0.durationInSeconds == 60 ? LocalizedKey.minute.localize(preferences.appLang) : LocalizedKey.minutes.localize(preferences.appLang)
-            } else {
-              $0.durationInSeconds == 3600 ? LocalizedKey.hour.localize(preferences.appLang) : LocalizedKey.hours.localize(preferences.appLang)
-            }
+//            let localizedDesc = if $0.durationInSeconds < 60 {
+//              $0.durationInSeconds == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
+//            } else if $0.durationInSeconds >= 60 && $0.durationInSeconds < 3600 {
+//              $0.durationInSeconds == 60 ? LocalizedKey.minute.localize(preferences.appLang) : LocalizedKey.minutes.localize(preferences.appLang)
+//            } else {
+//              $0.durationInSeconds == 3600 ? LocalizedKey.hour.localize(preferences.appLang) : LocalizedKey.hours.localize(preferences.appLang)
+//            }
+            let localizedDesc = $0.durationInSeconds == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
             return BarChartDataPoint(
               value: Double($0.durationInSeconds),
               xAxisLabel: DaysOfWeek(rawValue: $0.date.toStringWith(.EE).lowercased())!.shortName(appLang: preferences.appLang),
@@ -222,13 +223,15 @@ struct PrayingDurationChartView: View {
     
     let data = LineDataSet(
       dataPoints: thisMonthData.map {
-        let localizedDesc = if $0.durationInSeconds < 60 {
-          $0.durationInSeconds == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
-        } else if $0.durationInSeconds >= 60 && $0.durationInSeconds < 3600 {
-          $0.durationInSeconds == 60 ? LocalizedKey.minute.localize(preferences.appLang) : LocalizedKey.minutes.localize(preferences.appLang)
-        } else {
-          $0.durationInSeconds == 3600 ? LocalizedKey.hour.localize(preferences.appLang) : LocalizedKey.hours.localize(preferences.appLang)
-        }
+//        let localizedDesc = if $0.durationInSeconds < 60 {
+//          $0.durationInSeconds == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
+//        } else if $0.durationInSeconds >= 60 && $0.durationInSeconds < 3600 {
+//          $0.durationInSeconds == 60 ? LocalizedKey.minute.localize(preferences.appLang) : LocalizedKey.minutes.localize(preferences.appLang)
+//        } else {
+//          $0.durationInSeconds == 3600 ? LocalizedKey.hour.localize(preferences.appLang) : LocalizedKey.hours.localize(preferences.appLang)
+//        }
+        
+        let localizedDesc = $0.durationInSeconds == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
         
         return LineChartDataPoint(
           value: Double($0.durationInSeconds),
@@ -318,13 +321,14 @@ struct PrayingDurationChartView: View {
     
     let data = LineDataSet(
       dataPoints: thisYearData.map {
-        let localizedDesc = if $0.1 < 60 {
-          $0.1 == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
-        } else if $0.1 >= 60 && $0.1 < 3600 {
-          $0.1 == 60 ? LocalizedKey.minute.localize(preferences.appLang) : LocalizedKey.minutes.localize(preferences.appLang)
-        } else {
-          $0.1 == 3600 ? LocalizedKey.hour.localize(preferences.appLang) : LocalizedKey.hours.localize(preferences.appLang)
-        }
+//        let localizedDesc = if $0.1 < 60 {
+//          $0.1 == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
+//        } else if $0.1 >= 60 && $0.1 < 3600 {
+//          $0.1 == 60 ? LocalizedKey.minute.localize(preferences.appLang) : LocalizedKey.minutes.localize(preferences.appLang)
+//        } else {
+//          $0.1 == 3600 ? LocalizedKey.hour.localize(preferences.appLang) : LocalizedKey.hours.localize(preferences.appLang)
+//        }
+        let localizedDesc = $0.1 == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
         
         return LineChartDataPoint(
           value: Double($0.1),
