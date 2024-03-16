@@ -41,6 +41,9 @@ struct HomeScreen: View {
         OthersSection()
         
         myittarPoeSection
+        
+        PrayingDurationChartView()
+          .padding(.top, 30)
       }
       .padding([.horizontal, .top])
       .padding(.bottom, 92)
@@ -65,7 +68,7 @@ struct HomeScreen: View {
       title: "ဘုရားရှိခိုး ဂါထာများ",
       subtitle: "ဘုရားကန်တော့",
       systemImage: "hands.and.sparkles.fill",
-      duration: "5",
+      duration: "8",
       list: cantotkyo,
       color: preferences.accentColor.color
     )

@@ -32,7 +32,7 @@
     "Mm": "ဒီနေ့ဘုရားရှိခိုးချိန်  "
   },
   "x_min": {
-    "En": "{$} min(s)",
+    "En": "{$} min",
     "Mm": "{$} မိနစ်"
   },
   "x_sec": {
@@ -40,7 +40,7 @@
     "Mm": "{$} စက္ကန့်"
   },
   "x_hour_y_min": {
-    "En": "{$} hr(s) {$} min(s)",
+    "En": "{$} hr {$} min",
     "Mm": "{$} နာရီ {$} မိနစ်"
   },
   "btn_add": {
@@ -474,5 +474,45 @@
   "disabled": {
     "En": "Disabled",
     "Mm": "ပိတ်ထားသည်"
+  },
+  "seconds": {
+    "En": "Seconds",
+    "Mm": "စက္ကန့်"
+  },
+  "minutes": {
+    "En": "Minutes",
+    "Mm": "မိနစ်"
+  },
+  "hours": {
+    "En": "Hours",
+    "Mm": "နာရီ"
+  },
+  "second": {
+    "En": "Second",
+    "Mm": "စက္ကန့်"
+  },
+  "minute": {
+    "En": "Minute",
+    "Mm": "မိနစ်"
+  },
+  "hour": {
+    "En": "Hour",
+    "Mm": "နာရီ"
+  },
+  "within_this_week": {
+    "En": "Within this week",
+    "Mm": "တစ်ပတ်အတွင်း"
+  },
+  "weekly": {
+    "En": "Week",
+    "Mm": "အပတ်"
+  },
+  "monthly": {
+    "En": "Month",
+    "Mm": "လ"
+  },
+  "yearly": {
+    "En": "Year",
+    "Mm": "နှစ်"
   },
 }

@@ -134,6 +134,10 @@
 		C8FCD1342BA462D900AB5BD3 /* LocalizedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1332BA462D900AB5BD3 /* LocalizedAlert.swift */; };
 		C8FCD1362BA482C400AB5BD3 /* DailyPrayingTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1352BA482C400AB5BD3 /* DailyPrayingTime.swift */; };
 		C8FCD1382BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1372BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift */; };
+		C8FCD13A2BA4A3A900AB5BD3 /* PrayingDurationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */; };
+		C8FCD1422BA4AF0300AB5BD3 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */; };
+		C8FCD1442BA4AFCC00AB5BD3 /* LineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1432BA4AFCC00AB5BD3 /* LineChartDemoView.swift */; };
+		C8FCD1462BA54F9D00AB5BD3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1452BA54F9D00AB5BD3 /* Date.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -282,6 +286,9 @@
 		C8FCD1332BA462D900AB5BD3 /* LocalizedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedAlert.swift; sourceTree = "<group>"; };
 		C8FCD1352BA482C400AB5BD3 /* DailyPrayingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrayingTime.swift; sourceTree = "<group>"; };
 		C8FCD1372BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrayingTimeRepository.swift; sourceTree = "<group>"; };
+		C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayingDurationChartView.swift; sourceTree = "<group>"; };
+		C8FCD1432BA4AFCC00AB5BD3 /* LineChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartDemoView.swift; sourceTree = "<group>"; };
+		C8FCD1452BA54F9D00AB5BD3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -293,6 +300,7 @@
 				C8F339432B9433E900C1730B /* SwipeActions in Frameworks */,
 				C8D730B92B46F74900D19D57 /* CompactSlider in Frameworks */,
 				C8F339462B94374300C1730B /* AlertToast in Frameworks */,
+				C8FCD1422BA4AF0300AB5BD3 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +563,7 @@
 				C83961B12B4053E900E189D9 /* View+Preview.swift */,
 				C83961B52B40578200E189D9 /* SafeAreaInsets.swift */,
 				C84E691F2B4C42FA006231CD /* NSObject+Extension.swift */,
+				C8FCD1452BA54F9D00AB5BD3 /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -739,6 +748,8 @@
 			children = (
 				C8F3393F2B94317500C1730B /* WorshipPlanCardView.swift */,
 				C849BF402B9C76A0004F771F /* SelectedWorshipDaysView.swift */,
+				C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */,
+				C8FCD1432BA4AFCC00AB5BD3 /* LineChartDemoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -764,6 +775,7 @@
 				C8D730B82B46F74900D19D57 /* CompactSlider */,
 				C8F339422B9433E900C1730B /* SwipeActions */,
 				C8F339452B94374300C1730B /* AlertToast */,
+				C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */,
 			);
 			productName = PhayarSar;
 			productReference = C82039AA2B1CABE4000EEF61 /* PhayarSar.app */;
@@ -842,6 +854,7 @@
 				C8D730B72B46F74900D19D57 /* XCRemoteSwiftPackageReference "CompactSlider" */,
 				C8F339412B9433E900C1730B /* XCRemoteSwiftPackageReference "SwipeActions" */,
 				C8F339442B94374300C1730B /* XCRemoteSwiftPackageReference "AlertToast" */,
+				C8FCD1402BA4AF0300AB5BD3 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 			);
 			productRefGroup = C82039AB2B1CABE4000EEF61 /* Products */;
 			projectDirPath = "";
@@ -944,6 +957,7 @@
 				C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */,
 				C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */,
 				C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */,
+				C8FCD1442BA4AFCC00AB5BD3 /* LineChartDemoView.swift in Sources */,
 				C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */,
 				C81E829B2B6BFEBB00A59147 /* WorshipPlanScreen.swift in Sources */,
 				C8D6529D2B2EE5AB00BB6C42 /* CustomCornerView.swift in Sources */,
@@ -1000,8 +1014,10 @@
 				C82039DA2B1CC30A000EEF61 /* OnboardingScreen.swift in Sources */,
 				C84E69242B4C4776006231CD /* PrayerAlignment.swift in Sources */,
 				C849BF3C2B9C5AF3004F771F /* Delay.swift in Sources */,
+				C8FCD1462BA54F9D00AB5BD3 /* Date.swift in Sources */,
 				C8AAE0182B2D784900BE54CA /* ChooseLanguageScreen.swift in Sources */,
 				C83E27F42B2DDC9B0038EDF1 /* LocalizedButton.swift in Sources */,
+				C8FCD13A2BA4A3A900AB5BD3 /* PrayingDurationChartView.swift in Sources */,
 				C849BF412B9C76A0004F771F /* SelectedWorshipDaysView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1376,6 +1392,14 @@
 				minimumVersion = 1.3.9;
 			};
 		};
+		C8FCD1402BA4AF0300AB5BD3 /* XCRemoteSwiftPackageReference "SwiftUICharts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/willdale/SwiftUICharts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1398,6 +1422,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C8F339442B94374300C1730B /* XCRemoteSwiftPackageReference "AlertToast" */;
 			productName = AlertToast;
+		};
+		C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C8FCD1402BA4AF0300AB5BD3 /* XCRemoteSwiftPackageReference "SwiftUICharts" */;
+			productName = SwiftUICharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 

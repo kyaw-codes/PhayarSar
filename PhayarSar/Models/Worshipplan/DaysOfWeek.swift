@@ -62,4 +62,25 @@ enum DaysOfWeek: String, Hashable, Equatable, CaseIterable {
   var key: LocalizedKey {
     .init(rawValue: self.rawValue)!
   }
+  
+  func shortName(appLang: AppLanguage) -> String {
+    switch self {
+    case .everyday:
+      return ""
+    case .sun:
+      return appLang == .Eng ? "SUN" : "နွေ"
+    case .mon:
+      return appLang == .Eng ? "MON" : "လာ"
+    case .tue:
+      return appLang == .Eng ? "TUE" : "ဂါ"
+    case .wed:
+      return appLang == .Eng ? "WED" : "ဟူး"
+    case .thu:
+      return appLang == .Eng ? "THU" : "ကြာ"
+    case .fri:
+      return appLang == .Eng ? "FRI" : "သော"
+    case .sat:
+      return appLang == .Eng ? "SAT" : "နေ"
+    }
+  }
 }

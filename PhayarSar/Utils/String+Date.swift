@@ -9,6 +9,10 @@ import Foundation
 
 enum DateFormat: String {
   case hmm_a = "h:mm a"
+  case ddMMyyyy = "dd / MM / yyyy"
+  case MMM = "MMM"
+  case EEddMMMyyyy = "EE, dd MMM yyyy"
+  case EE = "EE"
 }
 
 extension Locale {
