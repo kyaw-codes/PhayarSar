@@ -57,13 +57,13 @@ struct WorshipPlanListScreen: View {
       Button(LocalizedKey.cancel.localize(preferences.appLang).orElse("Cancel"), role: .cancel) { }
 
       Button(LocalizedKey.delete.localize(preferences.appLang).orElse("Delete"), role: .destructive) {
-        defer { planToDelete = nil }
         withAnimation {
           worshipPlanRepo.latestPlans.removeAll(where: { $0 == planToDelete })
         }
         delay(0.3) {
           if let planToDelete {
             worshipPlanRepo.delete(planToDelete)
+            self.planToDelete = nil
           }
         }
         HapticKit.selection.generate()
