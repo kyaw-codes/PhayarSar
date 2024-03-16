@@ -55,11 +55,31 @@ struct HomeScreen: View {
     .overlay {
       if showSearchView {
         NavigationView {
-          HomeSearchScreen(
-            showSearchView: $showSearchView,
-            showTabBar: $showTabBar,
-            animation: animation
-          )
+          ZStack {
+            Rectangle()
+              .fill(
+                LinearGradient(
+                  colors: [
+                    preferences.accentColor.color.opacity(0.1),
+                    preferences.accentColor.color.opacity(0.1),
+                    preferences.accentColor.color.opacity(0.2),
+                    preferences.accentColor.color.opacity(0.3),
+                    preferences.accentColor.color.opacity(0.1),
+                    .clear,
+                    .clear
+                  ],
+                  startPoint: .top,
+                  endPoint: .bottom
+                )
+              )
+              .ignoresSafeArea()
+            
+            HomeSearchScreen(
+              showSearchView: $showSearchView,
+              showTabBar: $showTabBar,
+              animation: animation
+            )
+          }
         }
         .environmentObject(preferences)
         .environmentObject(prayingTimeRepo)
