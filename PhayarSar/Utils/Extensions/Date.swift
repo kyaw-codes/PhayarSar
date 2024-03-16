@@ -21,7 +21,19 @@ extension Date {
   }
   
   var startOfMonth: Date {
-    return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: Calendar.current.startOfDay(for: self)))!
+    let calendar = Calendar.current
+    // Get the year and month components of the given date
+    let year = calendar.component(.year, from: self)
+    let month = calendar.component(.month, from: self)
+    
+    // Create date components for the first day of the month
+    var dateComponents = DateComponents()
+    dateComponents.year = year
+    dateComponents.month = month
+    dateComponents.day = 1
+    
+    // Get the start of the month by creating a date from the date components
+    return calendar.date(from: dateComponents) ?? .init()
   }
   
   var endOfMonth: Date {

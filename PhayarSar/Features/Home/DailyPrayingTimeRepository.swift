@@ -74,6 +74,12 @@ final class DailyPrayingTimeRepository: ObservableObject {
       .sorted(by: { $1.date > $0.date })
   }
   
+  func prayingDataForThisMonth() -> [DailyPrayingTime] {
+    prayingTimes
+      .filter { (Date().startOfMonth ... Date().endOfMonth).contains($0.date) }
+      .sorted(by: { $1.date > $0.date })
+  }
+  
   private func getAllDatesForYear(year: Int) -> [Date] {
       var datesArray = [Date]()
       

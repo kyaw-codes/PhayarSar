@@ -137,6 +137,7 @@ enum LocalizedKey: String {
   case weekly
   case monthly
   case yearly
+  case within_this_month
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]

@@ -24,6 +24,7 @@ struct PrayingDurationChartView: View {
   @EnvironmentObject private var preferences: UserPreferences
   @EnvironmentObject private var prayingTimeRepo: DailyPrayingTimeRepository
   @State private var weeklyData: BarChartData?
+  @State private var monthlyData: LineChartData?
   @State private var selectedMode = PrayingDurationChartSegment.weekly
     
   var body: some View {
@@ -38,18 +39,35 @@ struct PrayingDurationChartView: View {
       
       if let weeklyData, selectedMode == .weekly {
         BarChart(chartData: weeklyData)
-          .touchOverlay(chartData: weeklyData)
+          .touchOverlay(chartData: weeklyData, unit: .suffix(of: "⌛️"))
           .xAxisGrid(chartData: weeklyData)
           .yAxisGrid(chartData: weeklyData)
           .xAxisLabels(chartData: weeklyData)
           .yAxisLabels(chartData: weeklyData, colourIndicator: .none)
           .headerBox(chartData: weeklyData)
-          .id(weeklyData.id)
+          .frame(height: 350)
+      }
+      
+      if let monthlyData, selectedMode == .monthly {
+        FilledLineChart(chartData: monthlyData)
+          .filledTopLine(
+            chartData: monthlyData,
+            lineColour: .init(colour: preferences.accentColor.color),
+            strokeStyle: StrokeStyle(lineWidth: 1.5)
+          )
+          .touchOverlay(chartData: monthlyData, unit: .suffix(of: "⌛️"))
+          .pointMarkers(chartData: monthlyData)
+          .xAxisGrid(chartData: monthlyData)
+          .yAxisGrid(chartData: monthlyData)
+          .xAxisLabels(chartData: monthlyData)
+          .yAxisLabels(chartData: monthlyData)
+          .headerBox(chartData: monthlyData)
           .frame(height: 350)
       }
     }
     .onAppear {
       setupWeeklyData()
+      setupMonthlyData()
     }
   }
   
@@ -103,7 +121,8 @@ struct PrayingDurationChartView: View {
       let gridStyle = GridStyle(
         numberOfLines: 7,
         lineColour: preferences.accentColor.color.opacity(0.25),
-        lineWidth: 1
+        lineWidth: 0.5,
+        dash: [3, 5]
       )
       
       let chartStyle = BarChartStyle(
@@ -111,7 +130,10 @@ struct PrayingDurationChartView: View {
         infoBoxValueFont: .qsSb(22),
         infoBoxDescriptionFont: .qsSb(14),
         infoBoxDescriptionColour: .secondary,
-        markerType: .bottomLeading(),
+        markerType: .bottomLeading(
+          colour: preferences.accentColor.color,
+          style: .init(lineWidth: 1.5, dash: [3, 5])
+        ),
         xAxisGridStyle: gridStyle,
         xAxisLabelPosition: .bottom,
         xAxisLabelFont: .qsB(12),
@@ -144,6 +166,102 @@ struct PrayingDurationChartView: View {
         chartStyle: chartStyle
       )
     }()
+  }
+  
+  func setupMonthlyData() {
+    let thisMonthData = prayingTimeRepo.prayingDataForThisMonth()
+    let totalForThisMonth = thisMonthData.map(\.durationInSeconds).reduce(0, +)
+    
+    let localizedTitle = if totalForThisMonth < 60 {
+      LocalizedKey.x_sec.localize(preferences.appLang, args: ["\(totalForThisMonth)"]).orEmpty
+    } else if totalForThisMonth >= 60 && totalForThisMonth < 3600 {
+      LocalizedKey.x_min.localize(preferences.appLang, args: [localizeNumber(preferences.appLang, str: "\(totalForThisMonth / 60)")]).orEmpty
+    } else {
+      LocalizedKey.x_hour_y_min.localize(
+        preferences.appLang,
+        args: [
+          localizeNumber(preferences.appLang, str: "\(totalForThisMonth / 3600)"),
+          localizeNumber(preferences.appLang, str: "\((totalForThisMonth % 3600) / 60)")
+        ]
+      ).orEmpty
+    }
+    
+    let data = LineDataSet(
+      dataPoints: thisMonthData.map {
+        let localizedDesc = if $0.durationInSeconds < 60 {
+          $0.durationInSeconds == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
+        } else if $0.durationInSeconds >= 60 && $0.durationInSeconds < 3600 {
+          $0.durationInSeconds == 60 ? LocalizedKey.minute.localize(preferences.appLang) : LocalizedKey.minutes.localize(preferences.appLang)
+        } else {
+          $0.durationInSeconds == 3600 ? LocalizedKey.hour.localize(preferences.appLang) : LocalizedKey.hours.localize(preferences.appLang)
+        }
+        
+        return LineChartDataPoint(
+          value: Double($0.durationInSeconds),
+          xAxisLabel: "",
+          description: localizedDesc,
+          pointColour: .init(border: preferences.accentColor.color, fill: preferences.accentColor.color)
+        )
+      },
+      legendTitle: "",
+      pointStyle: PointStyle(),
+      style: LineStyle(
+        lineColour: ColourStyle(colours: [preferences.accentColor.color.opacity(0.8), preferences.accentColor.color.opacity(0.5)], startPoint: .top, endPoint: .bottom),
+        lineType: .curvedLine
+      )
+    )
+    
+    let xGridStyle = GridStyle(
+      numberOfLines: 15,
+      lineColour: preferences.accentColor.color.opacity(0.25),
+      lineWidth: 0.5,
+      dash: [3, 5]
+    )
+    
+    let yGridStyle = GridStyle(
+      numberOfLines: 10,
+      lineColour: preferences.accentColor.color.opacity(0.25),
+      lineWidth: 0.8,
+      dash: [3, 5]
+    )
+    
+    self.monthlyData = LineChartData(
+      dataSets: data,
+      metadata: ChartMetadata(
+        title: localizedTitle,
+        subtitle: LocalizedKey.within_this_month.localize(preferences.appLang).orEmpty + "\n",
+        titleFont: .dmSerif(24),
+        subtitleFont: .qsB(14),
+        subtitleColour: .secondary
+      ),
+      xAxisLabels: thisMonthData.map(\.date).map { $0.toStringWith(.d) },
+      chartStyle: LineChartStyle(
+        infoBoxPlacement: .header,
+        infoBoxValueFont: .qsSb(22),
+        infoBoxDescriptionFont: .qsSb(14),
+        infoBoxDescriptionColour: .secondary,
+        markerType: .bottomLeading(
+          attachment: .point,
+          colour: preferences.accentColor.color,
+          style: .init(lineWidth: 1.5, dash: [3, 5])
+        ),
+        xAxisGridStyle: xGridStyle,
+        xAxisLabelPosition: .bottom,
+        xAxisLabelFont: .qsB(8),
+        xAxisLabelColour: preferences.accentColor.color,
+        xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
+        xAxisTitleFont: .qsSb(12),
+        xAxisTitleColour: .secondary,
+        yAxisGridStyle: yGridStyle,
+        yAxisLabelPosition: .leading,
+        yAxisLabelFont: .qsB(12),
+        yAxisLabelColour: preferences.accentColor.color,
+        yAxisNumberOfLabels: 5,
+        yAxisTitleFont: .qsSb(12),
+        yAxisTitleColour: .secondary,
+        baseline: .zero
+      )
+    )
   }
 }
 

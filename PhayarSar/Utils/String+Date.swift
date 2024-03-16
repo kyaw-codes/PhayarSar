@@ -13,6 +13,7 @@ enum DateFormat: String {
   case MMM = "MMM"
   case EEddMMMyyyy = "EE, dd MMM yyyy"
   case EE = "EE"
+  case d = "d"
 }
 
 extension Locale {

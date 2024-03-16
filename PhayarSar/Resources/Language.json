@@ -515,4 +515,8 @@
     "En": "Year",
     "Mm": "နှစ်"
   },
+  "within_this_month": {
+    "En": "Within this month",
+    "Mm": "တစ်လအတွင်း"
+  },
 }
