@@ -519,4 +519,56 @@
     "En": "Within this month",
     "Mm": "တစ်လအတွင်း"
   },
+  "jan": {
+    "En": "JA",
+    "Mm": "ဇန်"
+  },
+  "feb": {
+    "En": "FE",
+    "Mm": "ဖေ"
+  },
+  "mar": {
+    "En": "MA",
+    "Mm": "မတ်"
+  },
+  "apr": {
+    "En": "AP",
+    "Mm": "ဧပြီ"
+  },
+  "may": {
+    "En": "MA",
+    "Mm": "မေ"
+  },
+  "jun": {
+    "En": "JU",
+    "Mm": "ဇွန်"
+  },
+  "jul": {
+    "En": "JL",
+    "Mm": "ဇူ"
+  },
+  "aug": {
+    "En": "AU",
+    "Mm": "သြ"
+  },
+  "sep": {
+    "En": "SE",
+    "Mm": "စက်"
+  },
+  "oct": {
+    "En": "OC",
+    "Mm": "အောက်"
+  },
+  "nov": {
+    "En": "NO",
+    "Mm": "နို"
+  },
+  "dec": {
+    "En": "DE",
+    "Mm": "ဒီ"
+  },
+  "within_this_year": {
+    "En": "Within this year",
+    "Mm": "တစ်နှစ်အတွင်း"
+  },
 }

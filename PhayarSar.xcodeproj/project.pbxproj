@@ -136,7 +136,6 @@
 		C8FCD1382BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1372BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift */; };
 		C8FCD13A2BA4A3A900AB5BD3 /* PrayingDurationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */; };
 		C8FCD1422BA4AF0300AB5BD3 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */; };
-		C8FCD1442BA4AFCC00AB5BD3 /* LineChartDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1432BA4AFCC00AB5BD3 /* LineChartDemoView.swift */; };
 		C8FCD1462BA54F9D00AB5BD3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1452BA54F9D00AB5BD3 /* Date.swift */; };
 /* End PBXBuildFile section */
 
@@ -287,7 +286,6 @@
 		C8FCD1352BA482C400AB5BD3 /* DailyPrayingTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrayingTime.swift; sourceTree = "<group>"; };
 		C8FCD1372BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrayingTimeRepository.swift; sourceTree = "<group>"; };
 		C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayingDurationChartView.swift; sourceTree = "<group>"; };
-		C8FCD1432BA4AFCC00AB5BD3 /* LineChartDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartDemoView.swift; sourceTree = "<group>"; };
 		C8FCD1452BA54F9D00AB5BD3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -749,7 +747,6 @@
 				C8F3393F2B94317500C1730B /* WorshipPlanCardView.swift */,
 				C849BF402B9C76A0004F771F /* SelectedWorshipDaysView.swift */,
 				C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */,
-				C8FCD1432BA4AFCC00AB5BD3 /* LineChartDemoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -957,7 +954,6 @@
 				C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */,
 				C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */,
 				C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */,
-				C8FCD1442BA4AFCC00AB5BD3 /* LineChartDemoView.swift in Sources */,
 				C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */,
 				C81E829B2B6BFEBB00A59147 /* WorshipPlanScreen.swift in Sources */,
 				C8D6529D2B2EE5AB00BB6C42 /* CustomCornerView.swift in Sources */,

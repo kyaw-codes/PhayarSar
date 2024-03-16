@@ -80,6 +80,75 @@ final class DailyPrayingTimeRepository: ObservableObject {
       .sorted(by: { $1.date > $0.date })
   }
   
+  func prayingDataForThisYear() -> [(LocalizedKey, Int)] {
+    let sorted = prayingTimes.sorted(by: { $1.date > $0.date })
+
+    return getFirstAndLastDayOfMonth(year: 2024)
+      .enumerated()
+      .map { index, tuple in
+        let key: LocalizedKey = switch index {
+        case 0:
+          .jan
+        case 1:
+          .feb
+        case 2:
+          .mar
+        case 3:
+          .apr
+        case 4:
+          .may
+        case 5:
+          .jun
+        case 6:
+          .jul
+        case 7:
+          .aug
+        case 8:
+          .sep
+        case 9:
+          .oct
+        case 10:
+          .nov
+        default:
+          .dec
+        }
+        
+        return (
+          key,
+          Int(sorted
+            .filter { (tuple.firstDay ... tuple.lastDay).contains($0.date) }
+            .map(\.durationInSeconds)
+            .reduce(0, +))
+        )
+      }
+  }
+  
+  private func getFirstAndLastDayOfMonth(year: Int) -> [(firstDay: Date, lastDay: Date)] {
+    var result: [(firstDay: Date, lastDay: Date)] = []
+    
+    // Create a calendar instance
+    let calendar = Calendar.current
+    
+    // Iterate through each month (1 to 12) in the given year
+    for month in 1...12 {
+      // Create date components for the first day of the month
+      var firstDayComponents = DateComponents()
+      firstDayComponents.year = year
+      firstDayComponents.month = month
+      firstDayComponents.day = 1
+      let firstDayOfMonth = calendar.date(from: firstDayComponents)!
+      
+      // Determine the last day of the month
+      let range = calendar.range(of: .day, in: .month, for: firstDayOfMonth)!
+      let lastDayOfMonth = calendar.date(byAdding: .day, value: range.count - 1, to: firstDayOfMonth)!
+      
+      // Add the first and last day of the month to the result array as a tuple
+      result.append((firstDayOfMonth, lastDayOfMonth))
+    }
+    
+    return result
+  }
+  
   private func getAllDatesForYear(year: Int) -> [Date] {
       var datesArray = [Date]()
       

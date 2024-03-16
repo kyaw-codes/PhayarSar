@@ -22,10 +22,12 @@ enum PrayingDurationChartSegment: String, CaseIterable, Identifiable {
 
 struct PrayingDurationChartView: View {
   @State private var id = UUID()
+  @Environment(\.colorScheme) private var colorScheme
   @EnvironmentObject private var preferences: UserPreferences
   @EnvironmentObject private var prayingTimeRepo: DailyPrayingTimeRepository
   @State private var weeklyData: BarChartData?
   @State private var monthlyData: LineChartData?
+  @State private var yearlyData: LineChartData?
   @State private var selectedMode = PrayingDurationChartSegment.weekly
     
   var body: some View {
@@ -57,7 +59,7 @@ struct PrayingDurationChartView: View {
             strokeStyle: StrokeStyle(lineWidth: 1.5)
           )
           .touchOverlay(chartData: monthlyData, unit: .suffix(of: "⌛️"))
-          .pointMarkers(chartData: monthlyData)
+//          .pointMarkers(chartData: monthlyData)
           .xAxisGrid(chartData: monthlyData)
           .yAxisGrid(chartData: monthlyData)
           .xAxisLabels(chartData: monthlyData)
@@ -65,11 +67,29 @@ struct PrayingDurationChartView: View {
           .headerBox(chartData: monthlyData)
           .frame(height: 350)
       }
+      
+      if let yearlyData, selectedMode == .yearly {
+        FilledLineChart(chartData: yearlyData)
+          .filledTopLine(
+            chartData: yearlyData,
+            lineColour: .init(colour: preferences.accentColor.color),
+            strokeStyle: StrokeStyle(lineWidth: 1.5)
+          )
+          .touchOverlay(chartData: yearlyData, unit: .suffix(of: "⌛️"))
+//          .pointMarkers(chartData: yearlyData)
+          .xAxisGrid(chartData: yearlyData)
+          .yAxisGrid(chartData: yearlyData)
+          .xAxisLabels(chartData: yearlyData)
+          .yAxisLabels(chartData: yearlyData)
+          .headerBox(chartData: yearlyData)
+          .frame(height: 350)
+      }
     }
     .id(id)
     .onAppear {
       setupWeeklyData()
       setupMonthlyData()
+      setupYearlyData()
       id = .init()
     }
   }
@@ -94,7 +114,11 @@ struct PrayingDurationChartView: View {
               value: Double($0.durationInSeconds),
               xAxisLabel: DaysOfWeek(rawValue: $0.date.toStringWith(.EE).lowercased())!.shortName(appLang: preferences.appLang),
               description: localizedDesc,
-              colour: .init(colours: [preferences.accentColor.color.opacity(0.85), preferences.accentColor.color.opacity(0.9), preferences.accentColor.color], startPoint: .topLeading, endPoint: .bottomTrailing)
+              colour: .init(
+                colours: [.red, .orange],
+                startPoint: .top,
+                endPoint: .bottom
+              )
             )
           }
       )
@@ -133,7 +157,7 @@ struct PrayingDurationChartView: View {
         infoBoxValueFont: .qsSb(22),
         infoBoxDescriptionFont: .qsSb(14),
         infoBoxDescriptionColour: .secondary,
-        markerType: .bottomLeading(
+        markerType: .full(
           colour: preferences.accentColor.color,
           style: .init(lineWidth: 1.5, dash: [3, 5])
         ),
@@ -164,7 +188,14 @@ struct PrayingDurationChartView: View {
           barWidth: 0.5,
           cornerRadius: CornerRadius(top: 4, bottom: 0),
           colourFrom: .barStyle,
-          colour: .init(colour: preferences.accentColor.color)
+          colour: .init(
+            colours: [
+              preferences.accentColor.color.opacity(0.8),
+              preferences.accentColor.color.opacity(0.5)
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+          )
         ),
         chartStyle: chartStyle
       )
@@ -243,7 +274,103 @@ struct PrayingDurationChartView: View {
         infoBoxValueFont: .qsSb(22),
         infoBoxDescriptionFont: .qsSb(14),
         infoBoxDescriptionColour: .secondary,
-        markerType: .bottomLeading(
+        markerType: .full(
+          attachment: .point,
+          colour: preferences.accentColor.color,
+          style: .init(lineWidth: 1.5, dash: [3, 5])
+        ),
+        xAxisGridStyle: xGridStyle,
+        xAxisLabelPosition: .bottom,
+        xAxisLabelFont: .qsB(8),
+        xAxisLabelColour: preferences.accentColor.color,
+        xAxisLabelsFrom: .chartData(rotation: .degrees(0)),
+        xAxisTitleFont: .qsSb(12),
+        xAxisTitleColour: .secondary,
+        yAxisGridStyle: yGridStyle,
+        yAxisLabelPosition: .leading,
+        yAxisLabelFont: .qsB(12),
+        yAxisLabelColour: preferences.accentColor.color,
+        yAxisNumberOfLabels: 5,
+        yAxisTitleFont: .qsSb(12),
+        yAxisTitleColour: .secondary,
+        baseline: .zero
+      )
+    )
+  }
+  
+  func setupYearlyData() {
+    let thisYearData = prayingTimeRepo.prayingDataForThisYear()
+    let totalForThisYear = thisYearData.map(\.1).reduce(0, +)
+    
+    let localizedTitle = if totalForThisYear < 60 {
+      LocalizedKey.x_sec.localize(preferences.appLang, args: ["\(totalForThisYear)"]).orEmpty
+    } else if totalForThisYear >= 60 && totalForThisYear < 3600 {
+      LocalizedKey.x_min.localize(preferences.appLang, args: [localizeNumber(preferences.appLang, str: "\(totalForThisYear / 60)")]).orEmpty
+    } else {
+      LocalizedKey.x_hour_y_min.localize(
+        preferences.appLang,
+        args: [
+          localizeNumber(preferences.appLang, str: "\(totalForThisYear / 3600)"),
+          localizeNumber(preferences.appLang, str: "\((totalForThisYear % 3600) / 60)")
+        ]
+      ).orEmpty
+    }
+    
+    let data = LineDataSet(
+      dataPoints: thisYearData.map {
+        let localizedDesc = if $0.1 < 60 {
+          $0.1 == 0 ? LocalizedKey.second.localize(preferences.appLang) : LocalizedKey.seconds.localize(preferences.appLang)
+        } else if $0.1 >= 60 && $0.1 < 3600 {
+          $0.1 == 60 ? LocalizedKey.minute.localize(preferences.appLang) : LocalizedKey.minutes.localize(preferences.appLang)
+        } else {
+          $0.1 == 3600 ? LocalizedKey.hour.localize(preferences.appLang) : LocalizedKey.hours.localize(preferences.appLang)
+        }
+        
+        return LineChartDataPoint(
+          value: Double($0.1),
+          xAxisLabel: "",
+          description: localizedDesc,
+          pointColour: .init(border: preferences.accentColor.color, fill: preferences.accentColor.color)
+        )
+      },
+      legendTitle: "",
+      pointStyle: PointStyle(),
+      style: LineStyle(
+        lineColour: ColourStyle(colours: [preferences.accentColor.color.opacity(0.8), preferences.accentColor.color.opacity(0.5)], startPoint: .top, endPoint: .bottom),
+        lineType: .curvedLine
+      )
+    )
+    
+    let xGridStyle = GridStyle(
+      numberOfLines: 15,
+      lineColour: preferences.accentColor.color.opacity(0.25),
+      lineWidth: 0.5,
+      dash: [3, 5]
+    )
+    
+    let yGridStyle = GridStyle(
+      numberOfLines: 10,
+      lineColour: preferences.accentColor.color.opacity(0.25),
+      lineWidth: 0.8,
+      dash: [3, 5]
+    )
+    
+    self.yearlyData = LineChartData(
+      dataSets: data,
+      metadata: ChartMetadata(
+        title: localizedTitle,
+        subtitle: LocalizedKey.within_this_year.localize(preferences.appLang).orEmpty + "\n",
+        titleFont: .dmSerif(24),
+        subtitleFont: .qsB(14),
+        subtitleColour: .secondary
+      ),
+      xAxisLabels: thisYearData.map(\.0).map { $0.localize(preferences.appLang).orEmpty },
+      chartStyle: LineChartStyle(
+        infoBoxPlacement: .header,
+        infoBoxValueFont: .qsSb(22),
+        infoBoxDescriptionFont: .qsSb(14),
+        infoBoxDescriptionColour: .secondary,
+        markerType: .full(
           attachment: .point,
           colour: preferences.accentColor.color,
           style: .init(lineWidth: 1.5, dash: [3, 5])
