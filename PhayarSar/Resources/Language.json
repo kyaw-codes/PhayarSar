@@ -571,4 +571,24 @@
     "En": "Within this year",
     "Mm": "တစ်နှစ်အတွင်း"
   },
+  "search": {
+    "En": "Search",
+    "Mm": "ရှာမယ်"
+  },
+  "search_placeholder": {
+    "En": "Prayer name, plan, keywords...",
+    "Mm": "ဘုရားစာ၊ အဓိဌာန်၊ စကားလုံး..."
+  },
+  "x_found": {
+    "En": "({$}) found",
+    "Mm": "({$}) ခုတွေ့"
+  },
+  "prayers": {
+    "En": "Prayers",
+    "Mm": "ဘုရားစာများ"
+  },
+  "plans": {
+    "En": "Worship plans",
+    "Mm": "အဓိဌာန်များ"
+  },
 }

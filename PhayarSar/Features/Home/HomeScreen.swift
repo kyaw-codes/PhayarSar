@@ -21,8 +21,9 @@ struct HomeScreen: View {
   @State private var payeikCollapsed = true
   @State private var showWorshipPlanScreen = false
   @State private var currentWorshipPlan: NSManagedObjectID = .init()
+  @State private var showSearchView = false
   @State private var worshipPlanListRefresh = UUID()
-
+  @Namespace private var animation
   
   var body: some View {
     OffsetObservingScrollView(offset: $offset) {
@@ -50,6 +51,20 @@ struct HomeScreen: View {
     }
     .overlay(alignment: .top) {
       inlineNavView
+    }
+    .overlay {
+      if showSearchView {
+        NavigationView {
+          HomeSearchScreen(
+            showSearchView: $showSearchView,
+            showTabBar: $showTabBar,
+            animation: animation
+          )
+        }
+        .environmentObject(preferences)
+        .environmentObject(prayingTimeRepo)
+        .environmentObject(worshipPlanRepo)
+      }
     }
     .onAppear {
       showOnboarding = preferences.isFirstLaunch == nil
@@ -114,7 +129,23 @@ struct HomeScreen: View {
         }
         Spacer()
         
-//        btnPray
+        Button {
+          withAnimation(.snappy) {
+            HapticKit.impact(.soft).generate()
+            showSearchView.toggle()
+            showTabBar.toggle()
+          }
+        } label: {
+          Image(systemName: "magnifyingglass")
+            .foregroundColor(preferences.accentColor.color)
+            .padding(8)
+            .matchedGeometryEffect(id: "search_icon", in: animation)
+            .background(
+              Capsule()
+                .fill(preferences.accentColor.color.opacity(0.3))
+                .matchedGeometryEffect(id: "capsule", in: animation)
+            )
+        }
       }
       .padding(.horizontal, 20)
       

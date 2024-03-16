@@ -137,6 +137,7 @@
 		C8FCD13A2BA4A3A900AB5BD3 /* PrayingDurationChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */; };
 		C8FCD1422BA4AF0300AB5BD3 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */; };
 		C8FCD1462BA54F9D00AB5BD3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1452BA54F9D00AB5BD3 /* Date.swift */; };
+		C8FCD1482BA58D5300AB5BD3 /* HomeSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1472BA58D5300AB5BD3 /* HomeSearchScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,6 +288,7 @@
 		C8FCD1372BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPrayingTimeRepository.swift; sourceTree = "<group>"; };
 		C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayingDurationChartView.swift; sourceTree = "<group>"; };
 		C8FCD1452BA54F9D00AB5BD3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		C8FCD1472BA58D5300AB5BD3 /* HomeSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -597,6 +599,7 @@
 			children = (
 				C8F3393E2B94316000C1730B /* Views */,
 				C84626B42B222B6B000931AE /* HomeScreen.swift */,
+				C8FCD1472BA58D5300AB5BD3 /* HomeSearchScreen.swift */,
 				C8FCD1372BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift */,
 				C8A73FEC2B6F794E00216C89 /* AppleCardHolder.swift */,
 			);
@@ -980,6 +983,7 @@
 				C8FCD1382BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift in Sources */,
 				C8D6529B2B2EA76500BB6C42 /* ChooseColorScreen.swift in Sources */,
 				C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */,
+				C8FCD1482BA58D5300AB5BD3 /* HomeSearchScreen.swift in Sources */,
 				C83961B22B4053E900E189D9 /* View+Preview.swift in Sources */,
 				C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */,
 				C8CA45CA2B41415200240DA7 /* BtnCloseCircle.swift in Sources */,
@@ -1176,7 +1180,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
@@ -1210,7 +1214,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;

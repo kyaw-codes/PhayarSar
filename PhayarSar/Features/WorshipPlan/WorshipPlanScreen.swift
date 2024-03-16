@@ -295,6 +295,7 @@ struct WorshipPlanScreen: View {
         .autocorrectionDisabled()
         .font(.qsSb(36))
         .focused($focusedName, equals: "planname")
+        .tint(preferences.accentColor.color)
     }
     .padding()
   }
