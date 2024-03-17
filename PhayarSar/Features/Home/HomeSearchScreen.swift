@@ -79,7 +79,11 @@ struct HomeSearchScreen: View {
         return
       }
       
-      let filteredPrayers = allPrayers.filter { $0.title.contains(searchWord) }
+      let filteredPrayers = allPrayers
+        .filter { prayer in
+          prayer.title.contains(searchWord) ||
+          prayer.body.map { $0.content.contains(searchWord) || $0.pronunciation.contains(searchWord) }.reduce(false, { $0 || $1 })
+        }
       let filteredPlans = allPlans.filter { $0.planName.lowercased().contains(searchWord.lowercased()) }
       withAnimation(.smooth) {
         prayers = filteredPrayers

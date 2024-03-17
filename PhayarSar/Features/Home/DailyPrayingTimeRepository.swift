@@ -69,8 +69,9 @@ final class DailyPrayingTimeRepository: ObservableObject {
   }
   
   func prayingDataForThisWeek() -> [DailyPrayingTime] {
-    prayingTimes
-      .filter { (Date().startOfWeek ... Date().endOfWeek).contains($0.date) }
+    let date = Date().toStringWith(.EE) == "Sun" ? calendar.date(byAdding: .day, value: -1, to: .init())! : .init()
+    return prayingTimes
+      .filter { (date.startOfWeek ... date.endOfWeek).contains($0.date) }
       .sorted(by: { $1.date > $0.date })
   }
   
