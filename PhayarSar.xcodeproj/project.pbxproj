@@ -42,7 +42,7 @@
 		C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */; };
 		C82039F22B1CCF13000EEF61 /* SwiftUIBackports in Frameworks */ = {isa = PBXBuildFile; productRef = C82039F12B1CCF13000EEF61 /* SwiftUIBackports */; };
 		C82039F72B1CDB4F000EEF61 /* NatPint.json in Resources */ = {isa = PBXBuildFile; fileRef = C82039F62B1CDB4F000EEF61 /* NatPint.json */; };
-		C82039FA2B1CE1C7000EEF61 /* NatPintVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039F92B1CE1C7000EEF61 /* NatPintVO.swift */; };
+		C82039FA2B1CE1C7000EEF61 /* PhayarSarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039F92B1CE1C7000EEF61 /* PhayarSarModel.swift */; };
 		C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82039FB2B1CE2B4000EEF61 /* Bundle+Decode.swift */; };
 		C83961B22B4053E900E189D9 /* View+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83961B12B4053E900E189D9 /* View+Preview.swift */; };
 		C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83961B52B40578200E189D9 /* SafeAreaInsets.swift */; };
@@ -203,7 +203,7 @@
 		C82039EA2B1CCB6D000EEF61 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
 		C82039EE2B1CCCAF000EEF61 /* AppBtnFilled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBtnFilled.swift; sourceTree = "<group>"; };
 		C82039F62B1CDB4F000EEF61 /* NatPint.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NatPint.json; sourceTree = "<group>"; };
-		C82039F92B1CE1C7000EEF61 /* NatPintVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NatPintVO.swift; sourceTree = "<group>"; };
+		C82039F92B1CE1C7000EEF61 /* PhayarSarModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarModel.swift; sourceTree = "<group>"; };
 		C82039FB2B1CE2B4000EEF61 /* Bundle+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decode.swift"; sourceTree = "<group>"; };
 		C83961B12B4053E900E189D9 /* View+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Preview.swift"; sourceTree = "<group>"; };
 		C83961B52B40578200E189D9 /* SafeAreaInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaInsets.swift; sourceTree = "<group>"; };
@@ -663,7 +663,7 @@
 		C8A3424B2B3E6C8F00B24F7C /* PhayarSar */ = {
 			isa = PBXGroup;
 			children = (
-				C82039F92B1CE1C7000EEF61 /* NatPintVO.swift */,
+				C82039F92B1CE1C7000EEF61 /* PhayarSarModel.swift */,
 			);
 			path = PhayarSar;
 			sourceTree = "<group>";
@@ -1023,7 +1023,7 @@
 				C8CA45E42B414A4D00240DA7 /* MyanmarFont.swift in Sources */,
 				C8D652882B2E0F1D00BB6C42 /* SettingsScreen.swift in Sources */,
 				C8D730B32B46D42500D19D57 /* OverflowContentViewModifier.swift in Sources */,
-				C82039FA2B1CE1C7000EEF61 /* NatPintVO.swift in Sources */,
+				C82039FA2B1CE1C7000EEF61 /* PhayarSarModel.swift in Sources */,
 				C81CF2572B53FCA000E1B726 /* PrayingMode.swift in Sources */,
 				C86AAA4B2B92DEAB00D899B2 /* WorshipPlanRepository.swift in Sources */,
 				C84240C02B2DD34900A2B234 /* LocalizedKey.swift in Sources */,

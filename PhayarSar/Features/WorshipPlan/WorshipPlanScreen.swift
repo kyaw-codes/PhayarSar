@@ -21,7 +21,7 @@ struct WorshipPlanScreen: View {
   // MARK: - Step one
   @State private var name = ""
   // MARK: - Step two
-  @State private var selectedPrayers = [NatPintVO]()
+  @State private var selectedPrayers = [PhayarSarModel]()
   // MARK: - Step three
   @State private var selectedColor = Color("Tag1")
   @State private var selectedDays = [DaysOfWeek.everyday]

@@ -63,7 +63,7 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
 }
 
 #Preview {
-  CommonPrayerParagraphView<NatPintVO>(
+  CommonPrayerParagraphView<PhayarSarModel>(
     prayer: .constant(natPint.body[0]),
     vm: .init(model: natPint)
   )

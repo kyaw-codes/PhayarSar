@@ -12,7 +12,7 @@ struct PrayerCollectionsScreen: View {
   
   var title: String
   var systemImage: String
-  var prayers: [NatPintVO]
+  var prayers: [PhayarSarModel]
   
   var body: some View {
     ScrollView {

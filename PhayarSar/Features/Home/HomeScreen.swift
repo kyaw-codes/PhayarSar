@@ -355,7 +355,7 @@ struct HomeScreen: View {
   }
   
   @ViewBuilder
-  private func PrayerListCell(_ model: NatPintVO, systemImage: String, hideSeparator: Bool = false) -> some View {
+  private func PrayerListCell(_ model: PhayarSarModel, systemImage: String, hideSeparator: Bool = false) -> some View {
     NavigationLink {
       CommonPrayerScreen(model: model)
         .onAppear {
@@ -386,7 +386,7 @@ struct HomeScreen: View {
   }
   
   @ViewBuilder
-  private func PrayerCardView(title: String, subtitle: String, systemImage: String, duration: String, list: [NatPintVO], color: Color) -> some View {
+  private func PrayerCardView(title: String, subtitle: String, systemImage: String, duration: String, list: [PhayarSarModel], color: Color) -> some View {
     VStack(alignment: .leading) {
       HStack {
         Text(subtitle)
@@ -537,7 +537,7 @@ struct HomeScreen: View {
   }
   
   @ViewBuilder
-  private func OtherListCell(model: NatPintVO) -> some View {
+  private func OtherListCell(model: PhayarSarModel) -> some View {
     NavigationLink {
       CommonPrayerScreen(model: model)
         .onAppear {

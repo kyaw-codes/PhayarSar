@@ -207,7 +207,7 @@ struct WorshipPlanDetailScreen: View {
   
   @ViewBuilder
   private func PrayerListCell(
-    model: NatPintVO,
+    model: PhayarSarModel,
     systemImage: String,
     hideSeparator: Bool = false
   ) -> some View {

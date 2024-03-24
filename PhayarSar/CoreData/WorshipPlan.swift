@@ -39,7 +39,7 @@ final class WorshipPlan: NSManagedObject {
     (try? JSONDecoder().decode([String].self, from: reminderIds)) ?? []
   }
   
-  var selectedPrayers: [NatPintVO] {
+  var selectedPrayers: [PhayarSarModel] {
     guard let selectedPrayerIds else { return [] }
     let decoder = JSONDecoder()
     let arr = try? decoder.decode([String].self, from: selectedPrayerIds)

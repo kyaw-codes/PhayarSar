@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct AllPrayerPickerScreen: View {
-  @Binding var prayers: [NatPintVO]
-  @State private var internalPrayers: [NatPintVO] = []
+  @Binding var prayers: [PhayarSarModel]
+  @State private var internalPrayers: [PhayarSarModel] = []
   
   @Environment(\.dismiss) private var dismiss
   @EnvironmentObject private var preferences: UserPreferences
@@ -69,7 +69,7 @@ struct AllPrayerPickerScreen: View {
   }
   
   @ViewBuilder
-  private func ListCell(_ prayer: NatPintVO) -> some View {
+  private func ListCell(_ prayer: PhayarSarModel) -> some View {
     VStack(spacing: 0) {
       HStack(spacing: 14) {
         Image(systemName: internalPrayers.contains(prayer) ? "checkmark.circle.fill" : "circle")

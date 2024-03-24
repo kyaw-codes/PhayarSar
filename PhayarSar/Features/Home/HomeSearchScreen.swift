@@ -16,7 +16,7 @@ struct HomeSearchScreen: View {
   @State private var searchText = ""
   @FocusState private var focusedName: String?
   
-  @State private var prayers = [NatPintVO]()
+  @State private var prayers = [PhayarSarModel]()
   @State private var allPlans = [WorshipPlan]()
   @State private var plans = [WorshipPlan]()
   
@@ -103,7 +103,7 @@ struct HomeSearchScreen: View {
   }
   
   @ViewBuilder
-  private func PrayerCardView(prayer: NatPintVO) -> some View {
+  private func PrayerCardView(prayer: PhayarSarModel) -> some View {
     HStack(spacing: 6) {
       Image(systemName: "hands.and.sparkles.fill")
         .foregroundColor(.primary)
