@@ -403,3 +403,22 @@ struct PrayingDurationChartView: View {
   PrayingDurationChartView()
     .previewEnvironment()
 }
+
+struct Pet {
+  let type: String = "house"
+}
+
+struct Avatar: View {
+  var pet: Pet
+  @State private var selected: Bool = false
+  
+  var body: some View {
+    Image(systemName: pet.type)
+      .scaleEffect(selected ? 1.5 : 1.0)
+      .onTapGesture {
+        withAnimation {
+          selected.toggle()
+        }
+      }
+  }
+}
