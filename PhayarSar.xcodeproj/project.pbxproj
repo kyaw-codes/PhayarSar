@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		653454BB2BEBDF24004FC8EE /* MyanmarSyllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653454BA2BEBDF24004FC8EE /* MyanmarSyllable.swift */; };
+		653454C02BEBE2BE004FC8EE /* PhayarSarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653454BF2BEBE2BE004FC8EE /* PhayarSarRepository.swift */; };
 		C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */; };
 		C80287472B4A5F3600F165DF /* PrayingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287462B4A5F3600F165DF /* PrayingProgressView.swift */; };
 		C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287482B4A866E00F165DF /* ScrollingSpeed.swift */; };
@@ -167,6 +168,7 @@
 
 /* Begin PBXFileReference section */
 		653454BA2BEBDF24004FC8EE /* MyanmarSyllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyanmarSyllable.swift; sourceTree = "<group>"; };
+		653454BF2BEBE2BE004FC8EE /* PhayarSarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhayarSarRepository.swift; sourceTree = "<group>"; };
 		C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerProtocol.swift; sourceTree = "<group>"; };
 		C80287462B4A5F3600F165DF /* PrayingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayingProgressView.swift; sourceTree = "<group>"; };
 		C80287482B4A866E00F165DF /* ScrollingSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingSpeed.swift; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 			isa = PBXGroup;
 			children = (
 				C82039F92B1CE1C7000EEF61 /* PhayarSarModel.swift */,
+				653454BF2BEBE2BE004FC8EE /* PhayarSarRepository.swift */,
 			);
 			path = PhayarSar;
 			sourceTree = "<group>";
@@ -1043,6 +1046,7 @@
 				C8AE59252B6E368C00ABB8F3 /* StraightLine.swift in Sources */,
 				C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */,
 				C8AE592A2B6E36D700ABB8F3 /* DaysOfWeek.swift in Sources */,
+				653454C02BEBE2BE004FC8EE /* PhayarSarRepository.swift in Sources */,
 				C82039DA2B1CC30A000EEF61 /* OnboardingScreen.swift in Sources */,
 				C84E69242B4C4776006231CD /* PrayerAlignment.swift in Sources */,
 				C849BF3C2B9C5AF3004F771F /* Delay.swift in Sources */,
