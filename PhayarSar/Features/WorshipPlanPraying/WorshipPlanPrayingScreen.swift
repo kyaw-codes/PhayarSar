@@ -80,9 +80,11 @@ struct WorshipPlanPrayingScreen: View {
   func CommonPrayerTabView() -> some View {
     TabView(selection: $currentPrayerId) {
       ForEach(worshipPlan.selectedPrayers) { prayer in
-        CommonPrayerScreen(model: prayer, worshipPlanName: worshipPlan.planName) {
+        CommonPrayerScreen(model: prayer, worshipPlanName: worshipPlan.planName, playPrayerRightAway: prayer.id == currentPrayerId && worshipPlan.selectedPrayers.first?.id != prayer.id) {
           if let currentIndex = worshipPlan.selectedPrayers.firstIndex(of: prayer) {
-            currentPrayerId = worshipPlan.selectedPrayers[currentIndex + 1].id
+            if worshipPlan.selectedPrayers.indices.contains(currentIndex + 1) {
+              currentPrayerId = worshipPlan.selectedPrayers[currentIndex + 1].id
+            }
           }
         }
         .tag(prayer.id)

@@ -25,12 +25,14 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   
   // MARK: Dependencies
   @StateObject private var vm: CommonPrayerVM<Model>
+  private let playPrayerRightAway: Bool
   private let worshipPlanName: String
   private var onFinish: (() -> Void)?
   
-  init(model: Model, worshipPlanName: String = "", onFinish: (() -> Void)? = nil) {
+  init(model: Model, worshipPlanName: String = "", playPrayerRightAway: Bool = false, onFinish: (() -> Void)? = nil) {
     self._vm = .init(wrappedValue: .init(model: model))
     self.worshipPlanName = worshipPlanName
+    self.playPrayerRightAway = playPrayerRightAway
     self.onFinish = onFinish
   }
 }
@@ -85,7 +87,7 @@ extension CommonPrayerScreen: View {
     })
     .onChange(of: vm.progress) { _ in
       if vm.progress == 1 {
-        delay(1) {
+        delay(2) {
           onFinish?()
         }
       }
@@ -95,6 +97,10 @@ extension CommonPrayerScreen: View {
       pageColor = PageColor(rawValue: vm.config.backgroundColor).orElse(.classic)
       if worshipPlanName.isEmpty {
         prayingTimeRepo.startRecordingTime()
+      }
+
+      if PrayingMode(rawValue: vm.config.mode).orElse(.reader) == .player && playPrayerRightAway {
+        vm.startPraying()
       }
     }
     .onDisappear {
