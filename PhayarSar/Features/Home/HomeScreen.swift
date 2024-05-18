@@ -22,6 +22,7 @@ struct HomeScreen: View {
   @State private var showWorshipPlanScreen = false
   @State private var currentWorshipPlan: NSManagedObjectID = .init()
   @State private var showSearchView = false
+  @State private var searchButtonDisable = false
   @State private var worshipPlanListRefresh = UUID()
   @Namespace private var animation
   
@@ -152,6 +153,7 @@ struct HomeScreen: View {
         Button {
           withAnimation(.snappy) {
             HapticKit.impact(.soft).generate()
+            searchButtonDisable = true
             showSearchView.toggle()
             showTabBar.toggle()
           }
@@ -159,12 +161,16 @@ struct HomeScreen: View {
           Image(systemName: "magnifyingglass")
             .foregroundColor(preferences.accentColor.color)
             .padding(8)
-            .matchedGeometryEffect(id: "search_icon", in: animation)
+//            .matchedGeometryEffect(id: "search_icon", in: animation)
             .background(
               Capsule()
                 .fill(preferences.accentColor.color.opacity(0.3))
-                .matchedGeometryEffect(id: "capsule", in: animation)
+//                .matchedGeometryEffect(id: "capsule", in: animation)
             )
+        }
+        .disabled(searchButtonDisable)
+        .onAnimationCompleted(for: showSearchView ? 1 : -1) {
+          searchButtonDisable = false
         }
       }
       .padding(.horizontal, 20)

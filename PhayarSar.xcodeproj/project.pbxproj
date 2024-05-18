@@ -15,6 +15,7 @@
 		C815D6CB2B4B141600BFB79C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */; };
 		C815D6CE2B4B142900BFB79C /* PhayarSar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CC2B4B142900BFB79C /* PhayarSar.xcdatamodeld */; };
 		C815D6D02B4B158F00BFB79C /* PrayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */; };
+		C81792452BF904F500DC741E /* AnimationCompletionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792442BF904F500DC741E /* AnimationCompletionObserver.swift */; };
 		C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2502B53E66100E1B726 /* ReadingModeView.swift */; };
 		C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */; };
 		C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */; };
@@ -175,6 +176,7 @@
 		C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C815D6CD2B4B142900BFB79C /* PhayarSar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhayarSar.xcdatamodel; sourceTree = "<group>"; };
 		C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerConfiguration.swift; sourceTree = "<group>"; };
+		C81792442BF904F500DC741E /* AnimationCompletionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserver.swift; sourceTree = "<group>"; };
 		C81CF2502B53E66100E1B726 /* ReadingModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingModeView.swift; sourceTree = "<group>"; };
 		C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectedView.swift; sourceTree = "<group>"; };
 		C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModeView.swift; sourceTree = "<group>"; };
@@ -573,6 +575,7 @@
 				C8F339392B938D7A00C1730B /* String+Date.swift */,
 				C849BF3B2B9C5AF3004F771F /* Delay.swift */,
 				653454BA2BEBDF24004FC8EE /* MyanmarSyllable.swift */,
+				C81792442BF904F500DC741E /* AnimationCompletionObserver.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1010,6 +1013,7 @@
 				C82039EB2B1CCB6D000EEF61 /* Color+CustomColors.swift in Sources */,
 				C83E27F22B2DDACC0038EDF1 /* LocalizedNavTitle.swift in Sources */,
 				C8A661CE2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift in Sources */,
+				C81792452BF904F500DC741E /* AnimationCompletionObserver.swift in Sources */,
 				C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */,
 				C8AE592C2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift in Sources */,
 				C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */,
