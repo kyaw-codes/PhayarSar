@@ -75,20 +75,30 @@ extension TabScreen: View {
     func NativeTabView() -> some View {
         TabView(selection: $selected) {
             NavigationView {
-                HomeScreen(showTabBar: $showTabBar)
-                    .onAppear {
+                ZStack {
+                    UIKitViewDidAppearWrapper{
                         showTabBar = true
                     }
+                    HomeScreen(showTabBar: $showTabBar)
+//                        .onAppear {
+//                            showTabBar = true
+//                        }
                     .navigationBarHidden(true)
+                }
             }
             .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
             .tag(TabItem.home)
             
             NavigationView {
-                SettingsScreen(showTabBar: $showTabBar)
-                    .onAppear {
+                ZStack {
+                    UIKitViewDidAppearWrapper{
                         showTabBar = true
                     }
+                    SettingsScreen(showTabBar: $showTabBar)
+//                        .onAppear {
+//                            showTabBar = true
+//                    }
+                }
             }
             .tag(TabItem.settings)
         }
@@ -141,16 +151,16 @@ extension TabScreen: View {
 }
 
 // Disable swipe back gesture
-extension UINavigationController: UIGestureRecognizerDelegate {
-    override open func viewDidLoad() {
-        super.viewDidLoad()
-        interactivePopGestureRecognizer?.delegate = self
-    }
-    
-    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return false
-    }
-}
+//extension UINavigationController: UIGestureRecognizerDelegate {
+//    override open func viewDidLoad() {
+//        super.viewDidLoad()
+//        interactivePopGestureRecognizer?.delegate = self
+//    }
+//    
+//    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return false
+//    }
+//}
 
 #Preview {
     TabScreen()
