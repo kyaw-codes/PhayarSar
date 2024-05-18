@@ -80,11 +80,16 @@ struct WorshipPlanPrayingScreen: View {
   func CommonPrayerTabView() -> some View {
     TabView(selection: $currentPrayerId) {
       ForEach(worshipPlan.selectedPrayers) { prayer in
-        CommonPrayerScreen(model: prayer, worshipPlanName: worshipPlan.planName)
-          .tag(prayer.id)
+        CommonPrayerScreen(model: prayer, worshipPlanName: worshipPlan.planName) {
+          if let currentIndex = worshipPlan.selectedPrayers.firstIndex(of: prayer) {
+            currentPrayerId = worshipPlan.selectedPrayers[currentIndex + 1].id
+          }
+        }
+        .tag(prayer.id)
       }
     }
     .tabViewStyle(.page(indexDisplayMode: .never))
+    .animation(.default, value: currentPrayerId)
     .mask { CustomCornerView(corners: [.bottomLeft, .bottomRight], radius: 30) }
     .overlay { SilverBorderView() }
   }

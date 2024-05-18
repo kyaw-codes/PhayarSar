@@ -26,10 +26,12 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   // MARK: Dependencies
   @StateObject private var vm: CommonPrayerVM<Model>
   private let worshipPlanName: String
+  private var onFinish: (() -> Void)?
   
-  init(model: Model, worshipPlanName: String = "") {
+  init(model: Model, worshipPlanName: String = "", onFinish: (() -> Void)? = nil) {
     self._vm = .init(wrappedValue: .init(model: model))
     self.worshipPlanName = worshipPlanName
+    self.onFinish = onFinish
   }
 }
 
@@ -81,6 +83,13 @@ extension CommonPrayerScreen: View {
         vm.resetPrayingState()
       }
     })
+    .onChange(of: vm.progress) { _ in
+      if vm.progress == 1 {
+        delay(1) {
+          onFinish?()
+        }
+      }
+    }
     .onAppear {
       vm.makeFirstParagraphVisibleIfNeeded()
       pageColor = PageColor(rawValue: vm.config.backgroundColor).orElse(.classic)
