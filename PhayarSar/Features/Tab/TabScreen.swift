@@ -75,30 +75,20 @@ extension TabScreen: View {
     func NativeTabView() -> some View {
         TabView(selection: $selected) {
             NavigationView {
-                ZStack {
-                    UIKitViewDidAppearWrapper{
+                HomeScreen(showTabBar: $showTabBar)
+                    .afterAppear {
                         showTabBar = true
                     }
-                    HomeScreen(showTabBar: $showTabBar)
-//                        .onAppear {
-//                            showTabBar = true
-//                        }
                     .navigationBarHidden(true)
-                }
             }
             .environment(\.managedObjectContext, CoreDataStack.shared.viewContext)
             .tag(TabItem.home)
             
             NavigationView {
-                ZStack {
-                    UIKitViewDidAppearWrapper{
+                SettingsScreen(showTabBar: $showTabBar)
+                    .afterAppear {
                         showTabBar = true
                     }
-                    SettingsScreen(showTabBar: $showTabBar)
-//                        .onAppear {
-//                            showTabBar = true
-//                    }
-                }
             }
             .tag(TabItem.settings)
         }
