@@ -611,4 +611,21 @@
     "En": "Referenced websites for prayers",
     "Mm": "ဂါထာများအတွက် မှီငြမ်းထားသည့် ဝက်ဘ်ဆိုဒ်များ"
   },
+  "report": {
+    "En": "Report",
+    "Mm": "ရီပို့တင်မယ်"
+  },
+  "send": {
+    "En": "Send",
+    "Mm": "ပို့မယ်"
+  },
+  "comment": {
+    "En": "Comments",
+    "Mm": "မှတ်ချက်များ"
+  },
+  "write_down_your_comment": {
+    "En": "Write down your comment ...",
+    "Mm": "မှတ်ချက်ရေးပါ..."
+  },
+  
 }

@@ -18,6 +18,7 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   @State private var showAboutScreen = false
   @State private var showThemesScreen = false
   @State private var showModeScreen = false
+  @State private var showReportScreen = false
   @State private var lastParagraphHeight = 0.0
   
   @State private var startPulsating = false
@@ -80,6 +81,11 @@ extension CommonPrayerScreen: View {
       }
       .backport.presentationDetents([.medium])
     }
+    .fullScreenCover(isPresented: $showReportScreen) {
+      NavigationView {
+        PrayerSpellingErrorReportScreen(vm: vm as! CommonPrayerVM<PhayarSarModel>)
+      }
+    }
     .onChange(of: vm.config.mode, perform: { mode in
       if mode == PrayingMode.reader.rawValue {
         vm.resetPrayingState()
@@ -91,6 +97,9 @@ extension CommonPrayerScreen: View {
           onFinish?()
         }
       }
+    }
+    .onShake {
+      showReportScreen.toggle()
     }
     .onAppear {
       vm.makeFirstParagraphVisibleIfNeeded()
@@ -328,6 +337,12 @@ fileprivate extension CommonPrayerScreen {
           } label: {
             LocalizedLabel(.about_x, args: [vm.model.title], systemImage: "info.circle.fill")
           }
+        }
+        
+        Button {
+          showReportScreen.toggle()
+        } label: {
+          LocalizedLabel(.report, systemImage: "flag.fill")
         }
       } label: {
         Image(systemName: "line.3.horizontal.circle.fill")
