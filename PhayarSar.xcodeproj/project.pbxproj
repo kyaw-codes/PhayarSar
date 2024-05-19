@@ -148,6 +148,7 @@
 		C8FCD1422BA4AF0300AB5BD3 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */; };
 		C8FCD1462BA54F9D00AB5BD3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1452BA54F9D00AB5BD3 /* Date.swift */; };
 		C8FCD1482BA58D5300AB5BD3 /* HomeSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1472BA58D5300AB5BD3 /* HomeSearchScreen.swift */; };
+		EA578F0C2BF996EF00366ADC /* AfterAppearViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578F0B2BF996EF00366ADC /* AfterAppearViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +310,7 @@
 		C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayingDurationChartView.swift; sourceTree = "<group>"; };
 		C8FCD1452BA54F9D00AB5BD3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		C8FCD1472BA58D5300AB5BD3 /* HomeSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchScreen.swift; sourceTree = "<group>"; };
+		EA578F0B2BF996EF00366ADC /* AfterAppearViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterAppearViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,6 +585,7 @@
 		C82039E72B1CC64A000EEF61 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EA578F0B2BF996EF00366ADC /* AfterAppearViewModifier.swift */,
 				C82039E82B1CC653000EEF61 /* Font+CustomFonts.swift */,
 				C82039EA2B1CCB6D000EEF61 /* Color+CustomColors.swift */,
 				C82039FB2B1CE2B4000EEF61 /* Bundle+Decode.swift */,
@@ -1046,6 +1049,7 @@
 				C8F339402B94317500C1730B /* WorshipPlanCardView.swift in Sources */,
 				C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */,
 				C849BF462B9CB481004F771F /* WorshipPlanPrayingScreen.swift in Sources */,
+				EA578F0C2BF996EF00366ADC /* AfterAppearViewModifier.swift in Sources */,
 				C8AE59282B6E36C900ABB8F3 /* WorshipPlanSteps.swift in Sources */,
 				C8AE59252B6E368C00ABB8F3 /* StraightLine.swift in Sources */,
 				C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */,
@@ -1222,7 +1226,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
-				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				DEVELOPMENT_TEAM = 39366RYQCK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhayarSar/Info.plist;
@@ -1237,7 +1241,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.winlwinoo.PhayarSar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1256,7 +1260,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
-				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				DEVELOPMENT_TEAM = 39366RYQCK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhayarSar/Info.plist;
@@ -1271,7 +1275,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.winlwinoo.PhayarSar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
