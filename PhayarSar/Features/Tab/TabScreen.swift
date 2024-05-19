@@ -76,7 +76,7 @@ extension TabScreen: View {
         TabView(selection: $selected) {
             NavigationView {
                 HomeScreen(showTabBar: $showTabBar)
-                    .onAppear {
+                    .afterAppear {
                         showTabBar = true
                     }
                     .navigationBarHidden(true)
@@ -86,7 +86,7 @@ extension TabScreen: View {
             
             NavigationView {
                 SettingsScreen(showTabBar: $showTabBar)
-                    .onAppear {
+                    .afterAppear {
                         showTabBar = true
                     }
             }
@@ -141,16 +141,16 @@ extension TabScreen: View {
 }
 
 // Disable swipe back gesture
-extension UINavigationController: UIGestureRecognizerDelegate {
-    override open func viewDidLoad() {
-        super.viewDidLoad()
-        interactivePopGestureRecognizer?.delegate = self
-    }
-    
-    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return false
-    }
-}
+//extension UINavigationController: UIGestureRecognizerDelegate {
+//    override open func viewDidLoad() {
+//        super.viewDidLoad()
+//        interactivePopGestureRecognizer?.delegate = self
+//    }
+//    
+//    public func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        return false
+//    }
+//}
 
 #Preview {
     TabScreen()
