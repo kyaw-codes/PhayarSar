@@ -20,6 +20,7 @@
 		C817924A2BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792492BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift */; };
 		C817924D2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */; };
 		C81792502BF9ED4B00DC741E /* SpellingErrorCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */; };
+		C81792522BFB8E2700DC741E /* AskForReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792512BFB8E2700DC741E /* AskForReview.swift */; };
 		C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2502B53E66100E1B726 /* ReadingModeView.swift */; };
 		C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */; };
 		C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */; };
@@ -186,6 +187,7 @@
 		C81792492BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSpellingErrorReportScreen.swift; sourceTree = "<group>"; };
 		C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingErrorCommentScreen.swift; sourceTree = "<group>"; };
 		C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingErrorCommentModel.swift; sourceTree = "<group>"; };
+		C81792512BFB8E2700DC741E /* AskForReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskForReview.swift; sourceTree = "<group>"; };
 		C81CF2502B53E66100E1B726 /* ReadingModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingModeView.swift; sourceTree = "<group>"; };
 		C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectedView.swift; sourceTree = "<group>"; };
 		C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModeView.swift; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 				C83961B52B40578200E189D9 /* SafeAreaInsets.swift */,
 				C84E691F2B4C42FA006231CD /* NSObject+Extension.swift */,
 				C8FCD1452BA54F9D00AB5BD3 /* Date.swift */,
+				C81792512BFB8E2700DC741E /* AskForReview.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1056,6 +1059,7 @@
 				C8A661CE2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift in Sources */,
 				C81792452BF904F500DC741E /* AnimationCompletionObserver.swift in Sources */,
 				C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */,
+				C81792522BFB8E2700DC741E /* AskForReview.swift in Sources */,
 				C8AE592C2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift in Sources */,
 				C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */,
 				C84626B52B222B6B000931AE /* HomeScreen.swift in Sources */,
