@@ -161,6 +161,11 @@ enum LocalizedKey: String {
   case send_feedback
   case licenses
   case websites_referenced_for_prayers
+  case report
+  case send
+  case comment
+  case write_down_your_comment
+  case enable_shake_to_report
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]

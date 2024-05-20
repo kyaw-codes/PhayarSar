@@ -16,6 +16,10 @@
 		C815D6CE2B4B142900BFB79C /* PhayarSar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CC2B4B142900BFB79C /* PhayarSar.xcdatamodeld */; };
 		C815D6D02B4B158F00BFB79C /* PrayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */; };
 		C81792452BF904F500DC741E /* AnimationCompletionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792442BF904F500DC741E /* AnimationCompletionObserver.swift */; };
+		C81792472BF9DD5200DC741E /* DeviceShakeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792462BF9DD5200DC741E /* DeviceShakeObserver.swift */; };
+		C817924A2BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792492BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift */; };
+		C817924D2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */; };
+		C81792502BF9ED4B00DC741E /* SpellingErrorCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */; };
 		C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2502B53E66100E1B726 /* ReadingModeView.swift */; };
 		C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */; };
 		C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */; };
@@ -178,6 +182,10 @@
 		C815D6CD2B4B142900BFB79C /* PhayarSar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhayarSar.xcdatamodel; sourceTree = "<group>"; };
 		C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerConfiguration.swift; sourceTree = "<group>"; };
 		C81792442BF904F500DC741E /* AnimationCompletionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserver.swift; sourceTree = "<group>"; };
+		C81792462BF9DD5200DC741E /* DeviceShakeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeObserver.swift; sourceTree = "<group>"; };
+		C81792492BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSpellingErrorReportScreen.swift; sourceTree = "<group>"; };
+		C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingErrorCommentScreen.swift; sourceTree = "<group>"; };
+		C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingErrorCommentModel.swift; sourceTree = "<group>"; };
 		C81CF2502B53E66100E1B726 /* ReadingModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingModeView.swift; sourceTree = "<group>"; };
 		C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectedView.swift; sourceTree = "<group>"; };
 		C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModeView.swift; sourceTree = "<group>"; };
@@ -369,6 +377,30 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		C81792482BF9E21500DC741E /* PrayerSpellingErrorReport */ = {
+			isa = PBXGroup;
+			children = (
+				C81792492BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift */,
+			);
+			path = PrayerSpellingErrorReport;
+			sourceTree = "<group>";
+		};
+		C817924B2BF9ECA600DC741E /* SpellingErrorComment */ = {
+			isa = PBXGroup;
+			children = (
+				C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */,
+			);
+			path = SpellingErrorComment;
+			sourceTree = "<group>";
+		};
+		C817924E2BF9ED3C00DC741E /* SpellingErrorReport */ = {
+			isa = PBXGroup;
+			children = (
+				C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */,
+			);
+			path = SpellingErrorReport;
+			sourceTree = "<group>";
+		};
 		C81CF2582B5445B700E1B726 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,6 +433,7 @@
 		C81E927E2B2DCDAD00F4ED9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C817924E2BF9ED3C00DC741E /* SpellingErrorReport */,
 				C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */,
 				C8AE59262B6E36B500ABB8F3 /* Worshipplan */,
 				C8A3424B2B3E6C8F00B24F7C /* PhayarSar */,
@@ -474,6 +507,8 @@
 		C82039D72B1CC2E9000EEF61 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C817924B2BF9ECA600DC741E /* SpellingErrorComment */,
+				C81792482BF9E21500DC741E /* PrayerSpellingErrorReport */,
 				C849BF442B9CB439004F771F /* WorshipPlanPraying */,
 				C849BF3D2B9C7511004F771F /* WorshipPlanDetail */,
 				C8F3393B2B94300B00C1730B /* WorshipPlanList */,
@@ -504,43 +539,43 @@
 		C82039DB2B1CC48C000EEF61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C82039DC2B1CC499000EEF61 /* Fonts */,
 				C82039B12B1CABE6000EEF61 /* Assets.xcassets */,
-				C82039F62B1CDB4F000EEF61 /* NatPint.json */,
-				C8CEF9E62B67D01A00EF9B9E /* သြကာသ.json */,
-				C851EB102BA5CA250021275F /* ဂုဏ်တော်ကွန်ချာ.json */,
-				C851EB122BA5CBC30021275F /* မစ္ဆရာဇသုတ်.json */,
-				C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */,
-				C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */,
-				C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */,
-				C8CEF9E82B67F6C400EF9B9E /* စိန်ရောင်ခြည်.json */,
-				C8CEF9EC2B67FA8900EF9B9E /* သီလတောင်း.json */,
-				C8D403122B6A031600448EDC /* မင်္ဂလသုတ်.json */,
-				C8D403142B6A076900448EDC /* ရတနသုတ်.json */,
-				C8D403162B6A331100448EDC /* မေတ္တသုတ်.json */,
-				C8D403182B6A40D300448EDC /* ခန္ဓသုတ်.json */,
-				C8D4031A2B6B46E900448EDC /* မောရသုတ်.json */,
-				C8D4031C2B6B493100448EDC /* ဝဋ္ဋသုတ်.json */,
-				C8D4031E2B6B4AAA00448EDC /* ဓဇဂ္ဂသုတ်.json */,
-				C81E82862B6B58EE00A59147 /* အာဋာနာဋိယသုတ်.json */,
-				C81E82882B6B5E3900A59147 /* အင်္ဂုလိမာလသုတ်.json */,
-				C81E828A2B6B5ED800A59147 /* ဗောဇ္ဈင်္ဂသုတ်.json */,
-				C81E828C2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json */,
-				C81E828E2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json */,
-				C81E82902B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json */,
-				C8CEF9EE2B67FB6B00EF9B9E /* သရဏဂုံ.json */,
-				C8CEF9EA2B67F96A00EF9B9E /* ငါးပါးသီလ.json */,
-				C8CEF9F42B67FF9500EF9B9E /* ဘုရားဂုဏ်တော်.json */,
-				C8CEF9FA2B68043300EF9B9E /* မေတ္တာသုတ်လာမ္မေတ္တာပွား.json */,
-				C8CEF9FC2B6804DF00EF9B9E /* ဆယ်မျက်နှာမ္မေတ္တာပွား.json */,
-				C8CEF9F82B6800FD00EF9B9E /* သံဃာဂုဏ်တော်.json */,
-				C8CEF9FE2B68061500EF9B9E /* အမျှဝေ.json */,
-				C8CEF9F62B68003000EF9B9E /* တရားဂုဏ်တော်.json */,
-				C8CEF9F02B67FD5400EF9B9E /* ရှစ်ပါးသီလ.json */,
-				C8D403102B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json */,
-				C8CEF9F22B67FE7D00EF9B9E /* ဆယ်ပါးသီလ.json */,
 				C8CEF9E42B66D30700EF9B9E /* Dhammacakka.json */,
+				C82039DC2B1CC499000EEF61 /* Fonts */,
 				C84240BB2B2DD29300A2B234 /* Language.json */,
+				C82039F62B1CDB4F000EEF61 /* NatPint.json */,
+				C8D403182B6A40D300448EDC /* ခန္ဓသုတ်.json */,
+				C851EB102BA5CA250021275F /* ဂုဏ်တော်ကွန်ချာ.json */,
+				C8CEF9EA2B67F96A00EF9B9E /* ငါးပါးသီလ.json */,
+				C8CEF9E82B67F6C400EF9B9E /* စိန်ရောင်ခြည်.json */,
+				C8CEF9F22B67FE7D00EF9B9E /* ဆယ်ပါးသီလ.json */,
+				C8CEF9FC2B6804DF00EF9B9E /* ဆယ်မျက်နှာမ္မေတ္တာပွား.json */,
+				C8CEF9F62B68003000EF9B9E /* တရားဂုဏ်တော်.json */,
+				C8D4031E2B6B4AAA00448EDC /* ဓဇဂ္ဂသုတ်.json */,
+				C81E82902B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json */,
+				C81E828E2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json */,
+				C81E828C2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json */,
+				C81E828A2B6B5ED800A59147 /* ဗောဇ္ဈင်္ဂသုတ်.json */,
+				C8CEF9F42B67FF9500EF9B9E /* ဘုရားဂုဏ်တော်.json */,
+				C8D403122B6A031600448EDC /* မင်္ဂလသုတ်.json */,
+				C851EB122BA5CBC30021275F /* မစ္ဆရာဇသုတ်.json */,
+				C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */,
+				C8D403162B6A331100448EDC /* မေတ္တသုတ်.json */,
+				C8CEF9FA2B68043300EF9B9E /* မေတ္တာသုတ်လာမ္မေတ္တာပွား.json */,
+				C8D4031A2B6B46E900448EDC /* မောရသုတ်.json */,
+				C8D403142B6A076900448EDC /* ရတနသုတ်.json */,
+				C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */,
+				C8CEF9F02B67FD5400EF9B9E /* ရှစ်ပါးသီလ.json */,
+				C8D4031C2B6B493100448EDC /* ဝဋ္ဋသုတ်.json */,
+				C8CEF9F82B6800FD00EF9B9E /* သံဃာဂုဏ်တော်.json */,
+				C8D403102B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json */,
+				C8CEF9EE2B67FB6B00EF9B9E /* သရဏဂုံ.json */,
+				C8CEF9E62B67D01A00EF9B9E /* သြကာသ.json */,
+				C8CEF9EC2B67FA8900EF9B9E /* သီလတောင်း.json */,
+				C81E82882B6B5E3900A59147 /* အင်္ဂုလိမာလသုတ်.json */,
+				C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */,
+				C8CEF9FE2B68061500EF9B9E /* အမျှဝေ.json */,
+				C81E82862B6B58EE00A59147 /* အာဋာနာဋိယသုတ်.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -578,6 +613,7 @@
 				C849BF3B2B9C5AF3004F771F /* Delay.swift */,
 				653454BA2BEBDF24004FC8EE /* MyanmarSyllable.swift */,
 				C81792442BF904F500DC741E /* AnimationCompletionObserver.swift */,
+				C81792462BF9DD5200DC741E /* DeviceShakeObserver.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -993,9 +1029,11 @@
 				C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */,
 				C8BBB3702B49108F00F3828C /* SpotlightScrollManager.swift in Sources */,
 				C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */,
+				C81792502BF9ED4B00DC741E /* SpellingErrorCommentModel.swift in Sources */,
 				C851EB152BA5DC3F0021275F /* SwiftPackagesScreen.swift in Sources */,
 				C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */,
 				C851EB172BA5E2290021275F /* ReferencedWebsitesScreen.swift in Sources */,
+				C817924A2BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift in Sources */,
 				C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */,
 				C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */,
 				C81E829B2B6BFEBB00A59147 /* WorshipPlanScreen.swift in Sources */,
@@ -1032,12 +1070,14 @@
 				C815D6D02B4B158F00BFB79C /* PrayerConfiguration.swift in Sources */,
 				C84E69222B4C4530006231CD /* DemoView.swift in Sources */,
 				C8CA45E62B4152AC00240DA7 /* PageColor.swift in Sources */,
+				C81792472BF9DD5200DC741E /* DeviceShakeObserver.swift in Sources */,
 				C8D652962B2EA6BD00BB6C42 /* AppColor.swift in Sources */,
 				C8CA45E42B414A4D00240DA7 /* MyanmarFont.swift in Sources */,
 				C8D652882B2E0F1D00BB6C42 /* SettingsScreen.swift in Sources */,
 				653454BB2BEBDF24004FC8EE /* MyanmarSyllable.swift in Sources */,
 				C8D730B32B46D42500D19D57 /* OverflowContentViewModifier.swift in Sources */,
 				C82039FA2B1CE1C7000EEF61 /* PhayarSarModel.swift in Sources */,
+				C817924D2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift in Sources */,
 				C81CF2572B53FCA000E1B726 /* PrayingMode.swift in Sources */,
 				C86AAA4B2B92DEAB00D899B2 /* WorshipPlanRepository.swift in Sources */,
 				C84240C02B2DD34900A2B234 /* LocalizedKey.swift in Sources */,
@@ -1226,7 +1266,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
-				DEVELOPMENT_TEAM = 39366RYQCK;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhayarSar/Info.plist;
@@ -1241,7 +1281,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.winlwinoo.PhayarSar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -1260,7 +1300,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
-				DEVELOPMENT_TEAM = 39366RYQCK;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PhayarSar/Info.plist;
@@ -1275,7 +1315,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.winlwinoo.PhayarSar;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
