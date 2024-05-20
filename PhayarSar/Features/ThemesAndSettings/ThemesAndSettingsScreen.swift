@@ -101,6 +101,7 @@ extension ThemesAndSettingsScreen: View {
     .onDisappear {
       vm.saveThemeAndSettings()
     }
+    .askForReviewOnDisappear()
     .onChange(of: showFontIndicator) {
       if $0 {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
