@@ -18,6 +18,7 @@ struct PhayarSarApp: App {
   @StateObject private var preferences = UserPreferences()
   @StateObject private var worshipPlanRepo = WorshipPlanRepository()
   @StateObject private var dailyPrayingTimeRepository = DailyPrayingTimeRepository()
+  @StateObject private var remoteConfigManager = RemoteConfigManager()
   
   private let coreDataStack = CoreDataStack.shared
   
@@ -45,12 +46,21 @@ extension PhayarSarApp {
   var body: some Scene {
     WindowGroup {
       Group {
-        if preferences.hasAppLangChosen == nil {
-          NavigationView {
-            ChooseLanguageScreen()
+        if remoteConfigManager.hasFetched {
+          if preferences.hasAppLangChosen == nil {
+            NavigationView {
+              ChooseLanguageScreen()
+            }
+          } else {
+            TabScreen()
           }
         } else {
-          TabScreen()
+          LaunchScreen()
+            .onAppear {
+              delay(1) {
+                remoteConfigManager.fetch()
+              }
+            }
         }
       }
       .environmentObject(preferences)
