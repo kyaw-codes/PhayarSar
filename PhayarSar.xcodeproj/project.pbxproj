@@ -27,6 +27,7 @@
 		C81792622BFBA74F00DC741E /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792612BFBA74F00DC741E /* RemoteConfigManager.swift */; };
 		C81792652BFBB36E00DC741E /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792642BFBB36E00DC741E /* LaunchScreen.swift */; };
 		C81792682BFBB8FB00DC741E /* WhatIsNewFRCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792672BFBB8FB00DC741E /* WhatIsNewFRCModel.swift */; };
+		C817926A2BFBBB1A00DC741E /* Decodable+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792692BFBBB1A00DC741E /* Decodable+localization.swift */; };
 		C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2502B53E66100E1B726 /* ReadingModeView.swift */; };
 		C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */; };
 		C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */; };
@@ -198,6 +199,7 @@
 		C81792612BFBA74F00DC741E /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		C81792642BFBB36E00DC741E /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		C81792672BFBB8FB00DC741E /* WhatIsNewFRCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsNewFRCModel.swift; sourceTree = "<group>"; };
+		C81792692BFBBB1A00DC741E /* Decodable+localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+localization.swift"; sourceTree = "<group>"; };
 		C81CF2502B53E66100E1B726 /* ReadingModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingModeView.swift; sourceTree = "<group>"; };
 		C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectedView.swift; sourceTree = "<group>"; };
 		C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModeView.swift; sourceTree = "<group>"; };
@@ -665,6 +667,7 @@
 				C84E691F2B4C42FA006231CD /* NSObject+Extension.swift */,
 				C8FCD1452BA54F9D00AB5BD3 /* Date.swift */,
 				C81792512BFB8E2700DC741E /* AskForReview.swift */,
+				C81792692BFBBB1A00DC741E /* Decodable+localization.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1083,6 +1086,7 @@
 				C8AE59302B6E471B00ABB8F3 /* RollingText.swift in Sources */,
 				C80287472B4A5F3600F165DF /* PrayingProgressView.swift in Sources */,
 				C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */,
+				C817926A2BFBBB1A00DC741E /* Decodable+localization.swift in Sources */,
 				C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */,
 				C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */,
 				C88DECB72B9DF94700A96B29 /* TextType.swift in Sources */,

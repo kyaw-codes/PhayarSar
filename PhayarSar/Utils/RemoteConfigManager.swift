@@ -18,6 +18,9 @@ final class RemoteConfigManager: ObservableObject {
   init() {
     remoteConfig = RemoteConfig.remoteConfig()
     let settings = RemoteConfigSettings()
+    #if DEBUG
+    settings.minimumFetchInterval = 0
+    #endif
     remoteConfig.configSettings = settings
   }
 
