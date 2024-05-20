@@ -99,6 +99,7 @@ extension CommonPrayerScreen: View {
       }
     }
     .onShake {
+      guard preferences.enableShakeToReport else { return }
       showReportScreen.toggle()
     }
     .onAppear {

@@ -15,4 +15,5 @@ class UserPreferences: ObservableObject {
   @AppStorage("accentColor") var accentColor: AppColor = .pineGreen
   @AppStorage("isHapticEnable") var isHapticEnable: Bool = false
   @AppStorage("areRemindersEnabled") var areRemindersEnabled: Bool = true
+  @AppStorage("enableShakeToReportWrongSpellings") var enableShakeToReport: Bool = false
 }

@@ -40,6 +40,7 @@ struct SettingsScreen: View {
         ChooseLang()
         AppAccentColor()
         EnableHaptic()
+        EnableShakeToReport()
       }
       
       HelpSection()
@@ -267,6 +268,15 @@ struct SettingsScreen: View {
   private func EnableHaptic() -> some View {
     Toggle(isOn: $preferences.isHapticEnable, label: {
       LocalizedText(.haptic_on, default: "Haptic on")
+        .font(.qsSb(16))
+    })
+    .tint(preferences.accentColor.color)
+  }
+  
+  @ViewBuilder
+  private func EnableShakeToReport() -> some View {
+    Toggle(isOn: $preferences.enableShakeToReport, label: {
+      LocalizedText(.enable_shake_to_report)
         .font(.qsSb(16))
     })
     .tint(preferences.accentColor.color)

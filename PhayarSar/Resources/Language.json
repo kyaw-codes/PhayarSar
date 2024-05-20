@@ -627,5 +627,8 @@
     "En": "Write down your comment ...",
     "Mm": "မှတ်ချက်ရေးပါ..."
   },
-  
+  "enable_shake_to_report": {
+    "En": "Shake to report wrong prayers",
+    "Mm": "ဖုန်းကိုလှုပ်ပြီး ဘုရားစာအမှားတွေ ရိီပို့တင်မယ်"
+  },
 }
