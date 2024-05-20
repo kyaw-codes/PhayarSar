@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import FirebaseCore
 
 var langDict: [String: [String: String]] = [:]
 
@@ -73,6 +74,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         }
       }
     UNUserNotificationCenter.current().delegate = self
+    
+    // Set up firebase
+    FirebaseApp.configure()
     
     return true
   }

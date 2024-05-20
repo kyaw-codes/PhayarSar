@@ -21,6 +21,9 @@
 		C817924D2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */; };
 		C81792502BF9ED4B00DC741E /* SpellingErrorCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */; };
 		C81792522BFB8E2700DC741E /* AskForReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792512BFB8E2700DC741E /* AskForReview.swift */; };
+		C817925B2BFB973800DC741E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C817925A2BFB973800DC741E /* GoogleService-Info.plist */; };
+		C817925E2BFB979E00DC741E /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = C817925D2BFB979E00DC741E /* FirebaseRemoteConfig */; };
+		C81792602BFB979E00DC741E /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C817925F2BFB979E00DC741E /* FirebaseRemoteConfigSwift */; };
 		C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2502B53E66100E1B726 /* ReadingModeView.swift */; };
 		C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */; };
 		C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */; };
@@ -188,6 +191,7 @@
 		C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingErrorCommentScreen.swift; sourceTree = "<group>"; };
 		C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingErrorCommentModel.swift; sourceTree = "<group>"; };
 		C81792512BFB8E2700DC741E /* AskForReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskForReview.swift; sourceTree = "<group>"; };
+		C817925A2BFB973800DC741E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C81CF2502B53E66100E1B726 /* ReadingModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingModeView.swift; sourceTree = "<group>"; };
 		C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectedView.swift; sourceTree = "<group>"; };
 		C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModeView.swift; sourceTree = "<group>"; };
@@ -331,6 +335,8 @@
 				C82039F22B1CCF13000EEF61 /* SwiftUIBackports in Frameworks */,
 				C8F339432B9433E900C1730B /* SwipeActions in Frameworks */,
 				C8D730B92B46F74900D19D57 /* CompactSlider in Frameworks */,
+				C81792602BFB979E00DC741E /* FirebaseRemoteConfigSwift in Frameworks */,
+				C817925E2BFB979E00DC741E /* FirebaseRemoteConfig in Frameworks */,
 				C8F339462B94374300C1730B /* AlertToast in Frameworks */,
 				C8FCD1422BA4AF0300AB5BD3 /* SwiftUICharts in Frameworks */,
 			);
@@ -476,6 +482,7 @@
 				C82039D72B1CC2E9000EEF61 /* Features */,
 				C82039DB2B1CC48C000EEF61 /* Resources */,
 				C82039E52B1CC508000EEF61 /* Info.plist */,
+				C817925A2BFB973800DC741E /* GoogleService-Info.plist */,
 				C82039B32B1CABE6000EEF61 /* Preview Content */,
 			);
 			path = PhayarSar;
@@ -848,6 +855,8 @@
 				C8F339422B9433E900C1730B /* SwipeActions */,
 				C8F339452B94374300C1730B /* AlertToast */,
 				C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */,
+				C817925D2BFB979E00DC741E /* FirebaseRemoteConfig */,
+				C817925F2BFB979E00DC741E /* FirebaseRemoteConfigSwift */,
 			);
 			productName = PhayarSar;
 			productReference = C82039AA2B1CABE4000EEF61 /* PhayarSar.app */;
@@ -927,6 +936,7 @@
 				C8F339412B9433E900C1730B /* XCRemoteSwiftPackageReference "SwipeActions" */,
 				C8F339442B94374300C1730B /* XCRemoteSwiftPackageReference "AlertToast" */,
 				C8FCD1402BA4AF0300AB5BD3 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+				C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = C82039AB2B1CABE4000EEF61 /* Products */;
 			projectDirPath = "";
@@ -946,6 +956,7 @@
 			files = (
 				C82039B52B1CABE6000EEF61 /* Preview Assets.xcassets in Resources */,
 				C8CEF9F72B68003000EF9B9E /* တရားဂုဏ်တော်.json in Resources */,
+				C817925B2BFB973800DC741E /* GoogleService-Info.plist in Resources */,
 				C8CEF9F52B67FF9500EF9B9E /* ဘုရားဂုဏ်တော်.json in Resources */,
 				C8D403112B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json in Resources */,
 				C8D4031B2B6B46E900448EDC /* မောရသုတ်.json in Resources */,
@@ -1448,6 +1459,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
 		C82039F02B1CCF13000EEF61 /* XCRemoteSwiftPackageReference "SwiftUIBackports" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/shaps80/SwiftUIBackports.git";
@@ -1491,6 +1510,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C817925D2BFB979E00DC741E /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		C817925F2BFB979E00DC741E /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfigSwift;
+		};
 		C82039F12B1CCF13000EEF61 /* SwiftUIBackports */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C82039F02B1CCF13000EEF61 /* XCRemoteSwiftPackageReference "SwiftUIBackports" */;
