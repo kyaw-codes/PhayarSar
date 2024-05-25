@@ -631,4 +631,12 @@
     "En": "Shake to report wrong prayers",
     "Mm": "ဖုန်းကိုလှုပ်ပြီး ဘုရားစာအမှားတွေ ရိီပို့တင်မယ်"
   },
+  "whats_new_in_v_x": {
+    "En": "What's new in v{$}?",
+    "Mm": "v{$} မှာ ဘာတွေထူးလဲ?"
+  },
+  "tap_anywhere_to_dismiss": {
+    "En": "Tap anywhere to dismiss",
+    "Mm": "ကြိုက်တဲ့နေရာကိုနှိပ်ပြီး ထွက်ပါ"
+  },
 }

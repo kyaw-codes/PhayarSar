@@ -28,7 +28,7 @@ struct WhatIsNewScreen: View {
         }
 
       VStack(spacing: 20) {
-        Text("What's new in v\(appVersion)?")
+        LocalizedText(.whats_new_in_v_x, args: ["\(appVersion)"])
           .font(.dmSerif(28))
           .shadow(color: .black.opacity(0.3), radius: 10, x: 4, y: 0)
           .foregroundStyle(.white)
@@ -58,7 +58,7 @@ struct WhatIsNewScreen: View {
           dismiss?()
         }
         
-        Text("Tap anywhere to dismiss")
+        LocalizedText(.tap_anywhere_to_dismiss)
           .font(.qsSb(16))
           .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.8), .white.opacity(0.95), .white, .white.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing))
           .padding(.vertical)

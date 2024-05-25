@@ -100,7 +100,7 @@ extension TabScreen: View {
             .tag(TabItem.home)
             
             NavigationView {
-                SettingsScreen(showTabBar: $showTabBar)
+                SettingsScreen(showTabBar: $showTabBar, showWhatIsNew: $showWhatIsNew)
                     .afterAppear {
                         showTabBar = true
                     }
