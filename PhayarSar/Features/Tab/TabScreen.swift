@@ -49,6 +49,7 @@ struct TabScreen {
     @EnvironmentObject private var preferences: UserPreferences
     @State private var selected: TabItem = .home
     @State private var showTabBar = true
+  @State private var showWhatIsNew = false
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -65,10 +66,24 @@ extension TabScreen: View {
                     .zIndex(1)
                     .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
             }
+          
+          if showWhatIsNew {
+            WhatIsNewScreen {
+              withAnimation(.snappy) {
+                showWhatIsNew = false
+              }
+            }
+              .zIndex(1)
+          }
         }
         .animation(.easeOut(duration: 0.2), value: showTabBar)
         .tint(preferences.accentColor.color)
         .environmentObject(preferences)
+        .onAppear {
+          withAnimation(.snappy) {
+            showWhatIsNew = true
+          }
+        }
     }
     
     @ViewBuilder
@@ -85,7 +100,7 @@ extension TabScreen: View {
             .tag(TabItem.home)
             
             NavigationView {
-                SettingsScreen(showTabBar: $showTabBar)
+                SettingsScreen(showTabBar: $showTabBar, showWhatIsNew: $showWhatIsNew)
                     .afterAppear {
                         showTabBar = true
                     }

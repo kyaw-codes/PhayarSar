@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import FirebaseCore
 
 var langDict: [String: [String: String]] = [:]
 
@@ -17,6 +18,7 @@ struct PhayarSarApp: App {
   @StateObject private var preferences = UserPreferences()
   @StateObject private var worshipPlanRepo = WorshipPlanRepository()
   @StateObject private var dailyPrayingTimeRepository = DailyPrayingTimeRepository()
+  @StateObject private var remoteConfigManager = RemoteConfigManager()
   
   private let coreDataStack = CoreDataStack.shared
   
@@ -44,17 +46,27 @@ extension PhayarSarApp {
   var body: some Scene {
     WindowGroup {
       Group {
-        if preferences.hasAppLangChosen == nil {
-          NavigationView {
-            ChooseLanguageScreen()
+        if remoteConfigManager.hasFetched {
+          if preferences.hasAppLangChosen == nil {
+            NavigationView {
+              ChooseLanguageScreen()
+            }
+          } else {
+            TabScreen()
           }
         } else {
-          TabScreen()
+          LaunchScreen()
+            .onAppear {
+              delay(0.5) {
+                remoteConfigManager.fetch()
+              }
+            }
         }
       }
       .environmentObject(preferences)
       .environmentObject(worshipPlanRepo)
       .environmentObject(dailyPrayingTimeRepository)
+      .environmentObject(remoteConfigManager)
       .environment(\.managedObjectContext, coreDataStack.viewContext)
     }
   }
@@ -73,6 +85,9 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
         }
       }
     UNUserNotificationCenter.current().delegate = self
+    
+    // Set up firebase
+    FirebaseApp.configure()
     
     return true
   }

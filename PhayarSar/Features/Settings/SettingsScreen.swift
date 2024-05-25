@@ -10,6 +10,7 @@ import AlertToast
 
 struct SettingsScreen: View {
   @Binding var showTabBar: Bool
+  @Binding var showWhatIsNew: Bool
   @EnvironmentObject private var preferences: UserPreferences
   @EnvironmentObject private var worshipPlanRepo: WorshipPlanRepository
   @State private var showResetSuccessfulToast = false
@@ -29,7 +30,7 @@ struct SettingsScreen: View {
             Text("PhayarSar")
               .font(.dmSerif(20))
             
-            Text("V1.0.0")
+            Text("V\(appVersion)")
               .font(.qsB(14))
               .foregroundColor(preferences.accentColor.color)
           }
@@ -42,6 +43,8 @@ struct SettingsScreen: View {
         EnableHaptic()
         EnableShakeToReport()
       }
+      
+      WhatIsNewSection()
       
       HelpSection()
       
@@ -125,6 +128,32 @@ struct SettingsScreen: View {
         title: LocalizedKey.disable_worship_reminders_success.localize(preferences.appLang),
         style: .style(backgroundColor: .green, titleColor: .white, subTitleColor: .white, titleFont: .qsSb(16), subTitleFont: nil)
       )
+    }
+  }
+  
+  @ViewBuilder
+  func WhatIsNewSection() -> some View {
+    Section {
+      Button {
+        withAnimation(.snappy) {
+          showWhatIsNew = true
+        }
+      } label: {
+        HStack {
+          Image(systemName: "warninglight.fill")
+            .foregroundColor(.white)
+            .font(.caption)
+            .padding(5)
+            .background(
+              RoundedRectangle(cornerRadius: 4)
+                .fill(.purple)
+            )
+          LocalizedText(.whats_new_in_v_x, args: ["\(appVersion)"])
+            .font(.qsSb(16))
+            .foregroundColor(.primary)
+        }
+        .foregroundColor(.primary)
+      }
     }
   }
   
@@ -310,7 +339,7 @@ struct SettingsScreen: View {
 
 #Preview {
   NavigationView {
-    SettingsScreen(showTabBar: .constant(true))
+    SettingsScreen(showTabBar: .constant(true), showWhatIsNew: .constant(false))
   }
   .environmentObject(UserPreferences())
 }
