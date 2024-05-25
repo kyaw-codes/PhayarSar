@@ -11,7 +11,8 @@ import FirebaseRemoteConfigSwift
 
 @MainActor
 final class RemoteConfigManager: ObservableObject {
-  @Published var hasFetched = false
+  @Published private(set) var hasFetched = false
+  @Published private(set) var whisnwModels: [WhatIsNewFRCModel] = []
   
   private var remoteConfig: RemoteConfig
   
@@ -40,8 +41,7 @@ final class RemoteConfigManager: ObservableObject {
   
   private func setupConfigData() {
     if let str = remoteConfig["what_is_new"].stringValue, let data = str.data(using: .utf8) {
-      let arr = try? JSONDecoder().decode([WhatIsNewFRCModel].self, from: data)
-      // todo: 
+      whisnwModels = (try? JSONDecoder().decode([WhatIsNewFRCModel].self, from: data)) ?? []
     }
   }
 }
