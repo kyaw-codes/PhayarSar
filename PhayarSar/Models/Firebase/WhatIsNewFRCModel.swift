@@ -8,7 +8,9 @@
 import Foundation
 
 struct WhatIsNewFRCModel: Decodable, Identifiable, Hashable {
-  let id: UUID = .init()
+  var id: String {
+    titleEn
+  }
   
   var titleEn: String
   var titleMm: String
@@ -23,4 +25,6 @@ struct WhatIsNewFRCModel: Decodable, Identifiable, Hashable {
   var localizedBody: String {
     localized(en: \.bodyEn, mm: \.bodyMm)
   }
+  
+  static let empty: Self = .init(titleEn: "", titleMm: "", bodyEn: "", bodyMm: "", image_url: "")
 }

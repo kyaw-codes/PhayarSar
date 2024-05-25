@@ -79,6 +79,7 @@
 		C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69472B530E0B006231CD /* PrayerModeScreen.swift */; };
 		C84F4A862C01B9B100B5A502 /* AppVersionNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A852C01B9B100B5A502 /* AppVersionNo.swift */; };
 		C84F4A892C01BB2500B5A502 /* WhatIsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */; };
+		C84F4A8D2C02138500B5A502 /* ShimmeringEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */; };
 		C851EB0B2BA5C2F90021275F /* ရှင်သီဝလိ.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */; };
 		C851EB0D2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */; };
 		C851EB0F2BA5C68E0021275F /* မဟာသမယသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */; };
@@ -256,6 +257,7 @@
 		C84E69472B530E0B006231CD /* PrayerModeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerModeScreen.swift; sourceTree = "<group>"; };
 		C84F4A852C01B9B100B5A502 /* AppVersionNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionNo.swift; sourceTree = "<group>"; };
 		C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsNewScreen.swift; sourceTree = "<group>"; };
+		C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringEffect.swift; sourceTree = "<group>"; };
 		C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ရှင်သီဝလိ.json"; sourceTree = "<group>"; };
 		C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "အနတ္တလက္ခဏသုတ်.json"; sourceTree = "<group>"; };
 		C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "မဟာသမယသုတ်.json"; sourceTree = "<group>"; };
@@ -674,6 +676,7 @@
 				C8FCD1452BA54F9D00AB5BD3 /* Date.swift */,
 				C81792512BFB8E2700DC741E /* AskForReview.swift */,
 				C81792692BFBBB1A00DC741E /* Decodable+localization.swift */,
+				C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1118,6 +1121,7 @@
 				C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */,
 				C81792522BFB8E2700DC741E /* AskForReview.swift in Sources */,
 				C8AE592C2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift in Sources */,
+				C84F4A8D2C02138500B5A502 /* ShimmeringEffect.swift in Sources */,
 				C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */,
 				C84626B52B222B6B000931AE /* HomeScreen.swift in Sources */,
 				C8FCD1382BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift in Sources */,

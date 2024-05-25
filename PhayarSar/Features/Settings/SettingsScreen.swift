@@ -30,7 +30,7 @@ struct SettingsScreen: View {
             Text("PhayarSar")
               .font(.dmSerif(20))
             
-            Text("V1.0.0")
+            Text("V\(appVersion)")
               .font(.qsB(14))
               .foregroundColor(preferences.accentColor.color)
           }
@@ -135,7 +135,9 @@ struct SettingsScreen: View {
   func WhatIsNewSection() -> some View {
     Section {
       Button {
-        showWhatIsNew = true
+        withAnimation(.snappy) {
+          showWhatIsNew = true
+        }
       } label: {
         HStack {
           Image(systemName: "warninglight.fill")

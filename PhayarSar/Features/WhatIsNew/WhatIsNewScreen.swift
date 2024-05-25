@@ -11,6 +11,7 @@ struct WhatIsNewScreen: View {
   var dismiss: (() -> ())?
   @EnvironmentObject private var preferences: UserPreferences
   @EnvironmentObject private var frcManager: RemoteConfigManager
+  @State private var selectedModel: WhatIsNewFRCModel = .empty
   
   var body: some View {
     ZStack {
@@ -37,20 +38,22 @@ struct WhatIsNewScreen: View {
             dismiss?()
           }
         
-        TabView {
+        TabView(selection: $selectedModel) {
           ForEach(frcManager.whisnwModels) { model in
             TabItemView(model)
+              .tag(model)
           }
         }
+        .id(frcManager.whisnwModels.count)
         .tabViewStyle(.page(indexDisplayMode: .never))
         .background(Color(uiColor: .white))
         .clipShape(RoundedRectangle(cornerRadius: 12))
         .padding(.horizontal, 30)
         
         HStack {
-          ForEach(0 ..< frcManager.whisnwModels.count, id: \.self) { _ in
+          ForEach(frcManager.whisnwModels) { model in
             Circle()
-              .fill(.white.opacity(0.6))
+              .fill(selectedModel == model ? .white : .white.opacity(0.6))
               .frame(width: 8, height: 8)
           }
         }
@@ -60,11 +63,17 @@ struct WhatIsNewScreen: View {
         
         LocalizedText(.tap_anywhere_to_dismiss)
           .font(.qsSb(16))
-          .foregroundStyle(LinearGradient(colors: [.white, .white.opacity(0.8), .white.opacity(0.95), .white, .white.opacity(0.8)], startPoint: .topLeading, endPoint: .bottomTrailing))
+          .foregroundStyle(.white.opacity(0.7))
+          .shimmering()
           .padding(.vertical)
           .onTapGesture {
             dismiss?()
           }
+      }
+    }
+    .onAppear {
+      if !frcManager.whisnwModels.isEmpty {
+        selectedModel = frcManager.whisnwModels[0]
       }
     }
   }
@@ -100,6 +109,7 @@ struct WhatIsNewScreen: View {
         .foregroundStyle(.black)
       }
     }
+    .tag(model)
   }
 }
 
