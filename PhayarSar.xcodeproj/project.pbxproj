@@ -78,6 +78,7 @@
 		C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */; };
 		C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69472B530E0B006231CD /* PrayerModeScreen.swift */; };
 		C84F4A862C01B9B100B5A502 /* AppVersionNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A852C01B9B100B5A502 /* AppVersionNo.swift */; };
+		C84F4A892C01BB2500B5A502 /* WhatIsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */; };
 		C851EB0B2BA5C2F90021275F /* ရှင်သီဝလိ.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */; };
 		C851EB0D2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */; };
 		C851EB0F2BA5C68E0021275F /* မဟာသမယသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */; };
@@ -254,6 +255,7 @@
 		C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerVM.swift; sourceTree = "<group>"; };
 		C84E69472B530E0B006231CD /* PrayerModeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerModeScreen.swift; sourceTree = "<group>"; };
 		C84F4A852C01B9B100B5A502 /* AppVersionNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionNo.swift; sourceTree = "<group>"; };
+		C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsNewScreen.swift; sourceTree = "<group>"; };
 		C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ရှင်သီဝလိ.json"; sourceTree = "<group>"; };
 		C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "အနတ္တလက္ခဏသုတ်.json"; sourceTree = "<group>"; };
 		C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "မဟာသမယသုတ်.json"; sourceTree = "<group>"; };
@@ -543,6 +545,7 @@
 		C82039D72B1CC2E9000EEF61 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C84F4A872C01BB1B00B5A502 /* WhatIsNew */,
 				C81792632BFBB36500DC741E /* LaunchScreen */,
 				C817924B2BF9ECA600DC741E /* SpellingErrorComment */,
 				C81792482BF9E21500DC741E /* PrayerSpellingErrorReport */,
@@ -736,6 +739,14 @@
 				C84E69472B530E0B006231CD /* PrayerModeScreen.swift */,
 			);
 			path = PrayerMode;
+			sourceTree = "<group>";
+		};
+		C84F4A872C01BB1B00B5A502 /* WhatIsNew */ = {
+			isa = PBXGroup;
+			children = (
+				C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */,
+			);
+			path = WhatIsNew;
 			sourceTree = "<group>";
 		};
 		C88DECB52B9DF92200A96B29 /* AnimateNumberText */ = {
@@ -1141,6 +1152,7 @@
 				C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */,
 				C849BF462B9CB481004F771F /* WorshipPlanPrayingScreen.swift in Sources */,
 				EA578F0C2BF996EF00366ADC /* AfterAppearViewModifier.swift in Sources */,
+				C84F4A892C01BB2500B5A502 /* WhatIsNewScreen.swift in Sources */,
 				C8AE59282B6E36C900ABB8F3 /* WorshipPlanSteps.swift in Sources */,
 				C8AE59252B6E368C00ABB8F3 /* StraightLine.swift in Sources */,
 				C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */,
@@ -1315,7 +1327,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
@@ -1331,7 +1343,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1349,7 +1361,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
@@ -1365,7 +1377,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

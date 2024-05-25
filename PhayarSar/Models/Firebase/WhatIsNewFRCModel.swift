@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct WhatIsNewFRCModel: Decodable {
+struct WhatIsNewFRCModel: Decodable, Identifiable, Hashable {
+  let id: UUID = .init()
+  
   var titleEn: String
   var titleMm: String
   var bodyEn: String

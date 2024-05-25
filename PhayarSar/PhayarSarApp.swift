@@ -57,7 +57,7 @@ extension PhayarSarApp {
         } else {
           LaunchScreen()
             .onAppear {
-              delay(1) {
+              delay(0.5) {
                 remoteConfigManager.fetch()
               }
             }
@@ -66,6 +66,7 @@ extension PhayarSarApp {
       .environmentObject(preferences)
       .environmentObject(worshipPlanRepo)
       .environmentObject(dailyPrayingTimeRepository)
+      .environmentObject(remoteConfigManager)
       .environment(\.managedObjectContext, coreDataStack.viewContext)
     }
   }
