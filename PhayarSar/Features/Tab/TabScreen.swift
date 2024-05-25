@@ -80,8 +80,11 @@ extension TabScreen: View {
         .tint(preferences.accentColor.color)
         .environmentObject(preferences)
         .onAppear {
-          withAnimation(.snappy) {
-            showWhatIsNew = true
+          if !preferences.whatIsNewV1_1 {
+            withAnimation(.snappy) {
+              showWhatIsNew = true
+            }
+            preferences.whatIsNewV1_1 = true
           }
         }
     }
