@@ -29,13 +29,13 @@ struct HomeSearchScreen: View {
         if #available(iOS 16.0, *) {
           Rectangle()
             .fill(preferences.accentColor.color.gradient)
-            .frame(height: 300)
-            .padding(.top, 200)
+            .frame(height: UIScreen.main.bounds.height * 0.15)
+            .padding(.top, UIScreen.main.bounds.height * 0.1)
         } else {
           Rectangle()
             .fill(preferences.accentColor.color)
-            .frame(height: 300)
-            .padding(.top, 200)
+            .frame(height: UIScreen.main.bounds.height * 0.15)
+            .padding(.top, UIScreen.main.bounds.height * 0.1)
         }
         
         Spacer(minLength: 0)
