@@ -168,6 +168,11 @@ enum LocalizedKey: String {
   case enable_shake_to_report
   case whats_new_in_v_x
   case tap_anywhere_to_dismiss
+  case update_require
+  case update_require_desc
+  case update_now
+  case version_x_is_available
+  case version_x_is_available_desc
   
   func localize(_ lang: AppLanguage) -> String? {
     let dict = langDict[self.rawValue]

@@ -11,6 +11,7 @@ import AlertToast
 struct SettingsScreen: View {
   @Binding var showTabBar: Bool
   @Binding var showWhatIsNew: Bool
+  @EnvironmentObject private var frcManager: RemoteConfigManager
   @EnvironmentObject private var preferences: UserPreferences
   @EnvironmentObject private var worshipPlanRepo: WorshipPlanRepository
   @State private var showResetSuccessfulToast = false
@@ -45,6 +46,10 @@ struct SettingsScreen: View {
       }
       
       WhatIsNewSection()
+      
+      if isCurrentVersionLower(minimumVersion: frcManager.latestAppVersion) {
+        NewVersionAvailableSection()
+      }
       
       HelpSection()
       
@@ -158,9 +163,39 @@ struct SettingsScreen: View {
   }
   
   @ViewBuilder
+  func NewVersionAvailableSection() -> some View {
+    Section {
+      Button(action: openPhayarsarOnAppStore) {
+        HStack {
+          Image(systemName: "bolt.fill")
+            .foregroundColor(.white)
+            .font(.caption)
+            .padding(5)
+            .background(
+              RoundedRectangle(cornerRadius: 4)
+                .fill(LinearGradient(colors: [.pink, .orange, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
+            )
+          
+          LocalizedText(.version_x_is_available, args: ["\(frcManager.latestAppVersion)"])
+            .font(.qsSb(16))
+          
+          Spacer()
+          
+          Image(systemName: "arrow.up.right")
+            .foregroundColor(.secondary)
+        }
+      }
+      .tint(.primary)
+    } footer: {
+      LocalizedText(.version_x_is_available_desc)
+        .font(.qsR(14))
+    }
+  }
+  
+  @ViewBuilder
   func HelpSection() -> some View {
     Section {
-      Button(action: rateApp) {
+      Button(action: openPhayarsarOnAppStore) {
         HStack {
           Image(systemName: "star.fill")
             .foregroundColor(.white)
@@ -241,13 +276,7 @@ struct SettingsScreen: View {
       //          showingAlert.toggle()
     }
   }
-  
-  private func rateApp() {
-    if let url = URL(string: "itms-apps://itunes.apple.com/app/id6475991817") {
-      UIApplication.shared.open(url)
-    }
-  }
-  
+
   @ViewBuilder
   private func ChooseLang() -> some View {
     NavigationLink {
@@ -341,5 +370,5 @@ struct SettingsScreen: View {
   NavigationView {
     SettingsScreen(showTabBar: .constant(true), showWhatIsNew: .constant(false))
   }
-  .environmentObject(UserPreferences())
+  .previewEnvironment()
 }
