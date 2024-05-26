@@ -5,7 +5,7 @@
 //  Created by Kyaw Zay Ya Lin Tun on 25/05/2024.
 //
 
-import Foundation
+import UIKit
 
 let appVersion = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "1.0.0"
 
@@ -32,4 +32,10 @@ func isCurrentVersionLower(minimumVersion: String) -> Bool {
   
   // Versions are equal
   return false
+}
+
+func openPhayarsarOnAppStore() {
+  if let url = URL(string: "itms-apps://itunes.apple.com/app/id6475991817") {
+    UIApplication.shared.open(url)
+  }
 }

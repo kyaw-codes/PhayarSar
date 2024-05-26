@@ -28,11 +28,7 @@ struct ForceUpdateScreen: View {
     .padding(.horizontal, 20)
     .frame(maxHeight: .infinity)
     .safeAreaInset(edge: .bottom) {
-      Button {
-        if let url = URL(string: "itms-apps://itunes.apple.com/app/id6475991817") {
-          UIApplication.shared.open(url)
-        }
-      } label: {
+      Button(action: openPhayarsarOnAppStore) {
         LocalizedText(.update_now)
           .font(.qsSb(17))
           .padding(12)

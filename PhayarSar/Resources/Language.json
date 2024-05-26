@@ -651,4 +651,12 @@
     "En": "Update Now",
     "Mm": "အခုပဲ အပ်ဒိတ်လုပ်မယ်"
   },
+  "version_x_is_available": {
+    "En": "v{$} is available",
+    "Mm": "v{$} ကို အပ်ဒိတ်လုပ်မယ်"
+  },
+  "version_x_is_available_desc": {
+    "En": "An improved version of Phayarsar - BuddhistPrayers is available.",
+    "Mm": "ပိုမိုကောင်းမွန်သော Phayarsar - BuddhistPrayers ကို ဖြန့်ချီလိုက်ပါပြီ။"
+  },
 }

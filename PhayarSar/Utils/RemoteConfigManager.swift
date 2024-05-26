@@ -14,6 +14,7 @@ final class RemoteConfigManager: ObservableObject {
   @Published private(set) var hasFetched = false
   @Published private(set) var whisnwModels: [WhatIsNewFRCModel] = []
   @Published private(set) var minAppVersion: String  = "1.0.0"
+  @Published private(set) var latestAppVersion: String = "1.0.0"
   
   private var remoteConfig: RemoteConfig
   
@@ -47,6 +48,10 @@ final class RemoteConfigManager: ObservableObject {
     
     if let str = remoteConfig["minimum_app_version"].stringValue {
       minAppVersion = str
+    }
+    
+    if let str = remoteConfig["latest_app_version"].stringValue {
+      latestAppVersion = str
     }
   }
 }
