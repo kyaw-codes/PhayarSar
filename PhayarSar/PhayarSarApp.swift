@@ -120,6 +120,12 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
   func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     Messaging.messaging().apnsToken = deviceToken
   }
+  
+  func application(_ application: UIApplication,
+                   didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                   fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    completionHandler(.newData)
+  }
 }
 
 extension AppDelegate: MessagingDelegate {

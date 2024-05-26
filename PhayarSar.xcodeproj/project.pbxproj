@@ -82,6 +82,8 @@
 		C84F4A8D2C02138500B5A502 /* ShimmeringEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */; };
 		C84F4A902C02E5AB00B5A502 /* ForceUpdateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A8F2C02E5AB00B5A502 /* ForceUpdateScreen.swift */; };
 		C84F4A972C03146900B5A502 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = C84F4A962C03146900B5A502 /* FirebaseMessaging */; };
+		C84F4A9F2C03197700B5A502 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A9E2C03197700B5A502 /* NotificationService.swift */; };
+		C84F4AA32C03197700B5A502 /* PhayarSarNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C84F4A9C2C03197700B5A502 /* PhayarSarNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C851EB0B2BA5C2F90021275F /* ရှင်သီဝလိ.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */; };
 		C851EB0D2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */; };
 		C851EB0F2BA5C68E0021275F /* မဟာသမယသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */; };
@@ -183,7 +185,28 @@
 			remoteGlobalIDString = C82039A92B1CABE4000EEF61;
 			remoteInfo = PhayarSar;
 		};
+		C84F4AA12C03197700B5A502 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C82039A22B1CABE4000EEF61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C84F4A9B2C03197700B5A502;
+			remoteInfo = PhayarSarNotificationService;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C84F4AA72C03197700B5A502 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C84F4AA32C03197700B5A502 /* PhayarSarNotificationService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		653454BA2BEBDF24004FC8EE /* MyanmarSyllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyanmarSyllable.swift; sourceTree = "<group>"; };
@@ -262,6 +285,9 @@
 		C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringEffect.swift; sourceTree = "<group>"; };
 		C84F4A8F2C02E5AB00B5A502 /* ForceUpdateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateScreen.swift; sourceTree = "<group>"; };
 		C84F4A942C03132600B5A502 /* PhayarSar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhayarSar.entitlements; sourceTree = "<group>"; };
+		C84F4A9C2C03197700B5A502 /* PhayarSarNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PhayarSarNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84F4A9E2C03197700B5A502 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		C84F4AA02C03197700B5A502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ရှင်သီဝလိ.json"; sourceTree = "<group>"; };
 		C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "အနတ္တလက္ခဏသုတ်.json"; sourceTree = "<group>"; };
 		C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "မဟာသမယသုတ်.json"; sourceTree = "<group>"; };
@@ -369,6 +395,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C82039C12B1CABE6000EEF61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C84F4A992C03197700B5A502 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -492,6 +525,7 @@
 				C82039AC2B1CABE4000EEF61 /* PhayarSar */,
 				C82039BD2B1CABE6000EEF61 /* PhayarSarTests */,
 				C82039C72B1CABE6000EEF61 /* PhayarSarUITests */,
+				C84F4A9D2C03197700B5A502 /* PhayarSarNotificationService */,
 				C82039AB2B1CABE4000EEF61 /* Products */,
 				C84F4A952C03146900B5A502 /* Frameworks */,
 			);
@@ -503,6 +537,7 @@
 				C82039AA2B1CABE4000EEF61 /* PhayarSar.app */,
 				C82039BA2B1CABE6000EEF61 /* PhayarSarTests.xctest */,
 				C82039C42B1CABE6000EEF61 /* PhayarSarUITests.xctest */,
+				C84F4A9C2C03197700B5A502 /* PhayarSarNotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -775,6 +810,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C84F4A9D2C03197700B5A502 /* PhayarSarNotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				C84F4A9E2C03197700B5A502 /* NotificationService.swift */,
+				C84F4AA02C03197700B5A502 /* Info.plist */,
+			);
+			path = PhayarSarNotificationService;
+			sourceTree = "<group>";
+		};
 		C88DECB52B9DF92200A96B29 /* AnimateNumberText */ = {
 			isa = PBXGroup;
 			children = (
@@ -911,10 +955,12 @@
 				C82039A62B1CABE4000EEF61 /* Sources */,
 				C82039A72B1CABE4000EEF61 /* Frameworks */,
 				C82039A82B1CABE4000EEF61 /* Resources */,
+				C84F4AA72C03197700B5A502 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C84F4AA22C03197700B5A502 /* PBXTargetDependency */,
 			);
 			name = PhayarSar;
 			packageProductDependencies = (
@@ -967,6 +1013,23 @@
 			productReference = C82039C42B1CABE6000EEF61 /* PhayarSarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C84F4A9B2C03197700B5A502 /* PhayarSarNotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C84F4AA42C03197700B5A502 /* Build configuration list for PBXNativeTarget "PhayarSarNotificationService" */;
+			buildPhases = (
+				C84F4A982C03197700B5A502 /* Sources */,
+				C84F4A992C03197700B5A502 /* Frameworks */,
+				C84F4A9A2C03197700B5A502 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhayarSarNotificationService;
+			productName = PhayarSarNotificationService;
+			productReference = C84F4A9C2C03197700B5A502 /* PhayarSarNotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -974,7 +1037,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					C82039A92B1CABE4000EEF61 = {
@@ -987,6 +1050,9 @@
 					C82039C32B1CABE6000EEF61 = {
 						CreatedOnToolsVersion = 15.0.1;
 						TestTargetID = C82039A92B1CABE4000EEF61;
+					};
+					C84F4A9B2C03197700B5A502 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -1014,6 +1080,7 @@
 				C82039A92B1CABE4000EEF61 /* PhayarSar */,
 				C82039B92B1CABE6000EEF61 /* PhayarSarTests */,
 				C82039C32B1CABE6000EEF61 /* PhayarSarUITests */,
+				C84F4A9B2C03197700B5A502 /* PhayarSarNotificationService */,
 			);
 		};
 /* End PBXProject section */
@@ -1079,6 +1146,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C82039C22B1CABE6000EEF61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C84F4A9A2C03197700B5A502 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1215,6 +1289,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C84F4A982C03197700B5A502 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84F4A9F2C03197700B5A502 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1227,6 +1309,11 @@
 			isa = PBXTargetDependency;
 			target = C82039A92B1CABE4000EEF61 /* PhayarSar */;
 			targetProxy = C82039C52B1CABE6000EEF61 /* PBXContainerItemProxy */;
+		};
+		C84F4AA22C03197700B5A502 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C84F4A9B2C03197700B5A502 /* PhayarSarNotificationService */;
+			targetProxy = C84F4AA12C03197700B5A502 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1353,6 +1440,7 @@
 		C82039CF2B1CABE6000EEF61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PhayarSar/PhayarSar.entitlements;
@@ -1388,6 +1476,7 @@
 		C82039D02B1CABE6000EEF61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PhayarSar/PhayarSar.entitlements;
@@ -1496,6 +1585,58 @@
 			};
 			name = Release;
 		};
+		C84F4AA52C03197700B5A502 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhayarSarNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PhayarSarNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar.PhayarSarNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C84F4AA62C03197700B5A502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhayarSarNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PhayarSarNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar.PhayarSarNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1531,6 +1672,15 @@
 			buildConfigurations = (
 				C82039D52B1CABE6000EEF61 /* Debug */,
 				C82039D62B1CABE6000EEF61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C84F4AA42C03197700B5A502 /* Build configuration list for PBXNativeTarget "PhayarSarNotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C84F4AA52C03197700B5A502 /* Debug */,
+				C84F4AA62C03197700B5A502 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
