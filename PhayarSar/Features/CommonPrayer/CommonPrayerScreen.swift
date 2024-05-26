@@ -100,6 +100,7 @@ extension CommonPrayerScreen: View {
     }
     .onShake {
       guard preferences.enableShakeToReport else { return }
+      HapticKit.notification(.success).generate()
       showReportScreen.toggle()
     }
     .onAppear {
