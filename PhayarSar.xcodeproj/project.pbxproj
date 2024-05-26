@@ -81,6 +81,7 @@
 		C84F4A892C01BB2500B5A502 /* WhatIsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */; };
 		C84F4A8D2C02138500B5A502 /* ShimmeringEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */; };
 		C84F4A902C02E5AB00B5A502 /* ForceUpdateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A8F2C02E5AB00B5A502 /* ForceUpdateScreen.swift */; };
+		C84F4A972C03146900B5A502 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = C84F4A962C03146900B5A502 /* FirebaseMessaging */; };
 		C851EB0B2BA5C2F90021275F /* ရှင်သီဝလိ.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */; };
 		C851EB0D2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */; };
 		C851EB0F2BA5C68E0021275F /* မဟာသမယသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */; };
@@ -260,6 +261,7 @@
 		C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsNewScreen.swift; sourceTree = "<group>"; };
 		C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringEffect.swift; sourceTree = "<group>"; };
 		C84F4A8F2C02E5AB00B5A502 /* ForceUpdateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateScreen.swift; sourceTree = "<group>"; };
+		C84F4A942C03132600B5A502 /* PhayarSar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhayarSar.entitlements; sourceTree = "<group>"; };
 		C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ရှင်သီဝလိ.json"; sourceTree = "<group>"; };
 		C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "အနတ္တလက္ခဏသုတ်.json"; sourceTree = "<group>"; };
 		C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "မဟာသမယသုတ်.json"; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C84F4A972C03146900B5A502 /* FirebaseMessaging in Frameworks */,
 				C82039F22B1CCF13000EEF61 /* SwiftUIBackports in Frameworks */,
 				C8F339432B9433E900C1730B /* SwipeActions in Frameworks */,
 				C8D730B92B46F74900D19D57 /* CompactSlider in Frameworks */,
@@ -490,6 +493,7 @@
 				C82039BD2B1CABE6000EEF61 /* PhayarSarTests */,
 				C82039C72B1CABE6000EEF61 /* PhayarSarUITests */,
 				C82039AB2B1CABE4000EEF61 /* Products */,
+				C84F4A952C03146900B5A502 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -506,6 +510,7 @@
 		C82039AC2B1CABE4000EEF61 /* PhayarSar */ = {
 			isa = PBXGroup;
 			children = (
+				C84F4A942C03132600B5A502 /* PhayarSar.entitlements */,
 				C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */,
 				C815D6C92B4B140700BFB79C /* CoreData */,
 				C81E927E2B2DCDAD00F4ED9E /* Models */,
@@ -763,6 +768,13 @@
 			path = ForceUpdate;
 			sourceTree = "<group>";
 		};
+		C84F4A952C03146900B5A502 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C88DECB52B9DF92200A96B29 /* AnimateNumberText */ = {
 			isa = PBXGroup;
 			children = (
@@ -913,6 +925,7 @@
 				C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */,
 				C817925D2BFB979E00DC741E /* FirebaseRemoteConfig */,
 				C817925F2BFB979E00DC741E /* FirebaseRemoteConfigSwift */,
+				C84F4A962C03146900B5A502 /* FirebaseMessaging */,
 			);
 			productName = PhayarSar;
 			productReference = C82039AA2B1CABE4000EEF61 /* PhayarSar.app */;
@@ -1342,6 +1355,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhayarSar/PhayarSar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
@@ -1376,6 +1390,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhayarSar/PhayarSar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
@@ -1588,6 +1603,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C82039F02B1CCF13000EEF61 /* XCRemoteSwiftPackageReference "SwiftUIBackports" */;
 			productName = SwiftUIBackports;
+		};
+		C84F4A962C03146900B5A502 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 		C8D730B82B46F74900D19D57 /* CompactSlider */ = {
 			isa = XCSwiftPackageProductDependency;
