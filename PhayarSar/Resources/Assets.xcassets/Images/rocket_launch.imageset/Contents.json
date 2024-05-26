@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Frame 7941.png",
+      "filename" : "rocket_launch.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "rocket_launch 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "rocket_launch 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

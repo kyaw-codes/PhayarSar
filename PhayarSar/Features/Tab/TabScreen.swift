@@ -47,9 +47,11 @@ struct TabScreen {
   @Environment(\.safeAreaInsets) private var insets
   @Environment(\.colorScheme) private var colorScheme
   @EnvironmentObject private var preferences: UserPreferences
+  @EnvironmentObject private var frcManager: RemoteConfigManager
   @State private var selected: TabItem = .home
   @State private var showTabBar = true
   @State private var showWhatIsNew = false
+  @State private var showForceUpdate = false
   
   init() {
     UITabBar.appearance().isHidden = true
@@ -79,7 +81,15 @@ extension TabScreen: View {
     .animation(.easeOut(duration: 0.2), value: showTabBar)
     .tint(preferences.accentColor.color)
     .environmentObject(preferences)
+    .fullScreenCover(isPresented: $showForceUpdate) {
+      ForceUpdateScreen()
+    }
     .onAppear {
+      guard !isCurrentVersionLower(minimumVersion: frcManager.minAppVersion) else {
+        showForceUpdate = true
+        return
+      }
+      
       if !preferences.whatIsNewV1_1 {
         withAnimation(.snappy) {
           showWhatIsNew = true
