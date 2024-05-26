@@ -20,12 +20,12 @@ class NotificationService: UNNotificationServiceExtension {
     if let bestAttemptContent = bestAttemptContent {
       let userInfo = request.content.userInfo
       
-      if userInfo[imageKey] == nil {
+      if (userInfo["fcm_options"] as? [String: String])?["image"] == nil {
         contentHandler(bestAttemptContent)
         return
       }
       
-      if let attachmentMedia = userInfo[imageKey] as? String {
+      if let attachmentMedia = (userInfo["fcm_options"] as? [String: String])?["image"] {
         let mediaUrl = URL(string: attachmentMedia)
         let networkSession = URLSession(configuration: .default)
         networkSession.downloadTask(with: mediaUrl!, completionHandler: { temporaryLocation, response, error in
