@@ -140,7 +140,21 @@ struct HomeScreen: View {
           Circle()
             .rotation(.degrees(-90))
             .trim(from: 0, to: circleTrimProgress(offset.y))
-            .stroke(preferences.accentColor.color, lineWidth: 5)
+            .stroke(
+              LinearGradient(
+                colors: [
+                  preferences.accentColor.color,
+                  preferences.accentColor.color.opacity(0.7),
+                  preferences.accentColor.color.opacity(0.8),
+                  preferences.accentColor.color.opacity(0.8),
+                  preferences.accentColor.color.opacity(0.95),
+                  preferences.accentColor.color
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+              ),
+              style: .init(lineWidth: 5, lineCap: .round, lineJoin: .round)
+            )
             .shadow(color: preferences.accentColor.color.opacity(0.6), radius: 3, x: 0.0, y: 0.0)
         }
       
@@ -163,7 +177,6 @@ struct HomeScreen: View {
       
       let scaledValue = progress * 10
       let digit = Int(scaledValue)
-      print(digit)
       if digit == 5 {
         scrollReachedHalfwayToAddWorshiPlanLimit = true
       }
