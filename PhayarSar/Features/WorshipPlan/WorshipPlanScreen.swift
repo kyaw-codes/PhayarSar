@@ -244,6 +244,7 @@ struct WorshipPlanScreen: View {
         Spacer()
         
         Button {
+          HapticKit.impact(.soft).generate()
           dismiss()
         } label: {
           Image(systemName: "xmark")
