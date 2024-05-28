@@ -69,6 +69,7 @@ extension PhayarSarApp {
       .environmentObject(dailyPrayingTimeRepository)
       .environmentObject(remoteConfigManager)
       .environment(\.managedObjectContext, coreDataStack.viewContext)
+      .preferredColorScheme(preferences.appTheme.colorScheme)
     }
   }
 }

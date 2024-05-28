@@ -8,6 +8,27 @@
 import SwiftUI
 import AlertToast
 
+enum AppTheme: String, CaseIterable, Identifiable {
+  var id: String {
+    self.rawValue
+  }
+  
+  case light
+  case dark
+  case system
+  
+  var colorScheme: ColorScheme? {
+    switch self {
+    case .light:
+      return .light
+    case .dark:
+      return .dark
+    case .system:
+        return nil
+    }
+  }
+}
+
 struct SettingsScreen: View {
   @Binding var showTabBar: Bool
   @Binding var showWhatIsNew: Bool
@@ -43,6 +64,7 @@ struct SettingsScreen: View {
         AppAccentColor()
         EnableHaptic()
         EnableShakeToReport()
+        ThemeSelector()
       }
       
       WhatIsNewSection()
@@ -338,6 +360,17 @@ struct SettingsScreen: View {
         .font(.qsSb(16))
     })
     .tint(preferences.accentColor.color)
+  }
+  
+  @ViewBuilder
+  private func ThemeSelector() -> some View {
+    LocalizedPicker(.app_theme, selection: $preferences.appTheme) {
+      ForEach(AppTheme.allCases) {
+        LocalizedText(.init(rawValue: $0.rawValue) ?? .system)
+          .tag($0)
+      }
+    }
+    .font(.qsSb(16))
   }
   
   @ViewBuilder

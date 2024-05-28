@@ -663,4 +663,20 @@
     "En": "Pull to add new\nworship plan",
     "Mm": "အဓိဌာန်အသစ်ထည့်ရန်\nအောက်ကိုဆွဲပါ"
   },
+  "app_theme": {
+    "En": "App theme",
+    "Mm": "အက်ပ် အသွင်အပြင်"
+  },
+  "dark": {
+    "En": "Dark",
+    "Mm": "မှောင်"
+  },
+  "light": {
+    "En": "Light",
+    "Mm": "လင်း"
+  },
+  "system": {
+    "En": "System",
+    "Mm": "System"
+  },
 }
