@@ -27,6 +27,7 @@ struct HomeScreen: View {
   @State private var circularProgressTriggerOffset: CGFloat = 30
   @State private var scrollReachedToAddWorshiPlanLimit = false
   @State private var scrollReachedHalfwayToAddWorshiPlanLimit = false
+  @State private var scrollReachedQuarterToAddWorshiPlanLimit = false
   @Namespace private var animation
   
   var body: some View {
@@ -58,10 +59,27 @@ struct HomeScreen: View {
         .padding([.horizontal, .top])
         .padding(.bottom, 92)
       }
+    } event: { event in
+      if case .didEndDragging = event {
+        if scrollReachedToAddWorshiPlanLimit {
+          HapticKit.impact(.heavy).generate()
+          showWorshipPlanScreen = true
+          withAnimation(.snappy) {
+            showTabBar = false
+          }
+        }
+      }
+
+      if case .didEndDecelerating = event {
+        withAnimation(.snappy.delay(0.75)) {
+          showTabBar = true
+        }
+      }
     }
     .onChange(of: offset.y) { offsetY in
       if offsetY == 0 {
         scrollReachedHalfwayToAddWorshiPlanLimit = false
+        scrollReachedQuarterToAddWorshiPlanLimit = false
         scrollReachedToAddWorshiPlanLimit = false
       }
     }
@@ -70,13 +88,10 @@ struct HomeScreen: View {
         HapticKit.impact(.soft).generate()
       }
     }
-    .onChange(of: scrollReachedToAddWorshiPlanLimit) { reached in
+    .onChange(of: scrollReachedQuarterToAddWorshiPlanLimit) { reached in
       if reached {
-        HapticKit.impact(.heavy).generate()
-        delay(0.4) {
-          withAnimation(.snappy) {
-            showWorshipPlanScreen = true
-          }
+        withAnimation(.snappy) {
+          showTabBar = false
         }
       }
     }
@@ -165,13 +180,11 @@ struct HomeScreen: View {
     }
     .opacity(circleTrimProgress(offset.y))
     .onChange(of: circleTrimProgress(offset.y)) { progress in
-      if progress == 1 {
-        scrollReachedToAddWorshiPlanLimit = true
-      }
+      scrollReachedToAddWorshiPlanLimit = progress == 1
     }
   }
   
-  func circleTrimProgress(_ offsetY: CGFloat, maxOffset: CGFloat = 100) -> CGFloat {
+  private func circleTrimProgress(_ offsetY: CGFloat, maxOffset: CGFloat = 70) -> CGFloat {
     if offsetY < -circularProgressTriggerOffset {
       let progress = min((-(offsetY + circularProgressTriggerOffset) * 0.8 / maxOffset), 1)
       
@@ -179,6 +192,10 @@ struct HomeScreen: View {
       let digit = Int(scaledValue)
       if digit == 5 {
         scrollReachedHalfwayToAddWorshiPlanLimit = true
+      }
+      
+      if progress >= 0.2 {
+        scrollReachedQuarterToAddWorshiPlanLimit = true
       }
       
       return progress
