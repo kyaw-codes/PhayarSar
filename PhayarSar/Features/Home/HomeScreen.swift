@@ -173,7 +173,7 @@ struct HomeScreen: View {
             .shadow(color: preferences.accentColor.color.opacity(0.6), radius: 3, x: 0.0, y: 0.0)
         }
       
-      Text("Pull to add new\nworship plan")
+      LocalizedText(.pull_to_add_new_worship_plan)
         .multilineTextAlignment(.center)
         .font(.qsSb(14))
         .foregroundStyle(.gray)
