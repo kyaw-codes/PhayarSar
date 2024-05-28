@@ -16,6 +16,7 @@ struct SettingsScreen: View {
   @EnvironmentObject private var worshipPlanRepo: WorshipPlanRepository
   @State private var showResetSuccessfulToast = false
   @State private var showDisableReminderSuccessfulToast = false
+  @State private var showLanguageSelector = false
   
   var body: some View {
     List {
@@ -43,6 +44,7 @@ struct SettingsScreen: View {
         AppAccentColor()
         EnableHaptic()
         EnableShakeToReport()
+        ThemeSelector()
       }
       
       WhatIsNewSection()
@@ -133,6 +135,19 @@ struct SettingsScreen: View {
         title: LocalizedKey.disable_worship_reminders_success.localize(preferences.appLang),
         style: .style(backgroundColor: .green, titleColor: .white, subTitleColor: .white, titleFont: .qsSb(16), subTitleFont: nil)
       )
+    }
+    .sheet(isPresented: $showLanguageSelector) {
+      if #available(iOS 16, *) {
+        NavigationView {
+          ChooseLanguageScreen(isStandalone: true)
+        }
+        .presentationDetents([.fraction(0.4)])
+      } else {
+        NavigationView {
+          ChooseLanguageScreen(isStandalone: true)
+        }
+        .backport.presentationDetents([.medium])
+      }
     }
   }
   
@@ -270,20 +285,13 @@ struct SettingsScreen: View {
     
     if UIApplication.shared.canOpenURL(mailToUrl) {
       UIApplication.shared.open(mailToUrl, options: [:])
-    } else {
-      //          alertTitle = "Failed to open Mail App"
-      //          alertMessage = "This app is not allowed to query for scheme mailto."
-      //          showingAlert.toggle()
     }
   }
 
   @ViewBuilder
   private func ChooseLang() -> some View {
-    NavigationLink {
-      ChooseLanguageScreen(isStandalone: true)
-        .onAppear {
-          showTabBar = false
-        }
+    Button {
+      showLanguageSelector.toggle()
     } label: {
       HStack {
         LocalizedText(.app_language)
@@ -292,9 +300,11 @@ struct SettingsScreen: View {
         Text(preferences.appLang.title)
           .font(.qsB(16))
           .foregroundColor(preferences.accentColor.color)
-        
+        Image(systemName: "chevron.right")
+          .foregroundStyle(Color(uiColor: .systemGray2))
       }
     }
+    .tint(.primary)
   }
   
   @ViewBuilder
@@ -338,6 +348,17 @@ struct SettingsScreen: View {
         .font(.qsSb(16))
     })
     .tint(preferences.accentColor.color)
+  }
+  
+  @ViewBuilder
+  private func ThemeSelector() -> some View {
+    LocalizedPicker(.app_theme, selection: $preferences.appTheme) {
+      ForEach(AppTheme.allCases) {
+        LocalizedText(.init(rawValue: $0.rawValue) ?? .system)
+          .tag($0)
+      }
+    }
+    .font(.qsSb(16))
   }
   
   @ViewBuilder

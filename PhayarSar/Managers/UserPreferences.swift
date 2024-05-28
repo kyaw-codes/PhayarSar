@@ -17,4 +17,5 @@ class UserPreferences: ObservableObject {
   @AppStorage("areRemindersEnabled") var areRemindersEnabled: Bool = true
   @AppStorage("enableShakeToReportWrongSpellings") var enableShakeToReport: Bool = false
   @AppStorage("whatIsNewV1_1") var whatIsNewV1_1: Bool = false
+  @AppStorage("appTheme") var appTheme: AppTheme = .system
 }
