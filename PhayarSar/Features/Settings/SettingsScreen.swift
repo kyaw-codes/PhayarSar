@@ -8,27 +8,6 @@
 import SwiftUI
 import AlertToast
 
-enum AppTheme: String, CaseIterable, Identifiable {
-  var id: String {
-    self.rawValue
-  }
-  
-  case light
-  case dark
-  case system
-  
-  var colorScheme: ColorScheme? {
-    switch self {
-    case .light:
-      return .light
-    case .dark:
-      return .dark
-    case .system:
-        return nil
-    }
-  }
-}
-
 struct SettingsScreen: View {
   @Binding var showTabBar: Bool
   @Binding var showWhatIsNew: Bool

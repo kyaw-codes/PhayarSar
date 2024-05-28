@@ -14,6 +14,7 @@
 		C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287482B4A866E00F165DF /* ScrollingSpeed.swift */; };
 		C8032B662C063330008C4A7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8032B652C063330008C4A7E /* GoogleService-Info.plist */; };
 		C8032B682C063BE4008C4A7E /* LocalizedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8032B672C063BE4008C4A7E /* LocalizedPicker.swift */; };
+		C8032B6A2C063F16008C4A7E /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8032B692C063F16008C4A7E /* AppTheme.swift */; };
 		C815D6CB2B4B141600BFB79C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */; };
 		C815D6CE2B4B142900BFB79C /* PhayarSar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CC2B4B142900BFB79C /* PhayarSar.xcdatamodeld */; };
 		C815D6D02B4B158F00BFB79C /* PrayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */; };
@@ -219,6 +220,7 @@
 		C80287482B4A866E00F165DF /* ScrollingSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingSpeed.swift; sourceTree = "<group>"; };
 		C8032B652C063330008C4A7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8032B672C063BE4008C4A7E /* LocalizedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedPicker.swift; sourceTree = "<group>"; };
+		C8032B692C063F16008C4A7E /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C815D6CD2B4B142900BFB79C /* PhayarSar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhayarSar.xcdatamodel; sourceTree = "<group>"; };
 		C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerConfiguration.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 				C80287482B4A866E00F165DF /* ScrollingSpeed.swift */,
 				C84E69232B4C4776006231CD /* PrayerAlignment.swift */,
 				C81CF2562B53FCA000E1B726 /* PrayingMode.swift */,
+				C8032B692C063F16008C4A7E /* AppTheme.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -1261,6 +1264,7 @@
 				C8CA45BF2B41295300240DA7 /* LocalizedLabel.swift in Sources */,
 				C815D6CE2B4B142900BFB79C /* PhayarSar.xcdatamodeld in Sources */,
 				C8D652852B2E0BDB00BB6C42 /* TabScreen.swift in Sources */,
+				C8032B6A2C063F16008C4A7E /* AppTheme.swift in Sources */,
 				C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */,
 				C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */,
 				C8F339402B94317500C1730B /* WorshipPlanCardView.swift in Sources */,
