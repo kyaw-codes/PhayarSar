@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyBMxzBa6h17UQ4M12b4fqLvAPm39XZ8Bsc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>287607286438</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kyaw.PhayarSar</string>
+	<key>PROJECT_ID</key>
+	<string>phayarsar-1b861</string>
+	<key>STORAGE_BUCKET</key>
+	<string>phayarsar-1b861.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:287607286438:ios:f0ff206e1f7aac4a946267</string>
+</dict>
+</plist>

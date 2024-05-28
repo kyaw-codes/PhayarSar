@@ -12,9 +12,13 @@ struct PrayerSpellingErrorReportScreen {
   @EnvironmentObject private var preferences: UserPreferences
   @Environment(\.dismiss) var dismiss
   @ObservedObject private var vm: CommonPrayerVM<PhayarSarModel>
-
+  
   @State private var comments: [Int: SpellingErrorCommentModel] = [:]
-    
+  
+  private var screenWidth: CGFloat {
+    UIScreen.main.bounds.width
+  }
+  
   init(vm: CommonPrayerVM<PhayarSarModel>) {
     self._vm = .init(wrappedValue: vm)
     self.vm.config.showPronunciation = true
@@ -47,22 +51,23 @@ extension PrayerSpellingErrorReportScreen: View {
             .font(MyanmarFont(rawValue: vm.config.font).orElse(.msquare).font(CGFloat(vm.config.textSize)))
             .multilineTextAlignment(PrayerAlignment(rawValue: vm.config.textAlignment).orElse(.left).textAlignment)
             .padding([.top, .bottom], 10)
-            .padding(.horizontal)
+            .padding(.horizontal, 12)
             .background {
               RoundedRectangle(cornerRadius: 12)
                 .fill(
                   comments.keys.map({ $0 }).contains(offset) ? Color.red.opacity(0.8) : Color.gray.opacity(0.2)
                 )
             }
+            .frame(width: screenWidth - 24)
+            .offset(x: comments.keys.map({ $0 }).contains(offset) ? -22 : 16)
             
-            if comments.keys.map({ $0 }).contains(offset) {
-              Image(systemName: "flag.fill")
-                .foregroundStyle(
-                  comments.keys.map({ $0 }).contains(offset) ? Color.red.opacity(0.8) : Color.gray.opacity(0.2)
-                )
-                .font(.title2)
-                .padding(.top, 4)
-            }
+            Image(systemName: "flag.fill")
+              .foregroundStyle(
+                comments.keys.map({ $0 }).contains(offset) ? Color.red.opacity(0.8) : Color.gray.opacity(0.2)
+              )
+              .font(.title2)
+              .padding(.top, 4)
+              .offset(x: comments.keys.map({ $0 }).contains(offset) ? -22 : 22)
           }
           .contentShape(.rect)
           .onTapGesture {
