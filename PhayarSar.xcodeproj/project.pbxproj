@@ -93,6 +93,7 @@
 		C851EB172BA5E2290021275F /* ReferencedWebsitesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C851EB162BA5E2290021275F /* ReferencedWebsitesScreen.swift */; };
 		C86AAA422B9228D800D899B2 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AAA412B9228D800D899B2 /* PageControlView.swift */; };
 		C86AAA4B2B92DEAB00D899B2 /* WorshipPlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AAA4A2B92DEAB00D899B2 /* WorshipPlanRepository.swift */; };
+		C887FDFA2C043D18007A6A25 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = C887FDF92C043D18007A6A25 /* SwiftUIIntrospect */; };
 		C88DECB72B9DF94700A96B29 /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DECB62B9DF94700A96B29 /* TextType.swift */; };
 		C88DECB92B9DF95900A96B29 /* AnimateNumberText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DECB82B9DF95900A96B29 /* AnimateNumberText.swift */; };
 		C88DECBB2B9DF96900A96B29 /* AnimateNumberTextFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DECBA2B9DF96900A96B29 /* AnimateNumberTextFomatter.swift */; };
@@ -376,6 +377,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C887FDFA2C043D18007A6A25 /* SwiftUIIntrospect in Frameworks */,
 				C84F4A972C03146900B5A502 /* FirebaseMessaging in Frameworks */,
 				C82039F22B1CCF13000EEF61 /* SwiftUIBackports in Frameworks */,
 				C8F339432B9433E900C1730B /* SwipeActions in Frameworks */,
@@ -972,6 +974,7 @@
 				C817925D2BFB979E00DC741E /* FirebaseRemoteConfig */,
 				C817925F2BFB979E00DC741E /* FirebaseRemoteConfigSwift */,
 				C84F4A962C03146900B5A502 /* FirebaseMessaging */,
+				C887FDF92C043D18007A6A25 /* SwiftUIIntrospect */,
 			);
 			productName = PhayarSar;
 			productReference = C82039AA2B1CABE4000EEF61 /* PhayarSar.app */;
@@ -1072,6 +1075,7 @@
 				C8F339442B94374300C1730B /* XCRemoteSwiftPackageReference "AlertToast" */,
 				C8FCD1402BA4AF0300AB5BD3 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
 				C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C887FDF82C043D18007A6A25 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			productRefGroup = C82039AB2B1CABE4000EEF61 /* Products */;
 			projectDirPath = "";
@@ -1704,6 +1708,14 @@
 				minimumVersion = 2.8.0;
 			};
 		};
+		C887FDF82C043D18007A6A25 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.4;
+			};
+		};
 		C8D730B72B46F74900D19D57 /* XCRemoteSwiftPackageReference "CompactSlider" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/buh/CompactSlider.git";
@@ -1758,6 +1770,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		C887FDF92C043D18007A6A25 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C887FDF82C043D18007A6A25 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 		C8D730B82B46F74900D19D57 /* CompactSlider */ = {
 			isa = XCSwiftPackageProductDependency;
