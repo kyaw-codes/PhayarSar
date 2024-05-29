@@ -32,6 +32,10 @@ struct LocalizedPicker<Model: Hashable, Content: View>: View {
   @EnvironmentObject private var preferences: UserPreferences
   
   var body: some View {
-    Picker(titleKey.localize(preferences.appLang, args: args) ?? "", selection: $selection, content: content)
+    Picker(selection: $selection, content: content) {
+      LocalizedText(titleKey, args: args, default: defaultValue)
+        .font(.qsSb(16))
+    }
+    .tint(.primary)
   }
 }
