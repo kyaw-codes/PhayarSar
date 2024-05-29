@@ -84,6 +84,7 @@ struct OffsetObservingScrollView<Content: View>: View {
 enum ScrollViewDelegateEvent {
   case idle
   case willBeginDragging(UIScrollView)
+  case didScroll(UIScrollView)
   case didEndDecelerating(UIScrollView)
   case didEndDragging(UIScrollView, Bool)
 }
@@ -93,6 +94,10 @@ fileprivate final class ScrollViewDelegate: NSObject, ObservableObject, UIScroll
   
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     event = .willBeginDragging(scrollView)
+  }
+  
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    event = .didScroll(scrollView)
   }
   
   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

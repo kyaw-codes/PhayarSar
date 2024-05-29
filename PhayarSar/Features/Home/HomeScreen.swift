@@ -64,15 +64,18 @@ struct HomeScreen: View {
         if scrollReachedToAddWorshiPlanLimit {
           HapticKit.impact(.heavy).generate()
           showWorshipPlanScreen = true
-          withAnimation(.snappy) {
-            showTabBar = false
-          }
         }
       }
 
       if case .didEndDecelerating = event {
         withAnimation(.snappy.delay(0.75)) {
           showTabBar = true
+        }
+      }
+      
+      if case .didScroll = event {
+        withAnimation(.snappy.delay(1)) {
+          showTabBar = false
         }
       }
     }
