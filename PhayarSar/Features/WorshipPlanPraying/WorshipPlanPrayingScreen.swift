@@ -35,7 +35,7 @@ struct WorshipPlanPrayingScreen: View {
     }
     .background(Color.cardBg)
     .ignoresSafeArea()
-    .askForReviewOnAppear()
+    .askForReviewOnDisappear()
     .onAppear {
       currentPrayerId = worshipPlan.selectedPrayers.first?.id ?? ""
       prayingTimeRepo.startRecordingTime()

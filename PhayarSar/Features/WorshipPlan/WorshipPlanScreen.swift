@@ -72,6 +72,7 @@ struct WorshipPlanScreen: View {
         enableReminder = plan.enableReminder
       }
     }
+    .askForReviewOnDisappear()
     .onChange(of: currentStep) { _ in
       updateProgressAndButtonText()
     }
