@@ -72,6 +72,7 @@ struct WorshipPlanScreen: View {
         enableReminder = plan.enableReminder
       }
     }
+    .askForReviewOnDisappear()
     .onChange(of: currentStep) { _ in
       updateProgressAndButtonText()
     }
@@ -244,6 +245,7 @@ struct WorshipPlanScreen: View {
         Spacer()
         
         Button {
+          HapticKit.impact(.soft).generate()
           dismiss()
         } label: {
           Image(systemName: "xmark")

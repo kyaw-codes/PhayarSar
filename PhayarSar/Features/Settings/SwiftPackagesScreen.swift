@@ -13,7 +13,8 @@ struct SwiftPackagesScreen: View {
     ("CompactSlider", "https://github.com/buh/CompactSlider"),
     ("SwipeActions", "https://github.com/aheze/SwipeActions"),
     ("AlertToast", "https://github.com/elai950/AlertToast"),
-    ("SwiftUICharts", "https://github.com/willdale/SwiftUICharts")
+    ("SwiftUICharts", "https://github.com/willdale/SwiftUICharts"),
+    ("Firebase", "https://github.com/firebase/firebase-ios-sdk")
   ]
   
   var body: some View {

@@ -35,6 +35,7 @@ struct WorshipPlanPrayingScreen: View {
     }
     .background(Color.cardBg)
     .ignoresSafeArea()
+    .askForReviewOnDisappear()
     .onAppear {
       currentPrayerId = worshipPlan.selectedPrayers.first?.id ?? ""
       prayingTimeRepo.startRecordingTime()
@@ -80,11 +81,18 @@ struct WorshipPlanPrayingScreen: View {
   func CommonPrayerTabView() -> some View {
     TabView(selection: $currentPrayerId) {
       ForEach(worshipPlan.selectedPrayers) { prayer in
-        CommonPrayerScreen(model: prayer, worshipPlanName: worshipPlan.planName)
-          .tag(prayer.id)
+        CommonPrayerScreen(model: prayer, worshipPlanName: worshipPlan.planName, playPrayerRightAway: prayer.id == currentPrayerId && worshipPlan.selectedPrayers.first?.id != prayer.id) {
+          if let currentIndex = worshipPlan.selectedPrayers.firstIndex(of: prayer) {
+            if worshipPlan.selectedPrayers.indices.contains(currentIndex + 1) {
+              currentPrayerId = worshipPlan.selectedPrayers[currentIndex + 1].id
+            }
+          }
+        }
+        .tag(prayer.id)
       }
     }
     .tabViewStyle(.page(indexDisplayMode: .never))
+    .animation(.default, value: currentPrayerId)
     .mask { CustomCornerView(corners: [.bottomLeft, .bottomRight], radius: 30) }
     .overlay { SilverBorderView() }
   }

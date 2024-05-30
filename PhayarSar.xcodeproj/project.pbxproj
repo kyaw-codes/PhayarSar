@@ -12,9 +12,25 @@
 		C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */; };
 		C80287472B4A5F3600F165DF /* PrayingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287462B4A5F3600F165DF /* PrayingProgressView.swift */; };
 		C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80287482B4A866E00F165DF /* ScrollingSpeed.swift */; };
+		C8032B662C063330008C4A7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C8032B652C063330008C4A7E /* GoogleService-Info.plist */; };
+		C8032B682C063BE4008C4A7E /* LocalizedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8032B672C063BE4008C4A7E /* LocalizedPicker.swift */; };
+		C8032B6A2C063F16008C4A7E /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8032B692C063F16008C4A7E /* AppTheme.swift */; };
 		C815D6CB2B4B141600BFB79C /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */; };
 		C815D6CE2B4B142900BFB79C /* PhayarSar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CC2B4B142900BFB79C /* PhayarSar.xcdatamodeld */; };
 		C815D6D02B4B158F00BFB79C /* PrayerConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */; };
+		C81792452BF904F500DC741E /* AnimationCompletionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792442BF904F500DC741E /* AnimationCompletionObserver.swift */; };
+		C81792472BF9DD5200DC741E /* DeviceShakeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792462BF9DD5200DC741E /* DeviceShakeObserver.swift */; };
+		C817924A2BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792492BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift */; };
+		C817924D2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */; };
+		C81792502BF9ED4B00DC741E /* SpellingErrorCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */; };
+		C81792522BFB8E2700DC741E /* AskForReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792512BFB8E2700DC741E /* AskForReview.swift */; };
+		C817925B2BFB973800DC741E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C817925A2BFB973800DC741E /* GoogleService-Info.plist */; };
+		C817925E2BFB979E00DC741E /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = C817925D2BFB979E00DC741E /* FirebaseRemoteConfig */; };
+		C81792602BFB979E00DC741E /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C817925F2BFB979E00DC741E /* FirebaseRemoteConfigSwift */; };
+		C81792622BFBA74F00DC741E /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792612BFBA74F00DC741E /* RemoteConfigManager.swift */; };
+		C81792652BFBB36E00DC741E /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792642BFBB36E00DC741E /* LaunchScreen.swift */; };
+		C81792682BFBB8FB00DC741E /* WhatIsNewFRCModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792672BFBB8FB00DC741E /* WhatIsNewFRCModel.swift */; };
+		C817926A2BFBBB1A00DC741E /* Decodable+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81792692BFBBB1A00DC741E /* Decodable+localization.swift */; };
 		C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2502B53E66100E1B726 /* ReadingModeView.swift */; };
 		C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */; };
 		C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */; };
@@ -64,6 +80,13 @@
 		C84E69242B4C4776006231CD /* PrayerAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69232B4C4776006231CD /* PrayerAlignment.swift */; };
 		C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */; };
 		C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84E69472B530E0B006231CD /* PrayerModeScreen.swift */; };
+		C84F4A862C01B9B100B5A502 /* AppVersionNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A852C01B9B100B5A502 /* AppVersionNo.swift */; };
+		C84F4A892C01BB2500B5A502 /* WhatIsNewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */; };
+		C84F4A8D2C02138500B5A502 /* ShimmeringEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */; };
+		C84F4A902C02E5AB00B5A502 /* ForceUpdateScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A8F2C02E5AB00B5A502 /* ForceUpdateScreen.swift */; };
+		C84F4A972C03146900B5A502 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = C84F4A962C03146900B5A502 /* FirebaseMessaging */; };
+		C84F4A9F2C03197700B5A502 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84F4A9E2C03197700B5A502 /* NotificationService.swift */; };
+		C84F4AA32C03197700B5A502 /* PhayarSarNotificationService.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = C84F4A9C2C03197700B5A502 /* PhayarSarNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C851EB0B2BA5C2F90021275F /* ရှင်သီဝလိ.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */; };
 		C851EB0D2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */; };
 		C851EB0F2BA5C68E0021275F /* မဟာသမယသုတ်.json in Resources */ = {isa = PBXBuildFile; fileRef = C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */; };
@@ -73,6 +96,7 @@
 		C851EB172BA5E2290021275F /* ReferencedWebsitesScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C851EB162BA5E2290021275F /* ReferencedWebsitesScreen.swift */; };
 		C86AAA422B9228D800D899B2 /* PageControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AAA412B9228D800D899B2 /* PageControlView.swift */; };
 		C86AAA4B2B92DEAB00D899B2 /* WorshipPlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86AAA4A2B92DEAB00D899B2 /* WorshipPlanRepository.swift */; };
+		C887FDFA2C043D18007A6A25 /* SwiftUIIntrospect in Frameworks */ = {isa = PBXBuildFile; productRef = C887FDF92C043D18007A6A25 /* SwiftUIIntrospect */; };
 		C88DECB72B9DF94700A96B29 /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DECB62B9DF94700A96B29 /* TextType.swift */; };
 		C88DECB92B9DF95900A96B29 /* AnimateNumberText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DECB82B9DF95900A96B29 /* AnimateNumberText.swift */; };
 		C88DECBB2B9DF96900A96B29 /* AnimateNumberTextFomatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88DECBA2B9DF96900A96B29 /* AnimateNumberTextFomatter.swift */; };
@@ -147,6 +171,7 @@
 		C8FCD1422BA4AF0300AB5BD3 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */; };
 		C8FCD1462BA54F9D00AB5BD3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1452BA54F9D00AB5BD3 /* Date.swift */; };
 		C8FCD1482BA58D5300AB5BD3 /* HomeSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FCD1472BA58D5300AB5BD3 /* HomeSearchScreen.swift */; };
+		EA578F0C2BF996EF00366ADC /* AfterAppearViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA578F0B2BF996EF00366ADC /* AfterAppearViewModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,7 +189,28 @@
 			remoteGlobalIDString = C82039A92B1CABE4000EEF61;
 			remoteInfo = PhayarSar;
 		};
+		C84F4AA12C03197700B5A502 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C82039A22B1CABE4000EEF61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C84F4A9B2C03197700B5A502;
+			remoteInfo = PhayarSarNotificationService;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C84F4AA72C03197700B5A502 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C84F4AA32C03197700B5A502 /* PhayarSarNotificationService.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		653454BA2BEBDF24004FC8EE /* MyanmarSyllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyanmarSyllable.swift; sourceTree = "<group>"; };
@@ -172,9 +218,23 @@
 		C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerProtocol.swift; sourceTree = "<group>"; };
 		C80287462B4A5F3600F165DF /* PrayingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayingProgressView.swift; sourceTree = "<group>"; };
 		C80287482B4A866E00F165DF /* ScrollingSpeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingSpeed.swift; sourceTree = "<group>"; };
+		C8032B652C063330008C4A7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C8032B672C063BE4008C4A7E /* LocalizedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedPicker.swift; sourceTree = "<group>"; };
+		C8032B692C063F16008C4A7E /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		C815D6CA2B4B141600BFB79C /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		C815D6CD2B4B142900BFB79C /* PhayarSar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PhayarSar.xcdatamodel; sourceTree = "<group>"; };
 		C815D6CF2B4B158F00BFB79C /* PrayerConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerConfiguration.swift; sourceTree = "<group>"; };
+		C81792442BF904F500DC741E /* AnimationCompletionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationCompletionObserver.swift; sourceTree = "<group>"; };
+		C81792462BF9DD5200DC741E /* DeviceShakeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeObserver.swift; sourceTree = "<group>"; };
+		C81792492BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerSpellingErrorReportScreen.swift; sourceTree = "<group>"; };
+		C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingErrorCommentScreen.swift; sourceTree = "<group>"; };
+		C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingErrorCommentModel.swift; sourceTree = "<group>"; };
+		C81792512BFB8E2700DC741E /* AskForReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskForReview.swift; sourceTree = "<group>"; };
+		C817925A2BFB973800DC741E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C81792612BFBA74F00DC741E /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
+		C81792642BFBB36E00DC741E /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		C81792672BFBB8FB00DC741E /* WhatIsNewFRCModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsNewFRCModel.swift; sourceTree = "<group>"; };
+		C81792692BFBBB1A00DC741E /* Decodable+localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decodable+localization.swift"; sourceTree = "<group>"; };
 		C81CF2502B53E66100E1B726 /* ReadingModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingModeView.swift; sourceTree = "<group>"; };
 		C81CF2522B53F74B00E1B726 /* ModeSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelectedView.swift; sourceTree = "<group>"; };
 		C81CF2542B53FA6C00E1B726 /* PlayerModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModeView.swift; sourceTree = "<group>"; };
@@ -227,6 +287,14 @@
 		C84E69232B4C4776006231CD /* PrayerAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerAlignment.swift; sourceTree = "<group>"; };
 		C84E69252B4C4D89006231CD /* CommonPrayerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonPrayerVM.swift; sourceTree = "<group>"; };
 		C84E69472B530E0B006231CD /* PrayerModeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerModeScreen.swift; sourceTree = "<group>"; };
+		C84F4A852C01B9B100B5A502 /* AppVersionNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersionNo.swift; sourceTree = "<group>"; };
+		C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatIsNewScreen.swift; sourceTree = "<group>"; };
+		C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmeringEffect.swift; sourceTree = "<group>"; };
+		C84F4A8F2C02E5AB00B5A502 /* ForceUpdateScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForceUpdateScreen.swift; sourceTree = "<group>"; };
+		C84F4A942C03132600B5A502 /* PhayarSar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhayarSar.entitlements; sourceTree = "<group>"; };
+		C84F4A9C2C03197700B5A502 /* PhayarSarNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PhayarSarNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84F4A9E2C03197700B5A502 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		C84F4AA02C03197700B5A502 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ရှင်သီဝလိ.json"; sourceTree = "<group>"; };
 		C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "အနတ္တလက္ခဏသုတ်.json"; sourceTree = "<group>"; };
 		C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "မဟာသမယသုတ်.json"; sourceTree = "<group>"; };
@@ -307,6 +375,7 @@
 		C8FCD1392BA4A3A900AB5BD3 /* PrayingDurationChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayingDurationChartView.swift; sourceTree = "<group>"; };
 		C8FCD1452BA54F9D00AB5BD3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		C8FCD1472BA58D5300AB5BD3 /* HomeSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchScreen.swift; sourceTree = "<group>"; };
+		EA578F0B2BF996EF00366ADC /* AfterAppearViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterAppearViewModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,9 +383,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C887FDFA2C043D18007A6A25 /* SwiftUIIntrospect in Frameworks */,
+				C84F4A972C03146900B5A502 /* FirebaseMessaging in Frameworks */,
 				C82039F22B1CCF13000EEF61 /* SwiftUIBackports in Frameworks */,
 				C8F339432B9433E900C1730B /* SwipeActions in Frameworks */,
 				C8D730B92B46F74900D19D57 /* CompactSlider in Frameworks */,
+				C81792602BFB979E00DC741E /* FirebaseRemoteConfigSwift in Frameworks */,
+				C817925E2BFB979E00DC741E /* FirebaseRemoteConfig in Frameworks */,
 				C8F339462B94374300C1730B /* AlertToast in Frameworks */,
 				C8FCD1422BA4AF0300AB5BD3 /* SwiftUICharts in Frameworks */,
 			);
@@ -336,6 +409,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C84F4A992C03197700B5A502 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -349,6 +429,7 @@
 				C80287482B4A866E00F165DF /* ScrollingSpeed.swift */,
 				C84E69232B4C4776006231CD /* PrayerAlignment.swift */,
 				C81CF2562B53FCA000E1B726 /* PrayingMode.swift */,
+				C8032B692C063F16008C4A7E /* AppTheme.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -363,6 +444,46 @@
 				C815D6CC2B4B142900BFB79C /* PhayarSar.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		C81792482BF9E21500DC741E /* PrayerSpellingErrorReport */ = {
+			isa = PBXGroup;
+			children = (
+				C81792492BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift */,
+			);
+			path = PrayerSpellingErrorReport;
+			sourceTree = "<group>";
+		};
+		C817924B2BF9ECA600DC741E /* SpellingErrorComment */ = {
+			isa = PBXGroup;
+			children = (
+				C817924C2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift */,
+			);
+			path = SpellingErrorComment;
+			sourceTree = "<group>";
+		};
+		C817924E2BF9ED3C00DC741E /* SpellingErrorReport */ = {
+			isa = PBXGroup;
+			children = (
+				C817924F2BF9ED4B00DC741E /* SpellingErrorCommentModel.swift */,
+			);
+			path = SpellingErrorReport;
+			sourceTree = "<group>";
+		};
+		C81792632BFBB36500DC741E /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				C81792642BFBB36E00DC741E /* LaunchScreen.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		C81792662BFBB8F100DC741E /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				C81792672BFBB8FB00DC741E /* WhatIsNewFRCModel.swift */,
+			);
+			path = Firebase;
 			sourceTree = "<group>";
 		};
 		C81CF2582B5445B700E1B726 /* Views */ = {
@@ -397,6 +518,8 @@
 		C81E927E2B2DCDAD00F4ED9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C81792662BFBB8F100DC741E /* Firebase */,
+				C817924E2BF9ED3C00DC741E /* SpellingErrorReport */,
 				C80287432B4940ED00F165DF /* CommonPrayerProtocol.swift */,
 				C8AE59262B6E36B500ABB8F3 /* Worshipplan */,
 				C8A3424B2B3E6C8F00B24F7C /* PhayarSar */,
@@ -411,7 +534,9 @@
 				C82039AC2B1CABE4000EEF61 /* PhayarSar */,
 				C82039BD2B1CABE6000EEF61 /* PhayarSarTests */,
 				C82039C72B1CABE6000EEF61 /* PhayarSarUITests */,
+				C84F4A9D2C03197700B5A502 /* PhayarSarNotificationService */,
 				C82039AB2B1CABE4000EEF61 /* Products */,
+				C84F4A952C03146900B5A502 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -421,6 +546,7 @@
 				C82039AA2B1CABE4000EEF61 /* PhayarSar.app */,
 				C82039BA2B1CABE6000EEF61 /* PhayarSarTests.xctest */,
 				C82039C42B1CABE6000EEF61 /* PhayarSarUITests.xctest */,
+				C84F4A9C2C03197700B5A502 /* PhayarSarNotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -428,6 +554,7 @@
 		C82039AC2B1CABE4000EEF61 /* PhayarSar */ = {
 			isa = PBXGroup;
 			children = (
+				C84F4A942C03132600B5A502 /* PhayarSar.entitlements */,
 				C82039AD2B1CABE4000EEF61 /* PhayarSarApp.swift */,
 				C815D6C92B4B140700BFB79C /* CoreData */,
 				C81E927E2B2DCDAD00F4ED9E /* Models */,
@@ -437,6 +564,7 @@
 				C82039D72B1CC2E9000EEF61 /* Features */,
 				C82039DB2B1CC48C000EEF61 /* Resources */,
 				C82039E52B1CC508000EEF61 /* Info.plist */,
+				C817925A2BFB973800DC741E /* GoogleService-Info.plist */,
 				C82039B32B1CABE6000EEF61 /* Preview Content */,
 			);
 			path = PhayarSar;
@@ -470,6 +598,11 @@
 		C82039D72B1CC2E9000EEF61 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				C84F4A8E2C02E5A300B5A502 /* ForceUpdate */,
+				C84F4A872C01BB1B00B5A502 /* WhatIsNew */,
+				C81792632BFBB36500DC741E /* LaunchScreen */,
+				C817924B2BF9ECA600DC741E /* SpellingErrorComment */,
+				C81792482BF9E21500DC741E /* PrayerSpellingErrorReport */,
 				C849BF442B9CB439004F771F /* WorshipPlanPraying */,
 				C849BF3D2B9C7511004F771F /* WorshipPlanDetail */,
 				C8F3393B2B94300B00C1730B /* WorshipPlanList */,
@@ -500,43 +633,43 @@
 		C82039DB2B1CC48C000EEF61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C82039DC2B1CC499000EEF61 /* Fonts */,
 				C82039B12B1CABE6000EEF61 /* Assets.xcassets */,
-				C82039F62B1CDB4F000EEF61 /* NatPint.json */,
-				C8CEF9E62B67D01A00EF9B9E /* သြကာသ.json */,
-				C851EB102BA5CA250021275F /* ဂုဏ်တော်ကွန်ချာ.json */,
-				C851EB122BA5CBC30021275F /* မစ္ဆရာဇသုတ်.json */,
-				C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */,
-				C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */,
-				C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */,
-				C8CEF9E82B67F6C400EF9B9E /* စိန်ရောင်ခြည်.json */,
-				C8CEF9EC2B67FA8900EF9B9E /* သီလတောင်း.json */,
-				C8D403122B6A031600448EDC /* မင်္ဂလသုတ်.json */,
-				C8D403142B6A076900448EDC /* ရတနသုတ်.json */,
-				C8D403162B6A331100448EDC /* မေတ္တသုတ်.json */,
-				C8D403182B6A40D300448EDC /* ခန္ဓသုတ်.json */,
-				C8D4031A2B6B46E900448EDC /* မောရသုတ်.json */,
-				C8D4031C2B6B493100448EDC /* ဝဋ္ဋသုတ်.json */,
-				C8D4031E2B6B4AAA00448EDC /* ဓဇဂ္ဂသုတ်.json */,
-				C81E82862B6B58EE00A59147 /* အာဋာနာဋိယသုတ်.json */,
-				C81E82882B6B5E3900A59147 /* အင်္ဂုလိမာလသုတ်.json */,
-				C81E828A2B6B5ED800A59147 /* ဗောဇ္ဈင်္ဂသုတ်.json */,
-				C81E828C2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json */,
-				C81E828E2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json */,
-				C81E82902B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json */,
-				C8CEF9EE2B67FB6B00EF9B9E /* သရဏဂုံ.json */,
-				C8CEF9EA2B67F96A00EF9B9E /* ငါးပါးသီလ.json */,
-				C8CEF9F42B67FF9500EF9B9E /* ဘုရားဂုဏ်တော်.json */,
-				C8CEF9FA2B68043300EF9B9E /* မေတ္တာသုတ်လာမ္မေတ္တာပွား.json */,
-				C8CEF9FC2B6804DF00EF9B9E /* ဆယ်မျက်နှာမ္မေတ္တာပွား.json */,
-				C8CEF9F82B6800FD00EF9B9E /* သံဃာဂုဏ်တော်.json */,
-				C8CEF9FE2B68061500EF9B9E /* အမျှဝေ.json */,
-				C8CEF9F62B68003000EF9B9E /* တရားဂုဏ်တော်.json */,
-				C8CEF9F02B67FD5400EF9B9E /* ရှစ်ပါးသီလ.json */,
-				C8D403102B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json */,
-				C8CEF9F22B67FE7D00EF9B9E /* ဆယ်ပါးသီလ.json */,
 				C8CEF9E42B66D30700EF9B9E /* Dhammacakka.json */,
+				C82039DC2B1CC499000EEF61 /* Fonts */,
 				C84240BB2B2DD29300A2B234 /* Language.json */,
+				C82039F62B1CDB4F000EEF61 /* NatPint.json */,
+				C8D403182B6A40D300448EDC /* ခန္ဓသုတ်.json */,
+				C851EB102BA5CA250021275F /* ဂုဏ်တော်ကွန်ချာ.json */,
+				C8CEF9EA2B67F96A00EF9B9E /* ငါးပါးသီလ.json */,
+				C8CEF9E82B67F6C400EF9B9E /* စိန်ရောင်ခြည်.json */,
+				C8CEF9F22B67FE7D00EF9B9E /* ဆယ်ပါးသီလ.json */,
+				C8CEF9FC2B6804DF00EF9B9E /* ဆယ်မျက်နှာမ္မေတ္တာပွား.json */,
+				C8CEF9F62B68003000EF9B9E /* တရားဂုဏ်တော်.json */,
+				C8D4031E2B6B4AAA00448EDC /* ဓဇဂ္ဂသုတ်.json */,
+				C81E82902B6BB04100A59147 /* ပဋ္ဌာန်းအကျယ်.json */,
+				C81E828E2B6B767800A59147 /* ပဋ္ဌာန်းအကျဥ်း.json */,
+				C81E828C2B6B61CC00A59147 /* ပုဗ္ဗဏှသုတ်.json */,
+				C81E828A2B6B5ED800A59147 /* ဗောဇ္ဈင်္ဂသုတ်.json */,
+				C8CEF9F42B67FF9500EF9B9E /* ဘုရားဂုဏ်တော်.json */,
+				C8D403122B6A031600448EDC /* မင်္ဂလသုတ်.json */,
+				C851EB122BA5CBC30021275F /* မစ္ဆရာဇသုတ်.json */,
+				C851EB0E2BA5C68E0021275F /* မဟာသမယသုတ်.json */,
+				C8D403162B6A331100448EDC /* မေတ္တသုတ်.json */,
+				C8CEF9FA2B68043300EF9B9E /* မေတ္တာသုတ်လာမ္မေတ္တာပွား.json */,
+				C8D4031A2B6B46E900448EDC /* မောရသုတ်.json */,
+				C8D403142B6A076900448EDC /* ရတနသုတ်.json */,
+				C851EB0A2BA5C2F90021275F /* ရှင်သီဝလိ.json */,
+				C8CEF9F02B67FD5400EF9B9E /* ရှစ်ပါးသီလ.json */,
+				C8D4031C2B6B493100448EDC /* ဝဋ္ဋသုတ်.json */,
+				C8CEF9F82B6800FD00EF9B9E /* သံဃာဂုဏ်တော်.json */,
+				C8D403102B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json */,
+				C8CEF9EE2B67FB6B00EF9B9E /* သရဏဂုံ.json */,
+				C8CEF9E62B67D01A00EF9B9E /* သြကာသ.json */,
+				C8CEF9EC2B67FA8900EF9B9E /* သီလတောင်း.json */,
+				C81E82882B6B5E3900A59147 /* အင်္ဂုလိမာလသုတ်.json */,
+				C851EB0C2BA5C3B80021275F /* အနတ္တလက္ခဏသုတ်.json */,
+				C8CEF9FE2B68061500EF9B9E /* အမျှဝေ.json */,
+				C81E82862B6B58EE00A59147 /* အာဋာနာဋိယသုတ်.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -573,6 +706,10 @@
 				C8F339392B938D7A00C1730B /* String+Date.swift */,
 				C849BF3B2B9C5AF3004F771F /* Delay.swift */,
 				653454BA2BEBDF24004FC8EE /* MyanmarSyllable.swift */,
+				C81792442BF904F500DC741E /* AnimationCompletionObserver.swift */,
+				C81792462BF9DD5200DC741E /* DeviceShakeObserver.swift */,
+				C81792612BFBA74F00DC741E /* RemoteConfigManager.swift */,
+				C84F4A852C01B9B100B5A502 /* AppVersionNo.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -580,6 +717,7 @@
 		C82039E72B1CC64A000EEF61 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				EA578F0B2BF996EF00366ADC /* AfterAppearViewModifier.swift */,
 				C82039E82B1CC653000EEF61 /* Font+CustomFonts.swift */,
 				C82039EA2B1CCB6D000EEF61 /* Color+CustomColors.swift */,
 				C82039FB2B1CE2B4000EEF61 /* Bundle+Decode.swift */,
@@ -588,6 +726,9 @@
 				C83961B52B40578200E189D9 /* SafeAreaInsets.swift */,
 				C84E691F2B4C42FA006231CD /* NSObject+Extension.swift */,
 				C8FCD1452BA54F9D00AB5BD3 /* Date.swift */,
+				C81792512BFB8E2700DC741E /* AskForReview.swift */,
+				C81792692BFBBB1A00DC741E /* Decodable+localization.swift */,
+				C84F4A8C2C02138500B5A502 /* ShimmeringEffect.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -614,6 +755,7 @@
 				C8CA45BE2B41295300240DA7 /* LocalizedLabel.swift */,
 				C8BBB3642B482C0100F3828C /* LocalizedToggle.swift */,
 				C8FCD1332BA462D900AB5BD3 /* LocalizedAlert.swift */,
+				C8032B672C063BE4008C4A7E /* LocalizedPicker.swift */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -653,6 +795,39 @@
 				C84E69472B530E0B006231CD /* PrayerModeScreen.swift */,
 			);
 			path = PrayerMode;
+			sourceTree = "<group>";
+		};
+		C84F4A872C01BB1B00B5A502 /* WhatIsNew */ = {
+			isa = PBXGroup;
+			children = (
+				C84F4A882C01BB2500B5A502 /* WhatIsNewScreen.swift */,
+			);
+			path = WhatIsNew;
+			sourceTree = "<group>";
+		};
+		C84F4A8E2C02E5A300B5A502 /* ForceUpdate */ = {
+			isa = PBXGroup;
+			children = (
+				C84F4A8F2C02E5AB00B5A502 /* ForceUpdateScreen.swift */,
+			);
+			path = ForceUpdate;
+			sourceTree = "<group>";
+		};
+		C84F4A952C03146900B5A502 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C84F4A9D2C03197700B5A502 /* PhayarSarNotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				C84F4A9E2C03197700B5A502 /* NotificationService.swift */,
+				C84F4AA02C03197700B5A502 /* Info.plist */,
+				C8032B652C063330008C4A7E /* GoogleService-Info.plist */,
+			);
+			path = PhayarSarNotificationService;
 			sourceTree = "<group>";
 		};
 		C88DECB52B9DF92200A96B29 /* AnimateNumberText */ = {
@@ -791,10 +966,12 @@
 				C82039A62B1CABE4000EEF61 /* Sources */,
 				C82039A72B1CABE4000EEF61 /* Frameworks */,
 				C82039A82B1CABE4000EEF61 /* Resources */,
+				C84F4AA72C03197700B5A502 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C84F4AA22C03197700B5A502 /* PBXTargetDependency */,
 			);
 			name = PhayarSar;
 			packageProductDependencies = (
@@ -803,6 +980,10 @@
 				C8F339422B9433E900C1730B /* SwipeActions */,
 				C8F339452B94374300C1730B /* AlertToast */,
 				C8FCD1412BA4AF0300AB5BD3 /* SwiftUICharts */,
+				C817925D2BFB979E00DC741E /* FirebaseRemoteConfig */,
+				C817925F2BFB979E00DC741E /* FirebaseRemoteConfigSwift */,
+				C84F4A962C03146900B5A502 /* FirebaseMessaging */,
+				C887FDF92C043D18007A6A25 /* SwiftUIIntrospect */,
 			);
 			productName = PhayarSar;
 			productReference = C82039AA2B1CABE4000EEF61 /* PhayarSar.app */;
@@ -844,6 +1025,23 @@
 			productReference = C82039C42B1CABE6000EEF61 /* PhayarSarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C84F4A9B2C03197700B5A502 /* PhayarSarNotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C84F4AA42C03197700B5A502 /* Build configuration list for PBXNativeTarget "PhayarSarNotificationService" */;
+			buildPhases = (
+				C84F4A982C03197700B5A502 /* Sources */,
+				C84F4A992C03197700B5A502 /* Frameworks */,
+				C84F4A9A2C03197700B5A502 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PhayarSarNotificationService;
+			productName = PhayarSarNotificationService;
+			productReference = C84F4A9C2C03197700B5A502 /* PhayarSarNotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -851,7 +1049,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					C82039A92B1CABE4000EEF61 = {
@@ -864,6 +1062,9 @@
 					C82039C32B1CABE6000EEF61 = {
 						CreatedOnToolsVersion = 15.0.1;
 						TestTargetID = C82039A92B1CABE4000EEF61;
+					};
+					C84F4A9B2C03197700B5A502 = {
+						CreatedOnToolsVersion = 15.2;
 					};
 				};
 			};
@@ -882,6 +1083,8 @@
 				C8F339412B9433E900C1730B /* XCRemoteSwiftPackageReference "SwipeActions" */,
 				C8F339442B94374300C1730B /* XCRemoteSwiftPackageReference "AlertToast" */,
 				C8FCD1402BA4AF0300AB5BD3 /* XCRemoteSwiftPackageReference "SwiftUICharts" */,
+				C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C887FDF82C043D18007A6A25 /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			productRefGroup = C82039AB2B1CABE4000EEF61 /* Products */;
 			projectDirPath = "";
@@ -890,6 +1093,7 @@
 				C82039A92B1CABE4000EEF61 /* PhayarSar */,
 				C82039B92B1CABE6000EEF61 /* PhayarSarTests */,
 				C82039C32B1CABE6000EEF61 /* PhayarSarUITests */,
+				C84F4A9B2C03197700B5A502 /* PhayarSarNotificationService */,
 			);
 		};
 /* End PBXProject section */
@@ -901,6 +1105,7 @@
 			files = (
 				C82039B52B1CABE6000EEF61 /* Preview Assets.xcassets in Resources */,
 				C8CEF9F72B68003000EF9B9E /* တရားဂုဏ်တော်.json in Resources */,
+				C817925B2BFB973800DC741E /* GoogleService-Info.plist in Resources */,
 				C8CEF9F52B67FF9500EF9B9E /* ဘုရားဂုဏ်တော်.json in Resources */,
 				C8D403112B696FFB00448EDC /* သမ္ဗုဒ္ဓေ.json in Resources */,
 				C8D4031B2B6B46E900448EDC /* မောရသုတ်.json in Resources */,
@@ -960,6 +1165,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C84F4A9A2C03197700B5A502 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8032B662C063330008C4A7E /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -967,6 +1180,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C81792652BFBB36E00DC741E /* LaunchScreen.swift in Sources */,
 				C81E829D2B6CAC8300A59147 /* AllPrayerPickerScreen.swift in Sources */,
 				C8AE592E2B6E38BE00ABB8F3 /* WorshipPlan.swift in Sources */,
 				C83E27F02B2DDAB20038EDF1 /* LocalizedText.swift in Sources */,
@@ -984,12 +1198,17 @@
 				C81CF2532B53F74B00E1B726 /* ModeSelectedView.swift in Sources */,
 				C8BBB3652B482C0100F3828C /* LocalizedToggle.swift in Sources */,
 				C8F3393D2B94301600C1730B /* WorshipPlanListScreen.swift in Sources */,
+				C81792622BFBA74F00DC741E /* RemoteConfigManager.swift in Sources */,
 				C8A342522B3E70C800B24F7C /* HapticKit.swift in Sources */,
 				C8BBB3702B49108F00F3828C /* SpotlightScrollManager.swift in Sources */,
+				C84F4A862C01B9B100B5A502 /* AppVersionNo.swift in Sources */,
 				C8CA45BD2B41251E00240DA7 /* CommonPrayerScreen.swift in Sources */,
+				C84F4A902C02E5AB00B5A502 /* ForceUpdateScreen.swift in Sources */,
+				C81792502BF9ED4B00DC741E /* SpellingErrorCommentModel.swift in Sources */,
 				C851EB152BA5DC3F0021275F /* SwiftPackagesScreen.swift in Sources */,
 				C80287442B4940ED00F165DF /* CommonPrayerProtocol.swift in Sources */,
 				C851EB172BA5E2290021275F /* ReferencedWebsitesScreen.swift in Sources */,
+				C817924A2BF9E22500DC741E /* PrayerSpellingErrorReportScreen.swift in Sources */,
 				C84E69482B530E0B006231CD /* PrayerModeScreen.swift in Sources */,
 				C83961B62B40578200E189D9 /* SafeAreaInsets.swift in Sources */,
 				C81E829B2B6BFEBB00A59147 /* WorshipPlanScreen.swift in Sources */,
@@ -998,6 +1217,7 @@
 				C8AE59302B6E471B00ABB8F3 /* RollingText.swift in Sources */,
 				C80287472B4A5F3600F165DF /* PrayingProgressView.swift in Sources */,
 				C8AAE01E2B2DB84200BE54CA /* Optional.swift in Sources */,
+				C817926A2BFBBB1A00DC741E /* Decodable+localization.swift in Sources */,
 				C84E69262B4C4D89006231CD /* CommonPrayerVM.swift in Sources */,
 				C8AAE01A2B2D7B5F00BE54CA /* AppLanguage.swift in Sources */,
 				C88DECB72B9DF94700A96B29 /* TextType.swift in Sources */,
@@ -1010,13 +1230,17 @@
 				C82039EB2B1CCB6D000EEF61 /* Color+CustomColors.swift in Sources */,
 				C83E27F22B2DDACC0038EDF1 /* LocalizedNavTitle.swift in Sources */,
 				C8A661CE2B556AE100F2A553 /* AdaptToSoftwareKeyboard.swift in Sources */,
+				C81792452BF904F500DC741E /* AnimationCompletionObserver.swift in Sources */,
 				C82039FC2B1CE2B4000EEF61 /* Bundle+Decode.swift in Sources */,
+				C81792522BFB8E2700DC741E /* AskForReview.swift in Sources */,
 				C8AE592C2B6E36F900ABB8F3 /* WorshipPlanConfigStep.swift in Sources */,
+				C84F4A8D2C02138500B5A502 /* ShimmeringEffect.swift in Sources */,
 				C80287492B4A866E00F165DF /* ScrollingSpeed.swift in Sources */,
 				C84626B52B222B6B000931AE /* HomeScreen.swift in Sources */,
 				C8FCD1382BA484EE00AB5BD3 /* DailyPrayingTimeRepository.swift in Sources */,
 				C8D6529B2B2EA76500BB6C42 /* ChooseColorScreen.swift in Sources */,
 				C81E927D2B2DCD0200F4ED9E /* UserPreferences.swift in Sources */,
+				C81792682BFBB8FB00DC741E /* WhatIsNewFRCModel.swift in Sources */,
 				C8FCD1482BA58D5300AB5BD3 /* HomeSearchScreen.swift in Sources */,
 				C83961B22B4053E900E189D9 /* View+Preview.swift in Sources */,
 				C8D6527F2B2E02DB00BB6C42 /* PositionObservingView.swift in Sources */,
@@ -1025,23 +1249,29 @@
 				C815D6D02B4B158F00BFB79C /* PrayerConfiguration.swift in Sources */,
 				C84E69222B4C4530006231CD /* DemoView.swift in Sources */,
 				C8CA45E62B4152AC00240DA7 /* PageColor.swift in Sources */,
+				C81792472BF9DD5200DC741E /* DeviceShakeObserver.swift in Sources */,
 				C8D652962B2EA6BD00BB6C42 /* AppColor.swift in Sources */,
 				C8CA45E42B414A4D00240DA7 /* MyanmarFont.swift in Sources */,
 				C8D652882B2E0F1D00BB6C42 /* SettingsScreen.swift in Sources */,
 				653454BB2BEBDF24004FC8EE /* MyanmarSyllable.swift in Sources */,
 				C8D730B32B46D42500D19D57 /* OverflowContentViewModifier.swift in Sources */,
 				C82039FA2B1CE1C7000EEF61 /* PhayarSarModel.swift in Sources */,
+				C817924D2BF9ECBA00DC741E /* SpellingErrorCommentScreen.swift in Sources */,
+				C8032B682C063BE4008C4A7E /* LocalizedPicker.swift in Sources */,
 				C81CF2572B53FCA000E1B726 /* PrayingMode.swift in Sources */,
 				C86AAA4B2B92DEAB00D899B2 /* WorshipPlanRepository.swift in Sources */,
 				C84240C02B2DD34900A2B234 /* LocalizedKey.swift in Sources */,
 				C8CA45BF2B41295300240DA7 /* LocalizedLabel.swift in Sources */,
 				C815D6CE2B4B142900BFB79C /* PhayarSar.xcdatamodeld in Sources */,
 				C8D652852B2E0BDB00BB6C42 /* TabScreen.swift in Sources */,
+				C8032B6A2C063F16008C4A7E /* AppTheme.swift in Sources */,
 				C81CF2512B53E66100E1B726 /* ReadingModeView.swift in Sources */,
 				C81CF2552B53FA6C00E1B726 /* PlayerModeView.swift in Sources */,
 				C8F339402B94317500C1730B /* WorshipPlanCardView.swift in Sources */,
 				C82039EF2B1CCCAF000EEF61 /* AppBtnFilled.swift in Sources */,
 				C849BF462B9CB481004F771F /* WorshipPlanPrayingScreen.swift in Sources */,
+				EA578F0C2BF996EF00366ADC /* AfterAppearViewModifier.swift in Sources */,
+				C84F4A892C01BB2500B5A502 /* WhatIsNewScreen.swift in Sources */,
 				C8AE59282B6E36C900ABB8F3 /* WorshipPlanSteps.swift in Sources */,
 				C8AE59252B6E368C00ABB8F3 /* StraightLine.swift in Sources */,
 				C8BBB3682B48534400F3828C /* CommonPrayerParagraphView.swift in Sources */,
@@ -1075,6 +1305,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C84F4A982C03197700B5A502 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84F4A9F2C03197700B5A502 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1087,6 +1325,11 @@
 			isa = PBXTargetDependency;
 			target = C82039A92B1CABE4000EEF61 /* PhayarSar */;
 			targetProxy = C82039C52B1CABE6000EEF61 /* PBXContainerItemProxy */;
+		};
+		C84F4AA22C03197700B5A502 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C84F4A9B2C03197700B5A502 /* PhayarSarNotificationService */;
+			targetProxy = C84F4AA12C03197700B5A502 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1213,10 +1456,12 @@
 		C82039CF2B1CABE6000EEF61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhayarSar/PhayarSar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
@@ -1232,7 +1477,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1247,10 +1492,12 @@
 		C82039D02B1CABE6000EEF61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PhayarSar/PhayarSar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"PhayarSar/Preview Content\"";
 				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
 				ENABLE_PREVIEWS = YES;
@@ -1266,7 +1513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1354,6 +1601,58 @@
 			};
 			name = Release;
 		};
+		C84F4AA52C03197700B5A502 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhayarSarNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PhayarSarNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar.PhayarSarNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C84F4AA62C03197700B5A502 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3LGZY3S9Q5;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PhayarSarNotificationService/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PhayarSarNotificationService;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kyaw.PhayarSar.PhayarSarNotificationService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1393,15 +1692,40 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C84F4AA42C03197700B5A502 /* Build configuration list for PBXNativeTarget "PhayarSarNotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C84F4AA52C03197700B5A502 /* Debug */,
+				C84F4AA62C03197700B5A502 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
 		C82039F02B1CCF13000EEF61 /* XCRemoteSwiftPackageReference "SwiftUIBackports" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/shaps80/SwiftUIBackports.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.8.0;
+			};
+		};
+		C887FDF82C043D18007A6A25 /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.4;
 			};
 		};
 		C8D730B72B46F74900D19D57 /* XCRemoteSwiftPackageReference "CompactSlider" */ = {
@@ -1439,10 +1763,30 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C817925D2BFB979E00DC741E /* FirebaseRemoteConfig */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfig;
+		};
+		C817925F2BFB979E00DC741E /* FirebaseRemoteConfigSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseRemoteConfigSwift;
+		};
 		C82039F12B1CCF13000EEF61 /* SwiftUIBackports */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C82039F02B1CCF13000EEF61 /* XCRemoteSwiftPackageReference "SwiftUIBackports" */;
 			productName = SwiftUIBackports;
+		};
+		C84F4A962C03146900B5A502 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C817925C2BFB979E00DC741E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		C887FDF92C043D18007A6A25 /* SwiftUIIntrospect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C887FDF82C043D18007A6A25 /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = SwiftUIIntrospect;
 		};
 		C8D730B82B46F74900D19D57 /* CompactSlider */ = {
 			isa = XCSwiftPackageProductDependency;

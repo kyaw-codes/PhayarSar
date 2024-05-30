@@ -22,32 +22,81 @@ struct HomeScreen: View {
   @State private var showWorshipPlanScreen = false
   @State private var currentWorshipPlan: NSManagedObjectID = .init()
   @State private var showSearchView = false
+  @State private var searchButtonDisable = false
   @State private var worshipPlanListRefresh = UUID()
+  @State private var circularProgressTriggerOffset: CGFloat = 30
+  @State private var scrollReachedToAddWorshiPlanLimit = false
+  @State private var scrollReachedHalfwayToAddWorshiPlanLimit = false
+  @State private var scrollReachedQuarterToAddWorshiPlanLimit = false
   @Namespace private var animation
   
   var body: some View {
     OffsetObservingScrollView(offset: $offset) {
       navView
-      
-      LazyVStack(spacing: 12) {
-        if worshipPlanRepo.latestPlans.isEmpty {
-          addNewWorshipPlanView
-            .padding(.bottom)
-        } else {
-          WorshipPlansSection()
+        .offset(y: offset.y < 0 ? offset.y : 0)
+
+      ZStack(alignment: .top) {
+        PullToAddWorshipPlanView()
+          .offset(y: offset.y < 0 ? offset.y * 0.8 : 0)
+        
+        LazyVStack(spacing: 12) {
+          if worshipPlanRepo.latestPlans.isEmpty {
+            addNewWorshipPlanView
+              .padding(.bottom)
+          } else {
+            WorshipPlansSection()
+          }
+          
+          canTokKyoSection
+          
+          OthersSection()
+          
+          myittarPoeSection
+          
+          PrayingDurationChartView()
+            .padding(.top, 30)
         }
-        
-        canTokKyoSection
-        
-        OthersSection()
-        
-        myittarPoeSection
-        
-        PrayingDurationChartView()
-          .padding(.top, 30)
+        .padding([.horizontal, .top])
+        .padding(.bottom, 92)
       }
-      .padding([.horizontal, .top])
-      .padding(.bottom, 92)
+    } event: { event in
+      if case .didEndDragging = event {
+        if scrollReachedToAddWorshiPlanLimit {
+          HapticKit.impact(.heavy).generate()
+          showWorshipPlanScreen = true
+        }
+      }
+
+      if case .didEndDecelerating = event {
+        withAnimation(.snappy.delay(0.75)) {
+          showTabBar = true
+        }
+      }
+      
+      if case .didScroll = event {
+        withAnimation(.snappy.delay(1)) {
+          showTabBar = false
+        }
+      }
+    }
+    .onChange(of: offset.y) { offsetY in
+      if offsetY == 0 {
+        scrollReachedHalfwayToAddWorshiPlanLimit = false
+        scrollReachedQuarterToAddWorshiPlanLimit = false
+        scrollReachedToAddWorshiPlanLimit = false
+      }
+    }
+    .onChange(of: scrollReachedHalfwayToAddWorshiPlanLimit) { reached in
+      if reached {
+        HapticKit.impact(.soft).generate()
+      }
+    }
+    .onChange(of: scrollReachedQuarterToAddWorshiPlanLimit) { reached in
+      if reached {
+        withAnimation(.snappy) {
+          showTabBar = false
+        }
+      }
     }
     .overlay(alignment: .top) {
       inlineNavView
@@ -98,6 +147,66 @@ struct HomeScreen: View {
     })
   }
   
+  @ViewBuilder
+  func PullToAddWorshipPlanView() -> some View {
+    VStack(spacing: 12) {
+      Image(systemName: "plus")
+        .font(.body.bold())
+        .foregroundColor(preferences.accentColor.color)
+        .padding()
+        .background {
+          Circle()
+            .rotation(.degrees(-90))
+            .trim(from: 0, to: circleTrimProgress(offset.y))
+            .stroke(
+              LinearGradient(
+                colors: [
+                  preferences.accentColor.color,
+                  preferences.accentColor.color.opacity(0.7),
+                  preferences.accentColor.color.opacity(0.8),
+                  preferences.accentColor.color.opacity(0.8),
+                  preferences.accentColor.color.opacity(0.95),
+                  preferences.accentColor.color
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+              ),
+              style: .init(lineWidth: 5, lineCap: .round, lineJoin: .round)
+            )
+            .shadow(color: preferences.accentColor.color.opacity(0.6), radius: 3, x: 0.0, y: 0.0)
+        }
+      
+      LocalizedText(.pull_to_add_new_worship_plan)
+        .multilineTextAlignment(.center)
+        .font(.qsSb(14))
+        .foregroundStyle(.gray)
+    }
+    .opacity(circleTrimProgress(offset.y))
+    .onChange(of: circleTrimProgress(offset.y)) { progress in
+      scrollReachedToAddWorshiPlanLimit = progress == 1
+    }
+  }
+  
+  private func circleTrimProgress(_ offsetY: CGFloat, maxOffset: CGFloat = 70) -> CGFloat {
+    if offsetY < -circularProgressTriggerOffset {
+      let progress = min((-(offsetY + circularProgressTriggerOffset) * 0.8 / maxOffset), 1)
+      
+      let scaledValue = progress * 10
+      let digit = Int(scaledValue)
+      if digit == 5 {
+        scrollReachedHalfwayToAddWorshiPlanLimit = true
+      }
+      
+      if progress >= 0.2 {
+        scrollReachedQuarterToAddWorshiPlanLimit = true
+      }
+      
+      return progress
+    } else {
+      return 0
+    }
+  }
+
   var canTokKyoSection: some View {
     PrayerCardView(
       title: "ဘုရားရှိခိုး ဂါထာများ",
@@ -152,6 +261,7 @@ struct HomeScreen: View {
         Button {
           withAnimation(.snappy) {
             HapticKit.impact(.soft).generate()
+            searchButtonDisable = true
             showSearchView.toggle()
             showTabBar.toggle()
           }
@@ -159,12 +269,16 @@ struct HomeScreen: View {
           Image(systemName: "magnifyingglass")
             .foregroundColor(preferences.accentColor.color)
             .padding(8)
-            .matchedGeometryEffect(id: "search_icon", in: animation)
+//            .matchedGeometryEffect(id: "search_icon", in: animation)
             .background(
               Capsule()
                 .fill(preferences.accentColor.color.opacity(0.3))
-                .matchedGeometryEffect(id: "capsule", in: animation)
+//                .matchedGeometryEffect(id: "capsule", in: animation)
             )
+        }
+        .disabled(searchButtonDisable)
+        .onAnimationCompleted(for: showSearchView ? 1 : -1) {
+          searchButtonDisable = false
         }
       }
       .padding(.horizontal, 20)
@@ -326,30 +440,6 @@ struct HomeScreen: View {
           .padding(.bottom, 8)
           .allowsHitTesting(false)
         }
-        
-//        Button {
-//          showWorshipPlanScreen.toggle()
-//        } label: {
-//          HStack {
-//            LocalizedText(.new_worship_plan)
-//              .font(.qsB(16))
-//            Spacer()
-//            Image(systemName: "plus.circle")
-//              .font(.body.bold())
-//          }
-//          .padding(.vertical, 15)
-//          .padding(.horizontal)
-//          .foregroundColor(.white)
-//          .background {
-//            RoundedRectangle(cornerRadius: 12)
-//              .fill(LinearGradient(
-//                colors: [preferences.accentColor.color.opacity(0.9), preferences.accentColor.color.opacity(0.8)],
-//                startPoint: .topLeading,
-//                endPoint: .bottomTrailing)
-//              )
-//          }
-//        }
-//        .padding(.bottom, 12)
       }
     }
   }

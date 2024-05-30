@@ -18,6 +18,7 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   @State private var showAboutScreen = false
   @State private var showThemesScreen = false
   @State private var showModeScreen = false
+  @State private var showReportScreen = false
   @State private var lastParagraphHeight = 0.0
   
   @State private var startPulsating = false
@@ -25,11 +26,15 @@ struct CommonPrayerScreen<Model> where Model: CommonPrayerProtocol {
   
   // MARK: Dependencies
   @StateObject private var vm: CommonPrayerVM<Model>
+  private let playPrayerRightAway: Bool
   private let worshipPlanName: String
+  private var onFinish: (() -> Void)?
   
-  init(model: Model, worshipPlanName: String = "") {
+  init(model: Model, worshipPlanName: String = "", playPrayerRightAway: Bool = false, onFinish: (() -> Void)? = nil) {
     self._vm = .init(wrappedValue: .init(model: model))
     self.worshipPlanName = worshipPlanName
+    self.playPrayerRightAway = playPrayerRightAway
+    self.onFinish = onFinish
   }
 }
 
@@ -76,16 +81,37 @@ extension CommonPrayerScreen: View {
       }
       .backport.presentationDetents([.medium])
     }
+    .fullScreenCover(isPresented: $showReportScreen) {
+      NavigationView {
+        PrayerSpellingErrorReportScreen(vm: vm as! CommonPrayerVM<PhayarSarModel>)
+      }
+    }
     .onChange(of: vm.config.mode, perform: { mode in
       if mode == PrayingMode.reader.rawValue {
         vm.resetPrayingState()
       }
     })
+    .onChange(of: vm.progress) { _ in
+      if vm.progress == 1 {
+        delay(2) {
+          onFinish?()
+        }
+      }
+    }
+    .onShake {
+      guard preferences.enableShakeToReport else { return }
+      HapticKit.notification(.success).generate()
+      showReportScreen.toggle()
+    }
     .onAppear {
       vm.makeFirstParagraphVisibleIfNeeded()
       pageColor = PageColor(rawValue: vm.config.backgroundColor).orElse(.classic)
       if worshipPlanName.isEmpty {
         prayingTimeRepo.startRecordingTime()
+      }
+
+      if PrayingMode(rawValue: vm.config.mode).orElse(.reader) == .player && playPrayerRightAway {
+        vm.startPraying()
       }
     }
     .onDisappear {
@@ -313,6 +339,12 @@ fileprivate extension CommonPrayerScreen {
           } label: {
             LocalizedLabel(.about_x, args: [vm.model.title], systemImage: "info.circle.fill")
           }
+        }
+        
+        Button {
+          showReportScreen.toggle()
+        } label: {
+          LocalizedLabel(.report, systemImage: "flag.fill")
         }
       } label: {
         Image(systemName: "line.3.horizontal.circle.fill")

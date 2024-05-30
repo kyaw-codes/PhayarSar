@@ -43,8 +43,11 @@ final class WorshipPlan: NSManagedObject {
     guard let selectedPrayerIds else { return [] }
     let decoder = JSONDecoder()
     let arr = try? decoder.decode([String].self, from: selectedPrayerIds)
-    
-    return allPrayers.filter { prayer in arr.orElse([]).contains(prayer.id) }
+    var dictionary: [String: PhayarSarModel] = [:]
+    allPrayers.forEach {
+      dictionary[$0.id] = $0
+    }
+    return arr?.compactMap { dictionary[$0] } ?? []
   }
   
   override func awakeFromInsert() {

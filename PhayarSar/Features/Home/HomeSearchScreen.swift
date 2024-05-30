@@ -24,6 +24,24 @@ struct HomeSearchScreen: View {
   
   var body: some View {
     ZStack {
+      
+      VStack(spacing: 30) {
+        if #available(iOS 16.0, *) {
+          Rectangle()
+            .fill(preferences.accentColor.color.gradient)
+            .frame(height: UIScreen.main.bounds.height * 0.15)
+            .padding(.top, UIScreen.main.bounds.height * 0.1)
+        } else {
+          Rectangle()
+            .fill(preferences.accentColor.color)
+            .frame(height: UIScreen.main.bounds.height * 0.15)
+            .padding(.top, UIScreen.main.bounds.height * 0.1)
+        }
+        
+        Spacer(minLength: 0)
+      }
+      .padding()
+
       Rectangle()
         .fill(.regularMaterial)
         .ignoresSafeArea()

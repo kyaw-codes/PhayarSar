@@ -7,6 +7,8 @@
 
 import SwiftUI
 import UserNotifications
+import FirebaseCore
+import FirebaseMessaging
 
 var langDict: [String: [String: String]] = [:]
 
@@ -17,6 +19,7 @@ struct PhayarSarApp: App {
   @StateObject private var preferences = UserPreferences()
   @StateObject private var worshipPlanRepo = WorshipPlanRepository()
   @StateObject private var dailyPrayingTimeRepository = DailyPrayingTimeRepository()
+  @StateObject private var remoteConfigManager = RemoteConfigManager()
   
   private let coreDataStack = CoreDataStack.shared
   
@@ -44,18 +47,29 @@ extension PhayarSarApp {
   var body: some Scene {
     WindowGroup {
       Group {
-        if preferences.hasAppLangChosen == nil {
-          NavigationView {
-            ChooseLanguageScreen()
+        if remoteConfigManager.hasFetched {
+          if preferences.hasAppLangChosen == nil {
+            NavigationView {
+              ChooseLanguageScreen()
+            }
+          } else {
+            TabScreen()
           }
         } else {
-          TabScreen()
+          LaunchScreen()
+            .onAppear {
+              delay(0.5) {
+                remoteConfigManager.fetch()
+              }
+            }
         }
       }
       .environmentObject(preferences)
       .environmentObject(worshipPlanRepo)
       .environmentObject(dailyPrayingTimeRepository)
+      .environmentObject(remoteConfigManager)
       .environment(\.managedObjectContext, coreDataStack.viewContext)
+      .preferredColorScheme(preferences.appTheme.colorScheme)
     }
   }
 }
@@ -72,7 +86,30 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
           print(error)
         }
       }
+    
+    // Set up firebase
+    FirebaseApp.configure()
+    
+    // Set up push-notification
     UNUserNotificationCenter.current().delegate = self
+    
+    let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+    UNUserNotificationCenter.current().requestAuthorization(
+      options: authOptions,
+      completionHandler: { _, _ in }
+    )
+
+    application.registerForRemoteNotifications()
+    
+    Messaging.messaging().delegate = self
+    
+    Messaging.messaging().token { token, error in
+      if let error = error {
+        print("Error fetching FCM registration token: \(error)")
+      } else if let token = token {
+        print("FCM registration token: \(token)")
+      }
+    }
     
     return true
   }
@@ -80,4 +117,31 @@ class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDele
   func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
     completionHandler([.banner, .sound])
   }
+  
+  func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+    Messaging.messaging().apnsToken = deviceToken
+  }
+  
+  func application(_ application: UIApplication,
+                   didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                   fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+    completionHandler(.newData)
+  }
+}
+
+extension AppDelegate: MessagingDelegate {
+  func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+    print("Firebase registration token: \(String(describing: fcmToken))")
+
+    let dataDict: [String: String] = ["token": fcmToken ?? ""]
+    NotificationCenter.default.post(
+      name: .fcmToken,
+      object: nil,
+      userInfo: dataDict
+    )
+  }
+}
+
+extension Notification.Name {
+  static let fcmToken: Self = .init(rawValue: "FCMToken")
 }

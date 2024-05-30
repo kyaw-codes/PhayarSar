@@ -10,10 +10,13 @@ import AlertToast
 
 struct SettingsScreen: View {
   @Binding var showTabBar: Bool
+  @Binding var showWhatIsNew: Bool
+  @EnvironmentObject private var frcManager: RemoteConfigManager
   @EnvironmentObject private var preferences: UserPreferences
   @EnvironmentObject private var worshipPlanRepo: WorshipPlanRepository
   @State private var showResetSuccessfulToast = false
   @State private var showDisableReminderSuccessfulToast = false
+  @State private var showLanguageSelector = false
   
   var body: some View {
     List {
@@ -29,7 +32,7 @@ struct SettingsScreen: View {
             Text("PhayarSar")
               .font(.dmSerif(20))
             
-            Text("V1.0.0")
+            Text("V\(appVersion)")
               .font(.qsB(14))
               .foregroundColor(preferences.accentColor.color)
           }
@@ -40,6 +43,14 @@ struct SettingsScreen: View {
         ChooseLang()
         AppAccentColor()
         EnableHaptic()
+        EnableShakeToReport()
+        ThemeSelector()
+      }
+      
+      WhatIsNewSection()
+      
+      if isCurrentVersionLower(minimumVersion: frcManager.latestAppVersion) {
+        NewVersionAvailableSection()
       }
       
       HelpSection()
@@ -125,12 +136,81 @@ struct SettingsScreen: View {
         style: .style(backgroundColor: .green, titleColor: .white, subTitleColor: .white, titleFont: .qsSb(16), subTitleFont: nil)
       )
     }
+    .sheet(isPresented: $showLanguageSelector) {
+      if #available(iOS 16, *) {
+        NavigationView {
+          ChooseLanguageScreen(isStandalone: true)
+        }
+        .presentationDetents([.fraction(0.4)])
+      } else {
+        NavigationView {
+          ChooseLanguageScreen(isStandalone: true)
+        }
+        .backport.presentationDetents([.medium])
+      }
+    }
+  }
+  
+  @ViewBuilder
+  func WhatIsNewSection() -> some View {
+    Section {
+      Button {
+        withAnimation(.snappy) {
+          showWhatIsNew = true
+        }
+      } label: {
+        HStack {
+          Image(systemName: "warninglight.fill")
+            .foregroundColor(.white)
+            .font(.caption)
+            .padding(5)
+            .background(
+              RoundedRectangle(cornerRadius: 4)
+                .fill(.purple)
+            )
+          LocalizedText(.whats_new_in_v_x, args: ["\(appVersion)"])
+            .font(.qsSb(16))
+            .foregroundColor(.primary)
+        }
+        .foregroundColor(.primary)
+      }
+    }
+  }
+  
+  @ViewBuilder
+  func NewVersionAvailableSection() -> some View {
+    Section {
+      Button(action: openPhayarsarOnAppStore) {
+        HStack {
+          Image(systemName: "bolt.fill")
+            .foregroundColor(.white)
+            .font(.caption)
+            .padding(5)
+            .background(
+              RoundedRectangle(cornerRadius: 4)
+                .fill(LinearGradient(colors: [.pink, .orange, .pink], startPoint: .topLeading, endPoint: .bottomTrailing))
+            )
+          
+          LocalizedText(.version_x_is_available, args: ["\(frcManager.latestAppVersion)"])
+            .font(.qsSb(16))
+          
+          Spacer()
+          
+          Image(systemName: "arrow.up.right")
+            .foregroundColor(.secondary)
+        }
+      }
+      .tint(.primary)
+    } footer: {
+      LocalizedText(.version_x_is_available_desc)
+        .font(.qsR(14))
+    }
   }
   
   @ViewBuilder
   func HelpSection() -> some View {
     Section {
-      Button(action: rateApp) {
+      Button(action: openPhayarsarOnAppStore) {
         HStack {
           Image(systemName: "star.fill")
             .foregroundColor(.white)
@@ -205,26 +285,13 @@ struct SettingsScreen: View {
     
     if UIApplication.shared.canOpenURL(mailToUrl) {
       UIApplication.shared.open(mailToUrl, options: [:])
-    } else {
-      //          alertTitle = "Failed to open Mail App"
-      //          alertMessage = "This app is not allowed to query for scheme mailto."
-      //          showingAlert.toggle()
     }
   }
-  
-  private func rateApp() {
-    if let url = URL(string: "itms-apps://itunes.apple.com/app/id6475991817") {
-      UIApplication.shared.open(url)
-    }
-  }
-  
+
   @ViewBuilder
   private func ChooseLang() -> some View {
-    NavigationLink {
-      ChooseLanguageScreen(isStandalone: true)
-        .onAppear {
-          showTabBar = false
-        }
+    Button {
+      showLanguageSelector.toggle()
     } label: {
       HStack {
         LocalizedText(.app_language)
@@ -233,9 +300,11 @@ struct SettingsScreen: View {
         Text(preferences.appLang.title)
           .font(.qsB(16))
           .foregroundColor(preferences.accentColor.color)
-        
+        Image(systemName: "chevron.right")
+          .foregroundStyle(Color(uiColor: .systemGray2))
       }
     }
+    .tint(.primary)
   }
   
   @ViewBuilder
@@ -273,6 +342,26 @@ struct SettingsScreen: View {
   }
   
   @ViewBuilder
+  private func EnableShakeToReport() -> some View {
+    Toggle(isOn: $preferences.enableShakeToReport, label: {
+      LocalizedText(.enable_shake_to_report)
+        .font(.qsSb(16))
+    })
+    .tint(preferences.accentColor.color)
+  }
+  
+  @ViewBuilder
+  private func ThemeSelector() -> some View {
+    LocalizedPicker(.app_theme, selection: $preferences.appTheme) {
+      ForEach(AppTheme.allCases) {
+        LocalizedText(.init(rawValue: $0.rawValue) ?? .system)
+          .tag($0)
+      }
+    }
+    .font(.qsSb(16))
+  }
+  
+  @ViewBuilder
   private func ResetPrayersThemeData() -> some View {
     LocalizedButton(.reset_prayers_theme) {
       do {
@@ -300,7 +389,7 @@ struct SettingsScreen: View {
 
 #Preview {
   NavigationView {
-    SettingsScreen(showTabBar: .constant(true))
+    SettingsScreen(showTabBar: .constant(true), showWhatIsNew: .constant(false))
   }
-  .environmentObject(UserPreferences())
+  .previewEnvironment()
 }

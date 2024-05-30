@@ -611,4 +611,72 @@
     "En": "Referenced websites for prayers",
     "Mm": "ဂါထာများအတွက် မှီငြမ်းထားသည့် ဝက်ဘ်ဆိုဒ်များ"
   },
+  "report": {
+    "En": "Report",
+    "Mm": "ရီပို့တင်မယ်"
+  },
+  "send": {
+    "En": "Send",
+    "Mm": "ပို့မယ်"
+  },
+  "comment": {
+    "En": "Comments",
+    "Mm": "မှတ်ချက်များ"
+  },
+  "write_down_your_comment": {
+    "En": "Write down your comment ...",
+    "Mm": "မှတ်ချက်ရေးပါ..."
+  },
+  "enable_shake_to_report": {
+    "En": "Shake to report wrong prayers",
+    "Mm": "ဖုန်းကိုလှုပ်ပြီး ဘုရားစာအမှားတွေ ရိီပို့တင်မယ်"
+  },
+  "whats_new_in_v_x": {
+    "En": "What's new in v{$}?",
+    "Mm": "v{$} မှာ ဘာတွေထူးလဲ?"
+  },
+  "tap_anywhere_to_dismiss": {
+    "En": "Tap anywhere to dismiss",
+    "Mm": "ကြိုက်တဲ့နေရာကိုနှိပ်ပြီး ထွက်ပါ"
+  },
+  "update_require": {
+    "En": "Update Require",
+    "Mm": "အပ်ဒိတ်လုပ်ရန် လိုအပ်ပါတယ်"
+  },
+  "update_require_desc": {
+    "En": "Phayarsar - BuddhistPrayers has launched a new and improved app. Please update to continue using the app.",
+    "Mm": "ပိုမိုကောင်းမွန်သော Phayarsar - BuddhistPrayers အပလီကေးရှင်းကို ဖြန့်ချီခဲ့ပြီးဖြစ်ပါသည်။ ယခု app ကိုဆက်လက်အသုံးပြုနိုင်ဖို့ ကျေးဇူးပြု၍ အပ်ဒိတ်လုပ်ပေးပါ။"
+  },
+  "update_now": {
+    "En": "Update Now",
+    "Mm": "အခုပဲ အပ်ဒိတ်လုပ်မယ်"
+  },
+  "version_x_is_available": {
+    "En": "v{$} is available",
+    "Mm": "v{$} ကို အပ်ဒိတ်လုပ်မယ်"
+  },
+  "version_x_is_available_desc": {
+    "En": "An improved version of Phayarsar - BuddhistPrayers is available.",
+    "Mm": "ပိုမိုကောင်းမွန်သော Phayarsar - BuddhistPrayers ကို ဖြန့်ချီလိုက်ပါပြီ။"
+  },
+  "pull_to_add_new_worship_plan": {
+    "En": "Pull to add new\nworship plan",
+    "Mm": "အဓိဌာန်အသစ်ထည့်ရန်\nအောက်ကိုဆွဲပါ"
+  },
+  "app_theme": {
+    "En": "App theme",
+    "Mm": "အက်ပ် အသွင်အပြင်"
+  },
+  "dark": {
+    "En": "Dark",
+    "Mm": "မှောင်"
+  },
+  "light": {
+    "En": "Light",
+    "Mm": "လင်း"
+  },
+  "system": {
+    "En": "System",
+    "Mm": "System"
+  },
 }
