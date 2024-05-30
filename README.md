@@ -76,5 +76,11 @@ You can clone this github repository on your computer and open it with Xcode. Or
 
 
 Once you open the project in Xcode, no additional set up is needed. Use the standard steps to:
+- [Register your own firebase project](https://firebase.google.com/docs/ios/setup) and add GoogleService-Info.plist file to the root directory of the project
 - Build the project (Command+B)
 - Run the project (Command+R)
+
+# Contributors 🙏
+[Htein Lin Shwe (@saturngod)](https://github.com/saturngod)
+
+[Win Lwin Oo (@yaryar)](https://github.com/yayyar)
