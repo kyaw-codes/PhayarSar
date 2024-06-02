@@ -213,7 +213,7 @@ struct HomeScreen: View {
       subtitle: "ဘုရားကန်တော့",
       systemImage: "hands.and.sparkles.fill",
       duration: "8",
-      list: cantotkyo,
+      list: PhayarSarRepository.getData(type: .cantotkyo),
       color: preferences.accentColor.color
     )
   }
@@ -224,7 +224,7 @@ struct HomeScreen: View {
       subtitle: "အမျှဝေ",
       systemImage: "heart.circle.fill",
       duration: "3",
-      list: myittarPoe,
+      list: PhayarSarRepository.getData(type: .myittarPoe),
       color: .pink
     )
   }
@@ -569,7 +569,7 @@ struct HomeScreen: View {
       .padding(.bottom)
       
       VStack(spacing: 8) {
-        ForEach(others) {
+        ForEach(PhayarSarRepository.getData(type: .others)) {
           OtherListCell(model: $0)
         }
         
@@ -602,7 +602,7 @@ struct HomeScreen: View {
           if !payeikCollapsed {
             Divider()
               .padding(.bottom, 8)
-            ForEach(payeik) { model in
+            ForEach(PhayarSarRepository.getData(type: .payeik)) { model in
               OtherListCell(model: model)
               Divider()
             }
@@ -613,8 +613,8 @@ struct HomeScreen: View {
             .fill(.cardBg)
         )
         
-        OtherListCell(model: pahtanShort)
-        OtherListCell(model: pahtanLong)
+        OtherListCell(model: PhayarSarRepository.getData(type: .pahtanShort)[0])
+        OtherListCell(model: PhayarSarRepository.getData(type: .pahtanLong)[0])
       }
     }
     .padding(.vertical)
