@@ -51,6 +51,6 @@ extension PrayerModeScreen: View {
 }
 
 #Preview {
-  PrayerModeScreen(vm: CommonPrayerVM(model: natPint))
+  PrayerModeScreen(vm: CommonPrayerVM(model: natpint))
     .previewEnvironment()
 }

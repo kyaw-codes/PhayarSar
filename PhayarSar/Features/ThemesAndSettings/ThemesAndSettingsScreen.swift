@@ -394,7 +394,7 @@ struct CustomCompactSliderStyle: CompactSliderStyle {
 
 #Preview {
   NavigationView {
-    ThemesAndSettingsScreen(vm: .init(model: natPint), pageColor: .constant(.classic))
+    ThemesAndSettingsScreen(vm: .init(model: natpint), pageColor: .constant(.classic))
   }
   .previewEnvironment()
 }

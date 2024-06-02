@@ -37,22 +37,3 @@ class PhayarSarBodyModel: Decodable, CommonPrayerBodyProtocol {
         self.isBlur = true
     }
 }
-
-let natPint = PhayarSarRepository.getData(type: .natPint).first!
-
-let cantotkyo: [PhayarSarModel] = PhayarSarRepository.getData(type: .cantotkyo)
-
-let others = PhayarSarRepository.getData(type: .others)
-
-
-let myittarPoe: [PhayarSarModel] = PhayarSarRepository.getData(type: .myittarPoe)
-
-
-let payeik: [PhayarSarModel] = PhayarSarRepository.getData(type: .payeik)
-
-
-let pahtanShort = PhayarSarRepository.getData(type: .pahtanShort).first!
-
-let pahtanLong = PhayarSarRepository.getData(type: .pahtanLong).first!
-
-let allPrayers = cantotkyo + others + myittarPoe + payeik + [pahtanShort, pahtanLong]

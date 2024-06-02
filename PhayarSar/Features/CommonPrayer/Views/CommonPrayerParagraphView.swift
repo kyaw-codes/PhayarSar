@@ -64,8 +64,8 @@ struct CommonPrayerParagraphView<Model: CommonPrayerProtocol>: View  {
 
 #Preview {
   CommonPrayerParagraphView<PhayarSarModel>(
-    prayer: .constant(natPint.body[0]),
-    vm: .init(model: natPint)
+    prayer: .constant(natpint.body[0]),
+    vm: .init(model: natpint)
   )
   .previewEnvironment()
 }

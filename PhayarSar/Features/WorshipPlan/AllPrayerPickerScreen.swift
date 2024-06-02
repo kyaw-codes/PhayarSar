@@ -19,20 +19,20 @@ struct AllPrayerPickerScreen: View {
     NavigationView {
       ScrollView {
         LazyVStack(spacing: 0) {
-          ForEach(cantotkyo) { prayer in
+          ForEach(PhayarSarRepository.getData(type: .cantotkyo)) { prayer in
             ListCell(prayer)
           }
-          ForEach(others) { prayer in
+          ForEach(PhayarSarRepository.getData(type: .others)) { prayer in
             ListCell(prayer)
           }
-          ForEach(payeik) { prayer in
+          ForEach(PhayarSarRepository.getData(type: .payeik)) { prayer in
             ListCell(prayer)
           }
           
-          ListCell(pahtanShort)
-          ListCell(pahtanLong)
+          ListCell(PhayarSarRepository.getData(type: .pahtanShort)[0])
+          ListCell(PhayarSarRepository.getData(type: .pahtanLong)[0])
           
-          ForEach(myittarPoe) { prayer in
+          ForEach(PhayarSarRepository.getData(type: .myittarPoe)) { prayer in
             ListCell(prayer)
           }
         }
@@ -100,6 +100,6 @@ struct AllPrayerPickerScreen: View {
 }
 
 #Preview {
-  AllPrayerPickerScreen(prayers: .constant(cantotkyo))
+  AllPrayerPickerScreen(prayers: .constant(PhayarSarRepository.getData(type: .cantotkyo)))
     .previewEnvironment()
 }

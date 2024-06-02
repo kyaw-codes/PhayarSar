@@ -103,6 +103,6 @@ struct ReadingModeView: View {
 }
 
 #Preview {
-  PrayerModeScreen(vm: .init(model: natPint))
+  PrayerModeScreen(vm: .init(model: natpint))
     .previewEnvironment()
 }

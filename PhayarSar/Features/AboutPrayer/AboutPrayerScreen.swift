@@ -34,7 +34,7 @@ struct AboutPrayerScreen: View {
 
 #Preview {
     NavigationView {
-        AboutPrayerScreen(title: natPint.title, about: natPint.about)
+        AboutPrayerScreen(title: natpint.title, about: natpint.about)
     }
     .previewEnvironment()
 }

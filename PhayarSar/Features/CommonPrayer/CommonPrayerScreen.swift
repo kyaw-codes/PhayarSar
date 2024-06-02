@@ -372,7 +372,7 @@ fileprivate extension CommonPrayerScreen {
 
 #Preview {
   NavigationView {
-    CommonPrayerScreen(model: natPint)
+    CommonPrayerScreen(model: natpint)
   }
   .previewEnvironment()
 }

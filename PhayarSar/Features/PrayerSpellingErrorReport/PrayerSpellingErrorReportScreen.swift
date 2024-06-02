@@ -119,7 +119,7 @@ extension PrayerSpellingErrorReportScreen: View {
 
 #Preview {
   NavigationView {
-    PrayerSpellingErrorReportScreen(vm: .init(model: natPint))
+    PrayerSpellingErrorReportScreen(vm: .init(model: natpint))
   }
   .previewEnvironment()
 }

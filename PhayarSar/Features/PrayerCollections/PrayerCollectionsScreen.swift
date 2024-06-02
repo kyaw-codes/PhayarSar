@@ -53,7 +53,7 @@ struct PrayerCollectionsScreen: View {
 
 #Preview {
   NavigationView {
-    PrayerCollectionsScreen(title: "ဘုရားရှိခိုး အမျိုးမျိုး", systemImage: "heart.fill", prayers: cantotkyo)
+    PrayerCollectionsScreen(title: "ဘုရားရှိခိုး အမျိုးမျိုး", systemImage: "heart.fill", prayers: PhayarSarRepository.getData(type: .cantotkyo))
   }
   .previewEnvironment()
 }

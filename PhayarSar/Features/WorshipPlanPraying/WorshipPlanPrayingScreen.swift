@@ -181,7 +181,7 @@ struct WorshipPlanPrayingScreenPreview: View {
     let encoder = JSONEncoder()
     let plan = WorshipPlan(context: CoreDataStack.shared.viewContext)
     plan.planName = "Chloe's parying time"
-    plan.selectedPrayerIds = try? encoder.encode(cantotkyo.map(\.id))
+    plan.selectedPrayerIds = try? encoder.encode(PhayarSarRepository.getData(type: .cantotkyo).map(\.id))
     plan.selectedDays = try? encoder.encode([DaysOfWeek.mon, .tue, .thu].map(\.rawValue))
     plan.hasPrayingTime = true
     plan.selectedTime = .init()

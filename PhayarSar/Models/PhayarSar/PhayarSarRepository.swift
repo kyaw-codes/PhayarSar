@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum PhayarSarType {
+enum PhayarSarType: String, CaseIterable {
     case natPint
     case cantotkyo
     case others
@@ -17,79 +17,61 @@ enum PhayarSarType {
     case pahtanLong
 }
 
+var allPrayers = PhayarSarType.allCases.flatMap { PhayarSarRepository.getData(type: $0) }
+
 struct PhayarSarRepository {
-    
-    private static let natPintFiles = [
-        "NatPint.json"
-    ]
-    
-    private static let cantotkyoFiles = [
-        "သြကာသ.json",
-        "စိန်ရောင်ခြည်.json",
-        "NatPint.json",
-        "သီလတောင်း.json",
-        "သရဏဂုံ.json",
-        "ငါးပါးသီလ.json",
-        "ရှစ်ပါးသီလ.json",
-        "ဆယ်ပါးသီလ.json",
-        "ဘုရားဂုဏ်တော်.json",
-        "တရားဂုဏ်တော်.json",
-        "သံဃာဂုဏ်တော်.json"
-    ]
-
-    private static let othersFiles = [
-      "သမ္ဗုဒ္ဓေ.json",
-      "ရှင်သီဝလိ.json",
-      "Dhammacakka.json",
-      "အနတ္တလက္ခဏသုတ်.json",
-      "မဟာသမယသုတ်.json",
-      "ဂုဏ်တော်ကွန်ချာ.json",
-      "မစ္ဆရာဇသုတ်.json"
-    ]
-
-    private static let myittarPoeFiles = [
-      "မေတ္တာသုတ်လာမ္မေတ္တာပွား.json",
-      "ဆယ်မျက်နှာမ္မေတ္တာပွား.json",
-      "အမျှဝေ.json",
-    ]
-
-    private static let payeikFiles  = [
-      "မင်္ဂလသုတ်.json",
-      "ရတနသုတ်.json",
-      "မေတ္တသုတ်.json",
-      "ခန္ဓသုတ်.json",
-      "မောရသုတ်.json",
-      "ဝဋ္ဋသုတ်.json",
-      "ဓဇဂ္ဂသုတ်.json",
-      "အာဋာနာဋိယသုတ်.json",
-      "အင်္ဂုလိမာလသုတ်.json",
-      "ဗောဇ္ဈင်္ဂသုတ်.json",
-      "ပုဗ္ဗဏှသုတ်.json",
-    ]
-
-    private static let pahtanShortFiles = ["ပဋ္ဌာန်းအကျဥ်း.json"]
-    private static let pahtanLongFiles = ["ပဋ္ဌာန်းအကျယ်.json"]
-    
-    private static func decodeModels(from fileNames: [String]) -> [PhayarSarModel] {
-        fileNames.compactMap { Bundle.main.decode(PhayarSarModel.self, from: $0) }
-    }
-    
     static func getData(type: PhayarSarType) -> [PhayarSarModel] {
         switch type {
         case .natPint:
-            decodeModels(from: natPintFiles)
+            return [natpint]
         case .cantotkyo:
-            decodeModels(from: cantotkyoFiles)
+          return [
+            သြကာသ,
+            စိန်ရောင်ခြည်,
+            natpint,
+            သီလတောင်း,
+            သရဏဂုံ,
+            ငါးပါးသီလ,
+            ရှစ်ပါးသီလ,
+            ဆယ်ပါးသီလ,
+            ဘုရားဂုဏ်တော်,
+            တရားဂုဏ်တော်,
+            သံဃာဂုဏ်တော်
+        ]
         case .others:
-            decodeModels(from: othersFiles)
+            return [
+              သမ္ဗုဒ္ဓေ,
+              ရှင်သီဝလိ,
+              dhammacakka,
+              အနတ္တလက္ခဏသုတ်,
+              မဟာသမယသုတ်,
+              ဂုဏ်တော်ကွန်ချာ,
+              မစ္ဆရာဇသုတ်
+            ]
         case .myittarPoe:
-            decodeModels(from: myittarPoeFiles)
+          return [
+            မေတ္တာသုတ်လာမ္မေတ္တာပွား,
+            ဆယ်မျက်နှာမ္မေတ္တာပွား,
+            အမျှဝေ,
+          ]
         case .payeik:
-            decodeModels(from: payeikFiles)
+          return [
+            မင်္ဂလသုတ်,
+            ရတနသုတ်,
+            မေတ္တသုတ်,
+            ခန္ဓသုတ်,
+            မောရသုတ်,
+            ဝဋ္ဋသုတ်,
+            ဓဇဂ္ဂသုတ်,
+            အာဋာနာဋိယသုတ်,
+            အင်္ဂုလိမာလသုတ်,
+            ဗောဇ္ဈင်္ဂသုတ်,
+            ပုဗ္ဗဏှသုတ်,
+          ]
         case .pahtanShort:
-            decodeModels(from: pahtanShortFiles)
+          return [pahtanShortFiles]
         case .pahtanLong:
-            decodeModels(from: pahtanLongFiles)
+          return [pahtanLongFiles]
         }
     }
     
