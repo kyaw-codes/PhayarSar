@@ -77,6 +77,10 @@ final class RemoteConfigManager: ObservableObject {
     }
   }
   
+  private func decodeModel(from fileName: String) -> PhayarSarModel {
+    Bundle.main.decode(PhayarSarModel.self, from: fileName)
+  }
+  
   private func setupConfigData() {
     if let str = remoteConfig["what_is_new"].stringValue, let data = str.data(using: .utf8) {
       whisnwModels = (try? JSONDecoder().decode([WhatIsNewFRCModel].self, from: data)) ?? []
@@ -92,40 +96,40 @@ final class RemoteConfigManager: ObservableObject {
     
     if let str = remoteConfig["phayarsars"].stringValue, let data = str.data(using: .utf8) {
       phayarsars = (try? JSONDecoder().decode(AllPhayarSar.self, from: data))
-      natpint = phayarsars!.NatPint
-      သြကာသ = phayarsars!.သြကာသ
-      စိန်ရောင်ခြည် = phayarsars!.စိန်ရောင်ခြည်
-      သီလတောင်း = phayarsars!.သီလတောင်း
-      သရဏဂုံ = phayarsars!.သရဏဂုံ
-      ငါးပါးသီလ = phayarsars!.ငါးပါးသီလ
-      ရှစ်ပါးသီလ = phayarsars!.ရှစ်ပါးသီလ
-      ဆယ်ပါးသီလ = phayarsars!.ဆယ်ပါးသီလ
-      ဘုရားဂုဏ်တော် = phayarsars!.ဘုရားဂုဏ်တော်
-      တရားဂုဏ်တော် = phayarsars!.တရားဂုဏ်တော်
-      သံဃာဂုဏ်တော် = phayarsars!.သံဃာဂုဏ်တော်
-      သမ္ဗုဒ္ဓေ = phayarsars!.သမ္ဗုဒ္ဓေ
-      ရှင်သီဝလိ = phayarsars!.ရှင်သီဝလိ
-      dhammacakka = phayarsars!.Dhammacakka
-      အနတ္တလက္ခဏသုတ် = phayarsars!.အနတ္တလက္ခဏသုတ်
-      မဟာသမယသုတ် = phayarsars!.မဟာသမယသုတ်
-      ဂုဏ်တော်ကွန်ချာ = phayarsars!.ဂုဏ်တော်ကွန်ချာ
-      မစ္ဆရာဇသုတ် = phayarsars!.မစ္ဆရာဇသုတ်
-      မေတ္တာသုတ်လာမ္မေတ္တာပွား = phayarsars!.မေတ္တာသုတ်လာမ္မေတ္တာပွား
-      ဆယ်မျက်နှာမ္မေတ္တာပွား = phayarsars!.ဆယ်မျက်နှာမ္မေတ္တာပွား
-      အမျှဝေ = phayarsars!.အမျှဝေ
-      မင်္ဂလသုတ် = phayarsars!.မင်္ဂလသုတ်
-      ရတနသုတ် = phayarsars!.ရတနသုတ်
-      မေတ္တသုတ် = phayarsars!.မေတ္တသုတ်
-      ခန္ဓသုတ် = phayarsars!.ခန္ဓသုတ်
-      မောရသုတ် = phayarsars!.မောရသုတ်
-      ဝဋ္ဋသုတ် = phayarsars!.ဝဋ္ဋသုတ်
-      ဓဇဂ္ဂသုတ် = phayarsars!.ဓဇဂ္ဂသုတ်
-      အာဋာနာဋိယသုတ် = phayarsars!.အာဋာနာဋိယသုတ်
-      အင်္ဂုလိမာလသုတ် = phayarsars!.အင်္ဂုလိမာလသုတ်
-      ဗောဇ္ဈင်္ဂသုတ် = phayarsars!.ဗောဇ္ဈင်္ဂသုတ်
-      ပုဗ္ဗဏှသုတ် = phayarsars!.ပုဗ္ဗဏှသုတ်
-      pahtanShortFiles = phayarsars!.ပဋ္ဌာန်းအကျဥ်း
-      pahtanLongFiles = phayarsars!.ပဋ္ဌာန်းအကျယ်
+      natpint = phayarsars?.NatPint ?? decodeModel(from: "NatPint.json")
+      သြကာသ = phayarsars?.သြကာသ ?? decodeModel(from: "သြကာသ.json")
+      စိန်ရောင်ခြည် = phayarsars?.စိန်ရောင်ခြည် ?? decodeModel(from: "စိန်ရောင်ခြည်.json")
+      သီလတောင်း = phayarsars?.သီလတောင်း ?? decodeModel(from: "သီလတောင်း.json")
+      သရဏဂုံ = phayarsars?.သရဏဂုံ ?? decodeModel(from: "သရဏဂုံ.json")
+      ငါးပါးသီလ = phayarsars?.ငါးပါးသီလ ?? decodeModel(from: "ငါးပါးသီလ.json")
+      ရှစ်ပါးသီလ = phayarsars?.ရှစ်ပါးသီလ ?? decodeModel(from: "ရှစ်ပါးသီလ.json")
+      ဆယ်ပါးသီလ = phayarsars?.ဆယ်ပါးသီလ ?? decodeModel(from: "ဆယ်ပါးသီလ.json")
+      ဘုရားဂုဏ်တော် = phayarsars?.ဘုရားဂုဏ်တော် ?? decodeModel(from: "ဘုရားဂုဏ်တော်.json")
+      တရားဂုဏ်တော် = phayarsars?.တရားဂုဏ်တော် ?? decodeModel(from: "တရားဂုဏ်တော်.json")
+      သံဃာဂုဏ်တော် = phayarsars?.သံဃာဂုဏ်တော် ?? decodeModel(from: "သံဃာဂုဏ်တော်.json")
+      သမ္ဗုဒ္ဓေ = phayarsars?.သမ္ဗုဒ္ဓေ ?? decodeModel(from: "သမ္ဗုဒ္ဓေ.json")
+      ရှင်သီဝလိ = phayarsars?.ရှင်သီဝလိ ?? decodeModel(from: "ရှင်သီဝလိ.json")
+      dhammacakka = phayarsars?.Dhammacakka ?? decodeModel(from: "Dhammacakka.json")
+      အနတ္တလက္ခဏသုတ် = phayarsars?.အနတ္တလက္ခဏသုတ် ?? decodeModel(from: "အနတ္တလက္ခဏသုတ်.json")
+      မဟာသမယသုတ် = phayarsars?.မဟာသမယသုတ် ?? decodeModel(from: "မဟာသမယသုတ်.json")
+      ဂုဏ်တော်ကွန်ချာ = phayarsars?.ဂုဏ်တော်ကွန်ချာ ?? decodeModel(from: "ဂုဏ်တော်ကွန်ချာ.json")
+      မစ္ဆရာဇသုတ် = phayarsars?.မစ္ဆရာဇသုတ် ?? decodeModel(from: "မစ္ဆရာဇသုတ်.json")
+      မေတ္တာသုတ်လာမ္မေတ္တာပွား = phayarsars?.မေတ္တာသုတ်လာမ္မေတ္တာပွား ?? decodeModel(from: "မေတ္တာသုတ်လာမ္မေတ္တာပွား.json")
+      ဆယ်မျက်နှာမ္မေတ္တာပွား = phayarsars?.ဆယ်မျက်နှာမ္မေတ္တာပွား ?? decodeModel(from: "ဆယ်မျက်နှာမ္မေတ္တာပွား.json")
+      အမျှဝေ = phayarsars?.အမျှဝေ ?? decodeModel(from: "အမျှဝေ.json")
+      မင်္ဂလသုတ် = phayarsars?.မင်္ဂလသုတ် ?? decodeModel(from: "မင်္ဂလသုတ်.json")
+      ရတနသုတ် = phayarsars?.ရတနသုတ် ?? decodeModel(from: "ရတနသုတ်.json")
+      မေတ္တသုတ် = phayarsars?.မေတ္တသုတ် ?? decodeModel(from: "မေတ္တသုတ်.json")
+      ခန္ဓသုတ် = phayarsars?.ခန္ဓသုတ် ?? decodeModel(from: "ခန္ဓသုတ်.json")
+      မောရသုတ် = phayarsars?.မောရသုတ် ?? decodeModel(from: "မောရသုတ်.json")
+      ဝဋ္ဋသုတ် = phayarsars?.ဝဋ္ဋသုတ် ?? decodeModel(from: "ဝဋ္ဋသုတ်.json")
+      ဓဇဂ္ဂသုတ် = phayarsars?.ဓဇဂ္ဂသုတ် ?? decodeModel(from: "ဓဇဂ္ဂသုတ်.json")
+      အာဋာနာဋိယသုတ် = phayarsars?.အာဋာနာဋိယသုတ် ?? decodeModel(from: "အာဋာနာဋိယသုတ်.json")
+      အင်္ဂုလိမာလသုတ် = phayarsars?.အင်္ဂုလိမာလသုတ် ?? decodeModel(from: "အင်္ဂုလိမာလသုတ်.json")
+      ဗောဇ္ဈင်္ဂသုတ် = phayarsars?.ဗောဇ္ဈင်္ဂသုတ် ?? decodeModel(from: "ဗောဇ္ဈင်္ဂသုတ်.json")
+      ပုဗ္ဗဏှသုတ် = phayarsars?.ပုဗ္ဗဏှသုတ် ?? decodeModel(from: "ပုဗ္ဗဏှသုတ်.json")
+      pahtanShortFiles = phayarsars?.ပဋ္ဌာန်းအကျဥ်း ?? decodeModel(from: "ပဋ္ဌာန်းအကျဥ်း.json")
+      pahtanLongFiles = phayarsars?.ပဋ္ဌာန်းအကျယ် ?? decodeModel(from: "ပဋ္ဌာန်းအကျယ်.json")
     }
   }
 }
@@ -166,3 +170,4 @@ struct AllPhayarSar: Decodable {
   var အမျှဝေ: PhayarSarModel
   var အာဋာနာဋိယသုတ်: PhayarSarModel
 }
+
