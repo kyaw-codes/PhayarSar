@@ -65,15 +65,9 @@ final class RemoteConfigManager: ObservableObject {
 
   func fetch() {
     Task {
-      if
-        let status = try? await remoteConfig.fetchAndActivate(),
-        status == .successUsingPreFetchedData || status == .successFetchedFromRemote
-      {
-        setupConfigData()
-        hasFetched = true
-      } else {
-        hasFetched = true
-      }
+      _ = try? await remoteConfig.fetchAndActivate()
+      setupConfigData()
+      hasFetched = true
     }
   }
   
